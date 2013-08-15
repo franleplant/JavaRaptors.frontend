@@ -1,0 +1,12 @@
+{
+  "name": "test-grunt",
+  "version": "0.1.0",
+  "dependencies": {
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-concat": "~0.3.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6.0"
+  }
+}
