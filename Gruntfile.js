@@ -1,48 +1,25 @@
 module.exports = function(grunt) {
 
   // Project configuration.
-  grunt.initConfig({
-    	 pkg: grunt.file.readJSON('package.json'),
-	 jshint: {
-	    options: {
-	      curly: true,
-	      eqeqeq: true,
-	      eqnull: true,
-	      browser: true,
-	      globals: {
-		jQuery: true
-	      },
-	    },
-	    uses_defaults: ['*.js'],
-	    with_overrides: {
-	      options: {
-		curly: false,
-		undef: true,
-	      },
-	      files: {
-		src: ['dir3/**/*.js', 'dir4/**/*.js']
-	      },
-	    }
-	  },
-	uglify: {
-	  options: {
-	    // the banner is inserted at the top of the output
-	    banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-	  },
-	  dist: {
-	    files: {
-	      '*.min.js': ['*.js']
-	    }
-	  }
-	}
-  });
+	grunt.initConfig({
+		pkg: grunt.file.readJSON('package.json'),
 
-  // Load the plugin that provides the "uglify" task.
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+		jshint: {
+			files: ['src/*.js', 'gruntfile.js'],
+			options: {
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
+			}
+		},
+		watch: {
+			all: {
+				files: ['<%= jshint.files %>'],
+				tasks: ['jshint']
+			}		
+		}
+	});
 
-  // Default task(s).
-  grunt.registerTask('default', ['jshint']);
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 
+	grunt.registerTask('default', ['jshint']);
 };
