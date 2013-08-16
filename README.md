@@ -1,13 +1,19 @@
 JavaRaptors.frontend
 ====================
 
-Java Raptors front end part.
+Java Raptors front end .
 
 
 How to bootstrap?
 
-$ npm install -g grunt-cli
+Install grunt globally
 
-$ npm install
+	$ npm install -g grunt-cli 
 
-$ grunt 
+Install all proyect dependencies (this command must be executed in the project root directory)
+
+	$ npm install
+
+Run grunt tasks (this command must be executed in the project root directory)
+
+	$ grunt 
