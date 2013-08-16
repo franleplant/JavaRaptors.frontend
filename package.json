@@ -1,9 +1,13 @@
 {
-  "name": "jr-book",
-  "version": "0.0.0",
-  "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-watch": "~0.5.1"
-  }
+	"name": "jr-book",
+	"version": "0.0.0",
+	"devDependencies": {
+		"grunt": "~0.4.1",
+		"grunt-contrib-jshint": "~0.6.0",
+		"grunt-contrib-watch": "~0.5.2"
+	},
+	"repository":{ 
+		"type" : "git",
+		"url" : "http://github.com/franleplant/javaraptors.frontend.git"
+	}
 }

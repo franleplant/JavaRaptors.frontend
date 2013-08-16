@@ -1,7 +1,7 @@
-JavaRaptors.frontend
+JavaRaptors - Library system: Front End
 ====================
 
-Java Raptors front end part.
+Java Raptors front end.
 
 
 How to bootstrap?
