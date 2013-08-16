@@ -5,16 +5,29 @@ Java Raptors front end.
 
 
 
-How to bootstrap?
+## How to bootstrap?
 
 Install grunt globally
 
 	$ npm install -g grunt-cli 
 
-Install all proyect dependencies (this command must be executed in the project root directory)
+We may have this dep already installed in our JavaRaptors VM
+
+
+Install all project dependencies (this command must be executed in the project root directory)
 
 	$ npm install
 
-Run grunt tasks (this command must be executed in the project root directory)
 
-	$ grunt 
+
+## How to run grunt and all its tasks? (this command must be executed in the project root directory)
+
+	$ grunt
+
+## How to active watch any file changes to lint them with JSHint in real time?
+
+	$ grunt watch 
+
+
+
+	
