@@ -5,9 +5,20 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		jshint: {
-			files: ['src/*.js', 'gruntfile.js'],
+			files: ['js/*.js', 'gruntfile.js'],
 			options: {
 
+			}
+		},
+		karma: {
+			unit: {
+				browsers: ['PhantomJS'],
+				runnerPort: 9999,
+				colors: true,
+				autoWatch: true
+			},
+			options: {
+				files: ['test/*.js']
 			}
 		},
 		watch: {
@@ -20,6 +31,7 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-karma');
 
-	grunt.registerTask('default', ['jshint']);
+	grunt.registerTask('default', ['jshint', 'karma']);
 };
