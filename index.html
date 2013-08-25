@@ -5,12 +5,9 @@
 <head>
 	<meta charset="utf-8">
 	<title>Bibliosoft - Principal</title>
-	<link rel="stylesheet" href="src/css/style.css">
+	
 	<link rel="stylesheet" href="src/css/bootstrap.css">
-	<script src="src/lib/jquery-2.0.3.js"></script>
-	<script src="src/lib/bootstrap.js"></script>
-	<script src="src/lib/angular-1.0.7.js"></script>
-	<script src="src/js/controllers.js"></script>
+	<link rel="stylesheet" href="src/css/style.css">
 </head>
 
 
@@ -20,7 +17,7 @@
 
 		<div class="navbar-inner">
 			<div class="container">
-				<a class="brand jr-logo" href="#" style="text-shadow: 0 0 0.4em #FFF;color:#FFF;font-style: 'verdana';">Java Raptors&reg - BiblioSoft&#8482</a>
+				<a class="jr-logo brand" href="#">Java Raptors&reg - BiblioSoft&#8482</a>
           		<div class="nav-collapse collapse">
 
 		            <div class="nav-collapse collapse pull-right">
@@ -31,14 +28,14 @@
 						</ul>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</header>
 
-    <div class="container">
+    <div id="main-content" class="container">
 
-		<div id="search_group" class="input-prepend input-append" style="width: 500px ; margin-left: auto; margin-right: auto;margin-top:200px;display:block">
+		<div id="search_group" class="input-prepend input-append">
 
 			<div class="btn-group">
 				<button class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">Libros <span class="caret"></span></button>
@@ -51,7 +48,7 @@
 			</div>
 			<input id="search_query" type="text" class="span5"></input>
 			<div class="btn-group">
-				<button class="btn btn-inverse" type="button"><i class="icon-search icon-white"></i></button>
+				<button id="search" class="btn btn-inverse" type="button"><i class="icon-search icon-white"></i></button>
 				<button class="btn " type="button"><i class="icon-plus"></i></button>
 			</div>
   		</div>
@@ -68,5 +65,11 @@
         	o utilizar este sistema. Este contenido es confidencial y sólo puede ser obtenido bajo autorización.
         </p>
     </footer>
+
+    <script type="text/javascript" src="src/lib/jquery-2.0.3.js"></script>
+	<script type="text/javascript" src="src/lib/bootstrap.js"></script>
+	<script type="text/javascript" src="src/lib/angular-1.0.7.js"></script>
+	<script type="text/javascript" src="src/js/controllers.js"></script>
+	<script type="text/javascript" src="src/js/animations.js"></script>
 </body>
 </html>

@@ -5,7 +5,21 @@ footer {
 
 
 .jr-logo {
-	text-shadow: 0 0 0.4em #FFF;
-	color: #FFF;
+	text-shadow: 0 0 0.4em #FFF !important;
+	color: #FFF !important;
+}
+
+#search_group {
+	width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	display: block;
+}
+
+#main-content {
+	top: 41px;
+	position: relative;
+	padding-top: 30px;
 }
 
