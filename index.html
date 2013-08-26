@@ -75,24 +75,54 @@
 				</a>
 				<div class="media-body">
 					<h4 class="media-heading">{{result.title}}</h4>
-					<div class="row-fluid">
-						<div class="span4">
-							<span>ISBN: </span><span>978-0-300-14424-6</span><br>
-							<span>Editorial: </span><span><a href="#">{{result.editorial}}</a></span>
-						</div>
-						<div class="span4">
-							<span>Edición: </span><span>{{result.editionNumber}}</span><br>
-							<span>Idioma: </span><span>{{result.lang}}</span>
-						</div>
-						<div class="span4">
-							<span>Precio: </span><span>U$S 0.99</span><br>
-							<span>Géneros: </span><span><a href="#">Académico</a>, <a href="#">Abogacía</a></span>
-						</div>
-						<div class="span4">
-							<span>Ejemplares: </span><span>{{result.copys.length}}</span><br>
-							<span>Valour: </span><span>{{result.val}}</span>
-						</div>
-					</div>
+
+
+					<ul>
+						<li>
+							<dl>
+								<dt>Autor</dt>
+								<dd><a href={{result.author[0].link}} target="_blank">{{result.authors[0].name}}</a></dd>
+
+
+
+								<dt>Genero</dt>
+								<dd>{{result.genres}}</dd>
+
+								<dt>Idioma</dt>
+								<dd>{{result.lang}}</dd>
+
+
+							</dl>
+						</li>
+
+
+						<li>
+							<dl>
+								<dt>Editorial</dt>
+								<dd><a href={{result.editorial.link}} target="_blank">{{result.editorial.name}}</a></dd>
+
+								<dt>Edicion</dt>
+								<dd>{{result.editionNumber}} Pais: {{result.editionCountry}}</dd>
+
+								<dt>ISBN</dt>
+								<dd>{{result.isbn}}</dd>								
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt></dt>
+								<dd></dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt></dt>
+								<dd></dd>
+							</dl>
+						</li>										
+
+					</ul>
+
 				</div>
 			</div>
 
