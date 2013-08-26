@@ -28,7 +28,13 @@ jraptors.controller('SearchController',
 						});
 
 					animations.proxy.trigger('search.first_valid');
-					$scope.message = '';
+
+					if ( $scope.results ) {
+						$scope.message = '';
+					} else {
+						$scope.message = messages.search_no_results;
+					}
+					
 
 				} else {
 					$scope.results = [];
