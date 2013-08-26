@@ -1,3 +1,5 @@
+
+
 jraptors.controller('SearchController',
 	[
 		'$scope', '$http', 'animations', 'messages_english',
@@ -20,8 +22,7 @@ jraptors.controller('SearchController',
 			};
 
 		}
-
-
 	]
 );
+
 
