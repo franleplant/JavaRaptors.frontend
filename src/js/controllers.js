@@ -46,6 +46,10 @@ jraptors.controller('SearchController',
 				}
 			};
 
+			$scope.reload = function () {
+				$scope.results = [];
+			};
+
 		}
 	]
 );
