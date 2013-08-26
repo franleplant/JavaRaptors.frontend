@@ -41,7 +41,8 @@ module.exports = function(grunt) {
 					module: true,
 					jQuery: true,
 					$: true,
-					'las de angular': true
+					jraptors: true,
+					angular: true
 				}
 			}
 		},
@@ -68,8 +69,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	//grunt.loadNpmTasks('grunt-karma');
 
-	grunt.registerTask('default', [
-				'jshint', //'karma'
-		]);
+	grunt.registerTask('default',[ 'jshint']);
 
 };

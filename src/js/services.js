@@ -4,5 +4,5 @@ jraptors.service('animations', function () {
 
 
 jraptors.service('messages_english', function () {
-	this['search_no_query'] = "Please input some text to make the search"
+	this.search_no_query = 'Please input some text to make the search';
 });
