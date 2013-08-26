@@ -3,7 +3,7 @@ JavaRaptors - Library system: Front End
 
 Java Raptors front end.
 
-
+This requires node.js
 
 ## How to bootstrap?
 

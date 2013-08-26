@@ -5,7 +5,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		jshint: {
-			files: ['js/*.js', 'gruntfile.js'],
+			files: ['src/js/*.js', 'gruntfile.js'],
 			options: {
 				// check http://www.jshint.com/docs/options/#bitwise
 				bitwise: true,
@@ -66,8 +66,10 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-karma');
+	//grunt.loadNpmTasks('grunt-karma');
 
-	grunt.registerTask('default', ['jshint', 'karma']);
+	grunt.registerTask('default', [
+				'jshint', //'karma'
+		]);
 
 };
