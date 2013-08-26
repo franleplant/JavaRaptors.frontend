@@ -16,12 +16,16 @@ footer {
 	color: #FFF !important;
 }
 
+#status_message,
 #search_group {
 	width: 500px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 200px;
 	display: block;
+}
+
+#search_group {
+		margin-top: 200px;
 }
 
 #main-content {

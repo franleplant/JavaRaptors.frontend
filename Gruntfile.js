@@ -57,13 +57,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		server: {
-			port: 8080,
-			base: './'
-		},
-
-
-
 
 		karma: {
 			unit: {
@@ -79,7 +72,7 @@ module.exports = function(grunt) {
 		watch: {
 			all: {
 				files: ['<%= jshint.files %>'],
-				tasks: ['default']
+				tasks: ['jshint']
 			}
 		}
 	});

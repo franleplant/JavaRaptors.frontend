@@ -55,11 +55,48 @@
 				<button class="btn " type="button"><i class="icon-plus"></i></button>
 			</div>
   		</div>
+
+		<div id="status_message" class="media">
+			{{message}}
+		</div>
+
+		
 		<div id="results">
+			<hr>
+	
+
+
+
 			<div ng-repeat="result in results" class="media search-result shadow">
-				<span>{{result.title}}</span>
-				<span>{{result.author}}</span>
+
+				<!-- TODO: detail table -->
+				<a class="pull-left" href="#">
+					<img class="media-object" ng-src={{result.img}} width=300 height 300>
+				</a>
+				<div class="media-body">
+					<h4 class="media-heading">{{result.title}}</h4>
+					<div class="row-fluid">
+						<div class="span4">
+							<span>ISBN: </span><span>978-0-300-14424-6</span><br>
+							<span>Editorial: </span><span><a href="#">{{result.editorial}}</a></span>
+						</div>
+						<div class="span4">
+							<span>Edición: </span><span>{{result.editionNumber}}</span><br>
+							<span>Idioma: </span><span>{{result.lang}}</span>
+						</div>
+						<div class="span4">
+							<span>Precio: </span><span>U$S 0.99</span><br>
+							<span>Géneros: </span><span><a href="#">Académico</a>, <a href="#">Abogacía</a></span>
+						</div>
+						<div class="span4">
+							<span>Ejemplares: </span><span>{{result.copys.length}}</span><br>
+							<span>Valour: </span><span>{{result.val}}</span>
+						</div>
+					</div>
+				</div>
 			</div>
+
+
 		</div>
 
 	</div>
