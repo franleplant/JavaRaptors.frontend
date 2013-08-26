@@ -12,11 +12,12 @@ jraptors.controller('SearchController',
 						});
 
 					animations.proxy.trigger('search.first_valid');
-					$scope.status_message = '';
 
 				} else {
 
-					$scope.status_message = messages.search_no_query;
+					$scope.results = [{
+						'title': messages.search_no_query
+					}];
 
 				}
 			};

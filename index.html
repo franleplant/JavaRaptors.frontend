@@ -53,13 +53,8 @@
 				<button class="btn " type="button"><i class="icon-plus"></i></button>
 			</div>
   		</div>
-
-  		<div>
-  			<span>{{status_message}}</span>
-  		</div>
-
 		<div id="results">
-			<div ng-repeat="result in results">
+			<div ng-repeat="result in results" class="media search-result shadow">
 				<span>{{result.title}}</span>
 				<span>{{result.author}}</span>
 			</div>
