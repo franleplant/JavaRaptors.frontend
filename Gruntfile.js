@@ -46,6 +46,25 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+
+		connect: {
+			server: {
+				options: {
+					keepalive: true,
+					port: 9000,
+					base: './'
+				}
+			}
+		},
+
+		server: {
+			port: 8080,
+			base: './'
+		},
+
+
+
+
 		karma: {
 			unit: {
 				browsers: ['PhantomJS'],
@@ -67,8 +86,11 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	//grunt.loadNpmTasks('grunt-karma');
 
-	grunt.registerTask('default',[ 'jshint']);
+	grunt.registerTask('default',[ 'connect']);
+	//grunt.registerTask('server',[ 'express:dev']);
 
 };
