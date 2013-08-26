@@ -1,0 +1,69 @@
+<div ng-repeat="result in results" class="media search-result shadow">
+
+	<a class="pull-left" href="#">
+		<img class="media-object" ng-src={{result.img}} width=100 height 150>
+	</a>
+	<div class="media-body">
+		<h4 class="media-heading">{{result.title}}</h4>
+
+
+		<ul class="no-list horizontal-list">
+			<li>
+				<dl>
+					<dt>Autor</dt>
+					<dd><a href={{result.author[0].link}} target="_blank">{{result.authors[0].name}}</a></dd>
+
+
+
+					<dt>Genero</dt>
+					<dd>{{result.genres}}</dd>
+
+					<dt>Idioma</dt>
+					<dd>{{result.lang}}</dd>
+
+
+				</dl>
+			</li>
+
+
+			<li>
+				<dl>
+					<dt>Editorial</dt>
+					<dd><a href={{result.editorial.link}} target="_blank">{{result.editorial.name}}</a></dd>
+
+					<dt>Edicion</dt>
+					<dd>{{result.editionNumber}} Pais: {{result.editionCountry}}</dd>
+
+					<dt>ISBN</dt>
+					<dd>{{result.isbn}}</dd>								
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>Ejemplares</dt>
+					<dd>{{result.copys.length}}</dd>
+					<dt>Disponibles</dt>
+					<dd>{{result.readyToLendCopys }}</dd>
+					<dt>Tipo de Prestamo</dt>
+					<dd>{{result.copys[0].lendType }}</dd>
+				</dl>
+			</li>
+			<li>
+				<dl>
+					<dt>Valuacion</dt>
+					<dd>{{result.val}}</dd>
+
+					<dt>Precio</dt>
+					<dd>{{result.price}}</dd>
+
+					<dt>Notas</dt>
+					<dd>{{result.comments}}</dd>
+
+
+				</dl>
+			</li>										
+
+		</ul>
+
+	</div>
+</div>

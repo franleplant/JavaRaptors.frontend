@@ -5,3 +5,16 @@ var jraptors = angular.module('jraptors', []);
 //
 jraptors.animations = $({});
 
+
+jraptors.config(
+	[
+		'$routeProvider',
+		function($routeProvider) {
+			$routeProvider.
+				when('/', {templateUrl: 'template/book.html',   controller: 'SearchController'}).
+			//	when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
+				otherwise({redirectTo: '/phones'});
+		}
+	]
+);
+
