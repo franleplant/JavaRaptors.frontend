@@ -2,8 +2,8 @@
 
 jraptors.controller('SearchController',
 	[
-		'$scope', '$http', 'animations', 'messages_spanish',
-		function ($scope, $http, animations, messages) {
+		'$scope', '$http', 'animations', 'messages_spanish', '$route',
+		function ($scope, $http, animations, messages, $route) {
 
 			$scope.search = function () {
 
@@ -14,7 +14,7 @@ jraptors.controller('SearchController',
 				}
 
 				if (  $scope.search_query  ) {
-					$http.get('/dbmock/book.json?q=' + $scope.search_query ).success(  function(data) {
+					$http.get('/dbmock/' + /^.*\/(.*).html/gi.exec($route.current.templateUrl)[1] + '.json?q=' + $scope.search_query ).success(  function(data) {
 
 							var i, result, length;
 
@@ -49,5 +49,4 @@ jraptors.controller('SearchController',
 		}
 	]
 );
-
 

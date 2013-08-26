@@ -11,9 +11,11 @@ jraptors.config(
 		'$routeProvider',
 		function($routeProvider) {
 			$routeProvider.
-				when('/', {templateUrl: 'template/book.html',   controller: 'SearchController'}).
+				when('/book', {templateUrl: 'template/book.html',   controller: 'SearchController'}).
+				when('/affiliate', {templateUrl: 'template/affiliate.html',   controller: 'SearchController'}).
+
 			//	when('/phones/:phoneId', {templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl}).
-				otherwise({redirectTo: '/phones'});
+				otherwise({redirectTo: '/book'});
 		}
 	]
 );
