@@ -10,7 +10,7 @@ jraptors.controller('SearchController',
 				var no_results;
 
 				function readyToLendCopys_calculator(e) {
-					return e.hasOwnProperty('lend');
+					return !e.hasOwnProperty('lend');
 				}
 
 				if (  $scope.search_query  ) {
