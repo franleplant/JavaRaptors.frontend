@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)http://twitter.github.io/bootstrap/examples/starter-template.html -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Bibliosoft - Principal</title>
+  
+
+  
+    <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
+    
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+
+    .shadow {
+  -webkit-box-shadow: 2px 2px 10px #888;
+  -moz-box-shadow:    2px 2px 10px #888;
+  box-shadow:         2px 2px 10px #888;
+}
+}
+    </style>
+
+    <link href="./bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+    <style>
+      .search-result{background-color:#EEE;border-radius:8px;padding:15px;}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+         
+          <a class="brand" href="#" style="text-shadow: 0 0 0.4em #FFF;color:#FFF;font-style: 'verdana';">Java Raptors&reg - BiblioSoft&#8482</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+             <li class="divider-vertical"></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Interfases (DEV)
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+               <li><a href="#">Vista Principal Libro</a></li>
+               <li><a href="#">Vista Principal Usuario</a></li>
+               <li><a href="#">Popup Prestamo sin ID</a></li>
+               <li><a href="#">Popup Prestamo con ID</a></li>
+               <li><a href="#">Popup Devolucion sin ID</a></li>
+               <li><a href="#">Popup Devolucion con ID</a></li>
+              </ul>
+            </li>
+
+            </ul>
+
+            <div class="nav-collapse collapse pull-right">
+            <ul class="nav">
+              
+              <li><a href="#"><i class="icon-wrench icon-white"></i> Configurar</a></li>
+              <li><a href="#"><i class="icon-user icon-white"></i> javaraptors@gmail.com</a></li>
+              <li><button class="btn"><a href="#"><i class="icon-barcode"></i>  <span class="caret"></span></a></button></li>
+             
+              
+            </ul>
+          </div><!--/.nav-collapse -->
+        
+        </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+            <div id="search_group" class="input-prepend input-append" style="width: 500px ; margin-left: auto; margin-right: auto;margin-top:200px;display:block">
+
+        <div class="btn-group">
+          <button class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">
+            Libros
+            <span class="caret"></span>
+          </button>
+
+          <ul class="dropdown-menu">
+           <li> <a href="#"><i class="icon-book"></i> Libros</a></li>
+           <li> <a href="#"><i class="icon-user"></i> Socios</a></li>
+           <li> <a href="#"><i class="icon-edit"></i> Autores</a></li>       
+           <li> <a href="#"><i class="icon-briefcase"></i> Editoriales</a></li>
+           
+
+          </ul>
+
+        </div>
+
+        <input id="search_query" type="text" class="span5" data-provide="typeahead" data-items="12" data-source="[&quot;Pablo es un tipo complicado&quot;,&quot;Las aventuras de Sanchez Guijarro&quot;,&quot;Aprenda las artes de Manuel Aquino&quot;,&quot;Todo sobre Manuel Aquino&quot;,&quot;¿Por qué es tan interesante Manuel Aquino?&quot;,&quot;Descubriendo a Aquino&quot;,&quot;Manuel, una leyenda&quot;,&quot;Pablo y su falta de confianza en la mujer&quot;,&quot;Javier Anselmi y el objeto gnoico&quot;,&quot;Esperando a la abuela&quot;,&quot;Mamá, explotó el queso&quot;,&quot;Llueve mermelada en tu chacra&quot;,&quot;Explotando misteriosamente&quot;,&quot;Aprobando comunicaciones: un retrato de Eneas&quot;,&quot;Es la primera vez que tengo resaca&quot;,&quot;¿Es realmente malo el paco?&quot;,&quot;No existen los panqueques&quot;,&quot;Por qué Manuel es tan groso&quot;,&quot;Pablo al desnudo: secretos de antaño&quot;,&quot;La herencia milenaria de Anselmi&quot;,&quot;Cómo ir al choque&quot;,&quot;Apasionante mundo de las virulanas industriales&quot;,&quot;Como cocinar ravioles luminosos&quot;,&quot;Preguntemosle a Manuel&quot;,&quot;ChocoAquino&quot;,&quot;Lactancia - mamás en problemas&quot;,&quot;Como usar una esponja&quot;,&quot;EL vizconde de Liniers&quot;,&quot;Como programar un caballo&quot;,&quot;La bisagra que tenía miedo&quot;,&quot;El .jar que no compilaba&quot;,&quot;Ayudate - Fran Sanchez al rescate&quot;,&quot;Un recorrido por el mundo de las linternas&quot;,&quot;Ruanda: un país que como que no está bueno&quot;,&quot;Silenciosos Palmitos Observan&quot;,&quot;Como enamorarse de los objetos cotidianos&quot;,&quot;Historia de Sandro - Tomo 0001&quot;,&quot;Enciclopedia de los presidentes de Trinidad y Tobago&quot;,&quot;Papá explotó, qué hacemos?&quot;,&quot;Transgenización de tomates, cómo hacer que gobiernen&quot;,&quot;Novias pesadas, cómo silenciarlas&quot;,&quot;Amortiguadores, cómo NO construirlos&quot;,&quot;Todo sobre la amnesia - ¿que estaba escribiendo?&quot;,&quot;Como dejar de fumar baldosas&quot;,&quot;Que es un palo borracho&quot;]"></input>
+		<div class="btn-group">
+
+          <button class="btn btn-inverse" type="button" onclick="searching();"><i class="icon-search icon-white"></i></button>
+          <button class="btn " type="button"><i class="icon-plus"></i></button>
+        </div>
+  
+    
+		
+      </div>
+      <div id="results">
+      <hr/>
+      </div>
+    </div> <!-- /container -->
+        <div class="navbar navbar-fixed-bottom" style="background-color:#DDD;"><!-- /footer -->
+                    <ul class="nav">
+                <li class="navbar-text"> &nbsp&nbsp Copyright &reg 2013 - Java Raptors&reg se reserva todos los derechos de replicar, comercializar, o utilizar este sistema. Este contenido es confidencial y sólo puede ser obtenido bajo autorización.</li>
+                
+                </ul>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./jQuery/jquery.min.js"></script>
+    <script src="./Bootstrap/js/bootstrap.min.js"></script>
+    <script>
+
+    var vectorLocura = ['Pablo es un tipo complicado','Las aventuras de Sanchez Guijarro','Aprenda las artes de Manuel Aquino','Todo sobre Manuel Aquino','¿Por qué es tan interesante Manuel Aquino?','Descubriendo a Aquino','Manuel, una leyenda','Pablo y su falta de confianza en la mujer','Javier Anselmi y el objeto gnoico','Esperando a la abuela','Mamá, explotó el queso','Llueve mermelada en tu chacra','Explotando misteriosamente','Aprobando comunicaciones: un retrato de Eneas','Es la primera vez que tengo resaca','¿Es realmente malo el paco?','No existen los panqueques','Por qué Manuel es tan groso','Pablo al desnudo: secretos de antaño','La herencia milenaria de Anselmi','Cómo ir al choque','Apasionante mundo de las virulanas industriales','Como cocinar ravioles luminosos','Preguntemosle a Manuel','ChocoAquino','Lactancia - mamás en problemas','Como usar una esponja','EL vizconde de Liniers','Como programar un caballo','La bisagra que tenía miedo','El .jar que no compilaba','Ayudate - Fran Sanchez al rescate','Un recorrido por el mundo de las linternas','Ruanda: un país que como que no está bueno','Silenciosos Palmitos Observan','Como enamorarse de los objetos cotidianos','Historia de Sandro - Tomo 0001','Enciclopedia de los presidentes de Trinidad y Tobago','Papá explotó, qué hacemos?','Transgenización de tomates, cómo hacer que gobiernen','Novias pesadas, cómo silenciarlas','Amortiguadores, cómo NO construirlos','Todo sobre la amnesia - ¿que estaba escribiendo?','Como dejar de fumar baldosas','Que es un palo borracho'];
+
+
+          function searching()
+          {
+          
+            if($("#search_query").val() != "") 
+
+              { $("#search_group").animate({'marginTop': '0px'}, 500, function() {
+                    // Animation complete.
+                  });
+               
+
+                 for (var i = 0; i < 4; i++) {
+
+                $("#results").append('<div class="media search-result shadow"><a class="pull-left" href="#"><img class="media-object" src="http://images2.wikia.nocookie.net/__cb20070329111526/wowwiki/images/0/03/Inv_misc_book_08.png">                    </a>                    <div class="media-body">                      <h4 class="media-heading">'+ vectorLocura[i] +'</h4>                      <div class="row-fluid">                        <div class="span4">                       <span>ISBN: </span><span>978-0-300-14424-6</span>                        <br/>                        <span>Editorial: </span><span><a href="#">Paperback</a></span>                        </div>                        <div class="span4">                        <span>Edición: </span><span>1ra</span>                        <br/>                        <span>Idioma: </span><span>Español</span>                        </div>                        <div class="span4">                        <span>Precio: </span><span>U$S '+ 143*i +  '.99</span>                        <br/>                        <span>Géneros: </span><span><a href="#">Académico</a>, <a href="#">Abogacía</a></span>                        </div>                    </div>                  </div>                  </div>');
+              }
+
+              }
+                        }
+
+              $("#search_query").change(searching());
+    </script>
+   
+<script>
+$('.typeahead').typeahead();
+$('.typeahead').source(["Harry Potter 1","El Señor de los Anillos 2"]);
+
+</script>
+  
+
+</body></html>

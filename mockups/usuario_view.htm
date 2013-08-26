@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+
+
+   <meta charset="utf-8">
+
+    <title>BiblioSoft - Vista Libro</title>
+  
+
+  
+    <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
+    
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+
+    <link href="./bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+   
+  </head>
+
+  <body>
+
+   <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+         
+          <a class="brand" href="#">BiblioSoft</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+                            
+            </ul>
+
+            <div class="nav-collapse collapse pull-right">
+            <ul class="nav">
+              
+              <li><a href="#"><i class="icon-cog icon-white"></i></a></li>
+              <li><a href="#"><i class="icon-user icon-white"></i>     javaraptors@gmail.com</a></li>
+              
+              
+            </ul>
+          </div><!--/.nav-collapse -->
+        
+        </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+            <div class="row">
+            <div class="span4"><img src="http://img.mypopulars.com/images/chuck-norris/Chuck-Norris-1.jpg" style="width:100%; margin:10px" class="img-polaroid">
+            <button class="btn btn-large btn-block btn-inverse" type="button">Editar Información</button>
+            <button class="btn btn-large btn-block btn-primary" type="button">Deshabilitar</button>
+            </div>
+            <div class="span8">
+            <h1 id="title">Odoberto Jacarandá</h1>
+            <h3 id="authors"> DNI 35.123.456</h3> 
+            <hr/>
+            <h3 id="summary_title">Estado: <span style="color:#F00"> SUSPENDIDO</span> </h3>
+             <div class="alert alert-error">
+                El socio está suspendido y no está habilitado para solicitar préstamos.
+            </div>
+            <div class="alert alert-error">
+                Al socio le quedan 41 días de suspensión.
+            </div>
+            <hr/>
+
+            <h3 id="data_title">Datos</h3>
+
+           
+            <span>Fecha de Inscripción: </span><span> 12/05/93 (20 años de antiguedad)</span>
+            <br/>
+            <span>Fecha último préstamo: </span><span>12/01/12</span>
+            <br/>
+            <span>Email: </span><span><a href="#">odo_forpresident@gmail.com</a></span>
+            <br/>
+            <span>Teléfono: </span><span>(011)4-756-2313</span>
+            <br/>
+            <span>Dirección: </span><span>Calle 13 Nº 3054</span>
+            
+
+
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="span12">
+			<hr/>
+            <h3 id="example_title"> Préstamos </h3> 
+
+              <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Fecha Dev. Pactada</th>
+                  <th>Fecha Dev. Real</th>
+                  <th>Ejemplar/Libro</th>
+                   <th>Estado del Préstamo</th>
+
+				 
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="error">
+                  <td>12/01/12</td>
+                  <td>17/01/12</td>
+                  <td>31/01/12</td>
+                  <td><a href="#">023453-323</a> - <a href="#">Typography for lawyers<a></td>
+                  <td>Finalizado - Irregular</td>
+				         </tr>
+                <tr class="success">
+                  <td>12/03/11</td>
+                  <td>17/03/11</td>
+                  <td>17/03/11</td>
+                  <td><a href="#">204312-123</a> - <a href="#">El Nuevo Testamento<a></td>
+                  <td>Finalizado - Correcto</td>
+                 </tr>
+                <tr class="success">
+                  <td>30/01/02</td>
+                  <td>04/02/12</td>
+                  <td>04/01/12</td>
+                  <td><a href="#">2045632-212</a> - <a href="#">Reflexiones Pabloicas<a></td>
+                  <td>Finalizado - Correcto</td>
+                 </tr>
+              </tbody>
+            </table>
+            </div>
+            </div>
+                         
+                
+
+
+
+       
+      
+
+     
+
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="./jQuery/jquery.js"></script>
+    <script src="./Bootstrap/js/bootstrap.min.js"></script>
+   
+
+  
+
+</body></html>
