@@ -1,14 +1,39 @@
 [
 	{
 		"title": "harry poter 1",
-		"author": "JK Rownling"
+		"authors": "JK Rownling",
+		"genres": "fantasy",
+		"editionNumber": "3erd",
+		"editionCountry": "Mexico",
+		"Editorial": "Salamandra",
+		"img": "http://www.amyatwell.com/testud1/wp-content/uploads/2012/06/51DF6ZR8G7L._SL500_AA300_.jpg",
+		"lang": "Spanish",
+		"copys": [{}, {}, {}],
+		"val": 7
+
 	},
 	{
 		"title": "harry poter 2",
-		"author": "JK Rownling"
+		"authors": "JK Rownling",
+		"genres": "fantasy",
+		"editionNumber": "3erd",
+		"editionCountry": "Mexico",
+		"Editorial": "Salamandra",
+		"img": "http://harrypotterfanzone.com/wp-content/2009/06/cos-uk-kids-jacket-art.jpg",
+		"lang": "Spanish",
+		"copys": [{}, {}, {}, {}, {}],
+		"val": 7
 	},
 	{
 		"title": "harry poter 3",
-		"author": "JK Rownling"
+		"authors": "JK Rownling",
+		"genres": "fantasy",
+		"editionNumber": "3erd",
+		"editionCountry": "Mexico",
+		"Editorial": "Salamandra",
+		"img": "http://www.myhero.com/ReadingRoom/books/harrypotter5.jpg",
+		"lang": "Spanish",
+		"copys": [{}, {}],
+		"val": 7
 	}
 ]
