@@ -6,7 +6,7 @@
 		"authors": [
 			{
 				"name": "JK Rownling",
-				"link": "some/url"
+				"link": "/some/url"
 			}
 		],
 		"genres": "fantasy",
@@ -15,7 +15,7 @@
 		"summary": "Harrys poters is a little child",
 		"editorial": {
 			"name": "Salamadra",
-			"link": "some/url"
+			"link": "/some/url"
 		},
 		"img": "http://www.amyatwell.com/testud1/wp-content/uploads/2012/06/51DF6ZR8G7L._SL500_AA300_.jpg",
 		"lang": "Spanish",
@@ -37,7 +37,7 @@
 				"creationDate": 1377528419068,
 				"creationUser": "franleplant",
 				"comments": "blah blah blah",
-				"lendType": "foreign", //or local 
+				"lendType": "foreign",
 				"lend": {
 					"affiliate": {
 						"id": 1230123,
@@ -81,7 +81,7 @@
 				"creationDate": 1377528419068,
 				"creationUser": "franleplant",
 				"comments": "blah blah blah",
-				"lendType": "foreign" //or local 
+				"lendType": "foreign"
 
 			}
 		]
@@ -96,7 +96,7 @@
 		"authors": [
 			{
 				"name": "JK Rownling",
-				"link": "some/url"
+				"link": "/some/url"
 			}
 		],
 		"genres": "fantasy",
@@ -105,7 +105,7 @@
 		"summary": "Harrys poters is a little child",
 		"editorial": {
 			"name": "Salamadra",
-			"link": "some/url"
+			"link": "/some/url"
 		},
 		"img": "http://harrypotterfanzone.com/wp-content/2009/06/cos-uk-kids-jacket-art.jpg",
 		"lang": "Spanish",
@@ -187,7 +187,7 @@
 		"authors": [
 			{
 				"name": "JK Rownling",
-				"link": "some/url"
+				"link": "/some/url"
 			}
 		],
 		"genres": "fantasy",
@@ -196,7 +196,7 @@
 		"summary": "Harrys poters is a little child",
 		"editorial": {
 			"name": "Salamadra",
-			"link": "some/url"
+			"link": "/some/url"
 		},
 		"img": "http://www.myhero.com/ReadingRoom/books/harrypotter5.jpg",
 		"lang": "Spanish",
