@@ -1,6 +1,6 @@
 <!doctype html>
 
-<html lang="en" ng-app>
+<html lang="en" ng-app="jraptors">
 
 <head>
 	<title>Bibliosoft - Principal</title>
@@ -12,7 +12,7 @@
 </head>
 
 
-<body  ng-controller="PhoneListCtrl">
+<body>
  
 	<header class="navbar navbar-inverse navbar-fixed-top">
 
@@ -23,7 +23,6 @@
 
 		            <div class="nav-collapse collapse pull-right">
 						<ul class="nav">    
-							<!-- Hacer un ng repeat con angular para estas opciones  -->
 							<li><a href="#"><i class="icon-wrench icon-white"></i> Configurar</a></li>
 							<li><a href="#"><i class="icon-user icon-white"></i> javaraptors@gmail.com</a></li>
 							<li><button class="btn"><a href="#"><i class="icon-barcode"></i>  <span class="caret"></span></a></button></li>
@@ -35,28 +34,36 @@
 		</div>
 	</header>
 
-    <div id="main-content" class="container">
+    <div id="main-content" class="container" ng-controller="SearchController">
 
 		<div id="search_group" class="input-prepend input-append">
 
 			<div class="btn-group">
 				<button class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">Libros <span class="caret"></span></button>
 				<ul class="dropdown-menu">
-					<!-- Hacer un ng repeat con angular para estas opciones  -->
 					<li> <a href="#"><i class="icon-book"></i> Libros</a></li>
 					<li> <a href="#"><i class="icon-user"></i> Socios</a></li>
 					<li> <a href="#"><i class="icon-edit"></i> Autores</a></li>       
 					<li> <a href="#"><i class="icon-briefcase"></i> Editoriales</a></li>
 				</ul>
 			</div>
-			<input id="search_query" type="text" class="span5"></input>
+			<input id="search_query" type="text" class="span5" ng-model="search_query"></input>
 			<div class="btn-group">
-				<button id="search" class="btn btn-inverse" type="button"><i class="icon-search icon-white"></i></button>
+				<button id="search" class="btn btn-inverse" type="button" ng-click="search()"><i class="icon-search icon-white"></i></button>
 				<button class="btn " type="button"><i class="icon-plus"></i></button>
 			</div>
   		</div>
 
-		<div id="results"><hr/></div>
+  		<div>
+  			<span>{{status_message}}</span>
+  		</div>
+
+		<div id="results">
+			<div ng-repeat="result in results">
+				<span>{{result.title}}</span>
+				<span>{{result.author}}</span>
+			</div>
+		</div>
 
 	</div>
 
@@ -72,7 +79,10 @@
     <script type="text/javascript" src="src/lib/jquery-2.0.3.js"></script>
 	<script type="text/javascript" src="src/lib/bootstrap.js"></script>
 	<script type="text/javascript" src="src/lib/angular-1.0.7.js"></script>
-	<script type="text/javascript" src="src/js/controllers.js"></script>
+	<script type="text/javascript" src="src/js/app.js"></script>
+	<script type="text/javascript" src="src/js/services.js"></script>
 	<script type="text/javascript" src="src/js/animations.js"></script>
+	<script type="text/javascript" src="src/js/controllers.js"></script>
+	
 </body>
 </html>

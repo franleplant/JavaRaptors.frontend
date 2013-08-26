@@ -1,0 +1,1 @@
+var jraptors = angular.module('jraptors', []);
