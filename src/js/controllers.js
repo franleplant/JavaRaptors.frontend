@@ -7,7 +7,7 @@ jraptors.controller('SearchController',
 
 			$scope.search = function () {
 				if (  $scope.search_query  ) {
-					$http.get('/db-mock/books.json?q=' + $scope.search_query ).success(  function(data) {
+					$http.get('/db-mock/book.json?q=' + $scope.search_query ).success(  function(data) {
 							$scope.results = data;
 						});
 
