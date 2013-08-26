@@ -1,4 +1,13 @@
 
+.no-list {
+	list-style: none;
+}
+
+.horizontal-list > li {
+	display: inline-block;
+	margin-right: 60px;
+}
+
 .search-result{
 	background-color:#EEE;
 	border-radius:8px;
