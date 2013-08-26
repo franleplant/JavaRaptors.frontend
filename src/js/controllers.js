@@ -41,7 +41,6 @@ jraptors.controller('SearchController',
 					
 
 				} else {
-					$scope.results = [];
 					$scope.message = messages.search_no_query;
 
 				}
