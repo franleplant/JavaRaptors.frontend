@@ -7,6 +7,8 @@ jraptors.controller('SearchController',
 
 			$scope.search = function () {
 
+				var no_results;
+
 				function readyToLendCopys_calculator(e) {
 					return e.hasOwnProperty('lend');
 				}
@@ -17,6 +19,8 @@ jraptors.controller('SearchController',
 							var i, result, length;
 
 							$scope.results = data;
+
+							no_results = data.no_results ? true : false;
 
 							length = $scope.results.length;
 
@@ -29,10 +33,10 @@ jraptors.controller('SearchController',
 
 					animations.proxy.trigger('search.first_valid');
 
-					if ( $scope.results ) {
-						$scope.message = '';
-					} else {
+					if ( no_results ) {
 						$scope.message = messages.search_no_results;
+					} else {
+						$scope.message = '';
 					}
 					
 
