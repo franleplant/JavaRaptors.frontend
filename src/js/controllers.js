@@ -2,10 +2,10 @@
 
 jraptors.controller('SearchController',
 	[
-		'$scope', '$http', 'animations', 'messages_spanish', '$route',
-		function ($scope, $http, animations, messages, $route) {
+		'$scope', '$http', 'animations', 'spanish', '$route',
+		function ($scope, $http, animations, spanish, $route) {
 
-			$scope.message = messages.search_no_query;
+			$scope.message = spanish.status_msg.search_no_query;
 
 			$scope.search = function () {
 
@@ -22,7 +22,7 @@ jraptors.controller('SearchController',
 				animations.proxy.trigger('search.first_valid');
 
 				if ( no_results ) {
-					$scope.message = messages.search_no_results;
+					$scope.message = spanish.status_msg.search_no_results;
 				} else {
 					$scope.message = '';
 				}
