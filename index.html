@@ -67,7 +67,7 @@
 
 
 
-			<div ng-repeat="result in results" class="media search-result shadow">
+			<div ng-repeat="result in results | filter:search_query" class="media search-result shadow">
 
 				<!-- TODO: detail table -->
 				<a class="pull-left" href="#">

@@ -1,7 +1,7 @@
 [
 	{
 		"id": 1,
-		"title": "Harry Poter 1 and the Sorcerer's Stone",
+		"title": "Harry Potter 1 and the Sorcerer's Stone",
 		"isbn": 123123123,
 		"authors": [
 			{
@@ -12,7 +12,7 @@
 		"genres": "fantasy",
 		"editionNumber": "3erd",
 		"editionCountry": "Mexico",
-		"summary": "Harrys poters is a little child",
+		"summary": "Harrys potters is a little child",
 		"editorial": {
 			"name": "Salamadra",
 			"link": "/some/url"
@@ -91,7 +91,7 @@
 
 	{
 		"id": 1,
-		"title": "Harry Poter 2 and the Chamber of Secrets",
+		"title": "Harry Potter 2 and the Chamber of Secrets",
 		"isbn": 123123123,
 		"authors": [
 			{
@@ -102,7 +102,7 @@
 		"genres": "fantasy",
 		"editionNumber": "3erd",
 		"editionCountry": "Mexico",
-		"summary": "Harrys poters is a little child",
+		"summary": "Harrys potters is a little child",
 		"editorial": {
 			"name": "Salamadra",
 			"link": "/some/url"
@@ -182,7 +182,7 @@
 
 	{
 		"id": 1,
-		"title": "Harry Poter 3 and the Prisioner of Azkaban",
+		"title": "Harry Potter 3 and the Prisioner of Azkaban",
 		"isbn": 123123123,
 		"authors": [
 			{
@@ -193,7 +193,7 @@
 		"genres": "fantasy",
 		"editionNumber": "3erd",
 		"editionCountry": "Mexico",
-		"summary": "Harrys poters is a little child",
+		"summary": "Harrys potters is a little child",
 		"editorial": {
 			"name": "Salamadra",
 			"link": "/some/url"
