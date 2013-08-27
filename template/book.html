@@ -57,7 +57,7 @@
 					<dt>Ejemplares</dt>
 					<dd>{{result.copys.length}}</dd>
 					<dt>Disponibles</dt>
-					<dd>{{result.readyToLendCopys }}</dd>
+					<dd>{{result.copys | availableToLendCopys }}</dd>
 					<dt>Tipo de Prestamo</dt>
 					<dd>{{result.copys[0].lendType }}</dd>
 				</dl>
