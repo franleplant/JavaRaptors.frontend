@@ -22,22 +22,30 @@ jraptors.controller('SearchController',
 
 							no_results = data.no_results ? true : false;
 
-							length = $scope.results.length;
+							if ( no_results ) {
 
-							for (i = 0; i < length; i++) {
-								result = $scope.results[i];
-								result.readyToLendCopys = result.copys.filter(  readyToLendCopys_calculator  ).length;
+								$scope.message = '';
+
+								length = $scope.results.length;
+
+								for (i = 0; i < length; i++) {
+									result = $scope.results[i];
+									result.readyToLendCopys = result.copys.filter(  readyToLendCopys_calculator  ).length;
+
+								}
+							} else {
+								$scope.message = messages.search_no_results;
 							}
 
 						});
 
 					animations.proxy.trigger('search.first_valid');
 
-					if ( no_results ) {
-						$scope.message = messages.search_no_results;
-					} else {
+				/*	if ( no_results ) {
 						$scope.message = '';
-					}
+					} else {
+						$scope.message = messages.search_no_results;
+					}*/
 					
 
 				} else {
