@@ -11,25 +11,23 @@ jraptors.controller('SearchController',
 
 				var no_results;
 
-				if (  $scope.search_query  ) {
-					$http.get('/dbmock/' + /^.*\/(.*).html/gi.exec($route.current.templateUrl)[1] + '.json?q=' + $scope.search_query ).success(  function(data) {
+				$http.get('/dbmock/' + /^.*\/(.*).html/gi.exec($route.current.templateUrl)[1] + '.json?q=' + $scope.search_query ).success(  function(data) {
 
-							$scope.results = data;
+						$scope.results = data;
 
-							no_results = data.no_results ? true : false;
+						no_results = data.no_results ? true : false;
 
-						});
+					});
 
-					animations.proxy.trigger('search.first_valid');
+				animations.proxy.trigger('search.first_valid');
 
-					if ( no_results ) {
-						$scope.message = messages.search_no_results;
-					} else {
-						$scope.message = '';
-					}
+				if ( no_results ) {
+					$scope.message = messages.search_no_results;
+				} else {
+					$scope.message = '';
+				}
 					
 
-				}
 			};
 
 			$scope.reload = function () {
