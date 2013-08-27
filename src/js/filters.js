@@ -10,4 +10,15 @@ angular.module('jraptorsFilters', []).
 		return function(input) {
 			return input.filter(  is_available  ).length;
 		};
-	});
+	}).
+
+	filter('pathToEntity',	[ 'spanish',
+		
+			function(spanish) {
+
+				return function(input) {
+					return spanish.select[input];
+				};
+			}
+		]
+	);

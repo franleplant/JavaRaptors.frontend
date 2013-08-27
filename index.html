@@ -38,16 +38,18 @@
 
 		<form name="search_form" id="search_group" class="input-prepend input-append">
 
-			<div class="entity-selector btn-group">
-				<button class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">Libros <span class="caret"></span></button>
+			<!-- Select -->
+			<div class="entity-selector btn-group" ng-controller="SelectEntityController">
+				<button class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">
+					{{  $location.path() | pathToEntity  }} <span class="caret"></span>
+				</button>
 				<ul class="dropdown-menu">
-					<li> <a href="#/book" ng-click="reload()"><i class="icon-book"></i> Libros</a></li>
-					<li> <a href="#/affiliate" ng-click="reload()"><i class="icon-user"></i> Socios</a></li>
-					<li> <a href="#/author" ng-click="reload()"><i class="icon-edit"></i> Autores</a></li>       
-					<li> <a href="#/editorial" ng-click="reload()"><i class="icon-briefcase"></i> Editoriales</a></li>
+					<li><a href="#/book" ng-click="reload()" ng-model="test"><i class="icon-book"></i>Libros</a></li>
+					<li><a href="#/affiliate" ng-click="reload()"><i class="icon-user"></i> Socios</a></li>
+					<li><a href="#/author" ng-click="reload()"><i class="icon-edit"></i> Autores</a></li>       
+					<li><a href="#/editorial" ng-click="reload()"><i class="icon-briefcase"></i> Editoriales</a></li>
 				</ul>
 			</div>
-
 
 
 

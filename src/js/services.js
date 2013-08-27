@@ -13,3 +13,13 @@ jraptors.service('messages_spanish', function () {
 	this.search_no_query = 'Por favor ingrese texto para realizar la busqueda';
 	this.search_no_results = 'La busqueda no ha arrojado resultados, por favor re definala';
 });
+
+
+jraptors.service('spanish', function () {
+	this.select = {
+		
+		'/book': 'Libro',
+		'/affiliate': 'Socio'
+
+	};
+});

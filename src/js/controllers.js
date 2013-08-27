@@ -38,3 +38,11 @@ jraptors.controller('SearchController',
 	]
 );
 
+jraptors.controller('SelectEntityController',
+	[
+		'$scope', '$location',
+		function ($scope, $location) {
+			$scope.$location = $location;
+		}
+	]
+);
