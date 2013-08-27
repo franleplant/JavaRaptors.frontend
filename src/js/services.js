@@ -16,7 +16,7 @@ jraptors.service('messages_spanish', function () {
 
 
 jraptors.service('spanish', function () {
-	this.select = {
+	this.pathToEntity = {
 		
 		'/book': 'Libro',
 		'/affiliate': 'Socio'
