@@ -1,6 +1,7 @@
 [
 	{
 		"id": 1,
+		"type": "copy",
 		"title": "Harry Poter 1 and the Sorcerer's Stone",
 		"isbn": 123123123,
 		"authors": [
@@ -23,7 +24,7 @@
 		"price": "30 u$s",
 		"creationDate": 1377528419068,
 		"creationUser": "franleplant",
-		"comments": "blah blah blah",
+		"comments": "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah",
 		"copys": [
 			{
 				"id": "0003",
@@ -90,7 +91,8 @@
 	},
 
 	{
-		"id": 1,
+		"id": 2,
+		"type": "book",
 		"title": "Harry Poter 2 and the Chamber of Secrets",
 		"isbn": 123123123,
 		"authors": [
@@ -181,7 +183,8 @@
 	},
 
 	{
-		"id": 1,
+		"id": 3,
+		"type": "book",
 		"title": "Harry Poter 3 and the Prisioner of Azkaban",
 		"isbn": 123123123,
 		"authors": [

@@ -5,7 +5,9 @@
 
 .horizontal-list > li {
 	display: inline-block;
-	margin-right: 60px;
+	margin-right: 40px;
+	max-width: 110px;
+	float: left;
 }
 
 .search-result{
