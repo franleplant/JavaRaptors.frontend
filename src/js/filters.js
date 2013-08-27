@@ -3,11 +3,11 @@ angular.module('jraptorsFilters', []).
 	filter('availableToLendCopys', function() {
 
 
-		function readyToLendCopys_calculator(e) {
+		function is_available(e) {
 			return !e.hasOwnProperty('lend');
 		}
 
 		return function(input) {
-			return input.filter(  readyToLendCopys_calculator  ).length;
+			return input.filter(  is_available  ).length;
 		};
 	});
