@@ -6,27 +6,18 @@ jraptors.controller('SearchController',
 		function ($scope, $http, animations, spanish, $route) {
 
 			$scope.message = spanish.status_msg.search_no_query;
+			$scope.msg_no_result = spanish.status_msg.search_no_result;
 
 			$scope.search = function () {
-
-				var no_results;
 
 				$http.get('/dbmock/' + /^.*\/(.*).html/gi.exec($route.current.templateUrl)[1] + '.json?q=' + $scope.search_query ).success(  function(data) {
 
 						$scope.results = data;
-
-						no_results = data.no_results ? true : false;
+						$scope.no_result = data.no_result ? true : false;
 
 					});
 
 				animations.proxy.trigger('search.first_valid');
-
-				if ( no_results ) {
-					$scope.message = spanish.status_msg.search_no_results;
-				} else {
-					$scope.message = '';
-				}
-					
 
 			};
 

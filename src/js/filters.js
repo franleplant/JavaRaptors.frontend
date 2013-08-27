@@ -8,6 +8,7 @@ angular.module('jraptorsFilters', []).
 		}
 
 		return function(input) {
+			input = input || [];
 			return input.filter(  is_available  ).length;
 		};
 	}).

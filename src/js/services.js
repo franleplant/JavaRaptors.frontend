@@ -27,7 +27,7 @@ jraptors.service('spanish', function () {
 
 	this.status_msg = {
 		search_no_query: 'Por favor ingrese texto para realizar la busqueda',
-		search_no_results: 'La busqueda no ha arrojado resultados, por favor re definala'
+		search_no_result: 'La busqueda no ha arrojado resultados, por favor re definala'
 	};
 
 });
