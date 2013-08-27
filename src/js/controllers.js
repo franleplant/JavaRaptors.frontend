@@ -19,6 +19,7 @@ jraptors.controller('SearchController',
 
 				animations.proxy.trigger('search.first_valid');
 
+
 			};
 
 			$scope.reload = function () {
