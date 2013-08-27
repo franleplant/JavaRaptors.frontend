@@ -5,6 +5,8 @@ jraptors.controller('SearchController',
 		'$scope', '$http', 'animations', 'messages_spanish', '$route',
 		function ($scope, $http, animations, messages, $route) {
 
+			$scope.message = messages.search_no_query;
+
 			$scope.search = function () {
 
 				var no_results;
@@ -26,9 +28,6 @@ jraptors.controller('SearchController',
 						$scope.message = '';
 					}
 					
-
-				} else {
-					$scope.message = messages.search_no_query;
 
 				}
 			};

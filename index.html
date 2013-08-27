@@ -36,7 +36,7 @@
 
     <div id="main-content" class="container" ng-controller="SearchController">
 
-		<div id="search_group" class="input-prepend input-append">
+		<form name="search_form" id="search_group" class="input-prepend input-append">
 
 			<div class="entity-selector btn-group">
 				<button class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">Libros <span class="caret"></span></button>
@@ -48,17 +48,15 @@
 				</ul>
 			</div>
 
-			<input id="search_query" type="text" class="span5" ng-model="search_query"></input>
+			<input id="search_query" type="text" name="search_query" class="span5" ng-model="search_query" required></input>
 
 			<div class="btn-group">
 				<button id="search" class="btn btn-inverse" type="button" ng-click="search()"><i class="icon-search icon-white"></i></button>
 				<button class="btn " type="button"><i class="icon-plus"></i></button>
 			</div>
-  		</div>
-
-		<div id="status_message" class="media">
-			{{message}}
-		</div>
+			</br>
+			<span class="error" ng-show="search_form.search_query.$error.required">{{message}}</span>
+  		</form>
 
 		<hr>
 
