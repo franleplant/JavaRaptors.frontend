@@ -41,10 +41,6 @@ jraptors.service('english', function () {
 });
 
 
-jraptors.service('messages_spanish', function () {
-
-});
-
 
 jraptors.service('spanish', function () {
 	this.pathToEntity = {
