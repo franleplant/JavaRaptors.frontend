@@ -12,7 +12,7 @@ jraptors.controller('SearchController',
 
 				// This is to test no_result, TODO: MAKE A TEST CASE
 				//$scope.results = Search.query({entityType: 'book_no_result'}, function (data) {
-				$scope.results = Search.query({entityType: Parse.tmplToEntity()}, function (data) {
+				$scope.results = Search.query(  {  entityType: Parse.tmplToEntity()  }, function (data) {
 					$scope.no_result = data[0].no_result ? true : false;
 				});
 
