@@ -67,3 +67,12 @@ footer {
 	padding-top: 30px;
 }
 
+#results {
+	position:relative;
+}
+
+#results span.label {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}

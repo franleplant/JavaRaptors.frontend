@@ -55,4 +55,10 @@ jraptors.service('spanish', function () {
 		search_no_result: 'La busqueda no ha arrojado resultados, por favor re definala'
 	};
 
+	this.translate = {
+		'book': 'libro',
+		'coyp': 'ejemplar',
+		'affiliate': 'socio'
+	};
+
 });

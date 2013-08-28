@@ -22,4 +22,32 @@ angular.module('jraptorsFilters', []).
 				};
 			}
 		]
+	).
+
+	filter('toClassLabel',	function() {
+
+			var mapper = {
+				'book': '',
+				'copy': 'label-inverse',
+				'affiliate': 'label-info',
+				'editorial': 'label-warning',
+				'author': 'label-success'
+			};
+
+			return function(input) {
+				return mapper[input];
+			};
+		}
+		
+	).
+
+	filter('translate',	[ 'spanish',
+
+			function(spanish) {
+
+				return function(input) {
+					return spanish.translate[input];
+				};
+			}
+		]
 	);

@@ -1,5 +1,6 @@
 <div ng-repeat="result in results" class="media search-result shadow" ng-show="result.type == 'copy' || result.type == 'book'">
 
+	<span class="label" ng-class="result.type | toClassLabel">{{result.type | translate}}</span>
 	<a class="pull-left" href="#">
 		<img class="media-object" ng-src={{result.img}} width=100 height=150>
 	</a>
