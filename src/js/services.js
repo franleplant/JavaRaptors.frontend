@@ -1,5 +1,32 @@
 // Move every service into factory, it is more clear what they do, see http://jsfiddle.net/manishchhabra/Ne5P8/
 
+
+jraptors.factory('Search', ['$resource',
+
+		function ($resource) {
+			return $resource('/dbmock/:entityType.json', {}, {
+				query: {
+					method: 'GET',
+					isArray: true
+				}
+			});
+		}
+	]
+);
+
+jraptors.factory('Parse', ['$route',
+
+		function ($route) {
+			var re = /^.*\/(.*).html/gi;
+			return {
+				tmplToEntity: function () {
+					return re.exec(  $route.current.templateUrl  )[1];
+				}
+			};
+		}
+	]
+);
+
 jraptors.service('animations', function () {
 	this.proxy = jraptors.animations;
 });

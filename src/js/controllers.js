@@ -2,23 +2,23 @@
 
 jraptors.controller('SearchController',
 	[
-		'$scope', '$http', 'animations', 'spanish', '$route',
-		function ($scope, $http, animations, spanish, $route) {
+		'$scope', 'animations', 'spanish', 'Search', 'Parse',
+		function ($scope, animations, spanish, Search, Parse) {
+
+
 
 			$scope.message = spanish.status_msg.search_no_query;
 			$scope.msg_no_result = spanish.status_msg.search_no_result;
 
 			$scope.search = function () {
 
-				$http.get('/dbmock/' + /^.*\/(.*).html/gi.exec($route.current.templateUrl)[1] + '.json?q=' + $scope.search_query ).success(  function(data) {
-
-						$scope.results = data;
-						$scope.no_result = data.no_result ? true : false;
-
-					});
+				// This is to test no_result, TODO: MAKE A TEST CASE
+				//$scope.results = Search.query({entityType: 'book_no_result'}, function (data) {
+				$scope.results = Search.query({entityType: Parse.tmplToEntity()}, function (data) {
+					$scope.no_result = data[0].no_result ? true : false;
+				});
 
 				animations.proxy.trigger('search.first_valid');
-
 
 			};
 
