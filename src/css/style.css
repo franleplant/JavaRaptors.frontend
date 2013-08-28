@@ -67,7 +67,7 @@ footer {
 	padding-top: 30px;
 }
 
-#results {
+#results > div {
 	position:relative;
 }
 
