@@ -1,3 +1,5 @@
+// Move every service into factory, it is more clear what they do, see http://jsfiddle.net/manishchhabra/Ne5P8/
+
 jraptors.service('animations', function () {
 	this.proxy = jraptors.animations;
 });
