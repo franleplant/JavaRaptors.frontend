@@ -62,7 +62,7 @@ module.exports = function(grunt) {
 				options: {
 					keepalive: true,
 					port: 9000,
-					base: './'
+					base: './app/'
 				}
 			}
 		},
