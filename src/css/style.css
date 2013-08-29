@@ -76,3 +76,19 @@ footer {
 	right: 10px;
 	top: 10px;
 }
+
+/* login */
+#box-login {
+	margin-top: 70px;
+	padding: 50px 85px 50px 85px;
+}
+
+	#cg-submits{
+		margin-top: 40px;
+	}
+
+		#reset-psw {
+			float: right;
+			margin: 10px 10px 0 0;
+			color: #1b1b1b;
+		}
