@@ -5,7 +5,17 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 
 		jshint: {
-			files: ['src/js/*.js', 'gruntfile.js', 'dbmock/*.json', 'package.json'],
+			files: [
+				'app/scripts/app.js',
+				'app/scripts/animationsux.js',
+				'app/scripts/controller/*.js',
+				'app/scripts/directive/*.js',
+				'app/scripts/filter/*.js',
+				'app/scripts/service/*.js',
+				'app/dbmock/*.json',
+				'gruntfile.js',
+				'package.json'
+			],
 			options: {
 				// check http://www.jshint.com/docs/options/#bitwise
 				bitwise: true,
