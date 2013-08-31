@@ -45,7 +45,7 @@ jraptors.service('spanish', function () {
 
 	this.translate = {
 		'book': 'libro',
-		'coyp': 'ejemplar',
+		'copy': 'ejemplar',
 		'affiliate': 'socio'
 	};
 
