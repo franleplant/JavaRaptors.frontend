@@ -16,9 +16,11 @@ angular.module('jraptorsFilters', []).
 	filter('pathToEntity',	[ 'spanish',
 
 			function(spanish) {
-
+				var key;
 				return function(input) {
-					return spanish.pathToEntity[input];
+					key = input.slice(1);
+
+					return spanish.translate[key];
 				};
 			}
 		]

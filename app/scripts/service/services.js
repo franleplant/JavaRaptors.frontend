@@ -31,12 +31,6 @@ jraptors.service('english', function () {
 
 
 jraptors.service('spanish', function () {
-	this.pathToEntity = {
-
-		'/book': 'Libro',
-		'/affiliate': 'Socio'
-
-	};
 
 	this.status_msg = {
 		search_no_query: 'Por favor ingrese texto para realizar la busqueda',
@@ -46,7 +40,9 @@ jraptors.service('spanish', function () {
 	this.translate = {
 		'book': 'libro',
 		'copy': 'ejemplar',
-		'affiliate': 'socio'
+		'affiliate': 'socio',
+		'author': 'autor',
+		'editorial': 'editorial'
 	};
 
 });
