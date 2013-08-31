@@ -37,3 +37,48 @@ jraptors.controller('SelectEntityController',
 		}
 	]
 );
+
+
+
+//TODO
+jraptors.controller('DetailedViewController',
+	[
+		'$scope',
+		function ($scope) {
+		}
+	]
+);
+
+jraptors.controller('EditController',
+	[
+		'$scope',
+		function ($scope) {
+		}
+	]
+);
+
+
+jraptors.controller('ReturnController',
+	[
+		'$scope',
+		function ($scope) {
+		}
+	]
+);
+
+
+jraptors.controller('LendController',
+	[
+		'$scope',
+		function ($scope) {
+		}
+	]
+);
+
+jraptors.controller('CreateController',
+	[
+		'$scope',
+		function ($scope) {
+		}
+	]
+);
