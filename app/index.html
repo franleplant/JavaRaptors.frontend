@@ -66,7 +66,13 @@
 
 		<hr>
 
-		<div id="results" ng-view></div>
+		<div id="results">
+
+			<div ng-repeat="result in results" class="media search-result shadow" >
+				<div ng-include="'views/' + result.type + '.html'"></div>
+			</div>
+
+		</div>
 
 	</div>
 

@@ -14,18 +14,6 @@ jraptors.factory('Search', ['$resource',
 	]
 );
 
-jraptors.factory('Parse', ['$route',
-
-		function ($route) {
-			var re = /^.*\/(.*).html/gi;
-			return {
-				tmplToEntity: function () {
-					return re.exec(  $route.current.templateUrl  )[1];
-				}
-			};
-		}
-	]
-);
 
 jraptors.service('animations', function () {
 	this.proxy = jraptors.animations;
