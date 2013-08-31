@@ -4,7 +4,7 @@
 			<!-- Select -->
 			<div class="entity-selector btn-group" ng-controller="SelectEntityController">
 				<button class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">
-					{{  $location.path() | pathToEntity  }} <span class="caret"></span>
+					{{  $location.path() | pathToEntity | translate  }} <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
 					<li><a href="#/book" ng-click="reload()" ng-model="test"><i class="icon-book"></i>Libros</a></li>

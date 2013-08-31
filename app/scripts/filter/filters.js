@@ -13,14 +13,11 @@ angular.module('jraptorsFilters', []).
 		};
 	}).
 
-	filter('pathToEntity',	[ 'spanish',
+	filter('pathToEntity',	[ 
 
-			function(spanish) {
-				var key;
+			function() {
 				return function(input) {
-					key = input.slice(1);
-
-					return spanish.translate[key];
+					return input.slice(1);
 				};
 			}
 		]
