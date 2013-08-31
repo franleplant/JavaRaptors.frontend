@@ -40,7 +40,13 @@ input:focus:invalid:focus{
 
 
 footer {
-	background-color:#DDD
+	margin-top: 40px;
+
+}
+
+footer > p {
+	text-align: center;
+	color: blue;
 }
 
 
@@ -77,10 +83,12 @@ footer {
 #content {
 	position: relative;
 	margin-top: 92px;
+	min-height: 700px;
 }
 
 #content > div {
 	position: relative;
+	
 }
 
 /* login */
