@@ -61,10 +61,6 @@ footer {
 		margin-top: 200px;
 }
 
-#main-content {
-	position: relative;
-}
-
 #results > div {
 	position:relative;
 }
@@ -76,7 +72,15 @@ footer {
 }
 
 #breadcrumb {
-	margin-top: 43px;
+}
+
+#content {
+	position: relative;
+	margin-top: 92px;
+}
+
+#content > div {
+	position: relative;
 }
 
 /* login */
