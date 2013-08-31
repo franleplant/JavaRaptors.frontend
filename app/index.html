@@ -16,7 +16,7 @@
  
 	<header class="navbar navbar-inverse navbar-fixed-top">
 
-		<div class="navbar-inner">
+		<div class="navbar-inner" ng-controller="NavBarController">
 			<div class="container">
 				<a class="jr-logo brand" href="#">Java Raptors&reg - BiblioSoft&#8482</a>
           		<div class="nav-collapse collapse">
@@ -33,7 +33,7 @@
 			</div>
 		</div>
 
-		<div id="breadcrumb">
+		<div id="breadcrumb" ng-controller="BreadcrumbController">
 			<ul class="breadcrumb">
 				<li><a href="#">Home</a> <span class="divider">/</span></li>
 				<li><a href="#">Library</a> <span class="divider">/</span></li>

@@ -82,3 +82,19 @@ jraptors.controller('CreateController',
 		}
 	]
 );
+
+jraptors.controller('NavBarController',
+	[
+		'$scope',
+		function ($scope) {
+		}
+	]
+);
+
+jraptors.controller('BreadcrumbController',
+	[
+		'$scope',
+		function ($scope) {
+		}
+	]
+);
