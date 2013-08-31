@@ -5,6 +5,7 @@
 
 (function ($) {
 
+
 	// On page load focus on the search query
 	$('#search_query').focus();
 
@@ -18,6 +19,7 @@
 	jraptors.animations.on('search.first_valid', function () {
 		$('#search_group').animate({'marginTop': '0px'}, 500);
 	});
+
 
 }) (jQuery);
 
