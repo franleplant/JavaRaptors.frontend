@@ -13,10 +13,10 @@ jraptors.config(
 			$locationProvider.html5Mode(false);//read more at http://docs.angularjs.org/guide/dev_guide.services.$location
 
 			$routeProvider.
-				when('/book',      {templateUrl: 'views/book_snippet.html',      controller: 'SearchController'}).
-				when('/affiliate', {templateUrl: 'views/affiliate_snippet.html', controller: 'SearchController'}).
-				when('/author',    {templateUrl: 'views/author_snippet.html',    controller: 'SearchController'}).
-				when('/editorial', {templateUrl: 'views/editorial_snippet.html', controller: 'SearchController'}).
+				when('/book',      {templateUrl: 'views/search.html', controller: 'SearchController'}).
+				when('/affiliate', {templateUrl: 'views/search.html', controller: 'SearchController'}).
+				when('/author',    {templateUrl: 'views/search.html', controller: 'SearchController'}).
+				when('/editorial', {templateUrl: 'views/search.html', controller: 'SearchController'}).
 
 
 				when('/book/detailed_view/:id',      {templateUrl: 'views/book.html',      controller: 'DetailedViewController'}).
