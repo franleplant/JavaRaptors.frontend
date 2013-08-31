@@ -34,47 +34,7 @@
 		</div>
 	</header>
 
-    <div id="main-content" class="container" ng-controller="SearchController">
-		<form name="search_form" id="search_group" class="input-prepend input-append">
-
-			<!-- Select -->
-			<div class="entity-selector btn-group" ng-controller="SelectEntityController">
-				<button class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">
-					{{  $location.path() | pathToEntity  }} <span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu">
-					<li><a href="#/book" ng-click="reload()" ng-model="test"><i class="icon-book"></i>Libros</a></li>
-					<li><a href="#/affiliate" ng-click="reload()"><i class="icon-user"></i> Socios</a></li>
-					<li><a href="#/author" ng-click="reload()"><i class="icon-edit"></i> Autores</a></li>       
-					<li><a href="#/editorial" ng-click="reload()"><i class="icon-briefcase"></i> Editoriales</a></li>
-				</ul>
-			</div>
-
-			<input id="search_query" type="text" name="search_query" class="span5" ng-model="search_query" required></input>
-
-			<div class="btn-group">
-				<button id="search" class="btn btn-inverse" type="button" ng-click="search()" 
-					ng-disabled="search_form.$invalid && search_form.search_query.$dirty">
-					<i class="icon-search icon-white"></i>
-				</button>
-				<button class="btn " type="button"><i class="icon-plus"></i></button>
-			</div>
-			</br>
-			<span class="error" ng-show="search_form.search_query.$error.required">{{message}}</span>
-			<span class="error" ng-show="no_result">{{msg_no_result}}</span>
-  		</form>
-
-		<hr>
-
-		<div id="results">
-
-			<div ng-repeat="result in results" class="media search-result shadow" >
-				<div ng-include="'views/' + result.type + '.html'"></div>
-			</div>
-
-		</div>
-
-	</div>
+    <ng-view></ng-view>
 
 
 

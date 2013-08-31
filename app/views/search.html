@@ -1,60 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>JavaRaptors</title>
-		<!-- Styles -->
-		<link rel="stylesheet" href="../src/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../src/css/bootstrap-responsive.min.css">
-		<link rel="stylesheet" href="../src/css/style.css">
-	</head>
-	<body style="background-color: #1b1b1b;">    
+<div id="main-content" class="container">
+		<form name="search_form" id="search_group" class="input-prepend input-append">
 
-		<div id="wrap-login">
-			<div class="container">
-				<div class="row">
-					<div class="span3"></div>
-					<div class="span6" id="form-login">
-						<form action="../#/book" class="form-horizontal well" id="box-login">
- 
-							<div class="navbar navbar-inverse">
-								<div class="navbar-inner">
-									<a class="jr-logo brand" href="#">Java Raptors&reg - BiblioSoft&#8482</a>
-								</div>
-							</div>
-							<legend>Login</legend>
-								
-                            <div class="control-group">
-                                <div class="input-prepend">
-                                    <span class="add-on"><i class="icon-user"></i></span>
-                                    <input class="span4" placeholder="Nombre de usuario" type="text" name="username" id="username" required>
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                <div class="input-prepend">
-                                    <span class="add-on"><i class="icon-lock"></i></span>
-                                    <input class="span4" placeholder="Contraseña" type="password" name="contrasenia" id="contraseña" required>
-                                </div>
-                            </div>
-
-                            <div class="control-group">
-                                    <label for="mantener-sesion" class="checkbox">
-                                    	<input type="checkbox" name="mantener_sesion" id="mantener-sesion"> No cerrar sesión
-                                    </label>
-                            </div>
-
-							<div class="control-group" id="cg-submits">
-								<button type="submit" id="submit" class="btn btn-inverse button-loading" data-loading-text="Loading...">
-                                    <span class="add-on"><i class="icon-off icon-white"></i></span>
-                                    Entrar
-                                </button>
-								<a href="#" id="reset-psw">¿Olvidaste tu contraseña?</a>
-							</div>
-						</form>
-					</div>
-				</div>
+			<!-- Select -->
+			<div class="entity-selector btn-group" ng-controller="SelectEntityController">
+				<button class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">
+					{{  $location.path() | pathToEntity  }} <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><a href="#/book" ng-click="reload()" ng-model="test"><i class="icon-book"></i>Libros</a></li>
+					<li><a href="#/affiliate" ng-click="reload()"><i class="icon-user"></i> Socios</a></li>
+					<li><a href="#/author" ng-click="reload()"><i class="icon-edit"></i> Autores</a></li>       
+					<li><a href="#/editorial" ng-click="reload()"><i class="icon-briefcase"></i> Editoriales</a></li>
+				</ul>
 			</div>
+
+			<input id="search_query" type="text" name="search_query" class="span5" ng-model="search_query" required></input>
+
+			<div class="btn-group">
+				<button id="search" class="btn btn-inverse" type="button" ng-click="search()" 
+					ng-disabled="search_form.$invalid && search_form.search_query.$dirty">
+					<i class="icon-search icon-white"></i>
+				</button>
+				<button class="btn " type="button"><i class="icon-plus"></i></button>
+			</div>
+			</br>
+			<span class="error" ng-show="search_form.search_query.$error.required">{{message}}</span>
+			<span class="error" ng-show="no_result">{{msg_no_result}}</span>
+  		</form>
+
+		<hr>
+
+		<div id="results">
+
+			<div ng-repeat="result in results" class="media search-result shadow" >
+				<div ng-include="'views/' + result.type + '.html'"></div>
+			</div>
+
 		</div>
-	</body>
-</html>
+
+</div>
