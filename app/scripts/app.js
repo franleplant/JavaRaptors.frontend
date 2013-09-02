@@ -49,6 +49,9 @@ jraptors.config(
 				when('/user/create/:id',      {templateUrl: 'views/user_create.html',      controller: 'CreateController'}).
 				when('/location/create/:id',  {templateUrl: 'views/location_create.html',  controller: 'CreateController'}).
 
+
+				when('/report',      {templateUrl: 'views/report.html', controller: 'ReportController'}).
+
 				otherwise({redirectTo: '/book'});
 		}
 	]

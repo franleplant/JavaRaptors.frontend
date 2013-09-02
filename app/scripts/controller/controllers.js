@@ -98,3 +98,11 @@ jraptors.controller('BreadcrumbController',
 		}
 	]
 );
+
+jraptors.controller('ReportController',
+	[
+		'$scope',
+		function ($scope) {
+		}
+	]
+);
