@@ -42,7 +42,9 @@ jraptors.service('spanish', function () {
 		'copy': 'ejemplar',
 		'affiliate': 'socio',
 		'author': 'autor',
-		'editorial': 'editorial'
+		'editorial': 'editorial',
+		'user': 'usuario',
+		'location': 'ubicacion'
 	};
 
 });
