@@ -106,3 +106,35 @@ jraptors.controller('ReportController',
 		}
 	]
 );
+
+
+jraptors.controller('LoginController', 
+	[
+		'$scope', 'SearchUsers', '$window',
+		function ($scope, SearchUsers, $window) {
+
+			$scope.ComprobarLogin = function(){
+
+				$scope.results = SearchUsers.query({entityType: 'user'}, function (data) {
+					var validate = 'false';
+
+					for (var i = 0; i < data.length; i++) {
+						data[i];
+						if (data[i].userName == $scope.userName) {
+							if (data[i].userPsw == $scope.userPsw) {
+								validate = 'true';
+								window.location.href = '/#/book';
+							} else {
+								//console.log('no pas');
+							};
+						} else {
+								//console.log('no user');
+							};
+					};
+					
+					console.log(validate);
+				})
+			};
+		}
+	]
+);

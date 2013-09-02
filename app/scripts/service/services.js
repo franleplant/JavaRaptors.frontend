@@ -48,3 +48,17 @@ jraptors.service('spanish', function () {
 	};
 
 });
+
+
+jraptors.factory('SearchUsers', ['$resource',
+
+		function ($resource) {
+			return $resource('/dbmock/:entityType.json', {}, {
+				query: {
+					method: 'GET',
+					isArray: true
+				}
+			});
+		}
+	]
+);
