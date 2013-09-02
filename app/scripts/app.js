@@ -39,9 +39,6 @@ jraptors.config(
 				when('/location/edit/:id',  {templateUrl: 'views/location_edit.html',  controller: 'EditController'}).
 
 
-
-
-
 				when('/book/create/:id',      {templateUrl: 'views/book_create.html',      controller: 'CreateController'}).
 				when('/affiliate/create/:id', {templateUrl: 'views/affiliate_create.html', controller: 'CreateController'}).
 				when('/author/create/:id',    {templateUrl: 'views/author_create.html',    controller: 'CreateController'}).
@@ -54,6 +51,16 @@ jraptors.config(
 
 				otherwise({redirectTo: '/book'});
 		}
+	]
+);
+
+jraptors.run(
+	[
+		function () {
+			//read cookies
+			//intercept url changes and secure them
+		}
+
 	]
 );
 
