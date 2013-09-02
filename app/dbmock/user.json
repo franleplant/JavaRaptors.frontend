@@ -1,0 +1,14 @@
+[
+	{
+		"userId": "1",
+		"userName": "a",
+		"userPsw": "aa",
+		"userType": "1"
+	},
+	{
+		"userId": "2",
+		"userName": "b",
+		"userPsw": "bb",
+		"userType": "2"
+	}
+]
