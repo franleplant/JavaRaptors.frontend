@@ -154,5 +154,11 @@ angular.module('jraptorsService', []).
 		]
 	).
 
-	value('UserRoles', ['admin', 'super'] ).
-	value('SuperRestrictedRoutes', ['/user/*'])
+	value('UserRoles', {
+		'admin': {
+			'allowedRoutes': ['/book/*', '/affiliate/*','/author/*', '/editorial/*', '/location/*', '/report/*']
+		}, 
+		'super': {
+			'allowedRoutes': ['/*']
+		}
+	});

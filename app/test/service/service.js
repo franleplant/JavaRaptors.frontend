@@ -99,6 +99,13 @@ describe('Jraptors Services', function() {
 			});
 
 
+			it('should match base route with "/base/*" route', function() {
+
+				var result = PathSelector.match_paths("/book/*", "/book");
+
+				expect(result).toBe(true);
+			});
+
 			it('should match every route with "/*"', function() {
 
 				var result1 = PathSelector.match_paths("/*", "/book/id/123/a/route"),
