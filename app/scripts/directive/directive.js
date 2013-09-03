@@ -1,9 +1,11 @@
 angular.module('jraptorsDirectives', []).
-	directive('restrictToSuper',  [ 'UserSession',
+
+	// Directive to hide elements according to user Role
+	directive('restrictToRole',  [ 'UserSession',
 			function (UserSession) {
+
 				function link(scope, element, attrs) {
-					console.log(arguments)
-					if (  UserSession.role()  !== 'super') {
+					if (  UserSession.role()  !== attrs.restrictToRole) {
 						element.hide();
 					}
 				};
