@@ -55,12 +55,21 @@ jraptors.config(
 );
 
 jraptors.run(
-	[   '$rootScope', 'UserSession', '$cookies'
-		function ($rootScope, UserSession, $cookies) {
-			//intercept url changes and secure them
+	[   '$rootScope', 'UserSession', '$cookies', '$location',
+		function ($rootScope, UserSession, $cookies, $location) {
+			
 
 			UserSession.name(  $cookies.username  );
 			UserSession.role(  $cookies.userrole  );
+
+
+			//intercept url changes and secure them
+			//http://docs.angularjs.org/api/ngRoute.$route
+			$rootScope.$on('$routeChangeStart', function (event, next, current) {
+				if (  UserSession.isAllowedTo($location.path())  ) { 
+					$location.path('/affiliate');
+				};
+			});
 
 
 		}

@@ -50,32 +50,89 @@ jraptors.service('spanish', function () {
 });
 
 
-angular.module('jraptorsService', []).factory('UserSession', [
+angular.module('jraptorsService', []).
 
-		function () {
-			var user_session = {};
+	factory('PathSelector', [
+			function () {
 
-			var name = '';
-			var role = '';
+				//TODO: Document this function and the next one
+				function parse (str) {
+					var re = new RegExp("(/[^/]*)(.*)"),
+						tokens = str.match(re);
 
-			function get_set(container, newValue) {
-				if (!newValue) {
-					return container;
+					tokens.shift();
+
+					return tokens;
 				};
 
-				container = newValue;
-				return container;				
-			};
+				function match_paths( general, particular ) {
+					var t1 = parse(general),
+						t2 = parse(particular);
 
-			user_session.name = function (newValue) {
-				get_set(name, newValue);
-			};
+					if (  t1.shift() === t2.shift() ) {
+						if ( t1[0] === '/*') {
+							return true
+						} else {
+							match_paths(t1.join(''), t2.join(''))
+						}
+					};
 
-			user_session.role = function (newValue) {
-				get_set(role, newValue);
-			};
+					return false;
+				};
+				return {
+					match_paths: match_paths
+				};
+			}
+		]
+	).
 
-			return user_session;
-		}
-	]
-);
+	factory('UserSession', [ 'SuperRestrictedRoutes', 'PathSelector',
+
+			function (restrictedRoutes, PathSelector) {
+				var user_session = {};
+
+				var name = '';
+				var role = 0;
+
+				function get_set(container, newValue) {
+					if (!newValue) {
+						return container;
+					};
+
+					container = newValue;
+					return container;				
+				};
+
+
+
+
+				user_session.name = function (newValue) {
+					get_set(name, newValue);
+				};
+
+				user_session.role = function (newValue) {
+					get_set(role, newValue);
+				};
+
+				user_session.isAllowedTo = function (path) {
+
+					var i,
+						len = restrictedRoutes.length;
+
+					for (i = 0; i < len; i++) {
+						if ( PathSelector.match_paths( restrictedRoutes[i], path )) {
+							return true
+						}
+					};
+
+					return false;
+
+				};
+
+				return user_session;
+			}
+		]
+	).
+
+	value('UserRoles', ['admin', 'super'] ).
+	value('SuperRestrictedRoutes', ['/user/*'])
