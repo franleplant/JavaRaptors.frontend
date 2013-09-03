@@ -79,21 +79,15 @@ angular.module('jraptorsService', []).
 						base2 = p2.shift(),
 						rest2 = base2 === '' ? null : p2.shift();
 
+					if (  base1 === '/*') {
+						return true
+					};
 
 					if (  base1 === base2 ) {
-						
-						
-						if ( rest1 == '/*') {
-
-							return true;
-							
-						} else {
-							if (rest1 === rest2) {
-								return true;
-							};
-
-							return match_paths(rest1, rest2);
-						}
+						if (rest1 === rest2) {
+							return true
+						};					
+						return match_paths(rest1, rest2);
 					};
 
 					return false;
@@ -135,6 +129,7 @@ angular.module('jraptorsService', []).
 					return role;	
 				};
 
+				// Get this working better, generalize
 				user_session.isAllowedTo = function (path) {
 
 					

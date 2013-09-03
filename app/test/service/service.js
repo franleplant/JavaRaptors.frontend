@@ -65,39 +65,50 @@ describe('Jraptors Services', function() {
 
 			it('should return true with any route when the general route has "/*" postfix', function() {
 
-				var result = PathSelector.match_paths("/book/*", "/book/what/ever/path")
+				var result = PathSelector.match_paths("/book/*", "/book/what/ever/path");
 
 				expect(result).toBe(true);
 			});
 
 			it('should return false with different based routes when the general route has "/*" postfix', function() {
 
-				var result = PathSelector.match_paths("/book/*", "/other/what/ever/path")
+				var result = PathSelector.match_paths("/book/*", "/other/what/ever/path");
 
 				expect(result).toBe(false);
 			});
 
 			it('should match multi level routes', function() {
 
-				var result = PathSelector.match_paths("/book/id/123", "/book/id/123")
+				var result = PathSelector.match_paths("/book/id/123", "/book/id/123");
 
 				expect(result).toBe(true);
 			});
 
 			it('should fail on multi level routes begining the same and differ later', function() {
 
-				var result = PathSelector.match_paths("/book/id/200", "/book/id/100")
+				var result = PathSelector.match_paths("/book/id/200", "/book/id/100");
 
 				expect(result).toBe(false);
 			});
 
 			it('should match multi level routes with "/*" postfix', function() {
 
-				var result = PathSelector.match_paths("/book/id/123/*", "/book/id/123/a/route")
+				var result = PathSelector.match_paths("/book/id/123/*", "/book/id/123/a/route");
 
 				expect(result).toBe(true);
 			});
 
+
+			it('should match every route with "/*"', function() {
+
+				var result1 = PathSelector.match_paths("/*", "/book/id/123/a/route"),
+					result2 = PathSelector.match_paths("/*", ""),
+					result3 = PathSelector.match_paths("/*", "/");
+
+				expect(result1).toBe(true);
+				expect(result2).toBe(true);
+				expect(result3).toBe(true);
+			});
 	    });
   });
 });
