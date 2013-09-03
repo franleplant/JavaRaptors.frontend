@@ -50,7 +50,7 @@ jraptors.service('spanish', function () {
 });
 
 
-angular.module('jraptorsService', []).
+angular.module('jraptorsServices', []).
 
 	factory('PathSelector', [
 			function () {
