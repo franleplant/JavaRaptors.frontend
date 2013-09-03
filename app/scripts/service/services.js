@@ -79,7 +79,6 @@ angular.module('jraptorsService', []).
 						base2 = p2.shift(),
 						rest2 = base2 === '' ? null : p2.shift();
 
-						console.log(base1, base2);
 
 					if (  base1 === base2 ) {
 						
@@ -100,7 +99,7 @@ angular.module('jraptorsService', []).
 					return false;
 				};
 
-				
+
 				return {
 					match_paths: match_paths,
 					get_firt_directory: get_firt_directory
@@ -109,47 +108,50 @@ angular.module('jraptorsService', []).
 		]
 	).
 
-	factory('UserSession', [ 'SuperRestrictedRoutes', 'PathSelector',
+	factory('UserSession', [ 'SuperRestrictedRoutes', 'PathSelector', 'UserRoles',
 
-			function (restrictedRoutes, PathSelector) {
+			function (restrictedRoutes, PathSelector, UserRoles) {
 				var user_session = {};
 
-				var name = '';
-				var role = 0;
+				var name, role;
 
-				function get_set(container, newValue) {
+
+				//TODO: Refactor and test
+				user_session.name = function (newValue) {
 					if (!newValue) {
-						return container;
+						return name;
 					};
 
-					container = newValue;
-					return container;				
-				};
-
-
-
-
-				user_session.name = function (newValue) {
-					get_set(name, newValue);
+					name = newValue;
+					return name;	
 				};
 
 				user_session.role = function (newValue) {
-					get_set(role, newValue);
+					if (!newValue) {
+						return role;
+					};
+
+					role = newValue;
+					return role;	
 				};
 
 				user_session.isAllowedTo = function (path) {
 
+					
 					var i,
 						len = restrictedRoutes.length;
 
-					for (i = 0; i < len; i++) {
-						if ( PathSelector.match_paths( restrictedRoutes[i], path )) {
-							return true
-						}
+
+					if (role === '1') {
+						return true;
 					};
 
-					return false;
 
+					for (i = 0; i < len; i++) {
+						if ( PathSelector.match_paths( restrictedRoutes[i], path )) {
+							return false;
+						}
+					};
 				};
 
 				return user_session;

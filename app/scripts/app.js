@@ -49,6 +49,8 @@ jraptors.config(
 
 				when('/report',      {templateUrl: 'views/report.html', controller: 'ReportController'}).
 
+				when('/401',         {templateUrl: 'views/401.html', controller: 'ReportController'}).
+
 				otherwise({redirectTo: '/book'});
 		}
 	]
@@ -58,16 +60,18 @@ jraptors.run(
 	[   '$rootScope', 'UserSession', '$cookies', '$location',
 		function ($rootScope, UserSession, $cookies, $location) {
 			
+			$cookies.username = "franleplant";
+			$cookies.userrole = "1";
 
 			UserSession.name(  $cookies.username  );
 			UserSession.role(  $cookies.userrole  );
 
 
-			//intercept url changes and secure them
+
 			//http://docs.angularjs.org/api/ngRoute.$route
 			$rootScope.$on('$routeChangeStart', function (event, next, current) {
-				if (  UserSession.isAllowedTo($location.path())  ) { 
-					$location.path('/affiliate');
+				if (  !UserSession.isAllowedTo( $location.path() )  ) { 
+					$location.path('/401');
 				};
 			});
 
