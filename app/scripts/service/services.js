@@ -56,31 +56,54 @@ angular.module('jraptorsService', []).
 			function () {
 
 				//TODO: Document this function and the next one
-				function parse (str) {
-					var re = new RegExp("(/[^/]*)(.*)"),
+				function get_firt_directory(str) {
+					var re = new RegExp('(/[^/]*)(.*)'),
 						tokens = str.match(re);
+
+					if ( !tokens ) {
+						return [''];
+					};
+
 
 					tokens.shift();
 
-					return tokens;
+					return tokens || [];
 				};
 
 				function match_paths( general, particular ) {
-					var t1 = parse(general),
-						t2 = parse(particular);
 
-					if (  t1.shift() === t2.shift() ) {
-						if ( t1[0] === '/*') {
-							return true
+					var p1    = get_firt_directory(general),
+						base1 = p1.shift(), 
+						rest1 = base1 === '' ? null : p1.shift(),
+						p2    = get_firt_directory(particular),
+						base2 = p2.shift(),
+						rest2 = base2 === '' ? null : p2.shift();
+
+						console.log(base1, base2);
+
+					if (  base1 === base2 ) {
+						
+						
+						if ( rest1 == '/*') {
+
+							return true;
+							
 						} else {
-							match_paths(t1.join(''), t2.join(''))
+							if (rest1 === rest2) {
+								return true;
+							};
+
+							return match_paths(rest1, rest2);
 						}
 					};
 
 					return false;
 				};
+
+				
 				return {
-					match_paths: match_paths
+					match_paths: match_paths,
+					get_firt_directory: get_firt_directory
 				};
 			}
 		]
