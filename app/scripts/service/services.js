@@ -48,3 +48,34 @@ jraptors.service('spanish', function () {
 	};
 
 });
+
+
+angular.module('jraptorsService', []).factory('UserSession', [
+
+		function () {
+			var user_session = {};
+
+			var name = '';
+			var role = '';
+
+			function get_set(container, newValue) {
+				if (!newValue) {
+					return container;
+				};
+
+				container = newValue;
+				return container;				
+			};
+
+			user_session.name = function (newValue) {
+				get_set(name, newValue);
+			};
+
+			user_session.role = function (newValue) {
+				get_set(role, newValue);
+			};
+
+			return user_session;
+		}
+	]
+);

@@ -1,4 +1,4 @@
-var jraptors = angular.module('jraptors', ['ngResource', 'jraptorsFilters']);
+var jraptors = angular.module('jraptors', ['ngResource', 'ngCookies', 'jraptorsFilters', 'jraptorsService']);
 
 //
 // Build an animation proxy for event dispatcher
@@ -55,10 +55,14 @@ jraptors.config(
 );
 
 jraptors.run(
-	[
-		function () {
-			//read cookies
+	[   '$rootScope', 'UserSession', '$cookies'
+		function ($rootScope, UserSession, $cookies) {
 			//intercept url changes and secure them
+
+			UserSession.name(  $cookies.username  );
+			UserSession.role(  $cookies.userrole  );
+
+
 		}
 
 	]
