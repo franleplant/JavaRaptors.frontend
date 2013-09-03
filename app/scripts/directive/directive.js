@@ -10,7 +10,9 @@ angular.module('jraptorsDirectives', []).
 					}
 				};
 
-				return link;
+				return {
+					link: link
+				};
 			} 
 		]
 	);
