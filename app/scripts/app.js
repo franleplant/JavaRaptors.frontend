@@ -61,11 +61,10 @@ jraptors.run(
 		function ($rootScope, UserSession, $cookies, $location) {
 			
 			$cookies.username = "franleplant";
-			$cookies.userrole = "1";
+			$cookies.userrole = "super";
 
 			UserSession.name(  $cookies.username  );
 			UserSession.role(  $cookies.userrole  );
-
 
 
 			//http://docs.angularjs.org/api/ngRoute.$route

@@ -102,9 +102,9 @@ angular.module('jraptorsService', []).
 		]
 	).
 
-	factory('UserSession', [ 'SuperRestrictedRoutes', 'PathSelector', 'UserRoles',
+	factory('UserSession', [ 'PathSelector', 'UserRoles',
 
-			function (restrictedRoutes, PathSelector, UserRoles) {
+			function (PathSelector, UserRoles) {
 				var user_session = {};
 
 				var name, role;
@@ -129,24 +129,18 @@ angular.module('jraptorsService', []).
 					return role;	
 				};
 
-				// Get this working better, generalize
-				user_session.isAllowedTo = function (path) {
-
-					
+				user_session.isAllowedTo = function (path) {				
 					var i,
-						len = restrictedRoutes.length;
-
-
-					if (role === '1') {
-						return true;
-					};
-
+						allowedRoutes = UserRoles[role].allowedRoutes,
+						len = allowedRoutes.length;
 
 					for (i = 0; i < len; i++) {
-						if ( PathSelector.match_paths( restrictedRoutes[i], path )) {
-							return false;
+						if ( PathSelector.match_paths( allowedRoutes[i], path )) {
+							return true;
 						}
 					};
+
+					return false;
 				};
 
 				return user_session;
