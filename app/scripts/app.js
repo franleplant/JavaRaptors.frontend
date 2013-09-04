@@ -66,7 +66,6 @@ jraptors.run(
 			UserSession.name(  $cookies.username  );
 			UserSession.role(  $cookies.userrole  );
 
-
 			//http://docs.angularjs.org/api/ngRoute.$route
 			$rootScope.$on('$routeChangeStart', function (event, next, current) {
 				if (  !UserSession.isAllowedTo( $location.path() )  ) { 
