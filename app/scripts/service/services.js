@@ -41,7 +41,7 @@ jraptors.service('spanish', function () {
 });
 
 
-angular.module('jraptorsServices', []).
+angular.module('jraptorsServices', ['jraptorsConfig']).
 
 	factory('PathSelector', [
 			function () {
@@ -137,13 +137,5 @@ angular.module('jraptorsServices', []).
 				return user_session;
 			}
 		]
-	).
+	);
 
-	value('UserRoles', {
-		'admin': {
-			'allowedRoutes': ['/book/*', '/affiliate/*','/author/*', '/editorial/*', '/location/*', '/report/*']
-		}, 
-		'super': {
-			'allowedRoutes': ['/*']
-		}
-	});

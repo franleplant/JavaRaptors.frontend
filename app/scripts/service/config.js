@@ -9,4 +9,13 @@ angular.module('jraptorsConfig', []).
 				'user':'label-important',
 				'location': 'label-important'
 			}
-	);
+	).
+
+	value('UserRoles', {
+		'admin': {
+			'allowedRoutes': ['/book/*', '/affiliate/*','/author/*', '/editorial/*', '/location/*', '/report/*']
+		}, 
+		'super': {
+			'allowedRoutes': ['/*']
+		}
+	});
