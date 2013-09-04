@@ -56,8 +56,40 @@ jraptors.config(
 	]
 );
 
+
+//HTTP interceptor for server errors, mainly auth errors
+jraptors.config(
+	[
+		'$httpProvider', 
+		function ($httpProvider) {
+			//http://bneijt.nl/blog/post/angularjs-intercept-api-error-responses/
+    		$httpProvider.interceptors.push( 
+    			[
+    				'$q', '$location',
+    				function ($q, $location) {
+						return {
+							'response': function (response) {
+								return response;
+							},
+							'responseError': function (rejection) {
+								if(rejection.status === 401) {
+									$location.path('/401');
+								};
+								return $q.reject(rejection);
+							}
+						};
+
+
+					}
+				]
+    		);
+		}
+	]
+);
+
 jraptors.run(
-	[   '$rootScope', 'UserSession', '$cookies', '$location',
+	[   
+		'$rootScope', 'UserSession', '$cookies', '$location',
 		function ($rootScope, UserSession, $cookies, $location) {
 			
 			$cookies.username = "franleplant";
