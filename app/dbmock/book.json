@@ -1,7 +1,7 @@
 [
 	{
 		"id": 1,
-		"type": "copy",
+		"type": "book",
 		"title": "Harry Poter 1 and the Sorcerer's Stone",
 		"isbn": 123123123,
 		"authors": [
