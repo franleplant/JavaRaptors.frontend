@@ -1,4 +1,6 @@
-var jraptors = angular.module('jraptors', ['ngResource', 'ngCookies', 'jraptorsFilters', 'jraptorsServices', 'jraptorsDirectives', 'jraptorsConfig']);
+var jraptors = angular.module('jraptors', [
+	'ngResource','jraptorsFilters', 'jraptorsServices', 'jraptorsDirectives', 'jraptorsConfig', 'jraptorsConfigBlock', 'jraptorsRunBlock'
+	]);
 
 //
 // Build an animation proxy for event dispatcher
@@ -58,7 +60,7 @@ jraptors.config(
 
 
 //HTTP interceptor for server errors, mainly auth errors
-jraptors.config(
+angular.module('jraptorsConfigBlock', []).config(
 	[
 		'$httpProvider', 
 		function ($httpProvider) {
@@ -87,7 +89,7 @@ jraptors.config(
 	]
 );
 
-jraptors.run(
+angular.module('jraptorsRunBlock', ['ngCookies']).run(
 	[   
 		'$rootScope', 'UserSession', '$cookies', '$location',
 		function ($rootScope, UserSession, $cookies, $location) {
