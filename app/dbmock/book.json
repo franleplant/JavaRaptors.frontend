@@ -150,6 +150,46 @@
 		}
 	},
 
+
+	{
+		"id": 12321,
+		"type": "copy",
+		"title": "Harry Poter 1 and the Sorcerer's Stone",
+		"isbn": 123123123,
+		"authors": [
+			{
+				"name": "JK Rownling",
+				"link": "/some/url"
+			}
+		],
+		"genres": "fantasy",
+		"editionNumber": "3erd",
+		"editionCountry": "Mexico",
+		"summary": "Harrys potters is a little child",
+		"editorial": {
+			"name": "Salamadra",
+			"link": "/some/url"
+		},
+		"img": "http://www.amyatwell.com/testud1/wp-content/uploads/2012/06/51DF6ZR8G7L._SL500_AA300_.jpg",
+		"lang": "Spanish",
+		"val": 7,
+		"price": "30 u$s",
+		"creationDate": 1377528419068,
+		"creationUser": "franleplant",
+		"comments": "blah blah blah  blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah",
+		"location": {
+			"id": 123,
+			"shelf": "1",
+			"shelves": "A"
+		},
+		"state": "good",
+		"editionYear": 2010,
+		"creationDate": 1377528419068,
+		"creationUser": "franleplant",
+		"comments": "blah blah blah",
+		"lendType": "foreign"
+	},
+
 	{
 		"id": 2,
 		"type": "book",
