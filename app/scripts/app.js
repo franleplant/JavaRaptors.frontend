@@ -1,4 +1,4 @@
-var jraptors = angular.module('jraptors', ['ngResource', 'jraptorsFilters']);
+var jraptors = angular.module('jraptors', ['ngResource', 'ngCookies', 'jraptorsFilters', 'jraptorsServices', 'jraptorsDirectives']);
 
 //
 // Build an animation proxy for event dispatcher
@@ -39,9 +39,6 @@ jraptors.config(
 				when('/location/edit/:id',  {templateUrl: 'views/location_edit.html',  controller: 'EditController'}).
 
 
-
-
-
 				when('/book/create/:id',      {templateUrl: 'views/book_create.html',      controller: 'CreateController'}).
 				when('/affiliate/create/:id', {templateUrl: 'views/affiliate_create.html', controller: 'CreateController'}).
 				when('/author/create/:id',    {templateUrl: 'views/author_create.html',    controller: 'CreateController'}).
@@ -52,8 +49,65 @@ jraptors.config(
 
 				when('/report',      {templateUrl: 'views/report.html', controller: 'ReportController'}).
 
+				when('/401',         {templateUrl: 'views/401.html', controller: 'ReportController'}).
+
 				otherwise({redirectTo: '/book'});
 		}
+	]
+);
+
+
+//HTTP interceptor for server errors, mainly auth errors
+jraptors.config(
+	[
+		'$httpProvider', 
+		function ($httpProvider) {
+			//http://bneijt.nl/blog/post/angularjs-intercept-api-error-responses/
+    		$httpProvider.interceptors.push( 
+    			[
+    				'$q', '$location',
+    				function ($q, $location) {
+						return {
+							'response': function (response) {
+								return response;
+							},
+							'responseError': function (rejection) {
+								if(rejection.status === 401) {
+									$location.path('/401');
+								};
+								return $q.reject(rejection);
+							}
+						};
+
+
+					}
+				]
+    		);
+		}
+	]
+);
+
+jraptors.run(
+	[   
+		'$rootScope', 'UserSession', '$cookies', '$location',
+		function ($rootScope, UserSession, $cookies, $location) {
+			
+			$cookies.username = "franleplant";
+			$cookies.userrole = "admin";
+
+			UserSession.name(  $cookies.username  );
+			UserSession.role(  $cookies.userrole  );
+
+			//http://docs.angularjs.org/api/ngRoute.$route
+			$rootScope.$on('$routeChangeStart', function (event, next, current) {
+				if (  !UserSession.isAllowedTo( $location.path() )  ) { 
+					$location.path('/401');
+				};
+			});
+
+
+		}
+
 	]
 );
 

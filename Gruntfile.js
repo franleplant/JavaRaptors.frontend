@@ -69,14 +69,9 @@ module.exports = function(grunt) {
 
 
 		karma: {
-			unit: {
-				browsers: ['PhantomJS'],
-				runnerPort: 9999,
-				colors: true,
-				autoWatch: true
-			},
-			options: {
-				files: ['test/*.js']
+			dev: {
+				configFile: 'karma.conf.js',
+				singleRun: false
 			}
 		},
 		watch: {
@@ -91,7 +86,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	grunt.loadNpmTasks('grunt-contrib-connect');
-	//grunt.loadNpmTasks('grunt-karma');
+	grunt.loadNpmTasks('grunt-karma');
 
 	grunt.registerTask('default',[ 'connect']);
 
