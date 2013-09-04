@@ -20,15 +20,6 @@ jraptors.service('animations', function () {
 });
 
 
-jraptors.service('english', function () {
-
-	this.status_msg = {
-		search_no_query: 'Please input some text to make the search',
-		search_no_results: 'The search has thrown no results, please re define it'
-	};
-});
-
-
 
 jraptors.service('spanish', function () {
 
