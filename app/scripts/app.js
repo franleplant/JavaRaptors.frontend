@@ -1,4 +1,4 @@
-var jraptors = angular.module('jraptors', ['ngResource', 'ngCookies', 'jraptorsFilters', 'jraptorsServices', 'jraptorsDirectives']);
+var jraptors = angular.module('jraptors', ['ngResource', 'ngCookies', 'jraptorsFilters', 'jraptorsServices', 'jraptorsDirectives', 'jraptorsConfig']);
 
 //
 // Build an animation proxy for event dispatcher

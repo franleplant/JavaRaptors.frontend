@@ -1,4 +1,4 @@
-angular.module('jraptorsFilters', []).
+angular.module('jraptorsFilters', ['jraptorsConfig']).
 
 	filter('availableToLendCopys', function() {
 
@@ -23,23 +23,13 @@ angular.module('jraptorsFilters', []).
 		]
 	).
 
-	filter('toClassLabel',	function() {
-
-			var mapper = {
-				'book': '',
-				'copy': 'label-inverse',
-				'affiliate': 'label-info',
-				'editorial': 'label-warning',
-				'author': 'label-success',
-				'user':'label-important',
-				'location': 'label-important'
-			};
-
-			return function(input) {
-				return mapper[input];
-			};
-		}
-		
+	filter('toClassLabel', [ 'entityLabel',
+			function(entityLabel) {
+				return function(input) {
+					return entityLabel[input];
+				};
+			}
+		]
 	).
 
 	filter('translate',	[ 'spanish',
