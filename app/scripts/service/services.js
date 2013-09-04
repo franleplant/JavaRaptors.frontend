@@ -1,20 +1,6 @@
 // Move every service into factory, it is more clear what they do, see http://jsfiddle.net/manishchhabra/Ne5P8/
 
 
-jraptors.factory('Search', ['$resource',
-
-		function ($resource) {
-			return $resource('/dbmock/:entityType.json', {}, {
-				query: {
-					method: 'GET',
-					isArray: true
-				}
-			});
-		}
-	]
-);
-
-
 jraptors.service('animations', function () {
 	this.proxy = jraptors.animations;
 });
@@ -22,6 +8,20 @@ jraptors.service('animations', function () {
 
 
 angular.module('jraptorsServices', ['jraptorsConfig']).
+
+
+	factory('Search', ['$resource',
+
+			function ($resource) {
+				return $resource('/dbmock/:entityType.json', {}, {
+					query: {
+						method: 'GET',
+						isArray: true
+					}
+				});
+			}
+		]
+	).
 
 	factory('PathSelector', [
 			function () {
