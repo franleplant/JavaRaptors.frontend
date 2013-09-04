@@ -19,7 +19,7 @@ jraptors.config(
 				when('/editorial', {templateUrl: 'views/search.html', controller: 'SearchController'}).
 				when('/user',      {templateUrl: 'views/search.html', controller: 'SearchController'}).
 				when('/location',  {templateUrl: 'views/search.html', controller: 'SearchController'}).
-				when('/login',     {templateUrl: 'login.html', controller: 'LoginController'}).
+			/*	when('/login',     {templateUrl: 'login.html', controller: 'LoginController'}).*/
 
 				when('/book/return/:id',    {templateUrl: 'views/book_return.html',    controller: 'ReturnController'}).
 				when('/book/lend/:id',      {templateUrl: 'views/book_lend.html',      controller: 'LendController'}).
@@ -53,8 +53,8 @@ jraptors.config(
 
 				when('/report',      {templateUrl: 'views/report.html', controller: 'ReportController'}).
 
-				/*otherwise({redirectTo: '/book'});*/
-				otherwise({redirectTo: '/login'});
+				otherwise({redirectTo: '/book'});
+			/*	otherwise({redirectTo: '/login'});*/
 		}
 	]
 );

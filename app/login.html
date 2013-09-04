@@ -22,7 +22,7 @@
 									<a class="jr-logo brand" href="#">Java Raptors&reg - BiblioSoft&#8482</a>
 								</div>
 							</div>
-							<legend>Login</legend>
+							<legend>Login Cookie Value: {{lastVal}}</legend>
 								
                             <div class="control-group">
                                 <div class="input-prepend">
@@ -47,6 +47,7 @@
 
 							<div class="control-group" id="cg-submits">
 							<a class="btn btn-inverse button-loading" data-loading-text="Loading..." ng-click="ComprobarLogin()"> Entrar </a>
+							<a class="btn btn-inverse button-loading" data-loading-text="Loading..." ng-click="changeTab('1')"> Cook </a>
 						<!-- 	<button type="submit" id="submit" class="btn btn-inverse button-loading" data-loading-text="Loading...">
 						                                    <span class="add-on"><i class="icon-off icon-white"></i></span>
 						                                    Entrar2
@@ -58,16 +59,16 @@
 				</div>
 			</div>
 		</div>
-<!-- 
-    <script type="text/javascript" src="scripts/vendor/jquery-2.0.3.js"></script>
+
+	<script type="text/javascript" src="scripts/vendor/jquery-2.0.3.js"></script>
 	<script type="text/javascript" src="scripts/vendor/bootstrap.js"></script>
 	<script type="text/javascript" src="scripts/vendor/angular-1.0.7.js"></script>
 	<script type="text/javascript" src="scripts/vendor/angular-resource-1.0.8.js"></script>
-	<script type="text/javascript" src="scripts/filter/filters.js"></script>
-	<script type="text/javascript" src="scripts/app.js"></script>
-	<script type="text/javascript" src="scripts/service/services.js"></script>
-	<script type="text/javascript" src="scripts/animationsux.js"></script>
-	<script type="text/javascript" src="scripts/controller/controllers.js"></script>
- -->
+	<script type="text/javascript" src="http://code.angularjs.org/1.0.0rc10/angular-cookies-1.0.0rc10.js"></script>
+	<script type="text/javascript" src="scripts/filter/filters_login.js"></script>
+	<script type="text/javascript" src="scripts/app_login.js"></script>	
+	<script type="text/javascript" src="scripts/service/services_login.js"></script>
+	<script type="text/javascript" src="scripts/controller/controllers_login.js"></script>
+
 	</body>
 </html>
