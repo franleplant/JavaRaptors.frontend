@@ -56,18 +56,9 @@ angular.module('jraptorsFilters', []).
 	filter('typeToTemplate', [
 
 			function() {
-
-				var mapper = {
-					'book': 'book',
-					'copy': 'book',
-					'affiliate': 'affiliate',
-					'author': 'author',
-					'user': 'user',
-					'location': 'location'
-				}
-
 				return function(input, prefix, posfix) {
-					return prefix + mapper[input] + posfix;
+					input = input === 'copy' ? 'book' : input
+					return prefix + input + posfix;
 				};
 			}
 		]
