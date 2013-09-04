@@ -31,4 +31,7 @@ This command must be executed in the project root directory
 	$ grunt watch 
 
 
+### How to run all the tests?
+This command will also run the tests whenever a file changes.
 
+	$ grunt karma
