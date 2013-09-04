@@ -62,9 +62,36 @@ angular.module('jraptorsFilters', ['jraptorsConfig']).
 	}).
 
 	filter('copysToAction', [ 'availableCopyActions',
+			function(availableCopyActions) {
+				return function(input) {
+					return input ? availableCopyActions[true] : availableCopyActions[false];
+				};
+			}
+		]
+	).
+
+	filter('copysToClass', [ 'availableCopyClasses',
+			function(availableCopyClasses) {
+				return function(input) {
+					return input ? availableCopyClasses[true] : availableCopyClasses[false];
+				};
+			}
+		]
+	).
+
+	filter('hasAttribute', [
 			function() {
 				return function(input) {
-					return input ? '\u2713' : '\u2718';
+					return input ? true : false;
+				};
+			}
+		]
+	).
+
+	filter('negation', [
+			function() {
+				return function(input) {
+					return input ? false : true;
 				};
 			}
 		]

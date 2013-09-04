@@ -18,7 +18,7 @@
 
 	<dl class="snippet_spec" compact>
 		<dt>Disponibilidad</dt>
-		<dd ng-show="result.type == 'copy'">{{result.copys | availableToLendCopys | checkmark}}</dd>
+		<dd ng-show="result.type == 'copy'">{{result.lend | hasAttribute | negation | checkmark}}</dd>
 		<dd ng-hide="result.type == 'copy'">{{result.copys | availableToLendCopys }}/{{result.copys.length}}</dd>
 
 		<dt>Edicion</dt>
@@ -32,8 +32,8 @@
 	</dl>
 
 
-	<button title="{{result.copys | availableToLendCopys | copysToAction}}" class="btn btn-inverse btn-large" type="button" ng-show="result.type == 'copy'">
-		<i class="icon-arrow-left icon-white"></i>
+	<button title="{{result.lend | hasAttribute | copysToAction}}" class="btn btn-inverse btn-large" type="button" ng-show="result.type == 'copy'">
+		<i class="icon-white" ng-class="result.lend | hasAttribute | copysToClass"></i>
 	</button>
 
 </div>

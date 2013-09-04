@@ -31,6 +31,11 @@ angular.module('jraptorsConfig', []).
 	}).
 
 	value('availableCopyActions', {
-		true: '',
-		false: ''
+		true: 'Devolver',
+		false: 'Prestar'
+	}).
+
+	value('availableCopyClasses', {
+		true: 'icon-arrow-left',
+		false: 'icon-arrow-right'
 	});
