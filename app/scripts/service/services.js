@@ -21,21 +21,6 @@ jraptors.service('animations', function () {
 
 
 
-jraptors.service('spanish', function () {
-
-	this.translate = {
-		'book': 'libro',
-		'copy': 'ejemplar',
-		'affiliate': 'socio',
-		'author': 'autor',
-		'editorial': 'editorial',
-		'user': 'usuario',
-		'location': 'ubicacion'
-	};
-
-});
-
-
 angular.module('jraptorsServices', ['jraptorsConfig']).
 
 	factory('PathSelector', [

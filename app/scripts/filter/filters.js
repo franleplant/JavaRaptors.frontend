@@ -37,7 +37,7 @@ angular.module('jraptorsFilters', ['jraptorsConfig']).
 			function(spanish) {
 
 				return function(input) {
-					return spanish.translate[input];
+					return spanish[input];
 				};
 			}
 		]

@@ -18,4 +18,14 @@ angular.module('jraptorsConfig', []).
 		'super': {
 			'allowedRoutes': ['/*']
 		}
+	}).
+
+	value('spanish', {
+		'book': 'libro',
+		'copy': 'ejemplar',
+		'affiliate': 'socio',
+		'author': 'autor',
+		'editorial': 'editorial',
+		'user': 'usuario',
+		'location': 'ubicacion'
 	});
