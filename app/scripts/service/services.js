@@ -27,7 +27,7 @@ angular.module('jraptorsServices', ['jraptorsConfig']).
 			function () {
 
 				//TODO: Document this function and the next one
-				function get_firt_directory(str) {
+				function get_first_directory(str) {
 					var re = new RegExp('(/[^/]*)(.*)'),
 						tokens = str.match(re);
 
@@ -43,10 +43,10 @@ angular.module('jraptorsServices', ['jraptorsConfig']).
 
 				function match_paths( general, particular ) {
 
-					var p1    = get_firt_directory(general),
+					var p1    = get_first_directory(general),
 						base1 = p1.shift(), 
 						rest1 = base1 === '' ? null : p1.shift(),
-						p2    = get_firt_directory(particular),
+						p2    = get_first_directory(particular),
 						base2 = p2.shift(),
 						rest2 = base2 === '' ? null : p2.shift();
 
@@ -67,7 +67,7 @@ angular.module('jraptorsServices', ['jraptorsConfig']).
 
 				return {
 					match_paths: match_paths,
-					get_firt_directory: get_firt_directory
+					get_first_directory: get_first_directory
 				};
 			}
 		]

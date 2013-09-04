@@ -6,7 +6,7 @@ describe('Jraptors Services', function() {
 
 		beforeEach(function() {
 
-			module('jraptorsService')
+			module('jraptorsServices')
 			//http://docs.angularjs.org/api/angular.mock.inject
 			//http://docs.angularjs.org/api/angular.mock.module
 			//https://github.com/angular/angular.js/tree/v1.2.0rc1/src/ngMock
@@ -19,7 +19,7 @@ describe('Jraptors Services', function() {
 
 			it('should get the first directory of one level path right', function() {
 
-				var result = PathSelector.get_firt_directory("/book")
+				var result = PathSelector.get_first_directory("/book")
 
 				expect(result[0]).toBe("/book");
 				expect(result[1]).toBe("");
@@ -29,7 +29,7 @@ describe('Jraptors Services', function() {
 
 			it('should get the first directory of a multiple level path right', function() {
 
-				var result = PathSelector.get_firt_directory("/book/test/of/a/path")
+				var result = PathSelector.get_first_directory("/book/test/of/a/path")
 
 				expect(result[0]).toBe("/book");
 				expect(result[1]).toBe("/test/of/a/path");
@@ -38,7 +38,7 @@ describe('Jraptors Services', function() {
 
 			it('should parse empty string right', function() {
 
-				var result = PathSelector.get_firt_directory("")
+				var result = PathSelector.get_first_directory("")
 
 				expect(result[0]).toBe("");
 			});			
