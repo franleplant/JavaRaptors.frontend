@@ -91,6 +91,10 @@ footer > p {
 	
 }
 
+#results > div.media > div > a.pull-left {
+	margin-right: 20px;
+}
+
 /* login */
 #box-login {
 	margin-top: 70px;
