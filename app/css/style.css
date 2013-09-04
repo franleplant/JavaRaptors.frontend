@@ -38,6 +38,24 @@ input:focus:invalid:focus{
 	padding:15px;
 }
 
+.authors a{
+	float: left;
+	margin-right: 20px;
+}
+
+dt:after {
+	content: ":";
+}
+
+dd, dt {
+	float:left;
+}
+
+dd {
+	margin-right: 15px;
+	margin-left: 5px;
+}
+
 
 footer {
 	margin-top: 40px;

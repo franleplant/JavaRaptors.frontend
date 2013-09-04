@@ -8,6 +8,11 @@
 			{
 				"name": "JK Rownling",
 				"link": "/some/url"
+			},
+
+			{
+				"name": "JK Rownling2",
+				"link": "/some/url2"
 			}
 		],
 		"genres": "fantasy",
