@@ -28,4 +28,9 @@ angular.module('jraptorsConfig', []).
 		'editorial': 'editorial',
 		'user': 'usuario',
 		'location': 'ubicacion'
+	}).
+
+	value('availableCopyActions', {
+		true: '',
+		false: ''
 	});

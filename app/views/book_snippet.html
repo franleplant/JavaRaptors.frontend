@@ -1,6 +1,6 @@
 <span class="label" ng-class="result.type | toClassLabel">{{result.type | translate}}</span>
 <a class="pull-left" href="#">
-	<img class="media-object" ng-src={{result.img}} width=100>
+	<img class="media-object" ng-src={{result.img}}>
 </a>
 <div class="media-body">
 
@@ -18,8 +18,8 @@
 
 	<dl class="snippet_spec" compact>
 		<dt>Disponibilidad</dt>
-		<dd ng-show="result.type == 'copy'">{{result.lend.length == 0}}</dd>
-		<dd ng-hide="result.type == 'copy'">2/3</dd>
+		<dd ng-show="result.type == 'copy'">{{result.copys | availableToLendCopys | checkmark}}</dd>
+		<dd ng-hide="result.type == 'copy'">{{result.copys | availableToLendCopys }}/{{result.copys.length}}</dd>
 
 		<dt>Edicion</dt>
 		<dd>{{result.editionNumber}}</dd>
@@ -29,8 +29,11 @@
 
 		<dt>ISBN</dt>
 		<dd>{{result.isbn}}</dd>
-
-
 	</dl>
+
+
+	<button title="{{result.copys | availableToLendCopys | copysToAction}}" class="btn btn-inverse btn-large" type="button" ng-show="result.type == 'copy'">
+		<i class="icon-arrow-left icon-white"></i>
+	</button>
 
 </div>

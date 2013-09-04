@@ -52,4 +52,20 @@ angular.module('jraptorsFilters', ['jraptorsConfig']).
 				};
 			}
 		]
+	).
+
+	filter('checkmark', 
+		function() {
+			return function(input) {
+				return input ? '\u2713' : '\u2718';
+			};
+	}).
+
+	filter('copysToAction', [ 'availableCopyActions',
+			function() {
+				return function(input) {
+					return input ? '\u2713' : '\u2718';
+				};
+			}
+		]
 	);
