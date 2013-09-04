@@ -5,9 +5,6 @@ jraptors.controller('SearchController',
 		'$scope', 'animations', 'spanish', 'Search', '$location',
 		function ($scope, animations, spanish, Search, $location) {
 
-			$scope.message =       spanish.status_msg.search_no_query;
-			$scope.msg_no_result = spanish.status_msg.search_no_result;
-
 			$scope.search = function () {
 
 				// This is to test no_result, TODO: MAKE A TEST CASE
