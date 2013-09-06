@@ -7,7 +7,7 @@
 	<a ng-href="#/book/detailed_view/{{result.id}}"><h4 class="media-heading">{{result.title}}</h4></a>
 
 	<div class="authors clearfix" >			
-		<a ng-repeat="author in result.authors" ng-href="/author/detailed_view/{{author.id}}">
+		<a ng-repeat="author in result.authors" ng-href="#/author/detailed_view/{{author.id}}" target="_blank">
 			<h5 class="media-heading">{{author.name}}</h5>
 		</a>
 	</div>
@@ -25,7 +25,7 @@
 		<dd>{{result.editionNumber}}</dd>
 
 		<dt>Editorial</dt>
-		<dd><a ng-href="{{result.editorial.link}}" target="_blank">{{result.editorial.name}}</a></dd>
+		<dd><a ng-href="#/editorial/detailed_view/{{result.editorial.id}}" target="_blank">{{result.editorial.name}}</a></dd>
 
 		<dt>ISBN</dt>
 		<dd>{{result.isbn}}</dd>
