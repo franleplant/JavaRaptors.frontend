@@ -9,10 +9,13 @@ jraptors.controller('SearchController',
 
 				// This is to test no_result, TODO: MAKE A TEST CASE
 				//$scope.results = Search.query({entityType: 'book_no_result'}, function (data) {
-				$scope.results =Search.query(  {  entityType: $location.path().slice(1)  }, function (data) {
-					$scope.no_result = data[0].no_result ? true : false;
-				})
-				;
+				$scope.results =Search.query({  
+						q: $scope.search_query, 
+						entityType: $location.path().slice(1)  
+					}, 
+					function (data) {
+						$scope.no_result = data[0].no_result ? true : false;
+					});
 
 				animations.proxy.trigger('search.first_valid');
 
