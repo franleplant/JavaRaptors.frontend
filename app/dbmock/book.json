@@ -22,6 +22,7 @@
 		"editionCountry": "Mexico",
 		"summary": "Harrys potters is a little child",
 		"editorial": {
+			"id": 123,
 			"name": "Salamadra",
 			"link": "/some/url"
 		},
@@ -114,6 +115,7 @@
 		"editionCountry": "Mexico",
 		"summary": "Harrys potters is a little child",
 		"editorial": {
+			"id": 123,
 			"name": "Salamadra",
 			"link": "/some/url"
 		},
@@ -171,6 +173,7 @@
 		"editionCountry": "Mexico",
 		"summary": "Harrys potters is a little child",
 		"editorial": {
+			"id": 123,
 			"name": "Salamadra",
 			"link": "/some/url"
 		},
@@ -211,6 +214,7 @@
 		"editionCountry": "Mexico",
 		"summary": "Harrys potters is a little child",
 		"editorial": {
+			"id": 123,
 			"name": "Salamadra",
 			"link": "/some/url"
 		},
@@ -303,6 +307,7 @@
 		"editionCountry": "Mexico",
 		"summary": "Harrys potters is a little child",
 		"editorial": {
+			"id": 123,
 			"name": "Salamadra",
 			"link": "/some/url"
 		},
