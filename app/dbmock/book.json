@@ -6,11 +6,13 @@
 		"isbn": 123123123,
 		"authors": [
 			{
+				"id": 123123,
 				"name": "JK Rownling",
 				"link": "/some/url"
 			},
 
-			{
+			{	
+				"id": 123123,
 				"name": "JK Rownling2",
 				"link": "/some/url2"
 			}
@@ -102,6 +104,7 @@
 		"isbn": 123123123,
 		"authors": [
 			{
+				"id": 123123,
 				"name": "JK Rownling",
 				"link": "/some/url"
 			}
@@ -158,6 +161,7 @@
 		"isbn": 123123123,
 		"authors": [
 			{
+				"id": 123123,
 				"name": "JK Rownling",
 				"link": "/some/url"
 			}
@@ -197,6 +201,7 @@
 		"isbn": 123123123,
 		"authors": [
 			{
+				"id": 123123,
 				"name": "JK Rownling",
 				"link": "/some/url"
 			}
