@@ -95,4 +95,13 @@ angular.module('jraptorsFilters', ['jraptorsConfig']).
 				};
 			}
 		]
+	).
+
+	filter('boolToLendReturn', [
+			function() {
+				return function(input) {
+					return input ? 'lend' : 'return';
+				};
+			}
+		]
 	);

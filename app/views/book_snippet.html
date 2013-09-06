@@ -32,8 +32,9 @@
 	</dl>
 
 
-	<button title="{{result.lend | hasAttribute | copysToAction}}" class="btn btn-inverse btn-large" type="button" ng-show="result.type == 'copy'">
+	<a ng-href="#/book/{{result.lend | hasAttribute | negation | boolToLendReturn}}/{{result.id}}" title="{{result.lend | hasAttribute | copysToAction}}" 
+		class="lend-return-button btn btn-inverse btn-large" type="button" ng-show="result.type == 'copy'">
 		<i class="icon-white" ng-class="result.lend | hasAttribute | copysToClass"></i>
-	</button>
+	</a>
 
 </div>
