@@ -34,7 +34,7 @@
 
 		<div id="results">
 			<pagination num-pages="response.page_total" current-page="response.page_number" on-select-page="search(page)" 
-				ng-show="$parent.response.page_total | hasAttribute">
+				ng-show="$parent.response.page_total > 1">
 			</pagination>
 
 			<div ng-repeat="result in response.results" class="media search-result shadow" >
@@ -43,7 +43,7 @@
 
 
 			<pagination num-pages="response.page_total" current-page="response.page_number" on-select-page="search(page)" 
-				ng-show="$parent.response.page_total | hasAttribute">
+				ng-show="$parent.response.page_total > 1">
 			</pagination>
 		</div>
 
