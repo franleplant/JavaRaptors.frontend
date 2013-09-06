@@ -15,8 +15,7 @@ angular.module('jraptorsServices', ['jraptorsConfig']).
 			function ($resource) {
 				return $resource('/dbmock/:entityType.json', {}, {
 					query: {
-						method: 'GET',
-						isArray: true
+						method: 'GET'
 					}
 				});
 			}
