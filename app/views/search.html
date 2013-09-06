@@ -41,6 +41,10 @@
 				<div ng-include="result.type | typeToTemplate:'views/':'_snippet.html'"></div>
 			</div>
 
+
+			<pagination num-pages="response.page_total" current-page="response.page_number" on-select-page="search(page)" 
+				ng-show="$parent.response.page_total | hasAttribute">
+			</pagination>
 		</div>
 
 </div>
