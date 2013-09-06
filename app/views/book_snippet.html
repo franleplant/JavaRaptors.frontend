@@ -7,7 +7,7 @@
 	<a ng-href="#/book/detailed_view/{{result.id}}"><h4 class="media-heading">{{result.title}}</h4></a>
 
 	<div class="authors clearfix" >			
-		<a ng-repeat="author in result.authors" href={{author.link}}>
+		<a ng-repeat="author in result.authors" ng-href="/author/detailed_view/{{author.id}}">
 			<h5 class="media-heading">{{author.name}}</h5>
 		</a>
 	</div>
