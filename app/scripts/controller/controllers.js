@@ -2,15 +2,16 @@
 
 jraptors.controller('SearchController',
 	[
-		'$scope', 'animations', 'spanish', 'Search', '$location',
-		function ($scope, animations, spanish, Search, $location) {
+		'$scope', 'animations', 'Search', '$location',
+		function ($scope, animations, Search, $location) {
 
 			$scope.search = function () {
 
 				// This is to test no_result, TODO: MAKE A TEST CASE
 				//$scope.results = Search.query({entityType: 'book_no_result'}, function (data) {
 				$scope.response = Search.query({  
-						q: $scope.search_query, 
+						q: $scope.search_query,
+						page_number: $scope.page_number || 1, 
 						entityType: $location.path().slice(1)  
 					}, 
 					function (data) {

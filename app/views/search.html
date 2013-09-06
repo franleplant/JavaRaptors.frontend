@@ -33,7 +33,9 @@
 		<hr>
 
 		<div id="results">
-			<pagination num-pages="response.page_total" current-page="response.page_number"></pagination>
+			<pagination num-pages="response.page_total" current-page="response.page_number" on-select-page="search()" 
+				ng-show="$parent.response.page_total | hasAttribute">
+			</pagination>
 
 			<div ng-repeat="result in response.results" class="media search-result shadow" >
 				<div ng-include="result.type | typeToTemplate:'views/':'_snippet.html'"></div>
