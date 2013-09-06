@@ -33,6 +33,7 @@
 		<hr>
 
 		<div id="results">
+			<pagination num-pages="noOfPages" current-page="currentPage"></pagination>
 
 			<div ng-repeat="result in results" class="media search-result shadow" >
 				<div ng-include="result.type | typeToTemplate:'views/':'_snippet.html'"></div>
