@@ -74,6 +74,19 @@ describe('jraptors', function () {
     });
 
 
+    describe('/book', function () {
+
+        beforeEach(function() {
+            browser().navigateTo('../../app/index.html#/book');
+        });
+
+        it('should render /book when user navigates to /book', function() {
+            expect(element('.dropdown-toggle').text()).toMatch(/libro/i);
+        });        
+
+    });
+
+
 
 
 
