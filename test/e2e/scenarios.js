@@ -48,12 +48,34 @@ describe('my app', function() {
 
 describe('jraptors', function () {
 
-    beforeEach(function() {
-        browser().navigateTo('../../app/index.html');
+    describe('empty url redirection', function () {
+
+        beforeEach(function() {
+            browser().navigateTo('../../app/index.html');
+        });
+
+
+        it('should automatically redirect to /book when location hash/fragment is empty', function() {
+            expect(browser().location().url()).toBe("/book");
+        });
+
     });
 
-    it('should automatically redirect to /book when location hash/fragment is empty', function() {
-        expect(browser().location().url()).toBe("/book");
+    describe('not valid url redirection', function () {
+
+        beforeEach(function() {
+            browser().navigateTo('../../app/index.html#/not_a_valid_path');
+        });
+
+        it('should automatically redirect to /book when location hash/fragment is not a valid path', function() {
+            expect(browser().location().url()).toBe("/book");
+        });
+
     });
+
+
+
+
+
 
 });
