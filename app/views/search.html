@@ -37,7 +37,7 @@
 				ng-show="$parent.response.page_total > 1">
 			</pagination>
 
-			<div ng-repeat="result in response.results" class="media search-result shadow" >
+			<div ng-repeat="result in response.results" class="media search-result shadow result" >
 				<div ng-include="result.type | typeToTemplate:'views/':'_snippet.html'"></div>
 			</div>
 
