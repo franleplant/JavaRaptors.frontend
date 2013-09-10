@@ -105,10 +105,12 @@ describe('jraptors', function () {
 			it('should render book_snippet template', function () {
 				expect(  repeater('div.result:first > div > span').count()  ).toBe(1);
 				expect(  repeater('div.result:first > div > a').count()  ).toBe(1);	
-				expect(  repeater('div.result:first > div > div.media-body').count()  ).toBe(1);				
+				expect(  repeater('div.result:first > div > div.media-body').count()  ).toBe(1);		
 			});
 
-
+			it('should render pagination helpers', function () {
+				expect(  element('#results > div.pagination').count()  ).toBe(2);			
+			});
 
 		});
 
