@@ -9,11 +9,11 @@ jraptors.controller('SearchController',
 				
 				// This is to test no_result, TODO: MAKE A TEST CASE
 				//$scope.results = Search.query({entityType: 'book_no_result'}, function (data) {
-				$scope.response = Search.query({  
+				$scope.response = Search.query({
 						q: $scope.search_query,
-						page_number: page || 1, 
-						entityType: $location.path().slice(1)  
-					}, 
+						page_number: page || 1,
+						entityType: $location.path().slice(1)
+					},
 					function (data) {
 						$scope.no_result = data.no_result ? true : false;
 					});
@@ -40,7 +40,7 @@ jraptors.controller('SelectEntityController',
 );
 
 
-
+/*
 
 //TODO
 jraptors.controller('DetailedViewController',
@@ -108,3 +108,4 @@ jraptors.controller('ReportController',
 		}
 	]
 );
+*/

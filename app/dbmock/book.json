@@ -14,7 +14,7 @@
 					"link": "/some/url"
 				},
 
-				{	
+				{
 					"id": 123123,
 					"name": "JK Rownling2",
 					"link": "/some/url2"
@@ -136,9 +136,6 @@
 			},
 			"state": "good",
 			"editionYear": 2010,
-			"creationDate": 1377528419068,
-			"creationUser": "franleplant",
-			"comments": "blah blah blah",
 			"lendType": "foreign",
 			"lend": {
 				"affiliate": {
@@ -194,9 +191,6 @@
 			},
 			"state": "good",
 			"editionYear": 2010,
-			"creationDate": 1377528419068,
-			"creationUser": "franleplant",
-			"comments": "blah blah blah",
 			"lendType": "foreign"
 		},
 

@@ -1,50 +1,5 @@
-'use strict';
+/* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-/* http://docs.angularjs.org/guide/dev_guide.e2e-testing 
-
-describe('my app', function() {
-
-  beforeEach(function() {
-	browser().navigateTo('../../app/index.html');
-  });
-
-
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-	expect(browser().location().url()).toBe("/view1");
-  });
-
-
-  describe('view1', function() {
-
-	beforeEach(function() {
-	  browser().navigateTo('#/view1');
-	});
-
-
-	it('should render view1 when user navigates to /view1', function() {
-	  expect(element('[ng-view] p:first').text()).
-		toMatch(/partial for view 1/);
-	});
-
-  });
-
-
-  describe('view2', function() {
-
-	beforeEach(function() {
-	  browser().navigateTo('#/view2');
-	});
-
-
-	it('should render view2 when user navigates to /view2', function() {
-	  expect(element('[ng-view] p:first').text()).
-		toMatch(/partial for view 2/);
-	});
-
-  });
-});
-
-*/
 
 describe('jraptors', function () {
 
@@ -56,7 +11,7 @@ describe('jraptors', function () {
 
 
 		it('should automatically redirect to /book when location hash/fragment is empty', function() {
-			expect(browser().location().url()).toBe("/book");
+			expect(browser().location().url()).toBe('/book');
 		});
 
 	});
@@ -68,7 +23,7 @@ describe('jraptors', function () {
 		});
 
 		it('should automatically redirect to /book when location hash/fragment is not a valid path', function() {
-			expect(browser().location().url()).toBe("/book");
+			expect(browser().location().url()).toBe('/book');
 		});
 
 	});
@@ -86,7 +41,7 @@ describe('jraptors', function () {
 
 			it('should render /book when user navigates to /book', function() {
 				expect(element('.dropdown-toggle').text()).toMatch(/libro/i);
-			});  
+			});
 		});
 
 
@@ -99,28 +54,20 @@ describe('jraptors', function () {
 
 
 			it('should render book search results', function () {
-				expect(  repeater('div.result').count()  ).toBeGreaterThan(1);				
+				expect(  repeater('div.result').count()  ).toBeGreaterThan(1);
 			});
 
 			it('should render book_snippet template', function () {
 				expect(  repeater('div.result:first > div > span').count()  ).toBe(1);
-				expect(  repeater('div.result:first > div > a').count()  ).toBe(1);	
-				expect(  repeater('div.result:first > div > div.media-body').count()  ).toBe(1);		
+				expect(  repeater('div.result:first > div > a').count()  ).toBe(1);
+				expect(  repeater('div.result:first > div > div.media-body').count()  ).toBe(1);
 			});
 
 			it('should render pagination helpers', function () {
-				expect(  element('#results > div.pagination').count()  ).toBe(2);			
+				expect(  element('#results > div.pagination').count()  ).toBe(2);
 			});
 
 		});
-
-	  
-
 	});
-
-
-
-
-
 
 });

@@ -1,6 +1,6 @@
 var jraptors = angular.module('jraptors', [
 	'ngResource','jraptorsFilters', 'jraptorsServices', 'jraptorsDirectives', 'jraptorsConfig', 'jraptorsConfigBlock', 'jraptorsRunBlock', 'ui.bootstrap'
-	]);
+]);
 
 //
 // Build an animation proxy for event dispatcher
@@ -62,13 +62,13 @@ jraptors.config(
 //HTTP interceptor for server errors, mainly auth errors
 angular.module('jraptorsConfigBlock', []).config(
 	[
-		'$httpProvider', 
+		'$httpProvider',
 		function ($httpProvider) {
 			//http://bneijt.nl/blog/post/angularjs-intercept-api-error-responses/
-    		$httpProvider.interceptors.push( 
-    			[
-    				'$q', '$location',
-    				function ($q, $location) {
+			$httpProvider.interceptors.push(
+				[
+					'$q', '$location',
+					function ($q, $location) {
 						return {
 							'response': function (response) {
 								return response;
@@ -76,35 +76,33 @@ angular.module('jraptorsConfigBlock', []).config(
 							'responseError': function (rejection) {
 								if(rejection.status === 401) {
 									$location.path('/401');
-								};
+								}
 								return $q.reject(rejection);
 							}
 						};
-
-
 					}
 				]
-    		);
+			);
 		}
 	]
 );
 
 angular.module('jraptorsRunBlock', ['ngCookies']).run(
-	[   
+	[
 		'$rootScope', 'UserSession', '$cookies', '$location',
 		function ($rootScope, UserSession, $cookies, $location) {
 			
-			$cookies.username = "franleplant";
-			$cookies.userrole = "admin";
+			$cookies.username = 'franleplant';
+			$cookies.userrole = 'admin';
 
 			UserSession.name(  $cookies.username  );
 			UserSession.role(  $cookies.userrole  );
 
 			//http://docs.angularjs.org/api/ngRoute.$route
-			$rootScope.$on('$routeChangeStart', function (event, next, current) {
-				if (  !UserSession.isAllowedTo( $location.path() )  ) { 
+			$rootScope.$on('$routeChangeStart', function () {
+				if (  !UserSession.isAllowedTo( $location.path() )  ) {
 					$location.path('/401');
-				};
+				}
 			});
 
 

@@ -22,8 +22,7 @@ angular.module('jraptorsServices', ['jraptorsConfig']).
 		]
 	).
 
-	factory('PathSelector', [
-			function () {
+	factory('PathSelector', [ function () {
 
 				//TODO: Document this function and the next one
 				function get_first_directory(str) {
@@ -32,36 +31,36 @@ angular.module('jraptorsServices', ['jraptorsConfig']).
 
 					if ( !tokens ) {
 						return [''];
-					};
+					}
 
 
 					tokens.shift();
 
 					return tokens || [];
-				};
+				}
 
 				function match_paths( general, particular ) {
 
 					var p1    = get_first_directory(general),
-						base1 = p1.shift(), 
+						base1 = p1.shift(),
 						rest1 = base1 === '' ? null : p1.shift(),
 						p2    = get_first_directory(particular),
 						base2 = p2.shift(),
 						rest2 = base2 === '' ? null : p2.shift();
 
 					if (  base1 === '/*') {
-						return true
-					};
+						return true;
+					}
 
 					if (  base1 === base2 ) {
 						if (rest1 === rest2) {
-							return true
-						};					
+							return true;
+						}
 						return match_paths(rest1, rest2);
-					};
+					}
 
 					return false;
-				};
+				}
 
 
 				return {
@@ -80,26 +79,26 @@ angular.module('jraptorsServices', ['jraptorsConfig']).
 				var name, role;
 
 
-				//TODO: Refactor and test
+				//TODO: Refactor
 				user_session.name = function (newValue) {
 					if (!newValue) {
 						return name;
-					};
+					}
 
 					name = newValue;
-					return name;	
+					return name;
 				};
 
 				user_session.role = function (newValue) {
 					if (!newValue) {
 						return role;
-					};
+					}
 
 					role = newValue;
-					return role;	
+					return role;
 				};
 
-				user_session.isAllowedTo = function (path) {				
+				user_session.isAllowedTo = function (path) {
 					var i,
 						allowedRoutes = UserRoles[role].allowedRoutes,
 						len = allowedRoutes.length;
@@ -108,7 +107,7 @@ angular.module('jraptorsServices', ['jraptorsConfig']).
 						if ( PathSelector.match_paths( allowedRoutes[i], path )) {
 							return true;
 						}
-					};
+					}
 
 					return false;
 				};

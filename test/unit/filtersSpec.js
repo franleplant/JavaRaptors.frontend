@@ -28,7 +28,8 @@ describe('filters', function () {
 		it('should boolean negate a given boolean value', inject(function(notFilter) {
 				expect(  notFilter(true)  ).toBe(false);
 				expect(  notFilter(false)  ).toBe(true);
-		}));
+			}
+		));
 
 	});
 
