@@ -11,7 +11,7 @@ describe('jraptors', function () {
 
 
 		it('should automatically redirect to /book when location hash/fragment is empty', function() {
-			expect(browser().location().url()).toBe('/book');
+			expect(  browser().location().url()  ).toBe('/book');
 		});
 
 	});
@@ -23,7 +23,7 @@ describe('jraptors', function () {
 		});
 
 		it('should automatically redirect to /book when location hash/fragment is not a valid path', function() {
-			expect(browser().location().url()).toBe('/book');
+			expect(  browser().location().url()  ).toBe('/book');
 		});
 
 	});
@@ -40,7 +40,7 @@ describe('jraptors', function () {
 
 
 			it('should render /book when user navigates to /book', function() {
-				expect(element('.dropdown-toggle').text()).toMatch(/libro/i);
+				expect(  element('.dropdown-toggle').text()  ).toMatch(/libro/i);
 			});
 		});
 

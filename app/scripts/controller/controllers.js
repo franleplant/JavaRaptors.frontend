@@ -40,7 +40,7 @@ jraptors.controller('SelectEntityController',
 );
 
 
-/*
+
 
 //TODO
 jraptors.controller('DetailedViewController',
@@ -108,4 +108,3 @@ jraptors.controller('ReportController',
 		}
 	]
 );
-*/
