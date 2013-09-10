@@ -13,13 +13,13 @@
 	</div>
 	
 
-	<h5 ng-show="result.type == 'copy'">ID: {{result.id}}</h5>
+	<h5 ng-if="result.type == 'copy'">ID: {{result.id}}</h5>
 
 
 	<dl class="snippet_spec" compact>
 		<dt>Disponibilidad</dt>
-		<dd ng-show="result.type == 'copy'">{{result.lend | hasAttribute | negation | checkmark}}</dd>
-		<dd ng-hide="result.type == 'copy'">{{result.copys | availableToLendCopys }}/{{result.copys.length}}</dd>
+		<dd ng-if="result.type == 'copy'">{{result.lend | hasAttribute | negation | checkmark}}</dd>
+		<dd ng-if="result.type == 'book'">{{result.copys | availableToLendCopys }}/{{result.copys.length}}</dd>
 
 		<dt>Edicion</dt>
 		<dd>{{result.editionNumber}}</dd>
@@ -33,7 +33,7 @@
 
 
 	<a ng-href="#/book/{{result.lend | hasAttribute | negation | boolToLendReturn}}/{{result.id}}" title="{{result.lend | hasAttribute | copysToAction}}" 
-		class="lend-return-button btn btn-inverse btn-large" type="button" ng-show="result.type == 'copy'">
+		class="lend-return-button btn btn-inverse btn-large" type="button" ng-if="result.type == 'copy'">
 		<i class="icon-white" ng-class="result.lend | hasAttribute | copysToClass"></i>
 	</a>
 
