@@ -88,7 +88,7 @@ angular.module('jraptorsFilters', ['jraptorsConfig']).
 		]
 	).
 
-	filter('negation', [
+	filter('not', [
 			function() {
 				return function(input) {
 					return input ? false : true;
