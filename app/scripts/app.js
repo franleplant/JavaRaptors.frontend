@@ -1,5 +1,5 @@
 var jraptors = angular.module('jraptors', [
-	'ngResource','jraptorsFilters', 'jraptorsServices', 'jraptorsDirectives', 'jraptorsConfig', 'jraptorsConfigBlock', 'jraptorsRunBlock', 'ui.bootstrap'
+	'ngResource','jraptors.Controllers', 'jraptorsFilters', 'jraptorsServices', 'jraptorsDirectives', 'jraptorsConfig', 'jraptorsConfigBlock', 'jraptorsRunBlock', 'ui.bootstrap'
 ]);
 
 //

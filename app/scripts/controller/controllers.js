@@ -1,6 +1,6 @@
 
 
-jraptors.controller('SearchController',
+angular.module('jraptors.Controllers', []).controller('SearchController',
 	[
 		'$scope', 'animations', 'Search', '$location',
 		function ($scope, animations, Search, $location) {
@@ -28,80 +28,80 @@ jraptors.controller('SearchController',
 			};
 		}
 	]
-);
+).
 
-jraptors.controller('SelectEntityController',
+controller('SelectEntityController',
 	[
 		'$scope', '$location',
 		function ($scope, $location) {
 			$scope.$location = $location;
 		}
 	]
-);
+).
 
 
 
 
 //TODO
-jraptors.controller('DetailedViewController',
+controller('DetailedViewController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
-jraptors.controller('EditController',
+controller('EditController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
 
-jraptors.controller('ReturnController',
+controller('ReturnController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
 
-jraptors.controller('LendController',
+controller('LendController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
-jraptors.controller('CreateController',
+controller('CreateController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
-jraptors.controller('NavBarController',
+controller('NavBarController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
-jraptors.controller('BreadcrumbController',
+controller('BreadcrumbController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
-jraptors.controller('ReportController',
+controller('ReportController',
 	[
 		'$scope',
 		function ($scope) {
