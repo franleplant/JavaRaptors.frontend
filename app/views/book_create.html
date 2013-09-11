@@ -42,12 +42,12 @@
 
 	
 	<fieldset>
-		<legend>Ejemplares <button class="btn"><i class="icon-plus-sign"></i></button></legend>	
+		<legend>Ejemplares <button class="btn" ng-click="add_copy()"><i class="icon-plus-sign"></i></button></legend>	
 
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th># Serie</th>
+					<th>#Serie</th>
 					<th>Estado Fisico</th>
 					<th>Año de Edicion</th>
 					<th>Tipo de Prestamo</th>
@@ -57,29 +57,13 @@
 			</thead>
 
 			<tbody>
-				<tr>
-					<td><input type="text" value="1"></input></td>
-					<td><input type="text" value="Nuevo"></input></td>
-					<td><input type="text" value="2012"></input></td>
-					<td><input type="text" value="Local"></input></td>
-					<td><input type="text" value="Blah blah blah blah blahj"></input></td>
-					<td><button class="btn"><i class="icon-minus-sign"></i></button></td>
-				</tr>
-				<tr>
-					<td><input type="text" value="1"></input></td>
-					<td><input type="text" value="Nuevo"></input></td>
-					<td><input type="text" value="2012"></input></td>
-					<td><input type="text" value="Local"></input></td>
-					<td><input type="text" value="Blah blah blah blah blahj"></input></td>
-					<td><button class="btn"><i class="icon-minus-sign"></i></button></td>
-				</tr>
-				<tr>
-					<td><input type="text" value="1"></input></td>
-					<td><input type="text" value="Nuevo"></input></td>
-					<td><input type="text" value="2012"></input></td>
-					<td><input type="text" value="Local"></input></td>
-					<td><input type="text" value="Blah blah blah blah blahj"></input></td>
-					<td><button class="btn"><i class="icon-minus-sign"></i></button></td>
+				<tr ng-repeat="copy in new_book.copys">
+					<td><span>{{copy.id}}</span></td>
+					<td><input type="text" value={{copy.state}} ng-model="copy.state"></input></td>
+					<td><input type="text" value={{copy.editionYear}} ng-model="copy.editionYear"></input></td>
+					<td><input type="text" value={{copy.lendType}} ng-model="copy.lendType"></input></td>
+					<td><input type="text" value={{copy.comments}} ng-model="copy.comments"></input></td>
+					<td><button class="btn" ng-click="rm_copy($index)"><i class="icon-minus-sign"></i></button></td>
 				</tr>
 			</tbody>
 		</table>

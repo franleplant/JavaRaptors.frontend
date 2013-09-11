@@ -87,12 +87,21 @@ controller('CreateController',
 		'$scope',
 		function ($scope) {
 
-			var i = 0;
+			var i = 1,
+				j = 1;
 
 			$scope.new_book = {
-				authors: ['author1', 'author2', 'author3']
+				authors: ['author1', 'author2', 'author3'],
+				copys: [{
+					id: 1230,
+					state: 'nuevo',
+					editionYear: 2012,
+					lendType: 'local',
+					comments: 'blah blah blah blah'
+				}]
 			};
 
+			//TODO: refactor this
 			$scope.rm_author = function (i) {
 				$scope.new_book.authors.splice(i,1);
 			};
@@ -100,6 +109,16 @@ controller('CreateController',
 			$scope.add_author = function () {
 				$scope.new_book.authors.push('new_author' + i);
 				i++;
+			};
+
+			$scope.rm_copy = function (i) {
+				console.log($scope.new_book.copys[i])
+				$scope.new_book.copys.splice(i,1);
+			};
+
+			$scope.add_copy = function () {
+				$scope.new_book.copys.push({comments: "new copy" + j});
+				j++;
 			};
 		}
 	]
