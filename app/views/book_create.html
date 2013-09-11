@@ -14,9 +14,20 @@
 
 
 	<fieldset>
-		<legend>Autores</legend>
-		<label>Autores</label>
-		<input type="text" placeholder="Type something…">
+		<legend>Autores <button class="btn"><i class="icon-plus-sign"></i></button></legend>
+		<ul class="unstyled">
+			<li>
+				<div class="input-prepend input-append">
+					<label class="add-on">Autor N° 1</label>
+					<input class="span2" type="text" value="autor1">
+					<button class="btn"><i class="icon-minus-sign"></i>
+				</div>
+			</li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		
 	</fieldset>
 
 
@@ -33,9 +44,47 @@
 
 	
 	<fieldset>
-		<legend>Ejemplares</legend>	
-		<label>Ejemplares</label>
-		<input type="text" placeholder="Type something…">
+		<legend>Ejemplares <button class="btn"><i class="icon-plus-sign"></i></button></legend>	
+
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th># Serie</th>
+					<th>Estado Fisico</th>
+					<th>Año de Edicion</th>
+					<th>Tipo de Prestamo</th>
+					<th>Comentarios</th>
+					<th>Borrar</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td><input type="text" value="1"></input></td>
+					<td><input type="text" value="Nuevo"></input></td>
+					<td><input type="text" value="2012"></input></td>
+					<td><input type="text" value="Local"></input></td>
+					<td><input type="text" value="Blah blah blah blah blahj"></input></td>
+					<td><button class="btn"><i class="icon-minus-sign"></i></button></td>
+				</tr>
+				<tr>
+					<td><input type="text" value="1"></input></td>
+					<td><input type="text" value="Nuevo"></input></td>
+					<td><input type="text" value="2012"></input></td>
+					<td><input type="text" value="Local"></input></td>
+					<td><input type="text" value="Blah blah blah blah blahj"></input></td>
+					<td><button class="btn"><i class="icon-minus-sign"></i></button></td>
+				</tr>
+				<tr>
+					<td><input type="text" value="1"></input></td>
+					<td><input type="text" value="Nuevo"></input></td>
+					<td><input type="text" value="2012"></input></td>
+					<td><input type="text" value="Local"></input></td>
+					<td><input type="text" value="Blah blah blah blah blahj"></input></td>
+					<td><button class="btn"><i class="icon-minus-sign"></i></button></td>
+				</tr>
+			</tbody>
+		</table>
 	</fieldset>
 
 	
@@ -51,7 +100,6 @@
 		
 	<fieldset>
 		<legend>Comentarios</legend>
-		<label>Comentarios</label>
 		<textarea rows="3"></textarea>
 	</fieldset>
 

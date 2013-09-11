@@ -77,6 +77,9 @@ controller('LendController',
 	]
 ).
 
+
+
+
 controller('CreateController',
 	[
 		'$scope',
@@ -84,6 +87,10 @@ controller('CreateController',
 		}
 	]
 ).
+
+
+
+
 
 controller('NavBarController',
 	[
