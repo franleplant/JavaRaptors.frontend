@@ -1,60 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>JavaRaptors</title>
-		<!-- Styles -->
-		<link rel="stylesheet" href="../src/css/bootstrap.min.css">
-		<link rel="stylesheet" href="../src/css/bootstrap-responsive.min.css">
-		<link rel="stylesheet" href="../src/css/style.css">
-	</head>
-	<body style="background-color: #1b1b1b;">    
+<form>
 
-		<div id="wrap-login">
-			<div class="container">
-				<div class="row">
-					<div class="span3"></div>
-					<div class="span6" id="form-login">
-						<form action="../#/book" class="form-horizontal well" id="box-login">
- 
-							<div class="navbar navbar-inverse">
-								<div class="navbar-inner">
-									<a class="jr-logo brand" href="#">Java Raptors&reg - BiblioSoft&#8482</a>
-								</div>
-							</div>
-							<legend>Login</legend>
-								
-                            <div class="control-group">
-                                <div class="input-prepend">
-                                    <span class="add-on"><i class="icon-user"></i></span>
-                                    <input class="span4" placeholder="Nombre de usuario" type="text" name="username" id="username" required>
-                                </div>
-                            </div>
+	<fieldset>
+		<legend>Libro</legend>
+		<label>Titulo</label>
+		<input type="text" placeholder="Type something…">
+		<label>ISBN</label>
+		<input type="text" placeholder="Type something…">
+		<label>Portada</label>
+		<input type="text" placeholder="Type something…">
+		<label>Idioma</label>
+		<input type="text" placeholder="Type something…">
+	</fieldset>
 
-                            <div class="control-group">
-                                <div class="input-prepend">
-                                    <span class="add-on"><i class="icon-lock"></i></span>
-                                    <input class="span4" placeholder="Contraseña" type="password" name="contrasenia" id="contraseña" required>
-                                </div>
-                            </div>
 
-                            <div class="control-group">
-                                    <label for="mantener-sesion" class="checkbox">
-                                    	<input type="checkbox" name="mantener_sesion" id="mantener-sesion"> No cerrar sesión
-                                    </label>
-                            </div>
+	<fieldset>
+		<legend>Autores</legend>
+		<label>Autores</label>
+		<input type="text" placeholder="Type something…">
+	</fieldset>
 
-							<div class="control-group" id="cg-submits">
-								<button type="submit" id="submit" class="btn btn-inverse button-loading" data-loading-text="Loading...">
-                                    <span class="add-on"><i class="icon-off icon-white"></i></span>
-                                    Entrar
-                                </button>
-								<a href="#" id="reset-psw">¿Olvidaste tu contraseña?</a>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
+
+	
+	<fieldset>
+		<legend>Editorial</legend>
+		<label>Editorial</label>
+		<input type="text" placeholder="Type something…">
+		<label>Numero de Edicion</label>
+		<input type="text" placeholder="Type something…">
+		<label>Pais de Edicion</label>
+		<input type="text" placeholder="Type something…">
+	</fieldset>
+
+	
+	<fieldset>
+		<legend>Ejemplares</legend>	
+		<label>Ejemplares</label>
+		<input type="text" placeholder="Type something…">
+	</fieldset>
+
+	
+	<fieldset>
+		<legend>Valoracion</legend>	
+		<label>Valuacion</label>
+		<input type="text" placeholder="Type something…">
+		<label>Precio</label>
+		<input type="text" placeholder="Type something…">
+	</fieldset>
+
+
+		
+	<fieldset>
+		<legend>Comentarios</legend>
+		<label>Comentarios</label>
+		<textarea rows="3"></textarea>
+	</fieldset>
+
+	<fieldset>
+		<button type="submit" class="btn">Submit</button>
+	</fieldset>
+
+</form>
