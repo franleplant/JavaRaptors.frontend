@@ -46,9 +46,9 @@ filter('translate',	[ 'spanish',
 filter('typeToTemplate', [
 
 		function() {
-			return function(input, prefix, posfix) {
+			return function(input, prefix, sufix) {
 				input = input === 'copy' ? 'book' : input;
-				return prefix + input + posfix;
+				return prefix + input + sufix;
 			};
 		}
 	]
