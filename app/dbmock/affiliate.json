@@ -1,10 +1,12 @@
-[
-	{
-		"type": "affiliate",
-		"name": "Socio 1"
-	},
-	{
-		"type": "affiliate",
-		"name": "Socio 2"
-	}
-]
+{
+	"items":	[
+		{
+			"type": "affiliate",
+			"name": "Socio 1"
+		},
+		{
+			"type": "affiliate",
+			"name": "Socio 2"
+		}
+	]
+}

@@ -1,119 +1,119 @@
 // Move every service into factory, it is more clear what they do, see http://jsfiddle.net/manishchhabra/Ne5P8/
 
 
-jraptors.service('animations', function () {
+
+angular.module('jraptorsServices', ['jraptorsConfig', 'ngResource']).
+
+service('animations', function () {
 	this.proxy = jraptors.animations;
-});
+}).
 
 
+factory('Search', ['$resource',
 
-angular.module('jraptorsServices', ['jraptorsConfig']).
+		function ($resource) {
+			return $resource('/app/dbmock/:entityType.json', {}, {
+				query: {
+					method: 'GET',
+					isArray: false
+				}
+			});
+		}
+	]
+).
 
+factory('PathSelector', [ function () {
 
-	factory('Search', ['$resource',
+			//TODO: Document this function and the next one
+			function get_first_directory(str) {
+				var re = new RegExp('(/[^/]*)(.*)'),
+					tokens = str.match(re);
 
-			function ($resource) {
-				return $resource('/app/dbmock/:entityType.json', {}, {
-					query: {
-						method: 'GET'
-					}
-				});
-			}
-		]
-	).
-
-	factory('PathSelector', [ function () {
-
-				//TODO: Document this function and the next one
-				function get_first_directory(str) {
-					var re = new RegExp('(/[^/]*)(.*)'),
-						tokens = str.match(re);
-
-					if ( !tokens ) {
-						return [''];
-					}
-
-
-					tokens.shift();
-
-					return tokens || [];
+				if ( !tokens ) {
+					return [''];
 				}
 
-				function match_paths( general, particular ) {
 
-					var p1    = get_first_directory(general),
-						base1 = p1.shift(),
-						rest1 = base1 === '' ? null : p1.shift(),
-						p2    = get_first_directory(particular),
-						base2 = p2.shift(),
-						rest2 = base2 === '' ? null : p2.shift();
+				tokens.shift();
 
-					if (  base1 === '/*') {
+				return tokens || [];
+			}
+
+			function match_paths( general, particular ) {
+
+				var p1    = get_first_directory(general),
+					base1 = p1.shift(),
+					rest1 = base1 === '' ? null : p1.shift(),
+					p2    = get_first_directory(particular),
+					base2 = p2.shift(),
+					rest2 = base2 === '' ? null : p2.shift();
+
+				if (  base1 === '/*') {
+					return true;
+				}
+
+				if (  base1 === base2 ) {
+					if (rest1 === rest2) {
 						return true;
 					}
-
-					if (  base1 === base2 ) {
-						if (rest1 === rest2) {
-							return true;
-						}
-						return match_paths(rest1, rest2);
-					}
-
-					return false;
+					return match_paths(rest1, rest2);
 				}
 
-
-				return {
-					match_paths: match_paths,
-					get_first_directory: get_first_directory
-				};
+				return false;
 			}
-		]
-	).
-
-	factory('UserSession', [ 'PathSelector', 'UserRoles',
-
-			function (PathSelector, UserRoles) {
-				var user_session = {};
-
-				var name, role;
 
 
-				//TODO: Refactor
-				user_session.name = function (newValue) {
-					if (!newValue) {
-						return name;
-					}
+			return {
+				match_paths: match_paths,
+				get_first_directory: get_first_directory
+			};
+		}
+	]
+).
 
-					name = newValue;
+factory('UserSession', [ 'PathSelector', 'UserRoles',
+
+		function (PathSelector, UserRoles) {
+			var user_session = {};
+
+			var name, role;
+
+
+			//TODO: Refactor
+			user_session.name = function (newValue) {
+				if (!newValue) {
 					return name;
-				};
+				}
 
-				user_session.role = function (newValue) {
-					if (!newValue) {
-						return role;
-					}
+				name = newValue;
+				return name;
+			};
 
-					role = newValue;
+			user_session.role = function (newValue) {
+				if (!newValue) {
 					return role;
-				};
+				}
 
-				user_session.isAllowedTo = function (path) {
-					var i,
-						allowedRoutes = UserRoles[role].allowedRoutes,
-						len = allowedRoutes.length;
+				role = newValue;
+				return role;
+			};
 
-					for (i = 0; i < len; i++) {
-						if ( PathSelector.match_paths( allowedRoutes[i], path )) {
-							return true;
-						}
+			user_session.isAllowedTo = function (path) {
+				var i,
+					allowedRoutes = UserRoles[role].allowedRoutes,
+					len = allowedRoutes.length;
+
+				for (i = 0; i < len; i++) {
+					if ( PathSelector.match_paths( allowedRoutes[i], path )) {
+						return true;
 					}
+				}
 
-					return false;
-				};
+				return false;
+			};
 
-				return user_session;
-			}
-		]
-	);
+			return user_session;
+		}
+	]
+);
 

@@ -24,7 +24,7 @@ angular.module('jraptors.Controllers', []).controller('SearchController',
 
 			$scope.reload = function () {
 				//TODO: Lubricate edge cases of changing between entities after a search was perfomed
-				$scope.results = [];
+				$scope.response = [];
 			};
 		}
 	]
