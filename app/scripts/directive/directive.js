@@ -8,11 +8,11 @@ angular.module('jraptorsDirectives', []).
 					if (  UserSession.role()  !== attrs.restrictToRole) {
 						element.hide();
 					}
-				};
+				}
 
 				return {
 					link: link
 				};
-			} 
+			}
 		]
 	);

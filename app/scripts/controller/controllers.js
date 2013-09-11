@@ -1,18 +1,22 @@
 
 
-jraptors.controller('SearchController',
+angular.module('jraptors.Controllers', []).controller('SearchController',
 	[
-		'$scope', 'animations', 'spanish', 'Search', '$location',
-		function ($scope, animations, spanish, Search, $location) {
+		'$scope', 'animations', 'Search', '$location',
+		function ($scope, animations, Search, $location) {
 
-			$scope.search = function () {
-
+			$scope.search = function (page) {
+				
 				// This is to test no_result, TODO: MAKE A TEST CASE
 				//$scope.results = Search.query({entityType: 'book_no_result'}, function (data) {
-				$scope.results =Search.query(  {  entityType: $location.path().slice(1)  }, function (data) {
-					$scope.no_result = data[0].no_result ? true : false;
-				})
-				;
+				$scope.response = Search.query({
+						q: $scope.search_query,
+						page_number: page || 1,
+						entityType: $location.path().slice(1)
+					},
+					function (data) {
+						$scope.no_result = data.no_result ? true : false;
+					});
 
 				animations.proxy.trigger('search.first_valid');
 
@@ -20,83 +24,84 @@ jraptors.controller('SearchController',
 
 			$scope.reload = function () {
 				//TODO: Lubricate edge cases of changing between entities after a search was perfomed
-				$scope.results = [];
+				$scope.response = [];
 			};
 		}
 	]
-);
+).
 
-jraptors.controller('SelectEntityController',
+controller('SelectEntityController',
 	[
 		'$scope', '$location',
 		function ($scope, $location) {
 			$scope.$location = $location;
 		}
 	]
-);
+).
+
 
 
 
 //TODO
-jraptors.controller('DetailedViewController',
+controller('DetailedViewController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
-jraptors.controller('EditController',
+controller('EditController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
 
-jraptors.controller('ReturnController',
+controller('ReturnController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
 
-jraptors.controller('LendController',
+controller('LendController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
-jraptors.controller('CreateController',
+controller('CreateController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
-jraptors.controller('NavBarController',
+controller('NavBarController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
-jraptors.controller('BreadcrumbController',
+controller('BreadcrumbController',
 	[
 		'$scope',
 		function ($scope) {
 		}
 	]
-);
+).
 
-jraptors.controller('ReportController',
+controller('ReportController',
 	[
 		'$scope',
 		function ($scope) {
