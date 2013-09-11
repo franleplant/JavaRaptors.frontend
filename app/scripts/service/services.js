@@ -4,7 +4,7 @@
 jraptors.factory('Search', ['$resource',
 
 		function ($resource) {
-			return $resource('/dbmock/:entityType.json', {}, {
+			return $resource('/app/dbmock/:entityType.json', {}, {
 				query: {
 					method: 'GET',
 					isArray: true

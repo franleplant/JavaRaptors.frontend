@@ -22,7 +22,7 @@ jraptors.controller('LoginController',
 					        	// traigo un dato de la cookie 
 					        	//console.log($cookieStore.get('Name'));
 						
-
+					        	//fijate que angular provee metodos para ir a otra pagina
 								window.location.href = 'app.html';
 							} else {
 								//console.log('no pas');

@@ -34,7 +34,8 @@
 
 		<div id="results">
 
-			<div ng-repeat="result in results | filter:search_query" class="media search-result shadow" >
+			<!-- saquemos el | filter:search_query por ahora-->
+			<div ng-repeat="result in results" class="media search-result shadow" >
 				<div ng-include="'views/' + result.type + '.html'"></div>
 			</div>
 
