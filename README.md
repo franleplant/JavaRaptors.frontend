@@ -31,7 +31,12 @@ This command must be executed in the project root directory
 	$ grunt watch 
 
 
-### How to run all the tests?
+### How to run all the unit tests?
 This command will also run the tests whenever a file changes.
 
 	$ grunt karma
+
+### How to run all the e2e tests?
+Needs the server started
+
+	http://localhost:9000/test/e2e/runner.html

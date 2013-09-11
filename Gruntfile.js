@@ -6,12 +6,10 @@ module.exports = function(grunt) {
 
 		jshint: {
 			files: [
-				'app/scripts/app.js',
-				'app/scripts/animationsux.js',
-				'app/scripts/controller/*.js',
-				'app/scripts/directive/*.js',
-				'app/scripts/filter/*.js',
-				'app/scripts/service/*.js',
+				'app/scripts/**/*.js',
+				'!app/scripts/vendor/*.js',
+				'test/e2e/*js',
+				'test/unit/*js',
 				'app/dbmock/*.json',
 				'gruntfile.js',
 				'package.json'
@@ -34,7 +32,7 @@ module.exports = function(grunt) {
 				plusplus: false,
 				quotmark: true,
 				undef: true,
-				unused: 'strict',
+				unused: false,
 				strict: false,
 				trailing: true,
 				maxparams: false,
@@ -44,15 +42,25 @@ module.exports = function(grunt) {
 				maxlen: false,
 				browser: true,
 				devel: true,
-				
 
 				// Global Variables permitted
 				globals: {
-					module: true,
 					jQuery: true,
 					$: true,
 					jraptors: true,
-					angular: true
+					angular: true,
+					//For testing
+					describe: true,
+					it: true,
+					beforeEach: true,
+					inject: true,
+					module: true,
+					afterEach: true,
+					expect: true,
+					repeater: true,
+					element: true,
+					input: true,
+					browser: true
 				}
 			}
 		},
@@ -62,7 +70,7 @@ module.exports = function(grunt) {
 				options: {
 					keepalive: true,
 					port: 9000,
-					base: './app/'
+					base: './'
 				}
 			}
 		},
@@ -70,7 +78,7 @@ module.exports = function(grunt) {
 
 		karma: {
 			dev: {
-				configFile: 'karma.conf.js',
+				configFile: 'config/karma.conf.js',
 				singleRun: false
 			}
 		},

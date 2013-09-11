@@ -1,121 +1,119 @@
 // Move every service into factory, it is more clear what they do, see http://jsfiddle.net/manishchhabra/Ne5P8/
 
 
-jraptors.service('animations', function () {
+
+angular.module('jraptorsServices', ['jraptorsConfig', 'ngResource']).
+
+service('animations', function () {
 	this.proxy = jraptors.animations;
-});
+}).
 
 
+factory('Search', ['$resource',
 
-angular.module('jraptorsServices', ['jraptorsConfig']).
+		function ($resource) {
+			return $resource('/app/dbmock/:entityType.json', {}, {
+				query: {
+					method: 'GET',
+					isArray: false
+				}
+			});
+		}
+	]
+).
+
+factory('PathSelector', [ function () {
+
+			//TODO: Document this function and the next one
+			function get_first_directory(str) {
+				var re = new RegExp('(/[^/]*)(.*)'),
+					tokens = str.match(re);
+
+				if ( !tokens ) {
+					return [''];
+				}
 
 
-	factory('Search', ['$resource',
+				tokens.shift();
 
-			function ($resource) {
-				return $resource('/dbmock/:entityType.json', {}, {
-					query: {
-						method: 'GET',
-						isArray: true
+				return tokens || [];
+			}
+
+			function match_paths( general, particular ) {
+
+				var p1    = get_first_directory(general),
+					base1 = p1.shift(),
+					rest1 = base1 === '' ? null : p1.shift(),
+					p2    = get_first_directory(particular),
+					base2 = p2.shift(),
+					rest2 = base2 === '' ? null : p2.shift();
+
+				if (  base1 === '/*') {
+					return true;
+				}
+
+				if (  base1 === base2 ) {
+					if (rest1 === rest2) {
+						return true;
 					}
-				});
+					return match_paths(rest1, rest2);
+				}
+
+				return false;
 			}
-		]
-	).
-
-	factory('PathSelector', [
-			function () {
-
-				//TODO: Document this function and the next one
-				function get_first_directory(str) {
-					var re = new RegExp('(/[^/]*)(.*)'),
-						tokens = str.match(re);
-
-					if ( !tokens ) {
-						return [''];
-					};
 
 
-					tokens.shift();
+			return {
+				match_paths: match_paths,
+				get_first_directory: get_first_directory
+			};
+		}
+	]
+).
 
-					return tokens || [];
-				};
+factory('UserSession', [ 'PathSelector', 'UserRoles',
 
-				function match_paths( general, particular ) {
+		function (PathSelector, UserRoles) {
+			var user_session = {};
 
-					var p1    = get_first_directory(general),
-						base1 = p1.shift(), 
-						rest1 = base1 === '' ? null : p1.shift(),
-						p2    = get_first_directory(particular),
-						base2 = p2.shift(),
-						rest2 = base2 === '' ? null : p2.shift();
-
-					if (  base1 === '/*') {
-						return true
-					};
-
-					if (  base1 === base2 ) {
-						if (rest1 === rest2) {
-							return true
-						};					
-						return match_paths(rest1, rest2);
-					};
-
-					return false;
-				};
+			var name, role;
 
 
-				return {
-					match_paths: match_paths,
-					get_first_directory: get_first_directory
-				};
-			}
-		]
-	).
+			//TODO: Refactor
+			user_session.name = function (newValue) {
+				if (!newValue) {
+					return name;
+				}
 
-	factory('UserSession', [ 'PathSelector', 'UserRoles',
+				name = newValue;
+				return name;
+			};
 
-			function (PathSelector, UserRoles) {
-				var user_session = {};
+			user_session.role = function (newValue) {
+				if (!newValue) {
+					return role;
+				}
 
-				var name, role;
+				role = newValue;
+				return role;
+			};
 
+			user_session.isAllowedTo = function (path) {
+				var i,
+					allowedRoutes = UserRoles[role].allowedRoutes,
+					len = allowedRoutes.length;
 
-				//TODO: Refactor and test
-				user_session.name = function (newValue) {
-					if (!newValue) {
-						return name;
-					};
+				for (i = 0; i < len; i++) {
+					if ( PathSelector.match_paths( allowedRoutes[i], path )) {
+						return true;
+					}
+				}
 
-					name = newValue;
-					return name;	
-				};
+				return false;
+			};
 
-				user_session.role = function (newValue) {
-					if (!newValue) {
-						return role;
-					};
-
-					role = newValue;
-					return role;	
-				};
-
-				user_session.isAllowedTo = function (path) {				
-					var i,
-						allowedRoutes = UserRoles[role].allowedRoutes,
-						len = allowedRoutes.length;
-
-					for (i = 0; i < len; i++) {
-						if ( PathSelector.match_paths( allowedRoutes[i], path )) {
-							return true;
-						}
-					};
-
-					return false;
-				};
-
-				return user_session;
-			}
-		]
-	);
+			return user_session;
+		}
+	]
+);
 
