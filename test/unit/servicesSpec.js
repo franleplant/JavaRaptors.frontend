@@ -1,12 +1,72 @@
 describe('Jraptors Services', function() {
- 
+
+	beforeEach(  module('jraptorsServices')  );
+
+
+	describe('UserSession', function () {
+
+		var UserSession;
+
+		beforeEach(function () {
+			inject(  function($injector) {
+				UserSession = $injector.get('UserSession');
+			});
+
+			UserSession.name('username');
+			UserSession.role('userrole');
+		});
+
+		it('should return an UserSession object', function () {
+			expect(  typeof(UserSession)  ).toBe('object');
+		});
+
+
+		describe('name method', function () {
+			it('should be a getter when no arguments are passed', function () {
+				expect(  UserSession.name()  ).toBe('username');
+			});
+
+			it('should be a setter when an argument is passed', function () {
+				UserSession.name('username2');
+				expect(  UserSession.name()  ).toBe('username2');
+			});
+		});
+
+
+		describe('role method', function () {
+			it('should be a getter when no arguments are passed', function () {
+				expect(  UserSession.role()  ).toBe('userrole');
+			});
+
+			it('should be a setter when an argument is passed', function () {
+				UserSession.role('userrole2');
+				expect(  UserSession.role()  ).toBe('userrole2');
+			});
+		});
+
+
+		describe('isAllowedTo method', function () {
+			beforeEach(function () {
+				UserSession.role('admin');
+			});
+
+			it('should return true with a valid relative path', function () {
+				expect(  UserSession.isAllowedTo('/book')  ).toBe(true);
+			});
+
+			it('should return false with a non valid relative path', function () {
+				expect(  UserSession.isAllowedTo('/not_a_valid_path')  ).toBe(false);
+			});
+		});
+
+	});
+
+
 	describe('PathSelector', function(){
 
 		var PathSelector;
 
 		beforeEach(function() {
-
-			module('jraptorsServices');
 			//http://docs.angularjs.org/api/angular.mock.inject
 			//http://docs.angularjs.org/api/angular.mock.module
 			//https://github.com/angular/angular.js/tree/v1.2.0rc1/src/ngMock
