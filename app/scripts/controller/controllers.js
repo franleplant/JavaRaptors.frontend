@@ -112,12 +112,16 @@ controller('CreateController',
 			};
 
 			$scope.rm_copy = function (i) {
-				console.log($scope.new_book.copys[i])
 				$scope.new_book.copys.splice(i,1);
 			};
 
 			$scope.add_copy = function () {
-				$scope.new_book.copys.push({comments: "new copy" + j});
+				$scope.new_book.copys.push({
+					comments: 'new copy' + j,
+					lendType: 'foreign',
+					editionYear: (new Date()).getFullYear(),
+					state: 'nuevo'
+				});
 				j++;
 			};
 		}

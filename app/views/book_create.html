@@ -61,7 +61,17 @@
 					<td><span>{{copy.id}}</span></td>
 					<td><input type="text" value={{copy.state}} ng-model="copy.state"></input></td>
 					<td><input type="text" value={{copy.editionYear}} ng-model="copy.editionYear"></input></td>
-					<td><input type="text" value={{copy.lendType}} ng-model="copy.lendType"></input></td>
+					<td>
+						<label class="radio">
+							<input type="radio" name="optionsRadios{{$index}}" value="foreign" ng-model="copy.lendType" ng-checked="copy.lendType == 'foreign'">
+							Domiciliario
+						</label>
+						<label class="radio">
+							<input type="radio" name="optionsRadios{{$index}}" value="local" ng-model="copy.lendType" ng-checked="copy.lendType == 'local'">
+							Local
+						</label>
+
+					</td>
 					<td><input type="text" value={{copy.comments}} ng-model="copy.comments"></input></td>
 					<td><button class="btn" ng-click="rm_copy($index)"><i class="icon-minus-sign"></i></button></td>
 				</tr>
