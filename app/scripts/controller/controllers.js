@@ -73,6 +73,8 @@ controller('LendController',
 	[
 		'$scope',
 		function ($scope) {
+
+
 		}
 	]
 ).
@@ -84,6 +86,21 @@ controller('CreateController',
 	[
 		'$scope',
 		function ($scope) {
+
+			var i = 0;
+
+			$scope.new_book = {
+				authors: ['author1', 'author2', 'author3']
+			};
+
+			$scope.rm_author = function (i) {
+				$scope.new_book.authors.splice(i,1);
+			};
+
+			$scope.add_author = function () {
+				$scope.new_book.authors.push('new_author' + i);
+				i++;
+			};
 		}
 	]
 ).
