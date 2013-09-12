@@ -79,7 +79,6 @@ module.exports = function(grunt) {
 		karma: {
 			unit: {
 				configFile: 'config/karma.conf.js',
-				singleRun: true,
 				background: true
 			}
 		},
@@ -97,8 +96,18 @@ module.exports = function(grunt) {
 				files: ['<%= jshint.files %>'],
 				tasks: ['karma:unit:run']
 			}
+		},
+		concurrent: {
+			server: ['connect'],
+			dev: ['dev'],
+			options: {
+				logConcurrentOutput: true
+			}
 		}
 	});
+
+
+	grunt.loadNpmTasks('grunt-concurrent');
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -106,8 +115,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-karma');
 
-	grunt.registerTask('default',[ 'connect']);
-	
-	grunt.registerTask('dev',[ 'karma:unit', 'watch']);
+	grunt.registerTask('dev',['karma:unit', 'watch']);
 
+	grunt.registerTask('default', ['concurrent:dev', 'concurrent:server']);
 };

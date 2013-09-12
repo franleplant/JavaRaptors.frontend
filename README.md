@@ -21,7 +21,7 @@ This command must be executed in the project root directory
 
 
 
-### How to run a simple http server? 
+### How to run simple HTTP server, and to lint and unit tests files when they change in real time?
 This command must be executed in the project root directory
 
 	$ grunt
