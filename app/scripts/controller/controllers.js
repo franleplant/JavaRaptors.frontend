@@ -91,14 +91,8 @@ controller('CreateController',
 				j = 1;
 
 			$scope.new_book = {
-				authors: ['author1', 'author2', 'author3'],
-				copys: [{
-					id: 1230,
-					state: 'nuevo',
-					editionYear: 2012,
-					lendType: 'local',
-					comments: 'blah blah blah blah'
-				}]
+				authors: [],
+				copys: []
 			};
 
 			//TODO: refactor this
@@ -107,7 +101,9 @@ controller('CreateController',
 			};
 
 			$scope.add_author = function () {
-				$scope.new_book.authors.push('new_author' + i);
+				$scope.new_book.authors.push({
+					name:'new_author' + i
+				});
 				i++;
 			};
 
