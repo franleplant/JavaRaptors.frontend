@@ -84,8 +84,8 @@ controller('LendController',
 
 controller('CreateController',
 	[
-		'$scope',
-		function ($scope) {
+		'$scope', '$timeout',
+		function ($scope, $timeout) {
 
 			var i = 2,
 				j = 2;
@@ -132,6 +132,7 @@ controller('CreateController',
 
 			$scope.dummys_authors= ['author1', 'author2'];
 			$scope.dummys_editorials = ['editorial1', 'editorial2'];
+
 		}
 	]
 ).
