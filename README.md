@@ -28,7 +28,7 @@ This command must be executed in the project root directory
 
 ### How to active watch any file changes to lint them with JSHint and to re re run the unit tests in real time?
 
-	$ grunt karma:unit watch
+	$ grunt dev
 
 
 ### How to run all the e2e tests?
