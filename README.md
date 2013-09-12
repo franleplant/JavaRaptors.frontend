@@ -26,15 +26,10 @@ This command must be executed in the project root directory
 
 	$ grunt
 
-### How to active watch any file changes to lint them with JSHint in real time?
+### How to active watch any file changes to lint them with JSHint and to re re run the unit tests in real time?
 
-	$ grunt watch 
+	$ grunt karma:unit watch
 
-
-### How to run all the unit tests?
-This command will also run the tests whenever a file changes.
-
-	$ grunt karma
 
 ### How to run all the e2e tests?
 Needs the server started

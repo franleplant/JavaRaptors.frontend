@@ -77,15 +77,25 @@ module.exports = function(grunt) {
 
 
 		karma: {
-			dev: {
+			unit: {
 				configFile: 'config/karma.conf.js',
-				singleRun: false
+				singleRun: true,
+				background: true
 			}
 		},
+
+
 		watch: {
-			all: {
+			options: {
+				spawn: false
+			},
+			lint: {
 				files: ['<%= jshint.files %>'],
 				tasks: ['jshint']
+			},
+			unit: {
+				files: ['<%= jshint.files %>'],
+				tasks: ['karma:unit:run']
 			}
 		}
 	});

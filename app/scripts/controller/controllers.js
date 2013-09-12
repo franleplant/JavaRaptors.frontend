@@ -131,7 +131,10 @@ controller('CreateController',
 
 
 			$scope.dummys_authors= ['author1', 'author2'];
-			$scope.dummys_editorials = ['editorial1', 'editorial2'];
+
+
+			//TODO: http://stackoverflow.com/questions/15928644/how-to-use-a-resource-to-populate-angular-ui-bootstrap-typeahead
+			$scope.editorials = [{name:'editorial1'},{name: 'editorial2'}];
 
 		}
 	]

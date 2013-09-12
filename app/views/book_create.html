@@ -34,7 +34,7 @@
 	<fieldset>
 		<legend>Editorial</legend>
 		<label>Editorial</label>
-		<input type="text" placeholder="Type something…" ng-model="new_book.editorial.name" typeahead="d for d in dummys_editorials | filter:$viewValue">
+		<input type="text" placeholder="Type something…" ng-model="new_book.editorial.name" typeahead="e.name for e in editorials | filter:$viewValue">
 		<label>Numero de Edicion</label>
 		<input type="text" placeholder="Type something…">
 		<label>Pais de Edicion</label>
