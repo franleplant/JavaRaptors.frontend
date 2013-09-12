@@ -97,7 +97,10 @@ controller('CreateController',
 					lendType: 'foreign',
 					editionYear: (new Date()).getFullYear(),
 					state: 'nuevo'
-				}]
+				}],
+				editorial: {
+					name: ''
+				}
 			};
 
 			//TODO: refactor this
@@ -125,6 +128,10 @@ controller('CreateController',
 				});
 				j++;
 			};
+
+
+			$scope.dummys_authors= ['author1', 'author2'];
+			$scope.dummys_editorials = ['editorial1', 'editorial2'];
 		}
 	]
 ).

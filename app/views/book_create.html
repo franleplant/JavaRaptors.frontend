@@ -19,7 +19,7 @@
 			<li ng-repeat="author in new_book.authors">
 				<div class="input-prepend input-append">
 					<label class="add-on">{{$index + 1}}</label>
-					<input class="span2" type="text" value={{author.name}}>
+					<input class="span2" type="text" ng-model="author.name" typeahead="d for d in dummys_authors | filter:$viewValue">
 					<button class="btn" ng-click="rm_author($index)"><i class="icon-minus-sign"></i>
 				</div>
 			</li>
@@ -33,7 +33,7 @@
 	<fieldset>
 		<legend>Editorial</legend>
 		<label>Editorial</label>
-		<input type="text" placeholder="Type something…">
+		<input type="text" placeholder="Type something…" ng-model="new_book.editorial.name" typeahead="d for d in dummys_editorials | filter:$viewValue">
 		<label>Numero de Edicion</label>
 		<input type="text" placeholder="Type something…">
 		<label>Pais de Edicion</label>
