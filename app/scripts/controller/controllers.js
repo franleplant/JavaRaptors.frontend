@@ -87,12 +87,17 @@ controller('CreateController',
 		'$scope',
 		function ($scope) {
 
-			var i = 1,
-				j = 1;
+			var i = 2,
+				j = 2;
 
 			$scope.new_book = {
-				authors: [],
-				copys: []
+				authors: [{name: 'new_author1'}],
+				copys: [{
+					comments: 'new copy1',
+					lendType: 'foreign',
+					editionYear: (new Date()).getFullYear(),
+					state: 'nuevo'
+				}]
 			};
 
 			//TODO: refactor this
