@@ -1,7 +1,7 @@
 
 jraptors.controller('LoginController', 
 	[
-		'$scope', 'SearchUsers', '$window', '$cookieStore', 
+		'$scope', 'SearchUsers', '$window', '$cookieStore',
 		function ($scope, SearchUsers, $window, $cookieStore) {
 
 			$scope.ComprobarLogin = function(){
@@ -23,7 +23,11 @@ jraptors.controller('LoginController',
 					        	//console.log($cookieStore.get('Name'));
 						
 					        	//fijate que angular provee metodos para ir a otra pagina
-								window.location.href = 'app.html';
+					        	//no entiendo como, es mas creo que acá dice que hay que usar la nativa:
+					        	// To reload the page after changing the URL, use the lower-level API, $window.location.href.
+							
+    							$window.location.href = '/index.html';
+
 							} else {
 								//console.log('no pas');
 							};

@@ -2,7 +2,7 @@ form span {
 	font-size: 12px;
 }
 
-body .ng-invalid.ng-dirty input[type=text]{ 
+body .ng-invalid.ng-dirty input[type=text], #box-login input[type=password].ng-invalid.ng-dirty{ 
 	border: 1px solid red; 
 	border-color: #e9322d;
 	-webkit-box-shadow: 0 0 6px #f8b9b7;
@@ -106,3 +106,14 @@ footer > p {
 			margin: 10px 10px 0 0;
 			color: #1b1b1b;
 		}
+
+#box-login input.ng-invalid.ng-dirty {
+background: url('../img/error.png') no-repeat 345px 6px;
+background-color: #f8b9b7;
+}
+
+#box-login input.ng-valid.ng-dirty {
+border-color : #18EE43;
+background: url('../img/ok.png') no-repeat 345px 6px;
+background-color: #78FA89;
+}
