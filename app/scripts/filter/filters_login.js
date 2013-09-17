@@ -13,7 +13,8 @@ angular.module('jraptorsFilters', []).
 		};
 	}).
 
-	filter('pathToEntity',	[ 
+	filter('pathToEntity',
+		[
 
 			function() {
 				return function(input) {

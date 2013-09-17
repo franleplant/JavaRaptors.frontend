@@ -54,64 +54,84 @@
     <div class="container">
 
             <!-- Button to trigger modal -->
-<a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Devolver con ID</a>
+<a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Prestar con ID</a>
  
 <!-- Modal -->
 <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Devolver libro</h3>
+    <h3 id="myModalLabel">Prestar libro: Harry Potter 1</h3>
   </div>
   <div class="modal-body">
   
   <div class="container-fluid">
   <div class="row-fluid">
             
-            <div class="span10">
+    <div class="span12">
   
-	<h4 id="data_title">Datos Ejemplar</h4>
-	
-			<span>Título: </span><span>Typography for lawyers</span>
-            <br/>
-            <span>Autor: </span><span>Juan Carlos</span>
-            <br/>
-            <span>Editorial: </span><span>Paperback</span>
-            <br/>
-            <span>Código Ejemplar: </span><span>639821</span>
-			
-	
-			</div>
-			<div class="span2"><img src="http://www.typographyforlawyers.com/pix/tfl-book-cover.gif" style="height:100px" class="img-polaroid"></div>
-			  </div>
-			  
-			  <hr/>
-    <h4 id="data_title">Datos Préstamo</h4>
+    
+    <strong id="data_title" style="float:left; margin-right:15px;">A usuario</strong>
+      
+            <input type="text"  value="Manuel Aquino" style="display:block;">
 
-            <span>Nombre: </span><span>Manuei Aquino</span>
-            <br/>
             <span>Dirección: </span><span>Poplete 123</span>
             <br/>
             <span>Teléfono: </span><span>4-766-8970</span>
             <br/>
             <span>DNI: </span><span>35656537</span>
-			<hr/>
-            <span>Fecha Préstamo: </span><span> 23/12/13</span>
+      <hr/>
+         
+        <span>Tipo Préstamo: </span>
+        <div class="btn-group" data-toggle="buttons-radio">
+        
+        <button type="button" class="btn btn-primary">Local</button>
+        <button type="button" class="btn btn-primary">Domiciliario</button>
+        
+      </div>
+      <br/>
+      <br/>
+			<span>Fecha Préstamo: </span><span> 23/12/13</span>
 			<br/>
-			<span>Fecha Pactada: </span><span> 27/12/13</span>
+      <span>Fecha Devolución Máx.: </span><span style="color:red"> 29/12/13</span>
+      <br/>
+			<span>Fecha Pactada: </span><input type="date" placeholder="Text input"/>
 			<br/>
-			<span>Fecha Devolución: </span><span style="color:red"> 29/12/13</span>
-            <br/>
+			
 			<br/>
-            <div class="alert alert-error">
-			 Debido a la devolución irregular, el socio perderá reputación.
+			
 			</div>
+			
+			  </div>
+     <h4 id="data_title">Datos del ejemplar</h4>
+          	<table class="table table-hover">
+              <thead>
+                <tr>
+                            <th>#</th>
+                            <th>Estado</th>
+          				  <th>Ubicación</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+          				  <td>982002</td>
+                            <td>Bueno</td>
+          				  <td>4E</td>
+                          </tr>
+          				<tr>
+              </tbody>
+            </table>
+			  
+				 
+			
+           
 
   </div>
     </div>
   
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-    <button class="btn btn-primary">OK</button>
+<!--    <div class="alert alert-success" style="text-align:left">El socio está en condiciones de tomar préstamo.</div> -->
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+    <button class="btn btn-primary">Prestar</button>
   </div>
 </div>
 

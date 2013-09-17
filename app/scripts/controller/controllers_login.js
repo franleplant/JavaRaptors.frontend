@@ -1,43 +1,48 @@
 
-jraptors.controller('LoginController', 
+jraptors.controller('LoginController',
 	[
-		'$scope', 'SearchUsers', '$window', '$cookieStore',
-		function ($scope, SearchUsers, $window, $cookieStore) {
+		'$scope', 'SearchUsers', '$window', '$cookieStore', '$location',
+		function ($scope, SearchUsers, $window, $cookieStore, $location) {
 
 			$scope.ComprobarLogin = function(){
 
 				$scope.results = SearchUsers.query({entityType: 'user'}, function (data) {
 					var validate = 'false';
+					var validate_user = 'false';
+					$('.text-error').hide();
 
 					for (var i = 0; i < data.length; i++) {
-						data[i];
-						if (data[i].userName == $scope.userName) {
-							if (data[i].userPsw == $scope.userPsw) {
+
+						if (data[i].userName === $scope.userName) {
+
+							validate_user = 'true';
+
+							if (data[i].userPsw === $scope.userPsw) {
 								validate = 'true';
 
 								//seteo valores con put para $cokieStore
-					        	$cookieStore.put('Id', data[i].userId);
-					        	$cookieStore.put('Name', data[i].userName);
+								$cookieStore.put('Id', data[i].userId);
+								$cookieStore.put('Name', data[i].userName);
 
-					        	// traigo un dato de la cookie 
-					        	//console.log($cookieStore.get('Name'));
+								//console.log($cookieStore.get('Name'));
 						
-					        	//fijate que angular provee metodos para ir a otra pagina
-					        	//no entiendo como, es mas creo que acá dice que hay que usar la nativa:
-					        	// To reload the page after changing the URL, use the lower-level API, $window.location.href.
-							
-    							$window.location.href = '/index.html';
-
+								$window.location.href = '/index.html';
+								
 							} else {
 								//console.log('no pas');
-							};
+								$('#alert-contrasenia').show();
+							}
 						} else {
 								//console.log('no user');
-							};
-					};
+						}
+					}
+
+					if (validate_user === 'false') {
+						$('#alert-username').show();
+					}
 					
 					console.log(validate);
-				})
+				});
 			};
 		}
 	]

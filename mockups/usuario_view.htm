@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="es"><head>
 
-
    <meta charset="utf-8">
 
     <title>BiblioSoft - Vista Libro</title>
-  
-
   
     <link href="./bootstrap/css/bootstrap.css" rel="stylesheet">
     
@@ -29,6 +26,7 @@
 
    <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
+
         <div class="container">
          
           <a class="brand" href="#">BiblioSoft</a>
@@ -43,48 +41,47 @@
               <li><a href="#"><i class="icon-cog icon-white"></i></a></li>
               <li><a href="#"><i class="icon-user icon-white"></i>     javaraptors@gmail.com</a></li>
               
-              
             </ul>
           </div><!--/.nav-collapse -->
         
         </div>
 
-        </div>
       </div>
+    </div>
+    <div id="breadcrumb" ng-controller="BreadcrumbController" class="ng-scope">
+      <ul class="breadcrumb">
+        <li><a href="#/book">Home</a> <span class="divider">/</span></li>
+        <li><a href="#/book">Library</a> <span class="divider">/</span></li>
+        <li class="active">Data</li>
+      </ul>
     </div>
 
     <div class="container">
 
             <div class="row">
-            <div class="span4"><img src="http://img.mypopulars.com/images/chuck-norris/Chuck-Norris-1.jpg" style="width:100%; margin:10px" class="img-polaroid">
+            <div class="span4"><img src="http://img.mypopulars.com/images/chuck-norris/Chuck-Norris-1.jpg" style="width:50%; margin:10px" class="img-polaroid">
             <button class="btn btn-large btn-block btn-inverse" type="button">Editar Información</button>
-            <button class="btn btn-large btn-block btn-primary" type="button">Deshabilitar</button>
+            <button class="btn btn-large btn-block btn-primary" type="button">Dar de baja</button>
             </div>
             <div class="span8">
             <h1 id="title">Odoberto Jacarandá</h1>
             <h3 id="authors"> DNI 35.123.456</h3> 
-            <hr/>
-            <h3 id="summary_title">Estado: <span style="color:#F00"> SUSPENDIDO</span> </h3>
-             <div class="alert alert-error">
-                El socio está suspendido y no está habilitado para solicitar préstamos.
+<!--              <div class="alert alert-error">
+   El socio está suspendido y no está habilitado para solicitar préstamos.
             </div>
             <div class="alert alert-error">
-                Al socio le quedan 41 días de suspensión.
-            </div>
-            <hr/>
-
-            <h3 id="data_title">Datos</h3>
-
+   Al socio le quedan 41 días de suspensión.
+            </div> -->
            
-            <span>Fecha de Inscripción: </span><span> 12/05/93 (20 años de antiguedad)</span>
-            <br/>
             <span>Fecha último préstamo: </span><span>12/01/12</span>
             <br/>
             <span>Email: </span><span><a href="#">odo_forpresident@gmail.com</a></span>
             <br/>
-            <span>Teléfono: </span><span>(011)4-756-2313</span>
+            <span>Teléfono: </span><span>(011) 4-756-2313</span>
             <br/>
             <span>Dirección: </span><span>Calle 13 Nº 3054</span>
+            <hr/>
+            <h3 id="summary_title">Estado: <span style="color:#F00"> SUSPENDIDO</span> </h3>
             
 
 
@@ -93,56 +90,45 @@
 
             <div class="row">
             <div class="span12">
-			<hr/>
+      <hr/>
             <h3 id="example_title"> Préstamos </h3> 
 
               <table class="table table-hover">
               <thead>
                 <tr>
-                  <th>Fecha</th>
-                  <th>Fecha Dev. Pactada</th>
-                  <th>Fecha Dev. Real</th>
                   <th>Ejemplar/Libro</th>
-                   <th>Estado del Préstamo</th>
-
-				 
+                  <th>F. Prestamo</th>
+                  <th>F. Dev. Pactada</th>
+                  <th>F. Dev. Real</th>
+                  <th>Estado del Préstamo</th>
                 </tr>
               </thead>
               <tbody>
                 <tr class="error">
+                  <td><a href="#">023453-323</a> - <a href="#">Typography for lawyers<a></td>
                   <td>12/01/12</td>
                   <td>17/01/12</td>
                   <td>31/01/12</td>
-                  <td><a href="#">023453-323</a> - <a href="#">Typography for lawyers<a></td>
                   <td>Finalizado - Irregular</td>
-				         </tr>
+                 </tr>
                 <tr class="success">
+                  <td><a href="#">204312-123</a> - <a href="#">El Nuevo Testamento<a></td>
                   <td>12/03/11</td>
                   <td>17/03/11</td>
                   <td>17/03/11</td>
-                  <td><a href="#">204312-123</a> - <a href="#">El Nuevo Testamento<a></td>
                   <td>Finalizado - Correcto</td>
                  </tr>
                 <tr class="success">
+                  <td><a href="#">2045632-212</a> - <a href="#">Reflexiones Pabloicas<a></td>
                   <td>30/01/02</td>
                   <td>04/02/12</td>
                   <td>04/01/12</td>
-                  <td><a href="#">2045632-212</a> - <a href="#">Reflexiones Pabloicas<a></td>
                   <td>Finalizado - Correcto</td>
                  </tr>
               </tbody>
             </table>
             </div>
             </div>
-                         
-                
-
-
-
-       
-      
-
-     
 
     </div> <!-- /container -->
 
