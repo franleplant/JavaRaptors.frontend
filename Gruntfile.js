@@ -98,8 +98,7 @@ module.exports = function(grunt) {
 			}
 		},
 		concurrent: {
-			server: ['connect'],
-			dev: ['dev'],
+			dev: ['connect','dev'],
 			options: {
 				logConcurrentOutput: true
 			}
@@ -117,5 +116,5 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('dev',['karma:unit', 'watch']);
 
-	grunt.registerTask('default', ['concurrent:dev', 'concurrent:server']);
+	grunt.registerTask('default', ['concurrent:dev']);
 };
