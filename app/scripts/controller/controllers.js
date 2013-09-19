@@ -130,9 +130,13 @@ controller('CreateController',
 			};
 
 
+			$scope.create = function () {
+				console.log($scope.new_book)
+			};
+
+
+			// TODO: fill this typeaheads models with server calls (detail)
 			$scope.dummys_authors= ['author1', 'author2'];
-
-
 			//TODO: http://stackoverflow.com/questions/15928644/how-to-use-a-resource-to-populate-angular-ui-bootstrap-typeahead
 			$scope.editorials = [{name:'editorial1'},{name: 'editorial2'}];
 

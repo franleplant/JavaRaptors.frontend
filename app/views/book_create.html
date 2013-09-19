@@ -1,20 +1,20 @@
-<form>
+<form ng-submit="create()">
 
 	<fieldset>
 		<legend>Libro</legend>
 		<label>Titulo</label>
-		<input type="text" placeholder="Type something…">
+		<input type="text" placeholder="Type something…" ng-model="new_book.title">
 		<label>ISBN</label>
-		<input type="text" placeholder="Type something…">
+		<input type="text" placeholder="Type something…" ng-model="new_book.isbn">
 		<label>Portada</label>
-		<input type="text" placeholder="Type something…">
+		<input type="text" placeholder="Type something…" ng-model="new_book.img">
 		<label>Idioma</label>
-		<input type="text" placeholder="Type something…">
+		<input type="text" placeholder="Type something…" ng-model="new_book.lang">
 	</fieldset>
 
 
 	<fieldset>
-		<legend>Autores <button class="btn" ng-click="add_author()"><i class="icon-plus-sign"></i></button></legend>
+		<legend>Autores <button type="button" class="btn" ng-click="add_author()"><i class="icon-plus-sign"></i></button></legend>
 		<ul class="unstyled">
 			<li ng-repeat="author in new_book.authors">
 				<div class="input-prepend input-append">
@@ -36,14 +36,14 @@
 		<label>Editorial</label>
 		<input type="text" placeholder="Type something…" ng-model="new_book.editorial.name" typeahead="e.name for e in editorials | filter:$viewValue">
 		<label>Numero de Edicion</label>
-		<input type="text" placeholder="Type something…">
+		<input type="text" placeholder="Type something…" ng-model="new_book.editionNumber">
 		<label>Pais de Edicion</label>
-		<input type="text" placeholder="Type something…">
+		<input type="text" placeholder="Type something…" ng-model="new_book.editionCountry">
 	</fieldset>
 
 	
 	<fieldset>
-		<legend>Ejemplares <button class="btn" ng-click="add_copy()"><i class="icon-plus-sign"></i></button></legend>	
+		<legend>Ejemplares <button type="button" class="btn" ng-click="add_copy()"><i class="icon-plus-sign"></i></button></legend>	
 
 		<table class="table table-hover">
 			<thead>
@@ -84,16 +84,16 @@
 	<fieldset>
 		<legend>Valoracion</legend>	
 		<label>Valuacion</label>
-		<input type="text" placeholder="Type something…">
+		<input type="text" placeholder="Type something…" ng-model="new_book.val">
 		<label>Precio</label>
-		<input type="text" placeholder="Type something…">
+		<input type="text" placeholder="Type something…" ng-model="new_book.price">
 	</fieldset>
 
 
 		
 	<fieldset>
 		<legend>Comentarios</legend>
-		<textarea rows="3"></textarea>
+		<textarea rows="3" ng-model="new_book.comments"></textarea>
 	</fieldset>
 
 	<fieldset>
