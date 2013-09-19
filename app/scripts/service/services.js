@@ -22,6 +22,15 @@ factory('Search', ['$resource',
 	]
 ).
 
+factory('Book', ['$resource',
+
+		function ($resource) {
+			return $resource('/api/book', {format: 'json'}, {});
+		}
+	]
+).
+
+
 factory('PathSelector', [ function () {
 
 			//TODO: Document this function and the next one

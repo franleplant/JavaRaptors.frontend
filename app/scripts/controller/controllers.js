@@ -73,17 +73,84 @@ controller('LendController',
 	[
 		'$scope',
 		function ($scope) {
+
+
 		}
 	]
 ).
 
+
+
+
 controller('CreateController',
 	[
-		'$scope',
-		function ($scope) {
+		'$scope', '$timeout', 'Book', '$location',
+		function ($scope, $timeout, Book, $location) {
+
+			var i = 2,
+				j = 2;
+
+			$scope.new_book = {
+				authors: [{name: 'new_author1'}],
+				copys: [{
+					comments: 'new copy1',
+					lendType: 'foreign',
+					editionYear: (new Date()).getFullYear(),
+					state: 'nuevo'
+				}],
+				editorial: {
+					name: ''
+				}
+			};
+
+			//TODO: refactor this
+			$scope.rm_author = function (i) {
+				$scope.new_book.authors.splice(i,1);
+			};
+
+			$scope.add_author = function () {
+				$scope.new_book.authors.push({
+					name:'new_author' + i
+				});
+				i++;
+			};
+
+			$scope.rm_copy = function (i) {
+				$scope.new_book.copys.splice(i,1);
+			};
+
+			$scope.add_copy = function () {
+				$scope.new_book.copys.push({
+					comments: 'new copy' + j,
+					lendType: 'foreign',
+					editionYear: (new Date()).getFullYear(),
+					state: 'nuevo'
+				});
+				j++;
+			};
+
+			$scope.create = function () {
+				$scope.book = Book.save($scope.new_book).$then(function () {
+					$location.path('/book');
+				},
+				function () {
+					//error callback
+				});
+			};
+
+
+			// TODO: fill this typeaheads models with server calls (detail)
+			$scope.dummys_authors= ['author1', 'author2'];
+			//TODO: http://stackoverflow.com/questions/15928644/how-to-use-a-resource-to-populate-angular-ui-bootstrap-typeahead
+			$scope.editorials = [{name:'editorial1'},{name: 'editorial2'}];
+
 		}
 	]
 ).
+
+
+
+
 
 controller('NavBarController',
 	[
