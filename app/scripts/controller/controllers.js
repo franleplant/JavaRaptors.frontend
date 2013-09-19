@@ -130,7 +130,7 @@ controller('CreateController',
 			};
 
 			$scope.create = function () {
-				Book.save($scope.new_book).$then(function () {
+				$scope.book = Book.save($scope.new_book).$then(function () {
 					$location.path('/book');
 				},
 				function () {
