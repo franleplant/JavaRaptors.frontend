@@ -25,7 +25,7 @@ factory('Search', ['$resource',
 factory('Book', ['$resource',
 
 		function ($resource) {
-			return $resource('/app/dbmock/book.json', {}, {});
+			return $resource('/api/book', {format: 'json'}, {});
 		}
 	]
 ).

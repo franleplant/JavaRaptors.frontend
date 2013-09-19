@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+	var apiMocker = require('./api-mocker');
+
   // Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -43,6 +45,7 @@ module.exports = function(grunt) {
 				browser: true,
 				devel: true,
 
+
 				// Global Variables permitted
 				globals: {
 					jQuery: true,
@@ -60,7 +63,9 @@ module.exports = function(grunt) {
 					repeater: true,
 					element: true,
 					input: true,
-					browser: true
+					browser: true,
+					require: true,
+					__dirname: true
 				}
 			}
 		},
@@ -70,7 +75,25 @@ module.exports = function(grunt) {
 				options: {
 					keepalive: true,
 					port: 9000,
-					base: './'
+					base: './',
+
+					// for more info go to https://github.com/sahibinden/connect-api-mocker
+					middleware: function(connect, options) {
+
+						var middlewares = [];
+
+						// mock/rest directory will be mapped to your fake REST API
+						middlewares.push(apiMocker(
+							'/api',
+							'/api'
+						));
+
+						// Static files
+						middlewares.push(  connect.static(options.base)  );
+						middlewares.push(  connect.static(__dirname)  );
+
+						return middlewares;
+					}
 				}
 			}
 		},

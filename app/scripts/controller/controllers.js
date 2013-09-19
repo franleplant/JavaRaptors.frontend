@@ -84,8 +84,8 @@ controller('LendController',
 
 controller('CreateController',
 	[
-		'$scope', '$timeout', 'Book',
-		function ($scope, $timeout, Book) {
+		'$scope', '$timeout', 'Book', '$location',
+		function ($scope, $timeout, Book, $location) {
 
 			var i = 2,
 				j = 2;
@@ -129,9 +129,13 @@ controller('CreateController',
 				j++;
 			};
 
-			b = Book;
 			$scope.create = function () {
-				Book.save($scope.new_book);
+				Book.save($scope.new_book).$then(function () {
+					$location.path('/book');
+				},
+				function () {
+					//error callback
+				});
 			};
 
 
