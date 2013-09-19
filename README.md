@@ -21,20 +21,15 @@ This command must be executed in the project root directory
 
 
 
-### How to run a simple http server? 
+### How to run simple HTTP server, and to lint and unit tests files when they change in real time?
 This command must be executed in the project root directory
 
 	$ grunt
 
-### How to active watch any file changes to lint them with JSHint in real time?
+### How to active watch any file changes to lint them with JSHint and to re re run the unit tests in real time?
 
-	$ grunt watch 
+	$ grunt dev
 
-
-### How to run all the unit tests?
-This command will also run the tests whenever a file changes.
-
-	$ grunt karma
 
 ### How to run all the e2e tests?
 Needs the server started
