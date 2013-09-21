@@ -82,7 +82,7 @@ controller('LendController',
 
 
 
-controller('CreateBookController',
+controller('CreateEditBookController',
 	[
 		'$scope', '$timeout', 'Book', '$location', 'book',
 		function ($scope, $timeout, Book, $location, book) {
