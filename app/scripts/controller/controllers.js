@@ -87,18 +87,8 @@ controller('CreateBookController',
 		'$scope', '$timeout', 'Book', '$location', 'book',
 		function ($scope, $timeout, Book, $location, book) {
 
-			$scope.book = book || {
-				authors: [{name: 'new_author1'}],
-				copys: [{
-					comments: 'new copy1',
-					lendType: 'foreign',
-					editionYear: (new Date()).getFullYear(),
-					state: 'nuevo'
-				}],
-				editorial: {
-					name: ''
-				}
-			};
+			$scope.book = book;
+
 
 			var i = 2,
 				j = 2;
@@ -131,12 +121,21 @@ controller('CreateBookController',
 			};
 
 			$scope.create = function () {
-				$scope.book = Book.save($scope.book).$then(function () {
+
+
+				$scope.book.$save().$then(function () {
 					$location.path('/book');
 				},
 				function () {
 					//error callback
 				});
+
+				// $scope.book = Book.save($scope.book).$then(function () {
+				// 	$location.path('/book');
+				// },
+				// function () {
+				// 	//error callback
+				// });
 			};
 
 

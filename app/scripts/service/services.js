@@ -47,6 +47,29 @@ factory('BookLoader', ['Book', '$route', '$q',
 	]
 ).
 
+factory('BookCreateDefaultsLoader', [
+
+		function() {
+			return function() {
+				return {
+					authors: [{
+						name: 'new_author1'
+					}],
+					copys: [{
+						comments: 'new copy1',
+						lendType: 'foreign',
+						editionYear: (new Date()).getFullYear(),
+						state: 'nuevo'
+					}],
+					editorial: {
+						name: ''
+					}
+				}
+			};
+		}
+	]
+).
+
 
 factory('PathSelector', [ function () {
 

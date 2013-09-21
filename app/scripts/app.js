@@ -49,7 +49,15 @@ jraptors.config(
 				when('/location/edit/:id',  {templateUrl: 'views/location_edit.html',  controller: 'EditController'}).
 
 
-				when('/book/create',      {templateUrl: 'views/book_edit_create.html',      controller: 'CreateBookController'}).
+				when('/book/create', {
+					templateUrl: 'views/book_edit_create.html', 
+					controller: 'CreateBookController',
+					resolve: {
+						book: function(BookCreateDefaultsLoader) {
+							return BookCreateDefaultsLoader();
+						}
+					}
+				}).
 				when('/affiliate/create', {templateUrl: 'views/affiliate_create.html', controller: 'CreateController'}).
 				when('/author/create',    {templateUrl: 'views/author_create.html',    controller: 'CreateController'}).
 				when('/editorial/create', {templateUrl: 'views/editorial_create.html', controller: 'CreateController'}).
