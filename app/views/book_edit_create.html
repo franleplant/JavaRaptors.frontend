@@ -3,20 +3,20 @@
 	<fieldset>
 		<legend>Libro</legend>
 		<label>Titulo</label>
-		<input type="text" placeholder="Type something…" ng-model="new_book.title">
+		<input type="text" placeholder="Type something…" ng-model="book.title">
 		<label>ISBN</label>
-		<input type="text" placeholder="Type something…" ng-model="new_book.isbn">
+		<input type="text" placeholder="Type something…" ng-model="book.isbn">
 		<label>Portada</label>
-		<input type="text" placeholder="Type something…" ng-model="new_book.img">
+		<input type="text" placeholder="Type something…" ng-model="book.img">
 		<label>Idioma</label>
-		<input type="text" placeholder="Type something…" ng-model="new_book.lang">
+		<input type="text" placeholder="Type something…" ng-model="book.lang">
 	</fieldset>
 
 
 	<fieldset>
 		<legend>Autores <button type="button" class="btn" ng-click="add_author()"><i class="icon-plus-sign"></i></button></legend>
 		<ul class="unstyled">
-			<li ng-repeat="author in new_book.authors">
+			<li ng-repeat="author in book.authors">
 				<div class="input-prepend input-append">
 					<label class="add-on">{{$index + 1}}</label>
 					<input class="span2" type="text" ng-model="author.name" typeahead="d for d in dummys_authors | filter:$viewValue" 
@@ -34,11 +34,11 @@
 	<fieldset>
 		<legend>Editorial</legend>
 		<label>Editorial</label>
-		<input type="text" placeholder="Type something…" ng-model="new_book.editorial.name" typeahead="e.name for e in editorials | filter:$viewValue">
+		<input type="text" placeholder="Type something…" ng-model="book.editorial.name" typeahead="e.name for e in editorials | filter:$viewValue">
 		<label>Numero de Edicion</label>
-		<input type="text" placeholder="Type something…" ng-model="new_book.editionNumber">
+		<input type="text" placeholder="Type something…" ng-model="book.editionNumber">
 		<label>Pais de Edicion</label>
-		<input type="text" placeholder="Type something…" ng-model="new_book.editionCountry">
+		<input type="text" placeholder="Type something…" ng-model="book.editionCountry">
 	</fieldset>
 
 	
@@ -58,7 +58,7 @@
 			</thead>
 
 			<tbody>
-				<tr ng-repeat="copy in new_book.copys">
+				<tr ng-repeat="copy in book.copys">
 					<td><span>{{copy.id}}</span></td>
 					<td><input type="text" ng-model="copy.state"></input></td>
 					<td><input type="text" ng-model="copy.editionYear"></input></td>
@@ -84,16 +84,16 @@
 	<fieldset>
 		<legend>Valoracion</legend>	
 		<label>Valuacion</label>
-		<input type="text" placeholder="Type something…" ng-model="new_book.val">
+		<input type="text" placeholder="Type something…" ng-model="book.val">
 		<label>Precio</label>
-		<input type="text" placeholder="Type something…" ng-model="new_book.price">
+		<input type="text" placeholder="Type something…" ng-model="book.price">
 	</fieldset>
 
 
 		
 	<fieldset>
 		<legend>Comentarios</legend>
-		<textarea rows="3" ng-model="new_book.comments"></textarea>
+		<textarea rows="3" ng-model="book.comments"></textarea>
 	</fieldset>
 
 	<fieldset>

@@ -84,13 +84,10 @@ controller('LendController',
 
 controller('CreateBookController',
 	[
-		'$scope', '$timeout', 'Book', '$location',
-		function ($scope, $timeout, Book, $location) {
+		'$scope', '$timeout', 'Book', '$location', 'book',
+		function ($scope, $timeout, Book, $location, book) {
 
-			var i = 2,
-				j = 2;
-
-			$scope.new_book = {
+			$scope.book = book || {
 				authors: [{name: 'new_author1'}],
 				copys: [{
 					comments: 'new copy1',
@@ -103,24 +100,28 @@ controller('CreateBookController',
 				}
 			};
 
+			var i = 2,
+				j = 2;
+
+
 			//TODO: refactor this
 			$scope.rm_author = function (i) {
-				$scope.new_book.authors.splice(i,1);
+				$scope.book.authors.splice(i,1);
 			};
 
 			$scope.add_author = function () {
-				$scope.new_book.authors.push({
+				$scope.book.authors.push({
 					name:'new_author' + i
 				});
 				i++;
 			};
 
 			$scope.rm_copy = function (i) {
-				$scope.new_book.copys.splice(i,1);
+				$scope.book.copys.splice(i,1);
 			};
 
 			$scope.add_copy = function () {
-				$scope.new_book.copys.push({
+				$scope.book.copys.push({
 					comments: 'new copy' + j,
 					lendType: 'foreign',
 					editionYear: (new Date()).getFullYear(),
@@ -130,7 +131,7 @@ controller('CreateBookController',
 			};
 
 			$scope.create = function () {
-				$scope.book = Book.save($scope.new_book).$then(function () {
+				$scope.book = Book.save($scope.book).$then(function () {
 					$location.path('/book');
 				},
 				function () {

@@ -25,7 +25,24 @@ factory('Search', ['$resource',
 factory('Book', ['$resource',
 
 		function ($resource) {
-			return $resource('/api/book', {format: 'json'}, {});
+			return $resource('/api/book/:id', {id: '@id', format: 'json'}, {});
+		}
+	]
+).
+
+factory('BookLoader', ['Book', '$route', '$q',
+
+		function(Book, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				Book.get({id: $route.current.params.id}, function(book) {
+					dfd.resolve(book);
+				}, function() {
+					dfd.reject('Unable to fetch book '  + $route.current.params.id);
+				});
+				return dfd.promise;
+			};
 		}
 	]
 ).
