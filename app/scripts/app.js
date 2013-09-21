@@ -86,6 +86,11 @@ angular.module('jraptorsConfigBlock', []).config(
 					'$q', '$location',
 					function ($q, $location) {
 						return {
+							'request': function (request) {
+								console.log(request);
+								request.headers.session =  'username: franleplant'
+								return request;
+							},
 							'response': function (response) {
 								return response;
 							},
