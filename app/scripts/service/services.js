@@ -25,7 +25,47 @@ factory('Search', ['$resource',
 factory('Book', ['$resource',
 
 		function ($resource) {
-			return $resource('/api/book', {format: 'json'}, {});
+			return $resource('/api/book/:id', {id: '@id', format: 'json'}, {});
+		}
+	]
+).
+
+factory('bookLoader', ['Book', '$route', '$q',
+
+		function(Book, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				Book.get({id: $route.current.params.id}, function(book) {
+					dfd.resolve(book);
+				}, function() {
+					dfd.reject('Unable to fetch book '  + $route.current.params.id);
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
+factory('bookCreateDefaultsLoader', ['Book',
+
+		function(Book) {
+			return function() {
+				return new Book({
+					authors: [{
+						name: 'new_author1'
+					}],
+					copys: [{
+						comments: 'new copy1',
+						lendType: 'foreign',
+						editionYear: (new Date()).getFullYear(),
+						state: 'nuevo'
+					}],
+					editorial: {
+						name: ''
+					}
+				});
+			};
 		}
 	]
 ).
@@ -85,7 +125,7 @@ factory('UserSession', [ 'PathSelector', 'UserRoles',
 		function (PathSelector, UserRoles) {
 			var user_session = {};
 
-			var name, role;
+			var name, role, token;
 
 
 			//TODO: Refactor
@@ -105,6 +145,15 @@ factory('UserSession', [ 'PathSelector', 'UserRoles',
 
 				role = newValue;
 				return role;
+			};
+
+			user_session.token = function (newValue) {
+				if (!newValue) {
+					return token;
+				}
+
+				token = newValue;
+				return token;
 			};
 
 			user_session.isAllowedTo = function (path) {

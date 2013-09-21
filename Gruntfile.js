@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-	var apiMocker = require('./api-mocker');
+	var apiMocker = require('./api/api-mocker');
 
   // Project configuration.
 	grunt.initConfig({
@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 				immed: true,
 				indent: 4,
 				latedef: true,
-				newcap: true,
+				newcap: false,
 				noarg: true,
 				noempty: true,
 				nonew: false,
