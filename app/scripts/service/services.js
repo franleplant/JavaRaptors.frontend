@@ -125,7 +125,7 @@ factory('UserSession', [ 'PathSelector', 'UserRoles',
 		function (PathSelector, UserRoles) {
 			var user_session = {};
 
-			var name, role;
+			var name, role, token;
 
 
 			//TODO: Refactor
@@ -145,6 +145,15 @@ factory('UserSession', [ 'PathSelector', 'UserRoles',
 
 				role = newValue;
 				return role;
+			};
+
+			user_session.token = function (newValue) {
+				if (!newValue) {
+					return token;
+				}
+
+				token = newValue;
+				return token;
 			};
 
 			user_session.isAllowedTo = function (path) {

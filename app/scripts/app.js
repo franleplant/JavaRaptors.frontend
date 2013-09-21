@@ -113,11 +113,15 @@ angular.module('jraptorsRunBlock', ['ngCookies']).run(
 		'$rootScope', 'UserSession', '$cookies', '$location',
 		function ($rootScope, UserSession, $cookies, $location) {
 			
+			//This should be set by the server after sucessfully user login
 			$cookies.username = 'franleplant';
 			$cookies.userrole = 'admin';
+			$cookies.sessionToken = 'someToken';
 
 			UserSession.name(  $cookies.username  );
 			UserSession.role(  $cookies.userrole  );
+			UserSession.token(  $cookies.sessionToken  );
+
 
 			//http://docs.angularjs.org/api/ngRoute.$route
 			$rootScope.$on('$routeChangeStart', function () {
