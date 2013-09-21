@@ -14,6 +14,7 @@ describe('Jraptors Services', function() {
 
 			UserSession.name('username');
 			UserSession.role('userrole');
+			UserSession.token('token');
 		});
 
 		it('should return an UserSession object', function () {
@@ -44,6 +45,16 @@ describe('Jraptors Services', function() {
 			});
 		});
 
+		describe('token method', function () {
+			it('should be a getter when no arguments are passed', function () {
+				expect(  UserSession.token()  ).toBe('token');
+			});
+
+			it('should be a setter when an argument is passed', function () {
+				UserSession.role('token2');
+				expect(  UserSession.role()  ).toBe('token2');
+			});
+		});
 
 		describe('isAllowedTo method', function () {
 			beforeEach(function () {
