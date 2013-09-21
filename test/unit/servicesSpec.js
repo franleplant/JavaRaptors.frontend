@@ -178,4 +178,23 @@ describe('Jraptors Services', function() {
 			});
 		});
 	});
+
+	
+	describe('bookCreateDefaultsLoader', function () {
+
+		var default_book;
+
+		beforeEach(function () {
+			inject(  function($injector) {
+				default_book = $injector.get('bookCreateDefaultsLoader') ();
+			});
+		});
+
+		it('should have default authors, copys and a blank editorial', function () {
+			expect( default_book.authors ).toBeDefined();
+			expect( default_book.copys ).toBeDefined();
+			expect( default_book.editorial ).toBeDefined();
+			expect( default_book.title ).toBeUndefined();
+		});
+	});
 });
