@@ -33,7 +33,7 @@ jraptors.config(
 				when('/user/detailed_view/:id',      {templateUrl: 'views/user.html',      controller: 'DetailedViewController'}).
 				when('/location/detailed_view/:id',  {templateUrl: 'views/location.html',  controller: 'DetailedViewController'}).
 
-				when('/book/edit/:id',      {templateUrl: 'views/book_edit.html',      controller: 'EditController'}).
+				when('/book/edit/:id',      {templateUrl: 'views/book_edit_create.html',    controller: 'EditController'}).
 				when('/affiliate/edit/:id', {templateUrl: 'views/affiliate_edit.html', controller: 'EditController'}).
 				when('/author/edit/:id',    {templateUrl: 'views/author_edit.html',    controller: 'EditController'}).
 				when('/editorial/edit/:id', {templateUrl: 'views/editorial_edit.html', controller: 'EditController'}).
@@ -41,7 +41,7 @@ jraptors.config(
 				when('/location/edit/:id',  {templateUrl: 'views/location_edit.html',  controller: 'EditController'}).
 
 
-				when('/book/create',      {templateUrl: 'views/book_create.html',      controller: 'CreateController'}).
+				when('/book/create',      {templateUrl: 'views/book_edit_create.html',      controller: 'CreateController'}).
 				when('/affiliate/create', {templateUrl: 'views/affiliate_create.html', controller: 'CreateController'}).
 				when('/author/create',    {templateUrl: 'views/author_create.html',    controller: 'CreateController'}).
 				when('/editorial/create', {templateUrl: 'views/editorial_create.html', controller: 'CreateController'}).
