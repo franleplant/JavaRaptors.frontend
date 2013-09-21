@@ -83,12 +83,11 @@ angular.module('jraptorsConfigBlock', []).config(
 			//http://bneijt.nl/blog/post/angularjs-intercept-api-error-responses/
 			$httpProvider.interceptors.push(
 				[
-					'$q', '$location',
-					function ($q, $location) {
+					'$q', '$location', 'UserSession',
+					function ($q, $location, UserSession) {
 						return {
 							'request': function (request) {
-								console.log(request);
-								request.headers.session =  'username: franleplant'
+								request.headers.Auth =  UserSession.token();
 								return request;
 							},
 							'response': function (response) {
