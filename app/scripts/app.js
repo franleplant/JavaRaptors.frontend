@@ -33,7 +33,15 @@ jraptors.config(
 				when('/user/detailed_view/:id',      {templateUrl: 'views/user.html',      controller: 'DetailedViewController'}).
 				when('/location/detailed_view/:id',  {templateUrl: 'views/location.html',  controller: 'DetailedViewController'}).
 
-				when('/book/edit/:id',      {templateUrl: 'views/book_edit.html',      controller: 'EditController'}).
+				when('/book/edit/:id', {
+					templateUrl: 'views/book_edit_create.html',
+					controller: 'CreateBookController',
+					resolve: {
+						book: function(bookLoader) {
+							return bookLoader();
+						}
+					}
+				}).
 				when('/affiliate/edit/:id', {templateUrl: 'views/affiliate_edit.html', controller: 'EditController'}).
 				when('/author/edit/:id',    {templateUrl: 'views/author_edit.html',    controller: 'EditController'}).
 				when('/editorial/edit/:id', {templateUrl: 'views/editorial_edit.html', controller: 'EditController'}).
@@ -41,7 +49,15 @@ jraptors.config(
 				when('/location/edit/:id',  {templateUrl: 'views/location_edit.html',  controller: 'EditController'}).
 
 
-				when('/book/create',      {templateUrl: 'views/book_create.html',      controller: 'CreateController'}).
+				when('/book/create', {
+					templateUrl: 'views/book_edit_create.html',
+					controller: 'CreateBookController',
+					resolve: {
+						book: function(bookCreateDefaultsLoader) {
+							return bookCreateDefaultsLoader();
+						}
+					}
+				}).
 				when('/affiliate/create', {templateUrl: 'views/affiliate_create.html', controller: 'CreateController'}).
 				when('/author/create',    {templateUrl: 'views/author_create.html',    controller: 'CreateController'}).
 				when('/editorial/create', {templateUrl: 'views/editorial_create.html', controller: 'CreateController'}).
@@ -67,9 +83,13 @@ angular.module('jraptorsConfigBlock', []).config(
 			//http://bneijt.nl/blog/post/angularjs-intercept-api-error-responses/
 			$httpProvider.interceptors.push(
 				[
-					'$q', '$location',
-					function ($q, $location) {
+					'$q', '$location', 'UserSession',
+					function ($q, $location, UserSession) {
 						return {
+							'request': function (request) {
+								request.headers.Auth =  UserSession.token();
+								return request;
+							},
 							'response': function (response) {
 								return response;
 							},
@@ -92,11 +112,15 @@ angular.module('jraptorsRunBlock', ['ngCookies']).run(
 		'$rootScope', 'UserSession', '$cookies', '$location',
 		function ($rootScope, UserSession, $cookies, $location) {
 			
+			//This should be set by the server after sucessfully user login
 			$cookies.username = 'franleplant';
 			$cookies.userrole = 'admin';
+			$cookies.sessionToken = 'someToken';
 
 			UserSession.name(  $cookies.username  );
 			UserSession.role(  $cookies.userrole  );
+			UserSession.token(  $cookies.sessionToken  );
+
 
 			//http://docs.angularjs.org/api/ngRoute.$route
 			$rootScope.$on('$routeChangeStart', function () {
