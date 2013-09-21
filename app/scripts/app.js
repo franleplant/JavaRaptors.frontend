@@ -37,8 +37,8 @@ jraptors.config(
 					templateUrl: 'views/book_edit_create.html',
 					controller: 'CreateBookController',
 					resolve: {
-						book: function(BookLoader) {
-							return BookLoader();
+						book: function(bookLoader) {
+							return bookLoader();
 						}
 					}
 				}).
@@ -53,8 +53,8 @@ jraptors.config(
 					templateUrl: 'views/book_edit_create.html',
 					controller: 'CreateBookController',
 					resolve: {
-						book: function(BookCreateDefaultsLoader) {
-							return BookCreateDefaultsLoader();
+						book: function(bookCreateDefaultsLoader) {
+							return bookCreateDefaultsLoader();
 						}
 					}
 				}).

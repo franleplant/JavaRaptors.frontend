@@ -30,7 +30,7 @@ factory('Book', ['$resource',
 	]
 ).
 
-factory('BookLoader', ['Book', '$route', '$q',
+factory('bookLoader', ['Book', '$route', '$q',
 
 		function(Book, $route, $q) {
 			return function() {
@@ -47,7 +47,7 @@ factory('BookLoader', ['Book', '$route', '$q',
 	]
 ).
 
-factory('BookCreateDefaultsLoader', ['Book',
+factory('bookCreateDefaultsLoader', ['Book',
 
 		function(Book) {
 			return function() {
