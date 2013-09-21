@@ -120,22 +120,14 @@ controller('CreateBookController',
 				j++;
 			};
 
-			$scope.create = function () {
+			$scope.save = function () {
 
-
-				$scope.book.$save().$then(function () {
+				$scope.book.$save(function () {
 					$location.path('/book');
 				},
 				function () {
 					//error callback
 				});
-
-				// $scope.book = Book.save($scope.book).$then(function () {
-				// 	$location.path('/book');
-				// },
-				// function () {
-				// 	//error callback
-				// });
 			};
 
 

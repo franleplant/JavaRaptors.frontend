@@ -47,11 +47,11 @@ factory('BookLoader', ['Book', '$route', '$q',
 	]
 ).
 
-factory('BookCreateDefaultsLoader', [
+factory('BookCreateDefaultsLoader', ['Book',
 
-		function() {
+		function(Book) {
 			return function() {
-				return {
+				return new Book({
 					authors: [{
 						name: 'new_author1'
 					}],
@@ -64,7 +64,7 @@ factory('BookCreateDefaultsLoader', [
 					editorial: {
 						name: ''
 					}
-				}
+				});
 			};
 		}
 	]
