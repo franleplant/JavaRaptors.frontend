@@ -69,7 +69,6 @@ describe('Jraptors Services', function() {
 				expect(  UserSession.isAllowedTo('/not_a_valid_path')  ).toBe(false);
 			});
 		});
-
 	});
 
 
@@ -207,5 +206,45 @@ describe('Jraptors Services', function() {
 			expect( default_book.editorial ).toBeDefined();
 			expect( default_book.title ).toBeUndefined();
 		});
+	});
+
+	describe('Book', function () {
+
+		var scope, $httpBackend, Book,
+			mock_response = {'status': 'ok'};
+	
+
+		beforeEach(inject(function(_$httpBackend_, $injector) {
+			$httpBackend = _$httpBackend_;
+
+			//Mock all the responses types
+			$httpBackend.whenPOST('/api/book?format=json').
+				respond(  mock_response  );
+
+			Book = $injector.get('Book');
+		}));
+
+
+		it('should return a book with a GET request', function () {
+
+			console.log(Book);
+		});
+
+		it('should save a new book with a POST request and URL like: /api/book/create', function () {
+
+			console.log(Book);
+		});
+
+		it('should change an existing book with a POST request and URL like: /api/book/edit/:id', function () {
+
+			console.log(Book);
+		});
+
+
+		it('should remove an existing book with a DELETE request and URL like: /api/book/delete/:id', function () {
+
+			console.log(Book);
+		});
+
 	});
 });
