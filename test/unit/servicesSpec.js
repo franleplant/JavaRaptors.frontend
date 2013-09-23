@@ -211,39 +211,92 @@ describe('Jraptors Services', function() {
 	describe('Book', function () {
 
 		var scope, $httpBackend, Book,
-			mock_response = {'status': 'ok'};
+			mock_response_ok = {'status': 'ok'},
+			mock_response_GET = {'title': 'El Aleph'};
 	
 
 		beforeEach(inject(function(_$httpBackend_, $injector) {
 			$httpBackend = _$httpBackend_;
 
-			//Mock all the responses types
-			$httpBackend.whenPOST('/api/book?format=json').
-				respond(  mock_response  );
+
 
 			Book = $injector.get('Book');
 		}));
 
+		describe('GET', function () {
 
-		it('should return a book with a GET request', function () {
+			beforeEach(function () {
+				$httpBackend.expectGET('/api/book/1?format=json').
+					respond( mock_response_GET );
+			});
 
-			console.log(Book);
+
+			it('should return a book with a GET request', function () {
+				var b = Book.get({id: 1});
+
+				$httpBackend.flush();
+
+				expect(b.title).toBe('El Aleph');
+
+			});
+
 		});
 
-		it('should save a new book with a POST request and URL like: /api/book/create', function () {
 
-			console.log(Book);
+
+
+
+		describe('POST: create a new book', function () {
+			beforeEach(function () {
+				$httpBackend.expectPOST('/api/book?format=json').
+					respond(  mock_response_ok  );
+			});
+
+			it('should save a new book with a POST request and URL like: /api/book/create', function () {
+
+				var b = Book.save({title: 'some_new_Book'});
+
+				$httpBackend.flush();
+
+				expect(b.status).toBe('ok');
+			});
+
 		});
 
-		it('should change an existing book with a POST request and URL like: /api/book/edit/:id', function () {
+		describe('POST: edit an existing book', function () {
+			beforeEach(function () {
+				$httpBackend.expectPOST('/api/book/1?format=json').
+					respond(  mock_response_ok  );
+			});
 
-			console.log(Book);
+
+			it('should change an existing book with a POST request and URL like: /api/book/edit/:id', function () {
+
+				var b = Book.save({id: 1, title: 'some_existing_Book'});
+
+				$httpBackend.flush();
+
+				expect(b.status).toBe('ok');
+			});
+
 		});
 
+		describe('DELETE', function () {
+			beforeEach(function () {
+				$httpBackend.expectDELETE('/api/book/1?format=json&title=some_existing_Book').
+					respond(  mock_response_ok  );
+			});
 
-		it('should remove an existing book with a DELETE request and URL like: /api/book/delete/:id', function () {
 
-			console.log(Book);
+			it('should remove an existing book with a DELETE request and URL like: /api/book/delete/:id', function () {
+
+				var b = Book.remove({id: 1, title: 'some_existing_Book'});
+
+				$httpBackend.flush();
+
+				expect(b.status).toBe('ok');
+			});
+
 		});
 
 	});
