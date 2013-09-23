@@ -283,14 +283,14 @@ describe('Jraptors Services', function() {
 
 		describe('DELETE', function () {
 			beforeEach(function () {
-				$httpBackend.expectDELETE('/api/book/1?format=json&title=some_existing_Book').
+				$httpBackend.expectDELETE('/api/book/1?format=json').
 					respond(  mock_response_ok  );
 			});
 
 
 			it('should remove an existing book with a DELETE request and URL like: /api/book/delete/:id', function () {
 
-				var b = Book.remove({id: 1, title: 'some_existing_Book'});
+				var b = Book.remove({id: 1});
 
 				$httpBackend.flush();
 
