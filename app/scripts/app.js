@@ -35,7 +35,7 @@ jraptors.config(
 
 				when('/book/edit/:id', {
 					templateUrl: 'views/book_edit_create.html',
-					controller: 'CreateBookController',
+					controller: 'CreateEditBookController',
 					resolve: {
 						book: function(bookLoader) {
 							return bookLoader();
@@ -51,7 +51,7 @@ jraptors.config(
 
 				when('/book/create', {
 					templateUrl: 'views/book_edit_create.html',
-					controller: 'CreateBookController',
+					controller: 'CreateEditBookController',
 					resolve: {
 						book: function(bookCreateDefaultsLoader) {
 							return bookCreateDefaultsLoader();
