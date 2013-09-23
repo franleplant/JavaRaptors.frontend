@@ -2,6 +2,12 @@ form span {
 	font-size: 12px;
 }
 
+form > button.delete_entity {
+	position: absolute;
+	right: 10px;
+	z-index: 10;
+}
+
 body .ng-invalid.ng-dirty input[type=text]{ 
 	border: 1px solid red; 
 	border-color: #e9322d;

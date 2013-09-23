@@ -130,6 +130,13 @@ controller('CreateEditBookController',
 				});
 			};
 
+			$scope.remove = function () {
+
+				Book.remove({id: $scope.book.id}).$then(function () {
+					$location.path('/book');
+				});
+			};
+
 
 			// TODO: fill this typeaheads models with server calls (detail)
 			$scope.dummys_authors= ['author1', 'author2'];
