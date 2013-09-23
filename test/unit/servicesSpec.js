@@ -14,6 +14,7 @@ describe('Jraptors Services', function() {
 
 			UserSession.name('username');
 			UserSession.role('userrole');
+			UserSession.token('token');
 		});
 
 		it('should return an UserSession object', function () {
@@ -44,6 +45,16 @@ describe('Jraptors Services', function() {
 			});
 		});
 
+		describe('token method', function () {
+			it('should be a getter when no arguments are passed', function () {
+				expect(  UserSession.token()  ).toBe('token');
+			});
+
+			it('should be a setter when an argument is passed', function () {
+				UserSession.role('token2');
+				expect(  UserSession.role()  ).toBe('token2');
+			});
+		});
 
 		describe('isAllowedTo method', function () {
 			beforeEach(function () {
@@ -58,7 +69,6 @@ describe('Jraptors Services', function() {
 				expect(  UserSession.isAllowedTo('/not_a_valid_path')  ).toBe(false);
 			});
 		});
-
 	});
 
 
@@ -177,5 +187,64 @@ describe('Jraptors Services', function() {
 				expect(result3).toBe(true);
 			});
 		});
+	});
+
+	
+	describe('bookCreateDefaultsLoader', function () {
+
+		var default_book;
+
+		beforeEach(function () {
+			inject(  function($injector) {
+				default_book = $injector.get('bookCreateDefaultsLoader') ();
+			});
+		});
+
+		it('should have default authors, copys and a blank editorial', function () {
+			expect( default_book.authors ).toBeDefined();
+			expect( default_book.copys ).toBeDefined();
+			expect( default_book.editorial ).toBeDefined();
+			expect( default_book.title ).toBeUndefined();
+		});
+	});
+
+	describe('Book', function () {
+
+		var scope, $httpBackend, Book,
+			mock_response = {'status': 'ok'};
+	
+
+		beforeEach(inject(function(_$httpBackend_, $injector) {
+			$httpBackend = _$httpBackend_;
+
+			//Mock all the responses types
+			$httpBackend.whenPOST('/api/book?format=json').
+				respond(  mock_response  );
+
+			Book = $injector.get('Book');
+		}));
+
+
+		it('should return a book with a GET request', function () {
+
+			console.log(Book);
+		});
+
+		it('should save a new book with a POST request and URL like: /api/book/create', function () {
+
+			console.log(Book);
+		});
+
+		it('should change an existing book with a POST request and URL like: /api/book/edit/:id', function () {
+
+			console.log(Book);
+		});
+
+
+		it('should remove an existing book with a DELETE request and URL like: /api/book/delete/:id', function () {
+
+			console.log(Book);
+		});
+
 	});
 });
