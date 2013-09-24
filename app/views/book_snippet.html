@@ -37,4 +37,8 @@
 		<i class="icon-white" ng-class="result.lend | hasAttribute | copysToClass"></i>
 	</a>
 
+	<a ng-href="#/book/edit/{{result.id}}" title="Editar" class="lend-return-button btn btn-inverse btn-large" type="button" ng-if="result.type == 'book'">
+		Editar
+	</a>
+
 </div>

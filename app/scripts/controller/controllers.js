@@ -5,6 +5,8 @@ angular.module('jraptors.Controllers', []).controller('SearchController',
 		'$scope', 'animations', 'Search', '$location',
 		function ($scope, animations, Search, $location) {
 
+			$scope.location = $location;
+
 			$scope.search = function (page) {
 				
 				// This is to test no_result, TODO: MAKE A TEST CASE
