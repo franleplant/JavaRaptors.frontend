@@ -43,6 +43,10 @@ form .form_book_img {
 	margin-left: 5px;
 }
 
+.book_location {
+	width: 160px;
+}
+
 .modal {
 	width: 500px;
 	height: 200px;
