@@ -8,6 +8,7 @@ module.exports = function(config){
       'test/lib/angular/angular-mocks.js',
       'app/scripts/vendor/jquery-2.0.3.js',
       'app/scripts/vendor/bootstrap.js',
+      'app/scripts/vendor/ui-bootstrap-tpls-0.6.0.js',
       'app/scripts/app.js',
       'app/scripts/**/*.js',
       'test/unit/**/*.js'

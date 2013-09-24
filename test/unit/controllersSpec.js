@@ -88,6 +88,7 @@ describe('Controllers', function(){
 			mock_response = {'status': 'ok'};
 	
 
+
 		beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $location, bookCreateDefaultsLoader) {
 			$httpBackend = _$httpBackend_;
 			$httpBackend.whenPOST('/api/book?format=json').

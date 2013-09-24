@@ -1,6 +1,6 @@
 
 
-angular.module('jraptors.Controllers', []).controller('SearchController',
+angular.module('jraptors.Controllers', ['ui.bootstrap']).controller('SearchController',
 	[
 		'$scope', 'animations', 'Search', '$location',
 		function ($scope, animations, Search, $location) {
@@ -136,11 +136,11 @@ controller('CreateEditBookController',
 
 			$scope.open_modal_delete = function () {
 
-			    var modalInstance = $modal.open({
-				      templateUrl: 'views/modal_delete.html',
-				      controller: 'ModalController',
-				      scope: $scope
-			    });
+				var modalInstance = $modal.open({
+					templateUrl: 'views/modal_delete.html',
+					controller: 'ModalController',
+					scope: $scope
+				});
 			
 			};
 
@@ -168,7 +168,7 @@ controller('ModalController',
 		function ($scope, $modalInstance) {
 
 			$scope.ok = function () {
-				$scope.remove($modalInstance.close);	
+				$scope.remove($modalInstance.close);
 			};
 
 			$scope.cancel = function () {
