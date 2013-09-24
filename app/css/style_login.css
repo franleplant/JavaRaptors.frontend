@@ -9,3 +9,10 @@
 .navbar {
 	display: inline-block;
 }
+
+
+.center {
+	display: table;
+	margin-right: auto;
+	margin-left: auto;
+}
