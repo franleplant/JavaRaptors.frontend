@@ -1,12 +1,25 @@
 angular.module('jr.login.controllers', []).
 
-controller('SigninController', ['$scope',
+controller('SigninController', ['$scope', '$http',
 	
-		function ($scope) {
+		function ($scope, $http) {
+
 			$scope.signin = function () {
-				if ($scope.userName === 'cacho') {
-					location.href = "index.html";
-				}
+
+				$http({
+					method: 'POST',
+					url: '/api/signin'
+				}).
+
+					success(function(data, status, headers, config) {
+						console.log('success', data);
+					}).
+					error(function(data, status, headers, config) {
+						console.log('error', data);
+					});
+
+				//location.href = 'index.html';
+
 			};
 
 
