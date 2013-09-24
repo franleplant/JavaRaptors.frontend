@@ -1,116 +1,102 @@
-  <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-         
-          <a class="brand" href="#">BiblioSoft</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-                            
-            </ul>
-
-            <div class="nav-collapse collapse pull-right">
-            <ul class="nav">
-              
-              <li><a href="#"><i class="icon-cog icon-white"></i></a></li>
-              <li><a href="#"><i class="icon-user icon-white"></i>     javaraptors@gmail.com</a></li>
-              
-              
-            </ul>
-          </div><!--/.nav-collapse -->
-        
-        </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-
-            <div class="row">
-            <div class="span4"><img src="http://www.typographyforlawyers.com/pix/tfl-book-cover.gif" style="height:300px" class="img-polaroid"></div>
-            <div class="span8">
-            <h1 id="title"> Typography for Lawyers </h1>
-            <h3 id="authors"> Matthew Butterick </h3> 
-            <hr/>
-            <h3 id="summary_title">Resumen</h3>
-            <p id="summary_content"> Instrucciones sobre las mejores prácticas para el correcto diseño de documentos legales relativos al derecho penal.</p>
-            <hr/>
-            <h3 id="data_title">Datos</h3>
-
-            <span>ISBN: </span><span>978-0-300-14424-6</span>
-            <br/>
-            <span>Editorial: </span><span><a href="#">Paperback</a></span>
-            <br/>
-            <span>Edición: </span><span>1ra</span>
-            <br/>
-            <span>Idioma: </span><span>Español</span>
-            <br/>
-            <span>Precio: </span><span>U$S 379.99</span>
-            <br/>
-            <span>Géneros: </span><span><a href="#">Académico</a>, <a href="#">Abogacía</a></span>
+<div class="container">
 
 
-            </div>
-            </div>
+		<div class="row">
+			<div class="span4">
+				<img class="img-polaroid" ng-src={{book.img}} style="height:300px">
+			</div>
+			<div class="span8">
+				<a ng-href="#/book/detailed_view/{{book.id}}"><h1 class="media-heading">{{book.title}}</h1></a>
+				<div class="authors clearfix" >			
+					<a ng-repeat="author in book.authors" ng-href="#/author/detailed_view/{{author.id}}" target="_blank">
+						<h3 class="media-heading">{{author.name}}</h3>
+					</a>
+				</div>
 
-            <div class="row">
-            <div class="span12">
-			<hr/>
-            <h3 id="example_title"> Ejemplares </h3> 
+				<hr/>
+				<h3>Resumen</h3>
+				<p>{{book.summary}}</p>
+				<hr/>
 
-              <table class="table table-hover">
-              <thead>
-                <tr>
-                  <th># Serie</th>
-                  <th>Estado</th>
-                  <th>Ubicación</th>
-                  <th>Usuario Prestado</th>
-				  <th>Acciones</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>982002</td>
-                  <td>Libre</td>
-                  <td>H1</td>
-				  <td></td>
-                  <td>
-				  <a href="#"><i class="icon-circle-arrow-up"></i></a>
-				  <a href="#"><i class="icon-circle-arrow-down"></i></a>
-				  <a href="#"><i class="icon-pencil"></i></a></td>
-                </tr>
-                <tr>
-                  <td>982452</td>
-                  <td>Libre</td>
-                  <td>F4</td>
-				  <td></td>
-                  <td>
-				  <a href="#"><i class="icon-circle-arrow-up"></i></a>
-				  <a href="#"><i class="icon-circle-arrow-down"></i></a>
-				  <a href="#"><i class="icon-pencil"></i></a></td>
-                </tr>
-                </tr>
-                <tr>
-                  <td>701234</td>
-                  <td>Prestado</td>
-                  <td>E6</td>
-                  <td><a href="#">Axel Kicillof</a></td>
-				  <td>
-				  <a href="#"><i class="icon-circle-arrow-up"></i></a>
-				  <a href="#"><i class="icon-circle-arrow-down"></i></a>
-				  <a href="#"><i class="icon-pencil"></i></a></td>
-                </tr>
-                </tr>
-              </tbody>
-            </table>
-            </div>
-            </div>
+				<h3>Datos</h3>
+				<span>ISBN: </span><span>{{book.isbn}}</span>
+				<br/>
+				<span>Editorial: </span><span><a ng-href="#/editorial/detailed_view/{{book.editorial.id}}" target="_blank">{{book.editorial.name}}</a></span>
+				<br/>
+				<span>Edición: </span><span>{{book.editionNumber}}</span>
+				<br/>
+				<span>Idioma: </span><span>{{book.lang}}</span>
+				<br/>
+				<span>Precio: </span><span>{{book.price}}</span>
+				<br/>
+				<span>Géneros: </span>
+				<span>
+					<span ng-repeat="genre in book.genres">{{genre.name}} </span>
+				</span>
+
+
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="span12">
+				<hr/>
+				<h3> Ejemplares </h3> 
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th># Serie</th>
+							<th>Estado</th>
+							<th>Ubicación</th>
+							<th>Usuario Prestado</th>
+							<th>Acciones</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>982002</td>
+							<td>Libre</td>
+							<td>H1</td>
+							<td></td>
+							<td>
+								<a href="#"><i class="icon-circle-arrow-up"></i></a>
+								<a href="#"><i class="icon-circle-arrow-down"></i></a>
+								<a href="#"><i class="icon-pencil"></i></a>
+							</td>
+						</tr>
+						<tr>
+							<td>982452</td>
+							<td>Libre</td>
+							<td>F4</td>
+							<td></td>
+							<td>
+								<a href="#"><i class="icon-circle-arrow-up"></i></a>
+								<a href="#"><i class="icon-circle-arrow-down"></i></a>
+								<a href="#"><i class="icon-pencil"></i></a>
+							</td>
+						</tr>
+						<tr>
+							<td>701234</td>
+							<td>Prestado</td>
+							<td>E6</td>
+							<td><a href="#">Axel Kicillof</a></td>
+							<td>
+								<a href="#"><i class="icon-circle-arrow-up"></i></a>
+								<a href="#"><i class="icon-circle-arrow-down"></i></a>
+								<a href="#"><i class="icon-pencil"></i></a>
+							</td>
+						</tr>
+					</tr>
+				  </tbody>
+				</table>
+			</div>
+		</div>
 
 
 
-       
-      
+   
+  
 
-     
+ 
 
-    </div>
+</div>
