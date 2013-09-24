@@ -23,7 +23,7 @@ controller('SigninController', ['$scope', '$http',
 				success(function(data, status, headers, config) {
 
 					if (data.userName && data.password) {
-						//location.href = 'index.html';
+						location.href = 'index.html';
 						return;		
 					}
 
