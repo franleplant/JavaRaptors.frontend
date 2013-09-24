@@ -26,7 +26,15 @@ jraptors.config(
 				when('/book/lend/:id',      {templateUrl: 'views/book_lend.html',      controller: 'LendController'}).
 
 
-				when('/book/detailed_view/:id',      {templateUrl: 'views/book.html',      controller: 'DetailedViewController'}).
+				when('/book/detailed_view/:id', {
+					templateUrl: 'views/book.html',
+					controller: 'DetailedViewController',
+					resolve: {
+						book: function(bookLoader) {
+							return bookLoader();
+						}
+					}
+				}).
 				when('/affiliate/detailed_view/:id', {templateUrl: 'views/affiliate.html', controller: 'DetailedViewController'}).
 				when('/author/detailed_view/:id',    {templateUrl: 'views/author.html',    controller: 'DetailedViewController'}).
 				when('/editorial/detailed_view/:id', {templateUrl: 'views/editorial.html', controller: 'DetailedViewController'}).
