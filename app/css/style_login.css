@@ -1,0 +1,23 @@
+.container {
+	margin-top: 30px;
+}
+
+.container > * {
+	margin-bottom: 20px;
+}
+
+.navbar {
+	display: inline-block;
+}
+
+
+.center {
+	display: table;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+img {
+	height: 242px;
+	width: 96%
+}
