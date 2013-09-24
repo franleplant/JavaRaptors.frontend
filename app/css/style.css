@@ -2,6 +2,12 @@ form span {
 	font-size: 12px;
 }
 
+form > button.delete_entity {
+	position: absolute;
+	right: 10px;
+	z-index: 10;
+}
+
 body .ng-invalid.ng-dirty input[type=text]{ 
 	border: 1px solid red; 
 	border-color: #e9322d;
@@ -30,6 +36,22 @@ form .form_book_img {
 	right: 0px;
 	height: 300px;
 	width: auto;
+}
+
+.modal {
+	width: 500px;
+	height: 200px;
+	padding: 20px;
+}
+
+.modal  span {
+	display: block;
+	margin-bottom: 50px;
+
+}
+
+.modal button {
+	margin-right: 10px
 }
 
 .no-list {

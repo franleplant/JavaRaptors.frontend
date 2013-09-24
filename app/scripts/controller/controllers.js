@@ -5,6 +5,8 @@ angular.module('jraptors.Controllers', []).controller('SearchController',
 		'$scope', 'animations', 'Search', '$location',
 		function ($scope, animations, Search, $location) {
 
+			$scope.location = $location;
+
 			$scope.search = function (page) {
 				
 				// This is to test no_result, TODO: MAKE A TEST CASE
@@ -84,8 +86,8 @@ controller('LendController',
 
 controller('CreateEditBookController',
 	[
-		'$scope', '$timeout', 'Book', '$location', 'book',
-		function ($scope, $timeout, Book, $location, book) {
+		'$scope', '$timeout', 'Book', '$location', 'book', '$modal',
+		function ($scope, $timeout, Book, $location, book, $modal) {
 
 			$scope.book = book;
 
@@ -130,6 +132,24 @@ controller('CreateEditBookController',
 				});
 			};
 
+			$scope.open_modal_delete = function () {
+
+			    var modalInstance = $modal.open({
+				      templateUrl: 'views/modal_delete.html',
+				      controller: 'ModalController',
+				      scope: $scope
+			    });
+			
+			};
+
+			$scope.remove = function (callback) {
+
+				Book.remove({id: $scope.book.id}).$then(function () {
+					$location.path('/book');
+					callback();
+				});
+			};
+
 
 			// TODO: fill this typeaheads models with server calls (detail)
 			$scope.dummys_authors= ['author1', 'author2'];
@@ -140,7 +160,21 @@ controller('CreateEditBookController',
 	]
 ).
 
+controller('ModalController',
+	[
+		'$scope', '$modalInstance',
+		function ($scope, $modalInstance) {
 
+			$scope.ok = function () {
+				$scope.remove($modalInstance.close);	
+			};
+
+			$scope.cancel = function () {
+				$modalInstance.dismiss();
+			};
+		}
+	]
+).
 
 
 
