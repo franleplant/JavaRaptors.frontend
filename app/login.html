@@ -8,52 +8,51 @@
 	
 	
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style_login.css">
+	<link rel="stylesheet" type="text/css" href="css/form.css">
 </head>
 
 
-<body style="background-color: #1b1b1b;" ng-controller="SigninController">
+<body ng-controller="SigninController">
  
-	<div id="wrap-login">
-		<div class="container">
-			<div class="row">
-				<div class="span3"></div>
-				<div class="span6" id="form-login">
-					<form class="form-horizontal well css-form" name="box_login" ng-submit="signin()">
 
-						<div class="navbar navbar-inverse">
-							<div class="navbar-inner">
-								<a class="jr-logo brand" href="#">Java Raptors&reg - BiblioSoft&#8482</a>
-							</div>
-						</div>
-
-		                <div class="control-group">
-		                    <div class="input-prepend">
-		                        <span class="add-on"><i class="icon-user"></i></span>
-		                        <input class="span4" placeholder="Nombre de usuario" type="text" ng-model="userName" required>		              
-		                    </div>
-		                </div>
-
-		                <div class="control-group">
-		                    <div class="input-prepend">
-		                        <span class="add-on"><i class="icon-lock"></i></span>
-		                        <input class="span4" placeholder="Contraseña" type="password" ng-model="password" required>
-		                    </div>
-		                </div>
-						<div class="alert alert-error" ng-show="!validation.userName || !validation.password">
-							<strong>Error!</strong> Por favor verifica que la combinacion Nombre de Usuario y Password sea correcta
-						</div>
-
-						<div class="alert alert-error" ng-show="serverError">
-							<strong>Error en el Servidor!</strong> Por favor verifica su conexion a Internet
-						</div>						
-
-		                <button class="btn btn-inverse" type="submit">Sign In</button>
-
-						</div>
-					</form>
-				</div>
+	<div class="container row">
+		<div class="navbar">
+			<div class="span9 navbar-inner">
+				<a class="jr-logo brand" href="#">Java Raptors&reg - BiblioSoft&#8482</a>
 			</div>
+		</div>
+
+		<div class="span5">
+			<form class="form-horizontal well css-form" name="box_login" ng-submit="signin()">
+
+				<legend>Inicio de Sesion</legend>
+		        <div class="control-group">
+		            <div class="input-prepend">
+		                <span class="add-on"><i class="icon-user"></i></span>
+		                <input class="" placeholder="Nombre de usuario" type="text" ng-model="userName" required>		              
+		            </div>
+		        </div>
+
+		        <div class="control-group">
+		            <div class="input-prepend">
+		                <span class="add-on"><i class="icon-lock"></i></span>
+		                <input class="" placeholder="Contraseña" type="password" ng-model="password" required>
+		            </div>
+		        </div>
+				<div class="alert alert-error" ng-show="!validation.userName || !validation.password">
+					<strong>Error!</strong> Por favor verifica que la combinacion Nombre de Usuario y Password sea correcta
+				</div>
+
+				<div class="alert alert-error" ng-show="serverError">
+					<strong>Error en el Servidor!</strong> Por favor verifica su conexion a Internet
+				</div>						
+
+		        <button class="btn btn-inverse" type="submit">Sign In</button>
+
+				</div>
+			</form>
+
 		</div>
 	</div>
 
