@@ -49,23 +49,38 @@
 	
 	<fieldset>
 		<legend>Ejemplares <button type="button" class="btn" ng-click="add_copy()"><i class="icon-plus-sign"></i></button></legend>	
-
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>#Serie</th>
-					<th>Estado Fisico</th>
-					<th>Año de Edicion</th>
+					<th># Serie</th>
+					<th>Disponible</th>
+					
+					<th>Ubicación</th>
+					<th>Usuario Prestado</th>
+
+					<th>Año de Edicion</th>		
 					<th>Tipo de Prestamo</th>
+
+					<th>Estado Fisico</th>
 					<th>Comentarios</th>
 					<th>Borrar</th>
+					
 				</tr>
 			</thead>
-
 			<tbody>
 				<tr ng-repeat="copy in book.copys">
-					<td><span>{{copy.id}}</span></td>
-					<td><input type="text" ng-model="copy.state"></input></td>
+					<td>{{copy.id}}</td>
+					<td>{{copy.lend | hasAttribute | not | checkmark}}</td>
+
+
+					<td>
+						<div class="book_location">
+							<input type="text" ng-model="copy.location.shelves" class="input-mini"></input>
+							<input type="text" ng-model="copy.location.shelf" class="input-mini"></input>
+						</div>
+					</td>
+					<td>{{copy.lend.affiliate.lastName}} {{copy.lend.affiliate.name}}</td>
+										
 					<td><input type="text" ng-model="copy.editionYear"></input></td>
 					<td>
 						<label class="radio">
@@ -76,12 +91,14 @@
 							<input type="radio" name="optionsRadios{{$index}}" value="local" ng-model="copy.lendType" ng-checked="copy.lendType == 'local'">
 							Local
 						</label>
-
 					</td>
+
+					<td><input type="text" ng-model="copy.state" class="input-mini"></input></td>
 					<td><input type="text" ng-model="copy.comments"></input></td>
+
 					<td><button class="btn" ng-click="rm_copy($index)"><i class="icon-minus-sign"></i></button></td>
 				</tr>
-			</tbody>
+		  	</tbody>
 		</table>
 	</fieldset>
 

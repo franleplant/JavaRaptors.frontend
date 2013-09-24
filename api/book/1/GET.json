@@ -16,7 +16,15 @@
 			"link": "/some/url2"
 		}
 	],
-	"genres": "fantasy",
+	"genres": [
+		{
+			"name":"fantasy"
+		},
+		{
+			"name": "adventure"
+		}
+
+	],
 	"editionNumber": "3erd",
 	"editionCountry": "Mexico",
 	"summary": "Harrys potters is a little child",

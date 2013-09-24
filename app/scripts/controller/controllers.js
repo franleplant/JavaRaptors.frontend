@@ -47,8 +47,10 @@ controller('SelectEntityController',
 //TODO
 controller('DetailedViewController',
 	[
-		'$scope',
-		function ($scope) {
+		'$scope', 'book',
+		function ($scope, book) {
+
+			$scope.book = book;
 		}
 	]
 ).

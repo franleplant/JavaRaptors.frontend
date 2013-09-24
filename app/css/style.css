@@ -38,6 +38,15 @@ form .form_book_img {
 	width: auto;
 }
 
+.detailed_view .span4 > a {
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+.book_location {
+	width: 160px;
+}
+
 .modal {
 	width: 500px;
 	height: 200px;
