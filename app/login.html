@@ -1,9 +1,9 @@
 <!doctype html>
 
-<html lang="en" ng-app="jraptors">
+<html lang="en" ng-app="jr.login">
 
 <head>
-	<title>JR Bibliosoft - Principal</title>
+	<title>JR Bibliosoft - Login</title>
 	<meta charset="utf-8">
 	
 	
@@ -12,51 +12,47 @@
 </head>
 
 
-<body>
+<body style="background-color: #1b1b1b;" ng-controller="SigninController">
  
-	<header class="navbar navbar-inverse navbar-fixed-top">
+	<div id="wrap-login">
+		<div class="container">
+			<div class="row">
+				<div class="span3"></div>
+				<div class="span6" id="form-login">
+					<form class="form-horizontal well css-form" name="box_login" ng-submit="signin()">
 
-		<div class="navbar-inner" ng-controller="NavBarController">
-			<div class="container">
-				<a class="jr-logo brand" href="#">Java Raptors&reg - BiblioSoft&#8482</a>
-          		<div class="nav-collapse collapse">
+						<div class="navbar navbar-inverse">
+							<div class="navbar-inner">
+								<a class="jr-logo brand" href="#">Java Raptors&reg - BiblioSoft&#8482</a>
+							</div>
+						</div>
 
-		            <div class="nav-collapse collapse pull-right">
-						<ul class="nav">    
-							<li><a href="#/report"><i class="icon-list-alt icon-white"></i> Reportes</a></li>
-							<li><a><i class="icon-user icon-white"></i> javaraptors@gmail.com</a></li>
-							<li><a href="#"><i class="icon-off icon-white"></i> Logoff</a></li>
-						</ul>
-					</div>
+		                <div class="control-group">
+		                    <div class="input-prepend">
+		                        <span class="add-on"><i class="icon-user"></i></span>
+		                        <input class="span4" placeholder="Nombre de usuario" type="text" name="userName" ng-model="userName" required>
+		                    </div>
+		                </div>
+
+		                <div class="control-group">
+		                    <div class="input-prepend">
+		                        <span class="add-on"><i class="icon-lock"></i></span>
+		                        <input class="span4" placeholder="Contraseña" type="password" name="userPsw" id="contraseña" ng-model="userPsw" required>
+		                    </div>
+		                </div>
+
+
+		                <button class="btn btn-inverse" type="submit">Sign In</button>
+
+						</div>
+					</form>
 				</div>
-
 			</div>
 		</div>
-
-		<div id="breadcrumb" ng-controller="BreadcrumbController">
-			<ul class="breadcrumb">
-				<li><a href="#">Home</a> <span class="divider">/</span></li>
-				<li><a href="#">Library</a> <span class="divider">/</span></li>
-				<li class="active">Data</li>
-			</ul>
-		</div>
-
-	</header>
-
-
-
-	<div id="content">
-		<div class="container" ng-view></div>
 	</div>
 
 
 
-	<footer class="">
-        <p class="navbar-text"> 
-        	&nbsp&nbsp Copyright &reg 2013 - Java Raptors&reg se reserva todos los derechos de replicar, comercializar, 
-        	o utilizar este sistema. Este contenido es confidencial y sólo puede ser obtenido bajo autorización.
-        </p>
-    </footer>
 
     <script type="text/javascript" src="scripts/vendor/jquery-2.0.3.js"></script>
 	<script type="text/javascript" src="scripts/vendor/bootstrap.js"></script>
@@ -68,13 +64,8 @@
 	<script type="text/javascript" src="scripts/vendor/ui-bootstrap-tpls-0.6.0.js"></script>
 
 
-	<script type="text/javascript" src="scripts/filter/filters.js"></script>
-	<script type="text/javascript" src="scripts/app.js"></script>
-	<script type="text/javascript" src="scripts/service/services.js"></script>
-	<script type="text/javascript" src="scripts/service/config.js"></script>
-	<script type="text/javascript" src="scripts/directive/directive.js"></script>
-	<script type="text/javascript" src="scripts/animationsux.js"></script>
-	<script type="text/javascript" src="scripts/controller/controllers.js"></script>
+	<script type="text/javascript" src="scripts/app_login.js"></script>
+	<script type="text/javascript" src="scripts/controller/controller_login.js"></script>
 	
 </body>
 </html>
