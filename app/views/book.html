@@ -1,99 +1,116 @@
-<!-- <div ng-repeat="result in results" class="media search-result shadow" ng-show="result.type == 'copy' || result.type == 'book'"> -->
+  <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+         
+          <a class="brand" href="#">BiblioSoft</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+                            
+            </ul>
 
-	<span class="label" ng-class="result.type | toClassLabel">{{result.type | translate}}</span>
-	<a class="pull-left" href="#">
-		<img class="media-object" ng-src={{result.img}} width=100 height=150>
-	</a>
-	<div class="media-body">
-		<h4 class="media-heading" ng-model="search.results[0].title">{{result.title}}</h4>
+            <div class="nav-collapse collapse pull-right">
+            <ul class="nav">
+              
+              <li><a href="#"><i class="icon-cog icon-white"></i></a></li>
+              <li><a href="#"><i class="icon-user icon-white"></i>     javaraptors@gmail.com</a></li>
+              
+              
+            </ul>
+          </div><!--/.nav-collapse -->
+        
+        </div>
 
-		<h6 ng-show="result.type == 'copy'">ID: {{result.id}}</h6>
+        </div>
+      </div>
+    </div>
 
-		<ul class="no-list horizontal-list clearfix">
+    <div class="container">
 
-			<li ng-show="result.type == 'copy'">
-				<dl>
-					<dt>Disponibilidad</dt>
-					<dd>{{result.lend.length == 0}}</dd>
+            <div class="row">
+            <div class="span4"><img src="http://www.typographyforlawyers.com/pix/tfl-book-cover.gif" style="height:300px" class="img-polaroid"></div>
+            <div class="span8">
+            <h1 id="title"> Typography for Lawyers </h1>
+            <h3 id="authors"> Matthew Butterick </h3> 
+            <hr/>
+            <h3 id="summary_title">Resumen</h3>
+            <p id="summary_content"> Instrucciones sobre las mejores prácticas para el correcto diseño de documentos legales relativos al derecho penal.</p>
+            <hr/>
+            <h3 id="data_title">Datos</h3>
 
-					<dt>Tipo de Prestamo</dt>
-					<dd>{{result.lendType}}</dd>
-
-					<dt>Año de Ediciona</dt>
-					<dd>{{result.editionYear}}</dd>
-				</dl>
-			</li>
-
-
-			<li>
-				<dl>
-					<dt>Autor</dt>
-					<dd><a href={{result.author[0].link}} target="_blank">{{result.authors[0].name}}</a></dd>
-
-					<dt>Genero</dt>
-					<dd>{{result.genres}}</dd>
-
-					<dt>Idioma</dt>
-					<dd>{{result.lang}}</dd>
-				</dl>
-			</li>
-
-
-			<li>
-				<dl>
-					<dt>Editorial</dt>
-					<dd><a href={{result.editorial.link}} target="_blank">{{result.editorial.name}}</a></dd>
-
-					<dt>Edicion</dt>
-					<dd>{{result.editionNumber}} Pais: {{result.editionCountry}}</dd>
-
-					<dt>ISBN</dt>
-					<dd>{{result.isbn}}</dd>								
-				</dl>
-			</li>
+            <span>ISBN: </span><span>978-0-300-14424-6</span>
+            <br/>
+            <span>Editorial: </span><span><a href="#">Paperback</a></span>
+            <br/>
+            <span>Edición: </span><span>1ra</span>
+            <br/>
+            <span>Idioma: </span><span>Español</span>
+            <br/>
+            <span>Precio: </span><span>U$S 379.99</span>
+            <br/>
+            <span>Géneros: </span><span><a href="#">Académico</a>, <a href="#">Abogacía</a></span>
 
 
-			<li ng-show="result.type == 'book'">
-				<dl>
-					<dt>Ejemplares</dt>
-					<dd>{{result.copys.length}}</dd>
-					<dt>Disponibles</dt>
-					<dd>{{result.copys | availableToLendCopys }}</dd>
-					<dt>Tipo de Prestamo</dt>
-					<dd>{{result.copys[0].lendType }}</dd>
-				</dl>
-			</li>
+            </div>
+            </div>
 
-			<li ng-show="result.type == 'copy'">
-				<dl>
-					<dt>Ubicacion</dt>
-					<dd>{{result.location.shelves  + ' ' + result.location.shelf }}</dd>
-					<dt>Estado Fisico</dt>
-					<dd>{{result.state}}</dd>
-					<dt>Fecha de Alta</dt>
-					<dd>{{result.creationDate }}</dd>
-				</dl>
-			</li>
+            <div class="row">
+            <div class="span12">
+			<hr/>
+            <h3 id="example_title"> Ejemplares </h3> 
 
-			<li>
-				<dl>
-					<dt>Valuacion</dt>
-					<dd>{{result.val}}</dd>
+              <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th># Serie</th>
+                  <th>Estado</th>
+                  <th>Ubicación</th>
+                  <th>Usuario Prestado</th>
+				  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>982002</td>
+                  <td>Libre</td>
+                  <td>H1</td>
+				  <td></td>
+                  <td>
+				  <a href="#"><i class="icon-circle-arrow-up"></i></a>
+				  <a href="#"><i class="icon-circle-arrow-down"></i></a>
+				  <a href="#"><i class="icon-pencil"></i></a></td>
+                </tr>
+                <tr>
+                  <td>982452</td>
+                  <td>Libre</td>
+                  <td>F4</td>
+				  <td></td>
+                  <td>
+				  <a href="#"><i class="icon-circle-arrow-up"></i></a>
+				  <a href="#"><i class="icon-circle-arrow-down"></i></a>
+				  <a href="#"><i class="icon-pencil"></i></a></td>
+                </tr>
+                </tr>
+                <tr>
+                  <td>701234</td>
+                  <td>Prestado</td>
+                  <td>E6</td>
+                  <td><a href="#">Axel Kicillof</a></td>
+				  <td>
+				  <a href="#"><i class="icon-circle-arrow-up"></i></a>
+				  <a href="#"><i class="icon-circle-arrow-down"></i></a>
+				  <a href="#"><i class="icon-pencil"></i></a></td>
+                </tr>
+                </tr>
+              </tbody>
+            </table>
+            </div>
+            </div>
 
-					<dt>Precio</dt>
-					<dd>{{result.price}}</dd>
-
-				</dl>
-			</li>										
-
-		</ul>
 
 
-		<div ng-show="result.type == 'copy'">
-			<span>Notas</span></br>
-			<p>{{result.comments}}</p>
-		</div>
+       
+      
 
+     
 
-	</div>
-<!-- </div> -->
+    </div>
