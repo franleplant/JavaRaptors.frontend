@@ -24,7 +24,7 @@ controller('SigninController', ['$scope', '$http',
 
 					if (data.userName && data.password) {
 						location.href = 'index.html';
-						return;		
+						return;
 					}
 
 					$scope.validation.userName = data.userName;
