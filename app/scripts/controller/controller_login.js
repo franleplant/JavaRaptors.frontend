@@ -9,27 +9,30 @@ controller('SigninController', ['$scope', '$http',
 				password: true
 			};
 
+			$scope.serverError = false;
+
 			$scope.signin = function () {
+
+				$scope.serverError = false;
 
 				$http({
 					method: 'POST',
 					url: '/api/signin'
 				}).
 
-					success(function(data, status, headers, config) {
-						console.log('success', data);
+				success(function(data, status, headers, config) {
 
-						if (data.userName && data.password) {
-							//location.href = 'index.html';
-							return;		
-						}
+					if (data.userName && data.password) {
+						//location.href = 'index.html';
+						return;		
+					}
 
-						$scope.validation.userName = data.userName;
-						$scope.validation.password = data.password;
-					}).
-					error(function(data, status, headers, config) {
-						console.log('error', data);
-					});
+					$scope.validation.userName = data.userName;
+					$scope.validation.password = data.password;
+				}).
+				error(function(data, status, headers, config) {
+					$scope.serverError = true;
+				});
 
 				
 
