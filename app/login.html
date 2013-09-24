@@ -30,17 +30,19 @@
 		                <div class="control-group">
 		                    <div class="input-prepend">
 		                        <span class="add-on"><i class="icon-user"></i></span>
-		                        <input class="span4" placeholder="Nombre de usuario" type="text" name="userName" ng-model="userName" required>
+		                        <input class="span4" placeholder="Nombre de usuario" type="text" ng-model="userName" required>		              
 		                    </div>
 		                </div>
 
 		                <div class="control-group">
 		                    <div class="input-prepend">
 		                        <span class="add-on"><i class="icon-lock"></i></span>
-		                        <input class="span4" placeholder="Contraseña" type="password" name="userPsw" id="contraseña" ng-model="userPsw" required>
+		                        <input class="span4" placeholder="Contraseña" type="password" ng-model="password" required>
 		                    </div>
 		                </div>
-
+						<div class="alert alert-error" ng-show="!validation.userName || !validation.password">
+							<strong>Error!</strong> Por favor verifica que la combinacion Nombre de Usuario y Password sea correcta
+						</div>
 
 		                <button class="btn btn-inverse" type="submit">Sign In</button>
 
