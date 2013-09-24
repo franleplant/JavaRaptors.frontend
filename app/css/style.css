@@ -38,6 +38,22 @@ form .form_book_img {
 	width: auto;
 }
 
+.modal {
+	width: 500px;
+	height: 200px;
+	padding: 20px;
+}
+
+.modal  span {
+	display: block;
+	margin-bottom: 50px;
+
+}
+
+.modal button {
+	margin-right: 10px
+}
+
 .no-list {
 	list-style: none;
 }
