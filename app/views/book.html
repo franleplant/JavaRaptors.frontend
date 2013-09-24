@@ -1,9 +1,10 @@
-<div class="container">
+<div class="detailed_view">
 
 
 		<div class="row">
 			<div class="span4">
 				<img class="img-polaroid" ng-src={{book.img}} style="height:300px">
+				<a class="btn btn-block" ng-href="#/book/edit/{{book.id}}">Editar Libro</a>
 			</div>
 			<div class="span8">
 				<a ng-href="#/book/detailed_view/{{book.id}}"><h1 class="media-heading">{{book.title}}</h1></a>
@@ -46,47 +47,34 @@
 					<thead>
 						<tr>
 							<th># Serie</th>
-							<th>Estado</th>
+							<th>Disponible</th>
+							
 							<th>Ubicación</th>
 							<th>Usuario Prestado</th>
-							<th>Acciones</th>
+
+							<th>Año de Edicion</th>		
+							<th>Tipo de Prestamo</th>
+
+							<th>Estado Fisico</th>
+							<th>Comentarios</th>
+							
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>982002</td>
-							<td>Libre</td>
-							<td>H1</td>
-							<td></td>
-							<td>
-								<a href="#"><i class="icon-circle-arrow-up"></i></a>
-								<a href="#"><i class="icon-circle-arrow-down"></i></a>
-								<a href="#"><i class="icon-pencil"></i></a>
-							</td>
+						<tr ng-repeat="copy in book.copys">
+							<td>{{copy.id}}</td>
+							<td>{{copy.lend | hasAttribute | not | checkmark}}</td>
+
+
+							<td>{{copy.location.shelves}}, {{copy.location.shelf}}</td>
+							<td>{{copy.lend.affiliate.lastName}} {{copy.lend.affiliate.name}}</td>
+												
+							<td>{{copy.editionYear}}</td>
+							<th>{{copy.lendType}}</th>	
+
+							<td>{{copy.state}}</td>
+							<td>{{copy.comments}}</td>
 						</tr>
-						<tr>
-							<td>982452</td>
-							<td>Libre</td>
-							<td>F4</td>
-							<td></td>
-							<td>
-								<a href="#"><i class="icon-circle-arrow-up"></i></a>
-								<a href="#"><i class="icon-circle-arrow-down"></i></a>
-								<a href="#"><i class="icon-pencil"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td>701234</td>
-							<td>Prestado</td>
-							<td>E6</td>
-							<td><a href="#">Axel Kicillof</a></td>
-							<td>
-								<a href="#"><i class="icon-circle-arrow-up"></i></a>
-								<a href="#"><i class="icon-circle-arrow-down"></i></a>
-								<a href="#"><i class="icon-pencil"></i></a>
-							</td>
-						</tr>
-					</tr>
 				  </tbody>
 				</table>
 			</div>
