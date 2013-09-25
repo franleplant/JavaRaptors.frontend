@@ -13,6 +13,34 @@ describe('filters', function () {
 		));
 	});
 
+	describe('testPathRegExp', function () {
+
+		var location;
+
+		beforeEach(  inject(function ($location) {
+				location = $location;
+			}
+		));
+
+		it('should return true if the string is contained withing the path()', inject(function(testPathRegExpFilter) {
+
+				location.path('/book/detailed_view/1');
+				expect(  testPathRegExpFilter('detailed_view')  ).toBe(true);
+
+
+				location.path('/book/edit/1');
+				expect(  testPathRegExpFilter('edit')  ).toBe(true);
+			}
+		));
+
+		it('should return false if the string is not contained withing the path()', inject(function(testPathRegExpFilter) {
+
+				location.path('/book/detailed_view/1');
+				expect(  testPathRegExpFilter('blah')  ).toBe(false);
+			}
+		));
+	});
+
 
 	describe('availableToLendCopys', function () {
 

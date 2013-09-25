@@ -26,6 +26,29 @@ input:focus:invalid:focus{
 	box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
 }
 
+*[contentEditable=true] {
+	font-style:italic;
+}
+
+*[contentEditable=true]:focus {
+	background-color: #DDDEFD !important ;
+}
+
+.genres_list {
+	position: relative;
+	left: -10px;
+}
+
+.genres button {
+	position: absolute;
+	left: -50px;
+}
+
+.floating_list li{
+	float:left;
+	margin-left: 10px;
+}
+
 fieldset {
 	position: relative;
 }
@@ -38,9 +61,18 @@ form .form_book_img {
 	width: auto;
 }
 
-.detailed_view .span4 > a {
+.detailed_view .span4 > a,
+.detailed_view .span4 > button {
 	margin-top: 5px;
-	margin-left: 5px;
+}
+
+.detailed_view form label {
+	float:left;
+	width: 100px;
+}
+
+.detailed_view form br {
+	clear: both;
 }
 
 .book_location {

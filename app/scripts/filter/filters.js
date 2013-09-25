@@ -105,4 +105,14 @@ filter('boolToLendReturn', [
 			};
 		}
 	]
+).
+
+filter('testPathRegExp', ['$location',
+		function($location) {
+			return function(str) {
+
+				return $location.path().indexOf(str) !== -1 ;
+			};
+		}
+	]
 );

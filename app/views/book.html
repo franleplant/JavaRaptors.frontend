@@ -1,84 +1,165 @@
-<div class="detailed_view">
+<div class="detailed_view book_view">
 
 
 		<div class="row">
-			<div class="span4">
-				<img class="img-polaroid" ng-src={{book.img}} style="height:300px">
-				<a class="btn btn-block" ng-href="#/book/edit/{{book.id}}">Editar Libro</a>
-			</div>
-			<div class="span8">
-				<a ng-href="#/book/detailed_view/{{book.id}}"><h1 class="media-heading">{{book.title}}</h1></a>
-				<div class="authors clearfix" >			
-					<a ng-repeat="author in book.authors" ng-href="#/author/detailed_view/{{author.id}}" target="_blank">
-						<h3 class="media-heading">{{author.name}}</h3>
-					</a>
-				</div>
-
-				<hr/>
-				<h3>Resumen</h3>
-				<p>{{book.summary}}</p>
-				<hr/>
-
-				<h3>Datos</h3>
-				<span>ISBN: </span><span>{{book.isbn}}</span>
-				<br/>
-				<span>Editorial: </span><span><a ng-href="#/editorial/detailed_view/{{book.editorial.id}}" target="_blank">{{book.editorial.name}}</a></span>
-				<br/>
-				<span>Edición: </span><span>{{book.editionNumber}}</span>
-				<br/>
-				<span>Idioma: </span><span>{{book.lang}}</span>
-				<br/>
-				<span>Precio: </span><span>{{book.price}}</span>
-				<br/>
-				<span>Géneros: </span>
-				<span>
-					<span ng-repeat="genre in book.genres">{{genre.name}} </span>
-				</span>
 
 
-			</div>
+			<form ng-submit="save()">
+				<fieldset class="span4">
+					<img class="img-polaroid" ng-src={{book.img}} style="height:300px">
+					<a class="btn btn-block" ng-href="#/book/edit/{{book.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Libro</a>
+					<button type="submit" class="btn btn-block" ng-if="'edit' | testPathRegExp">Guardar Cambios</button>
+				</fieldset>
+				<fieldset class="span8">
+					<h1 class="media-heading" contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.title" title="Click to edit">
+						{{book.title}}
+					</h1>
+					<div class="authors clearfix" ng-if="'detailed_view' | testPathRegExp">			
+						<a ng-repeat="author in book.authors" ng-href="#/author/detailed_view/{{author.id}}" target="_blank">
+							<h3 class="media-heading">{{author.name}}</h3>
+						</a>
+					</div>
+
+					<div ng-if="'edit' | testPathRegExp">
+						<h3>Autores <button type="button" class="btn" ng-click="add_author()"><i class="icon-plus-sign"></i></button></h3>
+						<ul class="unstyled floating_list clearfix">
+							<li ng-repeat="author in book.authors">
+								<div class="input-append">
+									<input class="span2" type="text" ng-model="author.name" typeahead="d for d in dummys_authors | filter:$viewValue" 
+										typeahead-loading="dummys_authors" typeahead-min-length='1'>
+									<button class="btn" ng-click="rm_author($index)"><i class="icon-minus-sign"></i>
+								</div>
+							</li>
+						</ul>	
+					</div>
+				
+
+					<hr/>
+					<h3>Resumen</h3>
+					<p contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.summary" title="Click to edit">{{book.summary}}</p>
+					<hr/>
+
+					<h3>Datos</h3>
+					<label>ISBN: </label>
+					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.isbn" title="Click to edit">{{book.isbn}}</span>
+					<br/>
+					<label>Editorial: </label>
+					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.editorial.name" title="Click to edit">
+						<a ng-href="#/editorial/detailed_view/{{book.editorial.id}}" target="_blank">{{book.editorial.name}}</a>
+					</span>
+					<br/>
+					<label>Edición: </label>
+					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.editionNumber" title="Click to edit">{{book.editionNumber}}</span>
+					<br/>
+					<label>Idioma: </label>
+					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.lang" title="Click to edit">{{book.lang}}</span>
+					<br/>
+					<label>Precio: </label>
+					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.price" title="Click to edit">{{book.price}}</span>
+					<br/>
+					<label class="pull-left genres">
+						<button type="button" class="btn" ng-click="add_author()" ng-if="'edit' | testPathRegExp"><i class="icon-plus-sign"></i></button>
+						Géneros: 			
+					</label>
+
+
+					<div  ng-if="'detailed_view' | testPathRegExp">			
+						<span ng-repeat="genre in book.genres">{{genre.name}} </span>
+					</div>
+
+					<div ng-if="'edit' | testPathRegExp" class="clearfix genres_list">
+						<ul class="unstyled floating_list clearfix">
+							<li ng-repeat="genre in book.genres">
+								<div class="input-append">
+									<input class="span2" type="text" ng-model="genre.name">
+									<button class="btn" ng-click="rm_author($index)"><i class="icon-minus-sign"></i>
+								</div>
+							</li>
+						</ul>	
+					</div>
+				</fieldset>
+
+				<fieldset class="span9">
+					<div class="span12">
+						<hr/>
+						<h3> Ejemplares  
+							<button type="button" class="btn" ng-click="add_copy()" ng-if="'edit' | testPathRegExp">
+								<i class="icon-plus-sign"></i>
+							</button>
+						</h3> 
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th># Serie</th>
+									<th>Disponible</th>
+									
+									<th>Ubicación</th>
+									<th>Socio en Potestad</th>
+
+									<th>Año de Edicion</th>		
+									<th>Tipo de Prestamo Posible</th>
+
+									<th>Estado Fisico</th>
+									<th>Comentarios</th>
+									<th>Acciones</th>
+									
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="copy in book.copys">
+									<td>{{copy.id}}</td>
+
+									<td>
+										{{copy.lend | hasAttribute | not | checkmark}}
+									</td>
+
+
+									<td>
+										<span  contentEditable="{{'edit' | testPathRegExp}}" ng-model="copy.location.shelves" title="Click to edit">
+											{{copy.location.shelves}}
+										</span>, 
+										<span  contentEditable="{{'edit' | testPathRegExp}}" ng-model="copy.location.shelf" title="Click to edit">
+											{{copy.location.shelf}}
+										</span>
+									</td>
+									<td>
+										{{copy.lend.affiliate.lastName}} {{copy.lend.affiliate.name}}									 
+									</td>
+														
+									<td contentEditable="{{'edit' | testPathRegExp}}" ng-model="copy.editionYear" title="Click to edit">
+										{{copy.editionYear}}
+									</td>
+									<td>
+										{{copy.lendType}}
+									</td>	
+
+									<td contentEditable="{{'edit' | testPathRegExp}}" ng-model="copy.state" title="Click to edit">
+										{{copy.state}}
+									</td>
+									<td contentEditable="{{'edit' | testPathRegExp}}" ng-model="copy.comments" title="Click to edit">
+										{{copy.comments}}
+									</td>
+									<td>
+										<button class="btn" type="button">P</button>
+										<button class="btn" type="button">D</button>
+										<button class="btn" type="button">+</button>
+										<button class="btn" ng-click="rm_copy($index)"><i class="icon-minus-sign"></i></button>
+									</td>
+								</tr>
+						  </tbody>
+						</table>
+					</div>
+				</fieldset>
+
+				<fieldset class="span9">
+					<button type="button" class="btn delete_entity" ng-click="open_modal_delete()"><i class="icon-remove"></i> Borrar el Libro</button>
+				</fieldset>
+
+
+			</form>
+
 		</div>
 
-		<div class="row">
-			<div class="span12">
-				<hr/>
-				<h3> Ejemplares </h3> 
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th># Serie</th>
-							<th>Disponible</th>
-							
-							<th>Ubicación</th>
-							<th>Usuario Prestado</th>
-
-							<th>Año de Edicion</th>		
-							<th>Tipo de Prestamo</th>
-
-							<th>Estado Fisico</th>
-							<th>Comentarios</th>
-							
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="copy in book.copys">
-							<td>{{copy.id}}</td>
-							<td>{{copy.lend | hasAttribute | not | checkmark}}</td>
-
-
-							<td>{{copy.location.shelves}}, {{copy.location.shelf}}</td>
-							<td>{{copy.lend.affiliate.lastName}} {{copy.lend.affiliate.name}}</td>
-												
-							<td>{{copy.editionYear}}</td>
-							<th>{{copy.lendType}}</th>	
-
-							<td>{{copy.state}}</td>
-							<td>{{copy.comments}}</td>
-						</tr>
-				  </tbody>
-				</table>
-			</div>
-		</div>
 
 
 
