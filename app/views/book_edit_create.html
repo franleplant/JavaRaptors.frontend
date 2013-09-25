@@ -6,6 +6,8 @@
 	<fieldset>
 		<legend>Libro</legend>
 		<label>Titulo</label>
+		{{book.title}}
+		<h3 contentEditable="true" ng-model="book.title" title="Click to edit">{{book.title}}</h3>
 		<input type="text" placeholder="Type something…" ng-model="book.title">
 		<label>ISBN</label>
 		<input type="text" placeholder="Type something…" ng-model="book.isbn">
