@@ -52,6 +52,17 @@ factory('bookCreateDefaultsLoader', ['Book',
 		function(Book) {
 			return function() {
 				return new Book({
+					'title': 'Ingrese Titulo',
+					'isbn': 'Ingerese ISBN',
+					'genres': [
+						{
+							'name':'Ingrese el Genero'
+						}
+					],
+					'editionNumber': '3erd',
+					'editionCountry': 'Mexico',
+					'summary': 'Harrys potters is a little child',
+					img: 'http://www.andrew.cmu.edu/user/jdeng/Images/Slowpoke.png',
 					authors: [{
 						name: 'new_author1'
 					}],

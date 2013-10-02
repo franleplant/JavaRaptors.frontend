@@ -111,7 +111,21 @@ filter('testPathRegExp', ['$location',
 		function($location) {
 			return function(str) {
 
-				return $location.path().indexOf(str) !== -1 ;
+				var list = str.split(', '),
+					len = list.length,
+					flag = false,
+					i;
+
+
+				for (i = 0; i < len; i++) {
+					flag = flag || -1 !== $location.path().indexOf(  list.pop()  );
+					
+					if (flag) {
+						break;
+					}
+				}
+
+				return  flag;
 			};
 		}
 	]

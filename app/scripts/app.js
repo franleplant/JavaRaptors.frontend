@@ -59,7 +59,7 @@ jraptors.config(
 
 
 				when('/book/create', {
-					templateUrl: 'views/book_edit_create.html',
+					templateUrl: 'views/book.html',
 					controller: 'CreateEditBookController',
 					resolve: {
 						book: function(bookCreateDefaultsLoader) {

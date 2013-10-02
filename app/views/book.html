@@ -8,11 +8,11 @@
 				<fieldset class="span4">
 					<img class="img-polaroid" ng-src={{book.img}} style="height:300px">
 					<a class="btn btn-block" ng-href="#/book/edit/{{book.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Libro</a>
-					<button type="submit" class="btn btn-block" ng-if="'edit' | testPathRegExp">Guardar Cambios</button>
+					<button type="submit" class="btn btn-block" ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
 				</fieldset>
 
 				<fieldset class="span8">
-					<h1 class="media-heading" contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.title" title="Click to edit">
+					<h1 class="media-heading" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.title" title="Click to edit">
 						{{book.title}}
 					</h1>
 
@@ -23,9 +23,9 @@
 						</a>
 					</div>
 
-					<div ng-if="'edit' | testPathRegExp">
+					<div ng-if="'edit, create' | testPathRegExp">
 						<h3>Autores <button type="button" class="btn" ng-click="add_author()"><i class="icon-plus-sign"></i></button></h3>
-						<span ng-repeat="author in book.authors" ng-model="author.name" contentEditable="{{'edit' | testPathRegExp}}">
+						<span ng-repeat="author in book.authors" ng-model="author.name" contentEditable="{{'edit, create' | testPathRegExp}}">
 							{{author.name}}
 							<button class="btn" ng-click="rm_author($index)"><i class="icon-minus-sign"></i></button>
 						</span>
@@ -35,48 +35,48 @@
 
 					<hr/>
 					<h3>Resumen</h3>
-					<p contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.summary" title="Click to edit">{{book.summary}}</p>
+					<p contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.summary" title="Click to edit">{{book.summary}}</p>
 					<hr/>
 
 					<h3>Datos</h3>
 					<label>ISBN: </label>
-					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.isbn" title="Click to edit">{{book.isbn}}</span>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.isbn" title="Click to edit">{{book.isbn}}</span>
 					<br/>
 					<label>Editorial: </label>
-					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.editorial.name" title="Click to edit">
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.editorial.name" title="Click to edit">
 						<a ng-href="#/editorial/detailed_view/{{book.editorial.id}}" target="_blank">{{book.editorial.name}}</a>
 					</span>
 					<br/>
 					<label>Edición: </label>
-					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.editionNumber" title="Click to edit">{{book.editionNumber}}</span>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.editionNumber" title="Click to edit">{{book.editionNumber}}</span>
 					<br/>
 					<label>Idioma: </label>
-					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.lang" title="Click to edit">{{book.lang}}</span>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.lang" title="Click to edit">{{book.lang}}</span>
 					<br/>
 
 					<label>Valuacion: </label>
-					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.val" title="Click to edit">{{book.val}}</span>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.val" title="Click to edit">{{book.val}}</span>
 					<br/>					
 					<label>Precio: </label>
-					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.price" title="Click to edit">{{book.price}}</span>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.price" title="Click to edit">{{book.price}}</span>
 					<br/>
 
 					<label>Imagen: </label>
-					<span contentEditable="{{'edit' | testPathRegExp}}" ng-model="book.img" title="Click to edit">{{book.img}}</span>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.img" title="Click to edit">{{book.img}}</span>
 					<br/>
 
 
 					<label class="pull-left genres">
-						<button type="button" class="btn" ng-click="add_author()" ng-if="'edit' | testPathRegExp"><i class="icon-plus-sign"></i></button>
+						<button type="button" class="btn" ng-click="add_genre()" ng-if="'edit, create' | testPathRegExp"><i class="icon-plus-sign"></i></button>
 						Géneros: 			
 					</label>
 
 					<p ng-repeat="genre in book.genres">
 
 						<span ng-if="'detailed_view' | testPathRegExp">{{genre.name}}</span>
-						<span ng-if="'edit' | testPathRegExp" contentEditable="{{'edit' | testPathRegExp}}" ng-model="genre.name">
+						<span ng-if="'edit, create' | testPathRegExp" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.name">
 							{{genre.name}}
-							<button class="btn" ng-click="rm_author($index)"><i class="icon-minus-sign"></i></button>
+							<button class="btn" ng-click="rm_genre($index)"><i class="icon-minus-sign"></i></button>
 						</span>
 
 					</p>
@@ -87,7 +87,7 @@
 					<div class="span12">
 						<hr/>
 						<h3> Ejemplares  
-							<button type="button" class="btn" ng-click="add_copy()" ng-if="'edit' | testPathRegExp">
+							<button type="button" class="btn" ng-click="add_copy()" ng-if="'edit, create' | testPathRegExp">
 								<i class="icon-plus-sign"></i>
 							</button>
 						</h3> 
@@ -124,23 +124,23 @@
 										{{copy.lend | hasAttribute | not | checkmark}}
 									</td>
 													
-									<td contentEditable="{{'edit' | testPathRegExp}}" ng-model="copy.editionYear" title="Click to edit">
+									<td contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="copy.editionYear" title="Click to edit">
 										{{copy.editionYear}}
 									</td>
 									<td>
 										{{copy.lendType}}
 									</td>	
 
-									<td contentEditable="{{'edit' | testPathRegExp}}" ng-model="copy.state" title="Click to edit">
+									<td contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="copy.state" title="Click to edit">
 										{{copy.state}}
 									</td>
 
 
 									<td>
-										<span  contentEditable="{{'edit' | testPathRegExp}}" ng-model="copy.location.shelves" title="Click to edit">
+										<span  contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="copy.location.shelves" title="Click to edit">
 											{{copy.location.shelves}}
 										</span>, 
-										<span  contentEditable="{{'edit' | testPathRegExp}}" ng-model="copy.location.shelf" title="Click to edit">
+										<span  contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="copy.location.shelf" title="Click to edit">
 											{{copy.location.shelf}}
 										</span>
 									</td>	
@@ -156,11 +156,11 @@
 										{{copy.lend.affiliate.lastName}} {{copy.lend.affiliate.name}}									 
 									</td>	
 
-									<td contentEditable="{{'edit' | testPathRegExp}}" ng-model="copy.comments" title="Click to edit">
+									<td contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="copy.comments" title="Click to edit">
 										{{copy.comments}}
 									</td>
 
-									<td contentEditable="{{'edit' | testPathRegExp}}" ng-model="copy.comments" title="Click to edit">
+									<td contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="copy.comments" title="Click to edit">
 										Tue Oct 01 2013 21:04:05 Pablo Anselmi
 									</td>										
 								</tr>
@@ -173,19 +173,19 @@
 					<h3>Auditoria</h3>
 
 					<label>Fecha y Hora de Alta: </label>
-					<span> Dummy Data </span>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc"> Dummy Data </span>
 					</br>
 
 					<label>Usuario disparador Alta: </label>
-					<span>Dummy Data</span>					
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc">Dummy Data</span>					
 					</br>
 
 					<label>Fecha y Hora Ultima Edicion: </label>
-					<span>Dummy Data</span>					
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc">Dummy Data</span>					
 					</br>
 
 					<label>Usuario Editor: </label>
-					<span>Dummy Data</span>					
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc">Dummy Data</span>					
 					</br>														
 
 				</fieldset>

@@ -39,8 +39,21 @@ describe('filters', function () {
 				expect(  testPathRegExpFilter('blah')  ).toBe(false);
 			}
 		));
-	});
 
+		it('should return true if any of the strings passed as csv is contained within the path()', inject(function(testPathRegExpFilter) {
+
+				location.path('/book/create');
+				expect(  testPathRegExpFilter('edit, create')  ).toBe(true);
+			}
+		));
+
+		it('should return false if all of the strings passed as csv is contained within the path()', inject(function(testPathRegExpFilter) {
+
+				location.path('/book/detailed_view/1');
+				expect(  testPathRegExpFilter('edit, create')  ).toBe(false);
+			}
+		));
+	});
 
 	describe('availableToLendCopys', function () {
 
@@ -78,7 +91,6 @@ describe('filters', function () {
 		));
 	});
 
-
 	describe('toClassLabel', function () {
 
 
@@ -96,7 +108,6 @@ describe('filters', function () {
 				}
 			}
 		));
-
 	});
 
 	describe('translate', function () {
@@ -113,9 +124,7 @@ describe('filters', function () {
 				}
 			}
 		));
-
 	});
-
 
 	describe('typeToTemplate', function () {
 
@@ -123,10 +132,7 @@ describe('filters', function () {
 				expect(  typeToTemplateFilter('entityType', 'prefix ', ' sufix')  ).toBe('prefix entityType sufix');
 			}
 		));
-
 	});
-
-
 
 	describe('checkmark', function () {
 
@@ -135,9 +141,7 @@ describe('filters', function () {
 				expect(  checkmarkFilter(false)  ).toBe('\u2718');
 			}
 		));
-
 	});
-
 
 	describe('copysToAction', function () {
 
@@ -156,7 +160,6 @@ describe('filters', function () {
 				expect(  copysToActionFilter(false)  ).toBe(availableCopyActions[false]);
 			}
 		));
-
 	});
 
 	describe('copysToClass', function () {
@@ -176,7 +179,6 @@ describe('filters', function () {
 
 	});
 
-
 	describe('hasAttribute', function () {
 
 		it('should return true if the parameter exists', inject(function(hasAttributeFilter) {
@@ -189,11 +191,7 @@ describe('filters', function () {
 				expect(  hasAttributeFilter(undefined)  ).toBe(false);
 			}
 		));
-
-
 	});
-
-
 
 	describe('boolToLendReturn', function () {
 
@@ -206,7 +204,6 @@ describe('filters', function () {
 				expect(  boolToLendReturnFilter(false)  ).toBe('return');
 			}
 		));
-
 	});
 
 
