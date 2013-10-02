@@ -45,7 +45,6 @@ module.exports = function(grunt) {
 				browser: true,
 				devel: true,
 
-
 				// Global Variables permitted
 				globals: {
 					jQuery: true,
@@ -54,6 +53,7 @@ module.exports = function(grunt) {
 					angular: true,
 					//For testing
 					describe: true,
+					xdescribe: true,
 					it: true,
 					beforeEach: true,
 					inject: true,
