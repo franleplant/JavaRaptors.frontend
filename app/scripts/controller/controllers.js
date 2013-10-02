@@ -94,8 +94,9 @@ controller('CreateEditBookController',
 			$scope.book = book;
 
 
-			var i = 2,
-				j = 2;
+			var i = 1,
+				j = 1,
+				k = 1;
 
 
 			//TODO: refactor this
@@ -123,6 +124,15 @@ controller('CreateEditBookController',
 				});
 				j++;
 			};
+
+			$scope.rm_author = function (i) {
+				$scope.book.genres.splice(i,1);
+			};
+
+			$scope.add_author = function () {
+				$scope.book.genres.push({name:'new genre' + k});
+				k++;
+			};			
 
 			$scope.save = function () {
 
