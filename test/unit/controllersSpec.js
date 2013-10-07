@@ -41,7 +41,7 @@ describe('Controllers', function(){
 
 		beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $location) {
 			$httpBackend = _$httpBackend_;
-			$httpBackend.expectGET('/app/dbmock/book.json?page_number=1').
+			$httpBackend.expectGET('/api/book?format=json&page_number=1').
 				respond(  mock_response  );
 
 			$location.path('/book');
