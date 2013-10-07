@@ -12,7 +12,7 @@ service('animations', function () {
 factory('Search', ['$resource',
 
 		function ($resource) {
-			return $resource('/app/dbmock/:entityType.json', {}, {
+			return $resource('/api/:entityType', {format: 'json', page_number: 1}, {
 				query: {
 					method: 'GET',
 					isArray: false
