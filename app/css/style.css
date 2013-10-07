@@ -245,3 +245,16 @@ footer > p {
 #results > div {
 	min-height: 80px; 
 }
+	#cg-submits{
+		margin-top: 40px;
+	}
+
+		#reset-psw {
+			float: right;
+			margin: 10px 10px 0 0;
+			color: #1b1b1b;
+		}
+
+.both {
+	clear: both;
+}
