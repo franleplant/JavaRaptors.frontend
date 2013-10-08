@@ -33,53 +33,81 @@
 					</div>
 				
 
-					<hr/>
+					<hr/>	
 					<h3>Resumen</h3>
 					<p contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.summary" title="Click to edit">{{book.summary}}</p>
 					<hr/>
+					
+					
 
 					<h3>Datos</h3>
-					<label>ISBN: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.isbn" title="Click to edit">{{book.isbn}}</span>
-					<br/>
-					<label>Editorial: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.editorial.name" title="Click to edit">
-						<a ng-href="#/editorial/detailed_view/{{book.editorial.id}}" target="_blank">{{book.editorial.name}}</a>
-					</span>
-					<br/>
-					<label>Edición: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.editionNumber" title="Click to edit">{{book.editionNumber}}</span>
-					<br/>
-					<label>Idioma: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.lang" title="Click to edit">{{book.lang}}</span>
-					<br/>
 
-					<label>Valuacion: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.val" title="Click to edit">{{book.val}}</span>
-					<br/>					
-					<label>Precio: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.price" title="Click to edit">{{book.price}}</span>
-					<br/>
-
-					<label>Imagen: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.img" title="Click to edit">{{book.img}}</span>
-					<br/>
+					<section class="span8">
+						<label>ISBN: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.isbn" title="Click to edit">{{book.isbn}}</span>
+					</section>
 
 
-					<label class="pull-left genres">
-						<button type="button" class="btn" ng-click="add_genre()" ng-if="'edit, create' | testPathRegExp"><i class="icon-plus-sign"></i></button>
-						Géneros: 			
-					</label>
 
-					<p ng-repeat="genre in book.genres">
-
-						<span ng-if="'detailed_view' | testPathRegExp">{{genre.name}}</span>
-						<span ng-if="'edit, create' | testPathRegExp" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.name">
-							{{genre.name}}
-							<button class="btn" ng-click="rm_genre($index)"><i class="icon-minus-sign"></i></button>
+					<section class="span8">
+						<label>Editorial: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.editorial.name" title="Click to edit">
+							<a ng-href="#/editorial/detailed_view/{{book.editorial.id}}" target="_blank">{{book.editorial.name}}</a>
 						</span>
+					</section>
 
-					</p>
+
+					<section class="span8">
+						<label>Edición: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.editionNumber" title="Click to edit">
+							{{book.editionNumber}}
+						</span>
+					</section>
+
+
+					<section class="span8">
+						<label>Idioma: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.lang" title="Click to edit">{{book.lang}}</span>
+					</section>
+
+
+					<section class="span8">
+						<label>Valuacion: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.val" title="Click to edit">{{book.val}}</span>
+					</section>
+
+
+					<section class="span8">	
+						<label>Precio: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.price" title="Click to edit">{{book.price}}</span>
+					</section>
+
+
+					<section class="span8">	
+						<label>Imagen: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.img" title="Click to edit">{{book.img}}</span>
+					</section>
+
+
+					<section class="span8">
+						<label class="genres">
+							<button type="button" class="btn" ng-click="add_genre()" ng-if="'edit, create' | testPathRegExp"><i class="icon-plus-sign"></i></button>
+							Géneros: 			
+						</label>
+
+						<span>
+							<span ng-repeat="genre in book.genres">
+
+								<a ng-if="'detailed_view' | testPathRegExp">{{genre.name}}</a>
+								<a ng-if="'edit, create' | testPathRegExp" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.name">
+									{{genre.name}}
+									<button class="btn" ng-click="rm_genre($index)"><i class="icon-minus-sign"></i></button>
+								</a>
+
+							</span>
+
+						</span>
+					</section>
 
 				</fieldset>
 
@@ -172,21 +200,26 @@
 				<fieldset>
 					<h3>Auditoria</h3>
 
-					<label>Fecha y Hora de Alta: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc"> Dummy Data </span>
-					</br>
+					<section class="span9">
+						<label>Fecha y Hora de Alta: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc"> Dummy Data </span>
+					</section>
 
-					<label>Usuario disparador Alta: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc">Dummy Data</span>					
-					</br>
 
-					<label>Fecha y Hora Ultima Edicion: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc">Dummy Data</span>					
-					</br>
+					<section class="span9">
+						<label>Usuario disparador Alta: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc">Dummy Data</span>					
+					</section>
 
-					<label>Usuario Editor: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc">Dummy Data</span>					
-					</br>														
+					<section class="span9">
+						<label>Fecha y Hora Ultima Edicion: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc">Dummy Data</span>					
+					</section>
+
+					<section class="span9">
+						<label>Usuario Editor: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="genre.etc">Dummy Data</span>					
+					</section>														
 
 				</fieldset>
 
