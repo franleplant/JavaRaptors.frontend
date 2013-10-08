@@ -1,0 +1,20 @@
+{
+	"id": 0,
+	"type": "author",
+	"nick": "autor nuevo",
+	"birth": "introduzca la fecha",
+	"isni": "introduzca el ISNI del autor",
+	"creationDate": "07/10/2013",
+	"creationUser": "franleplant",
+	"editDate": "07/10/2013",
+	"editUser": "franleplant",
+	"comments": "Comentario",
+	"books": [
+		{
+			"id": 0,
+			"title": "un libro del mismo autor"
+		}
+	]
+}
+
+

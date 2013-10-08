@@ -29,7 +29,7 @@ jraptors.config(
 
 				when('/book/detailed_view/:id', {
 					templateUrl: 'views/book.html',
-					controller: 'DetailedViewController',
+					controller: 'BookDetailedViewController',
 					resolve: {
 						book: function(bookLoader) {
 							return bookLoader();
@@ -37,7 +37,19 @@ jraptors.config(
 					}
 				}).
 				when('/affiliate/detailed_view/:id', {templateUrl: 'views/affiliate.html', controller: 'DetailedViewController'}).
-				when('/author/detailed_view/:id',    {templateUrl: 'views/author.html',    controller: 'DetailedViewController'}).
+				
+
+				when('/author/detailed_view/:id', {
+					templateUrl: 'views/author.html',
+					controller: 'AuthorDetailedViewController',
+					resolve: {
+						author: function(authorLoader) {
+							return authorLoader();
+						}
+					}
+				}).
+
+
 				when('/editorial/detailed_view/:id', {templateUrl: 'views/editorial.html', controller: 'DetailedViewController'}).
 				when('/user/detailed_view/:id',      {templateUrl: 'views/user.html',      controller: 'DetailedViewController'}).
 				when('/location/detailed_view/:id',  {templateUrl: 'views/location.html',  controller: 'DetailedViewController'}).

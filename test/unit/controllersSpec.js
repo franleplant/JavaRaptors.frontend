@@ -76,8 +76,6 @@ describe('Controllers', function(){
 				expect(scope.response).toEqualData(  [] );
 			});
 		});
-
-
 	});
 
 
@@ -172,9 +170,6 @@ describe('Controllers', function(){
 				//expect(scope.book).toEqualData(  mock_response  );
 			});
 		});
-
-
-
 	});
 
 	// describe('PhoneDetailCtrl', function(){

@@ -297,6 +297,99 @@ describe('Jraptors Services', function() {
 			});
 
 		});
+	});
 
+	describe('Author', function () {
+
+		var scope, $httpBackend, Author,
+			mock_response_ok = {'status': 'ok'},
+			mock_response_GET = {'nick': 'JK Rowling'};
+	
+
+		beforeEach(inject(function(_$httpBackend_, $injector) {
+			$httpBackend = _$httpBackend_;
+
+
+
+			Author = $injector.get('Author');
+		}));
+
+		describe('GET', function () {
+
+			beforeEach(function () {
+				$httpBackend.expectGET('/api/author/1?format=json').
+					respond( mock_response_GET );
+			});
+
+
+			it('should return a book with a GET request', function () {
+				var a = Author.get({id: 1});
+
+				$httpBackend.flush();
+
+				expect(a.nick).toBe('JK Rowling');
+
+			});
+
+		});
+
+
+
+
+
+		describe('POST: create a new author', function () {
+			beforeEach(function () {
+				$httpBackend.expectPOST('/api/author?format=json').
+					respond(  mock_response_ok  );
+			});
+
+			it('should save a new author with a POST request and URL like: /api/author/create', function () {
+
+				var a = Author.save({
+					title: 'some_new_Author'
+				});
+
+				$httpBackend.flush();
+
+				expect(a.status).toBe('ok');
+			});
+
+		});
+
+		describe('POST: edit an existing author', function () {
+			beforeEach(function () {
+				$httpBackend.expectPOST('/api/author/1?format=json').
+					respond(  mock_response_ok  );
+			});
+
+
+			it('should change an existing author with a POST request and URL like: /api/author/edit/:id', function () {
+
+				var a = Author.save({id: 1, title: 'some_existing_Author'});
+
+				$httpBackend.flush();
+
+				expect(a.status).toBe('ok');
+			});
+
+		});
+
+		describe('DELETE', function () {
+			beforeEach(function () {
+				$httpBackend.expectDELETE('/api/author/1?format=json').
+					respond(  mock_response_ok  );
+			});
+
+
+			it('should remove an existing author with a DELETE request and URL like: /api/author/delete/:id', function () {
+
+				var a = Author.remove({id: 1});
+
+				$httpBackend.flush();
+
+				expect(a.status).toBe('ok');
+			});
+
+		});
 	});
 });
