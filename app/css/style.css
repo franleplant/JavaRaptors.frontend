@@ -28,6 +28,7 @@ input:focus:invalid:focus{
 
 *[contentEditable=true] {
 	font-style:italic;
+	border: 1px solid lightgrey;
 }
 
 *[contentEditable=true]:focus {
@@ -61,6 +62,15 @@ form .form_book_img {
 	width: auto;
 }
 
+form fieldset button[type=button] {
+}
+
+form fieldset section.span8,
+form fieldset section.span9 {
+	position: relative;
+	margin-left: 0px;
+}
+
 .detailed_view .span4 > a,
 .detailed_view .span4 > button {
 	margin-top: 5px;
@@ -68,7 +78,13 @@ form .form_book_img {
 
 .detailed_view form label {
 	float:left;
-	width: 100px;
+}
+
+.detailed_view form fieldset span, 
+.detailed_view form fieldset p {
+	font-size: 14px;
+	position: absolute;
+	left: 220px;
 }
 
 .detailed_view form br {

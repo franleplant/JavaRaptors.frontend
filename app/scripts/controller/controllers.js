@@ -44,8 +44,28 @@ controller('SelectEntityController',
 
 
 
-//TODO
 controller('DetailedViewController',
+	[
+		'$scope', 'entity',
+		function ($scope, entity) {
+
+			$scope.entity = entity;
+		}
+	]
+).
+
+
+controller('AuthorDetailedViewController',
+	[
+		'$scope', 'author',
+		function ($scope, author) {
+
+			$scope.author = author;
+		}
+	]
+).
+
+controller('BookDetailedViewController',
 	[
 		'$scope', 'book',
 		function ($scope, book) {
@@ -54,6 +74,7 @@ controller('DetailedViewController',
 		}
 	]
 ).
+
 
 controller('EditController',
 	[
