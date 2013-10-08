@@ -69,6 +69,7 @@ form fieldset section.span8,
 form fieldset section.span9 {
 	position: relative;
 	margin-left: 0px;
+	overflow-y: hidden;
 }
 
 .detailed_view .span4 > a,
@@ -76,15 +77,13 @@ form fieldset section.span9 {
 	margin-top: 5px;
 }
 
-.detailed_view form label {
-	float:left;
-}
 
-.detailed_view form fieldset span, 
-.detailed_view form fieldset p {
+.detailed_view form > fieldset > section > span, 
+.detailed_view form > fieldset > section > p {
 	font-size: 14px;
 	position: absolute;
 	left: 220px;
+	top: 0px;
 }
 
 .detailed_view form br {
