@@ -28,6 +28,7 @@ input:focus:invalid:focus{
 
 *[contentEditable=true] {
 	font-style:italic;
+	border: 1px solid lightgrey;
 }
 
 *[contentEditable=true]:focus {
