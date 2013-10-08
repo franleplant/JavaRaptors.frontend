@@ -61,6 +61,9 @@ form .form_book_img {
 	width: auto;
 }
 
+form fieldset button[type=button] {
+}
+
 .detailed_view .span4 > a,
 .detailed_view .span4 > button {
 	margin-top: 5px;
@@ -68,7 +71,13 @@ form .form_book_img {
 
 .detailed_view form label {
 	float:left;
-	width: 100px;
+}
+
+.detailed_view form fieldset span, 
+.detailed_view form fieldset p {
+	font-size: 14px;
+	position: absolute;
+	left: 220px;
 }
 
 .detailed_view form br {

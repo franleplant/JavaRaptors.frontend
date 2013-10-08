@@ -1,0 +1,24 @@
+{
+	"id": 1,
+	"type": "author",
+	"nick": "JK Rowling",
+	"birth": "31 de Julio de 1965",
+	"isni": "0000 0001 2148 628X",
+	"creationDate": "07/10/2013",
+	"creationUser": "franleplant",
+	"editDate": "07/10/2013",
+	"editUser": "franleplant",
+	"comments": "blah blah blah",
+	"books": [
+		{
+			"id": 1,
+			"title": "Harry Poter 1 and the Sorcerer's Stone"
+		},
+		{
+			"id": 2,
+			"title": "Harry Poter 2 and the Chamber of Secrets"					
+		}
+	]
+}
+
+

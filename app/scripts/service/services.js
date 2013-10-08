@@ -82,6 +82,50 @@ factory('bookCreateDefaultsLoader', ['Book',
 ).
 
 
+
+factory('Author', ['$resource',
+		function ($resource) {
+			return $resource('/api/author/:id', {id: '@id', format: 'json'}, {});
+		}
+	]
+).
+
+
+factory('authorLoader', ['Author', '$route', '$q',
+
+		function(Author, $route, $q) {
+			return function() {
+				var dfd = $q.defer(),
+					id = $route.current.params.id;
+
+				Author.get({id: id}, function(author) {
+					dfd.resolve(author);
+				}, function() {
+					dfd.reject('Unable to fetch author '  + id);
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
+factory('authorCreateDefaultsLoader', ['Author', '$route', '$q',
+
+		function(Author, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				Author.get({id: 0}, function(author) {
+					dfd.resolve(author);
+				}, function() {
+					dfd.reject('Server Error');
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
 factory('PathSelector', [ function () {
 
 			//TODO: Document this function and the next one
@@ -137,6 +181,7 @@ factory('UserSession', [ 'PathSelector', 'UserRoles',
 			var user_session = {};
 
 			var name, role, token;
+
 
 
 			//TODO: Refactor
