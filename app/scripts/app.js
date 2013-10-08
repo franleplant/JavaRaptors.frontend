@@ -29,7 +29,7 @@ jraptors.config(
 
 				when('/book/detailed_view/:id', {
 					templateUrl: 'views/book.html',
-					controller: 'DetailedViewController',
+					controller: 'BookDetailedViewController',
 					resolve: {
 						book: function(bookLoader) {
 							return bookLoader();

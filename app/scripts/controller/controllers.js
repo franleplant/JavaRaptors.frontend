@@ -65,7 +65,15 @@ controller('AuthorDetailedViewController',
 	]
 ).
 
+controller('BookDetailedViewController',
+	[
+		'$scope', 'book',
+		function ($scope, book) {
 
+			$scope.book = book;
+		}
+	]
+).
 
 
 controller('EditController',

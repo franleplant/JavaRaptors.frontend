@@ -15,17 +15,21 @@
 				<hr/>
 
 				<h3>Datos</h3>
-				<label>ISNI: </label>
-				<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.isni" title="Click to edit">{{author.isni}}</span>
-				<br/>
 
-				<label>Fecha de Nacimiento: </label>
-				<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.birth" title="Click to edit">{{author.birth}}</span>
-				<br/>
+				<section class="span8">
+					<label>ISNI: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.isni" title="Click to edit">{{author.isni}}</span>
+				</section>
 
-				<label>Comentarios: </label>
-				<p contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.comments" title="Click to edit">{{author.comments}}</p>
-				<br/>
+				<section class="span8">
+					<label>Fecha de Nacimiento: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.birth" title="Click to edit">{{author.birth}}</span>
+				</section>
+
+				<section class="span8">
+					<label>Comentarios: </label>
+					<p contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.comments" title="Click to edit">{{author.comments}}</p>
+				</section>
 
 				<hr/>
 
@@ -53,25 +57,32 @@
 			<fieldset class="span9">
 				<h3>Auditoria</h3>
 
+				<section class="span9">
 				<label>Fecha y Hora de Alta: </label>
 				<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.creationDate">{{author.creationDate}}</span>
-				</br>
+				</section>
 
-				<label>Usuario disparador Alta: </label>
-				<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.creationUser">{{author.creationUser}}</span>					
-				</br>
 
-				<label>Fecha y Hora Ultima Edicion: </label>
-				<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.editDate">{{author.editDate}}</span>					
-				</br>
+				<section class="span9">
+					<label>Usuario disparador Alta: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.creationUser">{{author.creationUser}}</span>
+				</section>
 
-				<label>Usuario Editor: </label>
-				<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.editUser">{{author.editUser}}</span>					
-				</br>														
+
+				<section class="span9">
+					<label>Fecha y Hora Ultima Edicion: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.editDate">{{author.editDate}}</span>					
+				</section>
+
+
+				<section class="span9">
+					<label>Usuario Editor: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.editUser">{{author.editUser}}</span>					
+				</section>								
 
 			</fieldset>
 
-			<fieldset class="span9" ng-if="{{'edit, create' | testPathRegExp}}">
+			<fieldset class="span9" ng-if="'edit, create' | testPathRegExp">
 				<hr/>
 				<button type="button" class="btn delete_entity" ng-click="open_modal_delete()"><i class="icon-remove"></i>Borrar Autor</button>
 				<hr/>
