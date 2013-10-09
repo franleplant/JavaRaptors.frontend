@@ -81,8 +81,6 @@ factory('bookCreateDefaultsLoader', ['Book',
 	]
 ).
 
-
-
 factory('Author', ['$resource',
 		function ($resource) {
 			return $resource('/api/author/:id', {id: '@id', format: 'json'}, {});
@@ -90,6 +88,13 @@ factory('Author', ['$resource',
 	]
 ).
 
+factory('Affiliate', ['$resource',
+
+		function ($resource) {
+			return $resource('/api/affiliate/:id', {id: '@id', format: 'json'}, {});
+		}
+	]
+).
 
 factory('authorLoader', ['Author', '$route', '$q',
 
@@ -102,6 +107,23 @@ factory('authorLoader', ['Author', '$route', '$q',
 					dfd.resolve(author);
 				}, function() {
 					dfd.reject('Unable to fetch author '  + id);
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
+factory('affiliateLoader', ['Affiliate', '$route', '$q',
+
+		function(Affiliate, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				Affiliate.get({id: $route.current.params.id}, function(affiliate) {
+					dfd.resolve(affiliate);
+				}, function() {
+					dfd.reject('Unable to fetch affiliate '  + $route.current.params.id);
 				});
 				return dfd.promise;
 			};
@@ -170,6 +192,31 @@ factory('userCreateDefaultsLoader', ['User', '$route', '$q',
 					dfd.reject('Server Error');
 				});
 				return dfd.promise;
+			};
+		}
+	]
+).
+
+factory('affiliateCreateDefaultsLoader', ['Affiliate',
+
+		function(Affiliate) {
+			return function() {
+				return new Affiliate({
+					'name': 'Ingrese Nombre',
+					'surname': 'Ingerese Apellido',
+					'dni': '-------',
+					'isActive': 'true',
+					'reputation': '-',
+					'email': 'alguien@alguien.com.ar',
+					img: 'img/default-user-icon-profile.png',
+					phone: [{
+						number: '(011) ------'
+					}],
+					celphone: [{
+						number: '(011) ------'
+					}],
+					registered: 'hoy'
+				});
 			};
 		}
 	]

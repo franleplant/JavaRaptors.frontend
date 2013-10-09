@@ -1,0 +1,16 @@
+{
+	"id": 1,
+	"type": "affiliate",
+	"img": "img/default-user-icon-profile.png",
+	"name": "Mavis",
+	"surname": "Justice",
+	"dni": 28434410,
+	"cuit": 52402509030,
+	"isActive": false,
+	"reputation": "2",
+	"email": "mavisjustice@recrisys.com",
+	"phone": "(011) 456-3445",
+	"cellphone": "(011) 4508-3085",
+	"address": "207 Court Square, Gratton, New Hampshire, 5920",
+	"registered": "2010-07-05T06:51:14 +03:00"
+}
