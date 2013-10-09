@@ -73,6 +73,7 @@ controller('BookDetailedViewController',
 	]
 ).
 
+
 controller('UserDetailedViewController',
 	[
 		'$scope', 'user',
@@ -82,6 +83,18 @@ controller('UserDetailedViewController',
 		}
 	]
 ).
+
+
+controller('DetailedViewControllerAffiliate',
+	[
+		'$scope', 'affiliate',
+		function ($scope, affiliate) {
+
+			$scope.affiliate = affiliate;
+		}
+	]
+).
+
 
 
 controller('EditController',
