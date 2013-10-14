@@ -41,12 +41,21 @@
 				<button type="submit" class="btn btn-block" ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
 			</fieldset>			
 
-			<fieldset class="span9">
+			<fieldset class="span9 authors-books">
 
-				<h3>Libros</h3>
+				<h3>
+					Libros
+					<button class="btn"><i class="icon-plus-sign" ng-click="add_book()"></i></button>
+				</h3>
 
-				<section ng-repeat="book in author.books">
-					<a ng-href="#/book/detailed_view/{{book.id}}">
+				<section ng-repeat="book in author.books" class="span9">
+
+					<span ng-if="'edit, create' | testPathRegExp" ng-model="book.title" contentEditable="{{'edit, create' | testPathRegExp}}">
+						{{book.title}}
+						<button class="btn" ng-click="rmv_book($index)"><i class="icon-minus-sign"></i></button>
+					</span>
+
+					<a ng-if="'detailed_view' | testPathRegExp" ng-href="#/book/detailed_view/{{book.id}}">
 						<h5>{{book.title}}</h5>
 					</a>
 				</section>
@@ -59,25 +68,25 @@
 
 				<section class="span9">
 				<label>Fecha y Hora de Alta: </label>
-				<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.creationDate">{{author.creationDate}}</span>
+				<span>{{author.creationDate}}</span>
 				</section>
 
 
 				<section class="span9">
 					<label>Usuario disparador Alta: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.creationUser">{{author.creationUser}}</span>
+					<span>{{author.creationUser}}</span>
 				</section>
 
 
 				<section class="span9">
 					<label>Fecha y Hora Ultima Edicion: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.editDate">{{author.editDate}}</span>					
+					<span>{{author.editDate}}</span>					
 				</section>
 
 
 				<section class="span9">
 					<label>Usuario Editor: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.editUser">{{author.editUser}}</span>					
+					<span>{{author.editUser}}</span>					
 				</section>								
 
 			</fieldset>

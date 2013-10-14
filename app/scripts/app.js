@@ -64,7 +64,18 @@ jraptors.config(
 					}
 				}).
 				when('/affiliate/edit/:id', {templateUrl: 'views/affiliate_edit.html', controller: 'EditController'}).
-				when('/author/edit/:id',    {templateUrl: 'views/author_edit.html',    controller: 'EditController'}).
+				
+
+
+				when('/author/edit/:id',{
+					templateUrl: 'views/author.html',
+					controller: 'CreateEditAuthorController',
+					resolve: {
+						author: function(authorLoader) {
+							return authorLoader();
+						}
+					}
+				}).
 				when('/editorial/edit/:id', {templateUrl: 'views/editorial_edit.html', controller: 'EditController'}).
 				when('/user/edit/:id',      {templateUrl: 'views/user_edit.html',      controller: 'EditController'}).
 				when('/location/edit/:id',  {templateUrl: 'views/location_edit.html',  controller: 'EditController'}).
@@ -80,7 +91,7 @@ jraptors.config(
 					}
 				}).
 				when('/affiliate/create', {templateUrl: 'views/affiliate_create.html', controller: 'CreateController'}).
-				when('/author/create',    {templateUrl: 'views/author_create.html',    controller: 'CreateController'}).
+				when('/author/create',    {templateUrl: 'views/author.html',    controller: 'CreateController'}).
 				when('/editorial/create', {templateUrl: 'views/editorial_create.html', controller: 'CreateController'}).
 				when('/user/create',      {templateUrl: 'views/user_create.html',      controller: 'CreateController'}).
 				when('/location/create',  {templateUrl: 'views/location_create.html',  controller: 'CreateController'}).

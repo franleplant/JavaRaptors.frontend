@@ -42,8 +42,6 @@ controller('SelectEntityController',
 ).
 
 
-
-
 controller('DetailedViewController',
 	[
 		'$scope', 'entity',
@@ -209,6 +207,28 @@ controller('ModalController',
 	]
 ).
 
+
+controller('CreateEditAuthorController',
+	[
+		'$scope', '$timeout', 'Author', '$location', 'author', '$modal',
+		function ($scope, $timeout, Author, $location, author, $modal) {
+
+			$scope.author = author;
+
+
+			$scope.add_book = function () {
+				$scope.author.books.push({
+					title: "new_book"
+				});
+			};
+
+			$scope.rmv_book = function (i) {
+				$scope.author.books.splice(i,1);
+			};
+
+		}
+	]
+).
 
 
 controller('NavBarController',
