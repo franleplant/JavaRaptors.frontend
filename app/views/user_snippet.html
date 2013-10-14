@@ -6,6 +6,21 @@
 		<h4 class="media-heading">{{result.name}} {{result.lastName}}</h4>
 	</a>
 
+	<dl class="snippet_spec" compact>
+
+		<dt>Rol</dt>
+		<dd>{{result.rol}}</dd>
+
+		<dt>DNI</dt>
+		<dd>{{result.dni}}</dd>
+
+		<dt>Contacto</dt>
+		<dd>{{result.cel}}</dd>
+		<dd>{{result.tel}}</dd>
+		<dd>{{result.email}}</dd>
+
+	</dl>
+
 	
 	<a ng-href="#/user/edit/{{result.id}}" title="Editar" class="lend-return-button btn btn-inverse btn-large" type="button">
 		Editar

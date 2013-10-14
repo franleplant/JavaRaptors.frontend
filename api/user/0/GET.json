@@ -7,7 +7,7 @@
 	"cuil": "Ingrese CUIL",
 	"rol": "Ingrese rol",
 	"email": "Ingrese EMail" ,
-	"phone": "Ingrese Tel",
+	"tel": "Ingrese Tel",
 	"cel": "Ingrese Cel",
 	"street": "Ingrese Calle",
 	"street_number": "Ingrese Numero",
