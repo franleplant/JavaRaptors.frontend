@@ -24,7 +24,7 @@ jraptors.config(
 				when('/book', {
 					templateUrl: 'views/search.html',
 					controller: 'SearchController'
-				}).	
+				}).
 
 				when('/book/detailed_view/:id', {
 					templateUrl: 'views/book.html',
@@ -113,7 +113,7 @@ jraptors.config(
 
 
 				when('/author',{
-					templateUrl: 'views/search.html', 
+					templateUrl: 'views/search.html',
 					controller: 'SearchController'
 				}).
 

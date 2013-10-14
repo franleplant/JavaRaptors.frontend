@@ -218,7 +218,7 @@ controller('CreateEditAuthorController',
 
 			$scope.add_book = function () {
 				$scope.author.books.push({
-					title: "new_book"
+					title: 'new_book'
 				});
 			};
 
@@ -244,7 +244,7 @@ controller('CreateEditAuthorController',
 				function () {
 					//error callback
 				});
-			};			
+			};
 
 		}
 	]
@@ -264,7 +264,7 @@ controller('RmvController',
 					scope: $scope
 				});
 			
-			};	
+			};
 
 		}
 	]
