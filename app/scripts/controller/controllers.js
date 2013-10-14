@@ -210,8 +210,8 @@ controller('ModalController',
 
 controller('CreateEditAuthorController',
 	[
-		'$scope', '$timeout', 'Author', '$location', 'author', '$modal',
-		function ($scope, $timeout, Author, $location, author, $modal) {
+		'$scope', '$timeout', 'Author', '$location', 'author',
+		function ($scope, $timeout, Author, $location, author) {
 
 			$scope.author = author;
 
@@ -226,10 +226,49 @@ controller('CreateEditAuthorController',
 				$scope.author.books.splice(i,1);
 			};
 
+			$scope.remove = function (callback) {
+
+				Author.remove({id: $scope.author.id}).
+					$then(function () {
+						$location.path('/');
+						callback();
+					}
+				);
+			};
+
+			$scope.save = function () {
+
+				$scope.author.$save(function () {
+					$location.path('/');
+				},
+				function () {
+					//error callback
+				});
+			};			
+
 		}
 	]
 ).
 
+
+controller('RmvController',
+	[
+		'$scope', '$modal',
+		function ($scope, $modal) {
+
+			$scope.open_modal_delete = function () {
+
+				var modalInstance = $modal.open({
+					templateUrl: 'views/modal_delete.html',
+					controller: 'ModalController',
+					scope: $scope
+				});
+			
+			};	
+
+		}
+	]
+).
 
 controller('NavBarController',
 	[

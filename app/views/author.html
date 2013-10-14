@@ -45,7 +45,7 @@
 
 				<h3>
 					Libros
-					<button class="btn"><i class="icon-plus-sign" ng-click="add_book()"></i></button>
+					<button class="btn" type="button"><i class="icon-plus-sign" ng-click="add_book()"></i></button>
 				</h3>
 
 				<section ng-repeat="book in author.books" class="span9">
@@ -91,7 +91,7 @@
 
 			</fieldset>
 
-			<fieldset class="span9" ng-if="'edit, create' | testPathRegExp">
+			<fieldset class="span9" ng-if="'edit' | testPathRegExp" ng-controller="RmvController">
 				<hr/>
 				<button type="button" class="btn delete_entity" ng-click="open_modal_delete()"><i class="icon-remove"></i>Borrar Autor</button>
 				<hr/>
