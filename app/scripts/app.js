@@ -197,7 +197,7 @@ angular.module('jraptorsRunBlock', ['ngCookies']).run(
 			
 			//This should be set by the server after sucessfully user login
 			$cookies.username = 'franleplant';
-			$cookies.userrole = 'admin';
+			$cookies.userrole = 'super';
 			$cookies.sessionToken = 'someToken';
 
 			UserSession.name(  $cookies.username  );

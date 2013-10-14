@@ -1,0 +1,23 @@
+{
+	"id": 1,
+	"type": "user",
+	"name": "Claudia",
+	"lastName": "Guzman",
+	"dni": "10287230",
+	"cuil": "1230jasd",
+	"rol": "admin",
+	"email": "clau_guzman@gmail.com" ,
+	"phone": "011 15 12398123",
+	"cel": "011 1531512313",
+	"street": "padington Street",
+	"street_number": "75",
+	"department": "",
+	"floor": "",
+	"birth": "31 de Julio de 1965",
+	"creationDate": "07/10/2013",
+	"creationUser": "franleplant",
+	"editDate": "07/10/2013",
+	"editUser": "franleplant",
+	"comments": "blah blah blah"
+}
+

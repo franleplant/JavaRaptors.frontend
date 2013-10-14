@@ -1,0 +1,22 @@
+{
+	"id": 0,
+	"type": "user",
+	"name": "Ingrese Nombre",
+	"lastName": "Ingrese Apellido",
+	"dni": "Ingrese DNI",
+	"cuil": "Ingrese CUIL",
+	"rol": "Ingrese rol",
+	"email": "Ingrese EMail" ,
+	"phone": "Ingrese Tel",
+	"cel": "Ingrese Cel",
+	"street": "Ingrese Calle",
+	"street_number": "Ingrese Numero",
+	"department": "Ingrese Dpto",
+	"floor": "Ingrese Piso",
+	"birth": "Ingrese fecha de nacimiento",
+	"creationDate": "07/10/2013",
+	"creationUser": "franleplant",
+	"editDate": "07/10/2013",
+	"editUser": "franleplant",
+	"comments": "blah blah blah"
+}
