@@ -68,7 +68,7 @@ jraptors.config(
 					controller: 'SearchController'
 				}).
 				when('/user/detailed_view/:id',{
-					templateUrl: 'views/user.html', 
+					templateUrl: 'views/user.html',
 					controller: 'UserDetailedViewController',
 					resolve: {
 						user: function(userLoader) {
@@ -77,7 +77,7 @@ jraptors.config(
 					}
 				}).
 				when('/user/edit/:id', {
-					templateUrl: 'views/user.html', 
+					templateUrl: 'views/user.html',
 					controller: 'CreateEditUserController',
 					resolve: {
 						user: function(userLoader) {
@@ -86,7 +86,7 @@ jraptors.config(
 					}
 				}).
 				when('/user/create', {
-					templateUrl: 'views/user.html', 
+					templateUrl: 'views/user.html',
 					controller: 'CreateEditUserController',
 					resolve: {
 						user: function(userCreateDefaultsLoader) {
