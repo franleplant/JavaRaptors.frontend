@@ -260,6 +260,36 @@ controller('CreateEditAuthorController',
 	]
 ).
 
+controller('CreateEditUserController',
+	[
+		'$scope', '$timeout', 'User', '$location', 'user',
+		function ($scope, $timeout, User, $location, user) {
+
+			$scope.user = user;
+
+			$scope.remove = function (callback) {
+
+				User.remove({id: $scope.user.id}).
+					$then(function () {
+						$location.path('/');
+						callback();
+					}
+				);
+			};
+
+			$scope.save = function () {
+
+				$scope.user.$save(function () {
+					$location.path('/');
+				},
+				function () {
+					//error callback
+				});
+			};
+
+		}
+	]
+).
 
 controller('RmvController',
 	[

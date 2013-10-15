@@ -118,11 +118,24 @@ form > fieldset.authors-books {
 	position: relative;
 }
 
+form span {
+	min-width: 10px;
+	display: inline-block;
+}
+
 form > fieldset.authors-books > section > span {
 	position: initial;
 	display: block;
 	height: 30px;
 
+}
+
+form section.address {
+
+}
+
+form fieldset > section.address span {
+	position: relative;	
 }
 
 fieldset.authors-books > section > span > button {
