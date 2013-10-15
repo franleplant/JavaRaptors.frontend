@@ -12,7 +12,7 @@ service('animations', function () {
 factory('Search', ['$resource',
 
 		function ($resource) {
-			return $resource('/api/:entityType', {format: 'json', page_number: 1}, {
+			return $resource('/api/:entityType', {format: 'json', pageNumber: 1}, {
 				query: {
 					method: 'GET',
 					isArray: false
@@ -171,6 +171,7 @@ factory('affiliateCreateDefaultsLoader', ['Affiliate', '$route', '$q',
 	]
 ).
 
+
 factory('User', ['$resource',
 		function ($resource) {
 			return $resource('/api/user/:id', {id: '@id', format: 'json'}, {});
@@ -216,8 +217,6 @@ factory('userCreateDefaultsLoader', ['User', '$route', '$q',
 		}
 	]
 ).
-
-
 
 
 factory('PathSelector', [ function () {
