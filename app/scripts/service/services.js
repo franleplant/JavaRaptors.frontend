@@ -12,7 +12,7 @@ service('animations', function () {
 factory('Search', ['$resource',
 
 		function ($resource) {
-			return $resource('/api/:entityType', {format: 'json', pageNumber: 1}, {
+			return $resource('/api/:entityType', {format: 'json', page_number: 1}, {
 				query: {
 					method: 'GET',
 					isArray: false
@@ -114,6 +114,8 @@ factory('authorCreateDefaultsLoader', ['Author', '$route', '$q',
 				var dfd = $q.defer();
 
 				Author.get({id: 0}, function(author) {
+
+					delete author.id;
 					dfd.resolve(author);
 				}, function() {
 					dfd.reject('Server Error');
@@ -150,6 +152,25 @@ factory('affiliateLoader', ['Affiliate', '$route', '$q',
 ).
 
 
+factory('affiliateCreateDefaultsLoader', ['Affiliate', '$route', '$q',
+
+		function(Affiliate, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				Affiliate.get({id: 0}, function(affiliate) {
+
+					delete affiliate.id;
+					dfd.resolve(affiliate);
+				}, function() {
+					dfd.reject('Server Error');
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
 factory('User', ['$resource',
 		function ($resource) {
 			return $resource('/api/user/:id', {id: '@id', format: 'json'}, {});
@@ -166,6 +187,8 @@ factory('userLoader', ['User', '$route', '$q',
 					id = $route.current.params.id;
 
 				User.get({id: id}, function(user) {
+
+					delete user.id;
 					dfd.resolve(user);
 				}, function() {
 					dfd.reject('Unable to fetch user '  + id);
@@ -195,26 +218,6 @@ factory('userCreateDefaultsLoader', ['User', '$route', '$q',
 ).
 
 
-factory('affiliateCreateDefaultsLoader', ['Affiliate',
-
-		function(Affiliate) {
-			return function() {
-				return new Affiliate({
-					img: 'img/default-user-icon-profile.png',
-					'name': 'Ingrese Nombre',
-					'lastName': 'Ingrese Apellido',
-					'dni': '-------',
-					'isActive': true,
-					'reputation': '',
-					'email': 'alguien@alguien.com.ar',
-					phone: '(011) ------',
-					celphone: '(011) ------',
-					registered: 'hoy'
-				});
-			};
-		}
-	]
-).
 
 
 factory('PathSelector', [ function () {

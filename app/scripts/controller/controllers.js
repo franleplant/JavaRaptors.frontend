@@ -226,9 +226,6 @@ controller('CreateEditAffiliateController',
 			$scope.affiliate = affiliate;
 
 			//TODO: refactor this
-			$scope.add_lend = function () {
-				alert('Acá se abrirá el popin para un nuevo prestamo');
-			};
 
 			$scope.save = function () {
 

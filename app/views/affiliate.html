@@ -58,9 +58,6 @@
 					<div class="span12">
 						<hr/>
 						<h3>Prestamos otorgados a {{affiliate.name}}
-							<button type="button" class="btn" ng-click="add_lend()" ng-if="'edit, create' | testPathRegExp">
-								<i class="icon-plus-sign"></i>
-							</button>
 						</h3> 
 						<table class="table table-hover">
 							<thead>
@@ -115,30 +112,37 @@
 				</fieldset>
 
 
-				<fieldset>
+				<fieldset class="span9">
 					<h3>Auditoria</h3>
 
+					<section class="span9">
 					<label>Fecha y Hora de Alta: </label>
 					<span>{{affiliate.creationDate | date:'dd-MM-yyyy'}}</span>
-					</br>
+					</section>
 
-					<label>Usuario disparador Alta: </label>
-					<span>{{affiliate.creationUser}}<span>					
-					</br>
 
-					<label>Fecha y Hora Ultima Edicion: </label>
-					<span>{{affiliate.editDate | date:'dd-MM-yyyy'}}<span>					
-					</br>
+					<section class="span9">
+						<label>Usuario disparador Alta: </label>
+						<span>{{affiliate.creationUser}}</span>
+					</section>
 
-					<label>Usuario Editor: </label>
-					<span>{{affiliate.editUser}}<span>					
-					</br>														
+
+					<section class="span9">
+						<label>Fecha y Hora Ultima Edicion: </label>
+						<span>{{affiliate.editDate | date:'dd-MM-yyyy'}}</span>					
+					</section>
+
+
+					<section class="span9">
+						<label>Usuario Editor: </label>
+						<span>{{affiliate.editUser}}</span>					
+					</section>								
 
 				</fieldset>
-
-
 				<fieldset class="span9">
-					<button type="button" class="btn delete_affiliate" ng-click="open_modal_delete()"><i class="icon-remove"></i> Borrar el Socio</button>
+					<button type="button" class="btn delete_affiliate" ng-click="open_modal_delete()" ng-if="'edit' | testPathRegExp">
+						<i class="icon-remove"></i> Borrar el Socio
+					</button>
 				</fieldset>
 
 			</form>

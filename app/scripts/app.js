@@ -124,7 +124,7 @@ jraptors.config(
 
 				when('/affiliate/create', {
 					templateUrl: 'views/affiliate.html',
-					controller: 'CreateEditBookController',
+					controller: 'CreateEditAffiliateController',
 					resolve: {
 						affiliate: function(affiliateCreateDefaultsLoader) {
 							return affiliateCreateDefaultsLoader();
