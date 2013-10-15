@@ -73,6 +73,16 @@ controller('BookDetailedViewController',
 	]
 ).
 
+controller('UserDetailedViewController',
+	[
+		'$scope', 'user',
+		function ($scope, user) {
+
+			$scope.user = user;
+		}
+	]
+).
+
 
 controller('EditController',
 	[
@@ -218,7 +228,7 @@ controller('CreateEditAuthorController',
 
 			$scope.add_book = function () {
 				$scope.author.books.push({
-					title: "new_book"
+					title: 'new_book'
 				});
 			};
 
@@ -244,12 +254,42 @@ controller('CreateEditAuthorController',
 				function () {
 					//error callback
 				});
-			};			
+			};
 
 		}
 	]
 ).
 
+controller('CreateEditUserController',
+	[
+		'$scope', '$timeout', 'User', '$location', 'user',
+		function ($scope, $timeout, User, $location, user) {
+
+			$scope.user = user;
+
+			$scope.remove = function (callback) {
+
+				User.remove({id: $scope.user.id}).
+					$then(function () {
+						$location.path('/');
+						callback();
+					}
+				);
+			};
+
+			$scope.save = function () {
+
+				$scope.user.$save(function () {
+					$location.path('/');
+				},
+				function () {
+					//error callback
+				});
+			};
+
+		}
+	]
+).
 
 controller('RmvController',
 	[
@@ -264,7 +304,7 @@ controller('RmvController',
 					scope: $scope
 				});
 			
-			};	
+			};
 
 		}
 	]
