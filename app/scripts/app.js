@@ -67,7 +67,15 @@ jraptors.config(
 					templateUrl: 'views/search.html',
 					controller: 'SearchController'
 				}).
-				when('/user/detailed_view/:id',      {templateUrl: 'views/user.html',      controller: 'DetailedViewController'}).
+				when('/user/detailed_view/:id',{
+					templateUrl: 'views/user.html', 
+					controller: 'UserDetailedViewController',
+					resolve: {
+						user: function(userLoader) {
+							return userLoader();
+						}
+					}
+				}).
 				when('/user/edit/:id',      {templateUrl: 'views/user_edit.html',      controller: 'EditController'}).
 				when('/user/create',      {templateUrl: 'views/user_create.html',      controller: 'CreateController'}).
 

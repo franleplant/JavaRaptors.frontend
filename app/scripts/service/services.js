@@ -136,17 +136,17 @@ factory('User', ['$resource',
 ).
 
 
-factory('userLoader', ['Author', '$route', '$q',
+factory('userLoader', ['User', '$route', '$q',
 
-		function(Author, $route, $q) {
+		function(User, $route, $q) {
 			return function() {
 				var dfd = $q.defer(),
 					id = $route.current.params.id;
 
-				Author.get({id: id}, function(author) {
-					dfd.resolve(author);
+				User.get({id: id}, function(user) {
+					dfd.resolve(user);
 				}, function() {
-					dfd.reject('Unable to fetch author '  + id);
+					dfd.reject('Unable to fetch user '  + id);
 				});
 				return dfd.promise;
 			};

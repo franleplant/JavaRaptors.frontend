@@ -73,6 +73,16 @@ controller('BookDetailedViewController',
 	]
 ).
 
+controller('UserDetailedViewController',
+	[
+		'$scope', 'user',
+		function ($scope, user) {
+
+			$scope.user = user;
+		}
+	]
+).
+
 
 controller('EditController',
 	[
