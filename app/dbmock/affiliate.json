@@ -4,7 +4,6 @@
 	"results": [
 		{
 			"id": 1,
-			"id": 0,
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Mavis",
@@ -141,8 +140,7 @@
 			"creationDate": "07/10/2013",
 			"creationUser": "manu",
 			"editDate": "07/10/2013",
-			"editUser": "manu"
-			"registered": "2001-12-23T23:03:37 +03:00"
+			"editUser": "manu",
 		}
 	]
 }
