@@ -3,11 +3,8 @@
 	"page_number": 1,
 	"results": [
 		{
-<<<<<<< HEAD
 			"id": 1,
-=======
 			"id": 0,
->>>>>>> 250078a371bdff08b50ecfe94516dc31543d02ef
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Mavis",
@@ -20,7 +17,6 @@
 			"phone": "(011) 456-3445",
 			"cellphone": "(011) 4508-3085",
 			"address": "207 Court Square, Gratton, New Hampshire, 5920",
-<<<<<<< HEAD
 			"registered": "2010-07-05T06:51:14 +03:00",
 			"creationDate": "07/10/2013",
 			"creationUser": "manu",
@@ -29,12 +25,6 @@
 		},
 		{
 			"id": 2,
-=======
-			"registered": "2010-07-05T06:51:14 +03:00"
-		},
-		{
-			"id": 1,
->>>>>>> 250078a371bdff08b50ecfe94516dc31543d02ef
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Whitney",
@@ -47,7 +37,6 @@
 			"phone": "(011) 404-3841",
 			"cellphone": "(011) 4508-3085",
 			"address": "499 Bowne Street, Groton, West Virginia, 6927",
-<<<<<<< HEAD
 			"registered": "1995-10-04T06:45:06 +03:00",
 			"creationDate": "07/10/2013",
 			"creationUser": "franleplant",
@@ -56,12 +45,6 @@
 		},
 		{
 			"id": 3,
-=======
-			"registered": "1995-10-04T06:45:06 +03:00"
-		},
-		{
-			"id": 2,
->>>>>>> 250078a371bdff08b50ecfe94516dc31543d02ef
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Melinda",
@@ -74,7 +57,6 @@
 			"phone": "(011) 585-2820",
 			"cellphone": "(011) 4508-3085",
 			"address": "375 Montrose Avenue, Rehrersburg, Washington, 6243",
-<<<<<<< HEAD
 			"registered": "1990-06-30T14:38:48 +03:00",
 			"creationDate": "08/10/2013",
 			"creationUser": "franleplant",
@@ -83,12 +65,6 @@
 		},
 		{
 			"id": 4,
-=======
-			"registered": "1990-06-30T14:38:48 +03:00"
-		},
-		{
-			"id": 3,
->>>>>>> 250078a371bdff08b50ecfe94516dc31543d02ef
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Vilma",
@@ -101,7 +77,6 @@
 			"phone": "(011) 469-2428",
 			"cellphone": "(011) 4508-3085",
 			"address": "223 Woodpoint Road, Verdi, Colorado, 1558",
-<<<<<<< HEAD
 			"registered": "2012-12-03T22:48:06 +03:00",
 			"creationDate": "07/10/2013",
 			"creationUser": "franleplant",
@@ -110,12 +85,6 @@
 		},
 		{
 			"id": 5,
-=======
-			"registered": "2012-12-03T22:48:06 +03:00"
-		},
-		{
-			"id": 4,
->>>>>>> 250078a371bdff08b50ecfe94516dc31543d02ef
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Bertha",
@@ -128,7 +97,6 @@
 			"phone": "(011) 538-2900",
 			"cellphone": "(011) 4508-3085",
 			"address": "844 Seacoast Terrace, Babb, Virginia, 1277",
-<<<<<<< HEAD
 			"registered": "2003-11-23T19:58:37 +03:00",
 			"creationDate": "07/10/2013",
 			"creationUser": "franleplant",
@@ -137,12 +105,6 @@
 		},
 		{
 			"id": 6,
-=======
-			"registered": "2003-11-23T19:58:37 +03:00"
-		},
-		{
-			"id": 5,
->>>>>>> 250078a371bdff08b50ecfe94516dc31543d02ef
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Chris",
@@ -155,7 +117,6 @@
 			"phone": "(011) 594-2066",
 			"cellphone": "(011) 4508-3085",
 			"address": "571 Eagle Street, Austinburg, Utah, 7491",
-<<<<<<< HEAD
 			"registered": "1992-06-13T01:36:55 +03:00",
 			"creationDate": "07/10/2013",
 			"creationUser": "manu",
@@ -164,12 +125,6 @@
 		},
 		{
 			"id": 7,
-=======
-			"registered": "1992-06-13T01:36:55 +03:00"
-		},
-		{
-			"id": 6,
->>>>>>> 250078a371bdff08b50ecfe94516dc31543d02ef
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Allison",
@@ -182,15 +137,12 @@
 			"phone": "(011) 536-3497",
 			"cellphone": "(011) 4508-3085",
 			"address": "309 Argyle Road, Spelter, South Carolina, 9061",
-<<<<<<< HEAD
 			"registered": "2001-12-23T23:03:37 +03:00",
 			"creationDate": "07/10/2013",
 			"creationUser": "manu",
 			"editDate": "07/10/2013",
 			"editUser": "manu"
-=======
 			"registered": "2001-12-23T23:03:37 +03:00"
->>>>>>> 250078a371bdff08b50ecfe94516dc31543d02ef
 		}
 	]
 }
