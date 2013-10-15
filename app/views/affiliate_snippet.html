@@ -1,2 +1,43 @@
-<h1>{{result.name}}</h1>
+<span class="label" ng-class="result.type | toClassLabel">{{result.type | translate}}</span>
+<a class="pull-left" href="#">
+	<img class="media-object" ng-src={{result.img}}>
+</a>
+<div class="media-body">
 
+	<a ng-href="#/affiliate/detailed_view/{{result.id}}"><h4 class="media-heading">{{result.name}} {{result.surname}}</h4></a>
+
+	<dl class="snippet_spec" compact>
+
+		<dt>Legajo</dt>
+		<dd>{{result.id}}</dd>
+
+		<dt>DNI</dt>
+		<dd>{{result.dni}}</dd>
+
+		<dt class="both">Mail</dt>
+		<dd><a href="mailto:{{result.email}}" target="_blank">{{result.email}}</a></dd>
+		
+		<dt>Teléfono</dt>
+		<dd>{{result.phone}}</dd>
+
+		<dt>Celular</dt>
+		<dd>{{result.cellphone}}</dd>
+
+		<dt class="both">Reputación</dt>
+		<dd>{{result.reputation}}</dd>
+
+		<dt>Estado</dt>
+		<dd>{{result.isActive | checkmark}}</dd>
+
+	</dl>
+
+	<a ng-href="#/affiliate/{{result.lend | hasAttribute | not | boolToLendReturn}}/{{result.id}}" title="{{result.lend | hasAttribute | copysToAction}}" 
+		class="lend-return-button btn btn-inverse btn-large" type="button" ng-if="result.type == 'copy'">
+		<i class="icon-white" ng-class="result.lend | hasAttribute | copysToClass"></i>
+	</a>
+
+	<a ng-href="#/affiliate/edit/{{result.id}}" title="Editar" class="lend-return-button btn btn-inverse btn-large" type="button" ng-if="result.type == 'affiliate'">
+		Editar
+	</a>
+
+</div>
