@@ -1,99 +1,114 @@
-<!-- <div ng-repeat="result in results" class="media search-result shadow" ng-show="result.type == 'copy' || result.type == 'book'"> -->
-
-	<span class="label" ng-class="result.type | toClassLabel">{{result.type | translate}}</span>
-	<a class="pull-left" href="#">
-		<img class="media-object" ng-src={{result.img}} width=100 height=150>
-	</a>
-	<div class="media-body">
-		<h4 class="media-heading" ng-model="search.results[0].title">{{result.title}}</h4>
-
-		<h6 ng-show="result.type == 'copy'">ID: {{result.id}}</h6>
-
-		<ul class="no-list horizontal-list clearfix">
-
-			<li ng-show="result.type == 'copy'">
-				<dl>
-					<dt>Disponibilidad</dt>
-					<dd>{{result.lend.length == 0}}</dd>
-
-					<dt>Tipo de Prestamo</dt>
-					<dd>{{result.lendType}}</dd>
-
-					<dt>Año de Ediciona</dt>
-					<dd>{{result.editionYear}}</dd>
-				</dl>
-			</li>
+<div class="detailed_view book_view">
 
 
-			<li>
-				<dl>
-					<dt>Autor</dt>
-					<dd><a href={{result.author[0].link}} target="_blank">{{result.authors[0].name}}</a></dd>
-
-					<dt>Genero</dt>
-					<dd>{{result.genres}}</dd>
-
-					<dt>Idioma</dt>
-					<dd>{{result.lang}}</dd>
-				</dl>
-			</li>
+	<div class="row">
 
 
-			<li>
-				<dl>
-					<dt>Editorial</dt>
-					<dd><a href={{result.editorial.link}} target="_blank">{{result.editorial.name}}</a></dd>
+		<form ng-submit="save()">
 
-					<dt>Edicion</dt>
-					<dd>{{result.editionNumber}} Pais: {{result.editionCountry}}</dd>
+			<fieldset class="span8">
+				<h1 class="media-heading" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.lastName" title="Click to edit">
+					{{user.lastName}}
+				</h1>
+				<h2 class="media-heading" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.name" title="Click to edit">
+					{{user.name}}
+				</h2>
 
-					<dt>ISBN</dt>
-					<dd>{{result.isbn}}</dd>								
-				</dl>
-			</li>
+				<hr/>
+
+				<h3>Datos</h3>
+
+				<section class="span8">
+					<label>DNI: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.dni" title="Click to edit">{{user.dni}}</span>
+				</section>
+
+				<section class="span8">
+					<label>CUIL: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.cuil" title="Click to edit">{{user.cuil}}</span>
+				</section>
+
+				<section class="span8">
+					<label>Rol: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.rol" title="Click to edit">{{user.rol}}</span>
+				</section>				
+
+				<section class="span8">
+					<label>Email: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.email" title="Click to edit">{{user.email}}</span>
+				</section>
+				<section class="span8">
+					<label>Telefono: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.tel" title="Click to edit">{{user.tel}}</span>
+				</section>
+				<section class="span8">
+					<label>Celular: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.cel" title="Click to edit">{{user.cel}}</span>
+				</section>
+				<section class="span8 address">
+					<label>Direccion: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.street" title="Click to edit">{{user.street}}</span>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.streetNumber" title="Click to edit">{{user.street_number}}</span>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.department" title="Click to edit">{{user.department}}</span>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.floor" title="Click to edit">{{user.floor}}</span>
+				</section>
 
 
-			<li ng-show="result.type == 'book'">
-				<dl>
-					<dt>Ejemplares</dt>
-					<dd>{{result.copys.length}}</dd>
-					<dt>Disponibles</dt>
-					<dd>{{result.copys | availableToLendCopys }}</dd>
-					<dt>Tipo de Prestamo</dt>
-					<dd>{{result.copys[0].lendType }}</dd>
-				</dl>
-			</li>
+				<section class="span8">
+					<label>Fecha de Nacimiento: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.birth" title="Click to edit">{{user.birth}}</span>
+				</section>
 
-			<li ng-show="result.type == 'copy'">
-				<dl>
-					<dt>Ubicacion</dt>
-					<dd>{{result.location.shelves  + ' ' + result.location.shelf }}</dd>
-					<dt>Estado Fisico</dt>
-					<dd>{{result.state}}</dd>
-					<dt>Fecha de Alta</dt>
-					<dd>{{result.creationDate }}</dd>
-				</dl>
-			</li>
+				<hr/>
 
-			<li>
-				<dl>
-					<dt>Valuacion</dt>
-					<dd>{{result.val}}</dd>
-
-					<dt>Precio</dt>
-					<dd>{{result.price}}</dd>
-
-				</dl>
-			</li>										
-
-		</ul>
+			</fieldset>
 
 
-		<div ng-show="result.type == 'copy'">
-			<span>Notas</span></br>
-			<p>{{result.comments}}</p>
-		</div>
+			<fieldset class="span4">
+				<a class="btn btn-block" ng-href="#/user/edit/{{user.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Usuario</a>
+				<button type="submit" class="btn btn-block" ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
+			</fieldset>			
 
+	
+			<fieldset class="span9">
+				<h3>Auditoria</h3>
+
+				<section class="span9">
+				<label>Fecha y Hora de Alta: </label>
+				<span>{{user.creationDate}}</span>
+				</section>
+
+
+				<section class="span9">
+					<label>Usuario disparador Alta: </label>
+					<span>{{user.creationUser}}</span>
+				</section>
+
+
+				<section class="span9">
+					<label>Fecha y Hora Ultima Edicion: </label>
+					<span>{{user.editDate}}</span>					
+				</section>
+
+
+				<section class="span9">
+					<label>Usuario Editor: </label>
+					<span>{{user.editUser}}</span>					
+				</section>								
+
+			</fieldset>
+
+			<fieldset class="span9" ng-if="'edit' | testPathRegExp" ng-controller="RmvController">
+				<hr/>
+				<button type="button" class="btn delete_entity" ng-click="open_modal_delete()"><i class="icon-remove"></i>Borrar Autor</button>
+				<hr/>
+			</fieldset>
+
+
+		</form>
 
 	</div>
-<!-- </div> -->
+
+ 
+
+</div>

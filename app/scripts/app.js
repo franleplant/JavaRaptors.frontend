@@ -16,16 +16,15 @@ jraptors.config(
 			$locationProvider.html5Mode(false);//read more at http://docs.angularjs.org/guide/dev_guide.services.$location
 
 			$routeProvider.
-				when('/book',      {templateUrl: 'views/search.html', controller: 'SearchController'}).
-				when('/affiliate', {templateUrl: 'views/search.html', controller: 'SearchController'}).
-				when('/author',    {templateUrl: 'views/search.html', controller: 'SearchController'}).
-				when('/editorial', {templateUrl: 'views/search.html', controller: 'SearchController'}).
-				when('/user',      {templateUrl: 'views/search.html', controller: 'SearchController'}).
-				when('/location',  {templateUrl: 'views/search.html', controller: 'SearchController'}).
 
-				when('/book/return/:id',    {templateUrl: 'views/book_return.html',    controller: 'ReturnController'}).
-				when('/book/lend/:id',      {templateUrl: 'views/book_lend.html',      controller: 'LendController'}).
 
+				//BOOK
+
+
+				when('/book', {
+					templateUrl: 'views/search.html',
+					controller: 'SearchController'
+				}).
 
 				when('/book/detailed_view/:id', {
 					templateUrl: 'views/book.html',
@@ -36,15 +35,7 @@ jraptors.config(
 						}
 					}
 				}).
-				when('/affiliate/detailed_view/:id', {templateUrl: 'views/affiliate.html', controller: 'DetailedViewController'}).
-				
 
-
-
-
-				when('/editorial/detailed_view/:id', {templateUrl: 'views/editorial.html', controller: 'DetailedViewController'}).
-				when('/user/detailed_view/:id',      {templateUrl: 'views/user.html',      controller: 'DetailedViewController'}).
-				when('/location/detailed_view/:id',  {templateUrl: 'views/location.html',  controller: 'DetailedViewController'}).
 
 				when('/book/edit/:id', {
 					templateUrl: 'views/book.html',
@@ -55,13 +46,6 @@ jraptors.config(
 						}
 					}
 				}).
-				when('/affiliate/edit/:id', {templateUrl: 'views/affiliate_edit.html', controller: 'EditController'}).
-				
-
-				when('/editorial/edit/:id', {templateUrl: 'views/editorial_edit.html', controller: 'EditController'}).
-				when('/user/edit/:id',      {templateUrl: 'views/user_edit.html',      controller: 'EditController'}).
-				when('/location/edit/:id',  {templateUrl: 'views/location_edit.html',  controller: 'EditController'}).
-
 
 				when('/book/create', {
 					templateUrl: 'views/book.html',
@@ -72,14 +56,90 @@ jraptors.config(
 						}
 					}
 				}).
+
+				when('/book/return/:id',    {templateUrl: 'views/book_return.html',    controller: 'ReturnController'}).
+				when('/book/lend/:id',      {templateUrl: 'views/book_lend.html',      controller: 'LendController'}).
+
+
+				//USER
+	
+				when('/user', {
+					templateUrl: 'views/search.html',
+					controller: 'SearchController'
+				}).
+				when('/user/detailed_view/:id',{
+					templateUrl: 'views/user.html', 
+					controller: 'UserDetailedViewController',
+					resolve: {
+						user: function(userLoader) {
+							return userLoader();
+						}
+					}
+				}).
+				when('/user/edit/:id', {
+					templateUrl: 'views/user.html', 
+					controller: 'CreateEditUserController',
+					resolve: {
+						user: function(userLoader) {
+							return userLoader();
+						}
+					}
+				}).
+				when('/user/create', {
+					templateUrl: 'views/user.html', 
+					controller: 'CreateEditUserController',
+					resolve: {
+						user: function(userCreateDefaultsLoader) {
+							return userCreateDefaultsLoader();
+						}
+					}
+				}).
+
+
+
+		
+				when('/affiliate', {templateUrl: 'views/search.html', controller: 'SearchController'}).
+				
+				when('/editorial', {templateUrl: 'views/search.html', controller: 'SearchController'}).
+
+				when('/location',  {templateUrl: 'views/search.html', controller: 'SearchController'}).
+
+
+
+
+
+				when('/affiliate/detailed_view/:id', {templateUrl: 'views/affiliate.html', controller: 'DetailedViewController'}).
+				
+
+
+
+
+				when('/editorial/detailed_view/:id', {templateUrl: 'views/editorial.html', controller: 'DetailedViewController'}).
+
+				when('/location/detailed_view/:id',  {templateUrl: 'views/location.html',  controller: 'DetailedViewController'}).
+
+
+				when('/affiliate/edit/:id', {templateUrl: 'views/affiliate_edit.html', controller: 'EditController'}).
+				
+
+				when('/editorial/edit/:id', {templateUrl: 'views/editorial_edit.html', controller: 'EditController'}).
+
+				when('/location/edit/:id',  {templateUrl: 'views/location_edit.html',  controller: 'EditController'}).
+
+
+
 				when('/affiliate/create', {templateUrl: 'views/affiliate_create.html', controller: 'CreateController'}).
 
 				when('/editorial/create', {templateUrl: 'views/editorial_create.html', controller: 'CreateController'}).
-				when('/user/create',      {templateUrl: 'views/user_create.html',      controller: 'CreateController'}).
+
 				when('/location/create',  {templateUrl: 'views/location_create.html',  controller: 'CreateController'}).
 
 
 
+				when('/author',{
+					templateUrl: 'views/search.html',
+					controller: 'SearchController'
+				}).
 
 				when('/author/detailed_view/:id', {
 					templateUrl: 'views/author.html',
@@ -161,7 +221,7 @@ angular.module('jraptorsRunBlock', ['ngCookies']).run(
 			
 			//This should be set by the server after sucessfully user login
 			$cookies.username = 'franleplant';
-			$cookies.userrole = 'admin';
+			$cookies.userrole = 'super';
 			$cookies.sessionToken = 'someToken';
 
 			UserSession.name(  $cookies.username  );

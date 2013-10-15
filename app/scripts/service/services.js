@@ -115,7 +115,10 @@ factory('authorCreateDefaultsLoader', ['Author', '$route', '$q',
 			return function() {
 				var dfd = $q.defer();
 
+
+
 				Author.get({id: 0}, function(author) {
+					delete author.id;
 					dfd.resolve(author);
 				}, function() {
 					dfd.reject('Server Error');
@@ -125,6 +128,53 @@ factory('authorCreateDefaultsLoader', ['Author', '$route', '$q',
 		}
 	]
 ).
+
+
+
+factory('User', ['$resource',
+		function ($resource) {
+			return $resource('/api/user/:id', {id: '@id', format: 'json'}, {});
+		}
+	]
+).
+
+
+factory('userLoader', ['User', '$route', '$q',
+
+		function(User, $route, $q) {
+			return function() {
+				var dfd = $q.defer(),
+					id = $route.current.params.id;
+
+				User.get({id: id}, function(user) {
+					dfd.resolve(user);
+				}, function() {
+					dfd.reject('Unable to fetch user '  + id);
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
+factory('userCreateDefaultsLoader', ['User', '$route', '$q',
+
+		function(User, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				User.get({id: 0}, function(user) {
+					delete user.id;
+					dfd.resolve(user);
+				}, function() {
+					dfd.reject('Server Error');
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
 
 factory('PathSelector', [ function () {
 

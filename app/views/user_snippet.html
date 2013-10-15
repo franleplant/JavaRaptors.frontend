@@ -1,99 +1,29 @@
-<!-- <div ng-repeat="result in results" class="media search-result shadow" ng-show="result.type == 'copy' || result.type == 'book'"> -->
+<span class="label" ng-class="result.type | toClassLabel">{{result.type | translate}}</span>
 
-	<span class="label" ng-class="result.type | toClassLabel">{{result.type | translate}}</span>
-	<a class="pull-left" href="#">
-		<img class="media-object" ng-src={{result.img}} width=100 height=150>
+<div class="media-body">
+
+	<a ng-href="#/user/detailed_view/{{result.id}}">
+		<h4 class="media-heading">{{result.name}} {{result.lastName}}</h4>
 	</a>
-	<div class="media-body">
-		<h4 class="media-heading" ng-model="search.results[0].title">{{result.title}}</h4>
 
-		<h6 ng-show="result.type == 'copy'">ID: {{result.id}}</h6>
+	<dl class="snippet_spec" compact>
 
-		<ul class="no-list horizontal-list clearfix">
+		<dt>Rol</dt>
+		<dd>{{result.rol}}</dd>
 
-			<li ng-show="result.type == 'copy'">
-				<dl>
-					<dt>Disponibilidad</dt>
-					<dd>{{result.lend.length == 0}}</dd>
+		<dt>DNI</dt>
+		<dd>{{result.dni}}</dd>
 
-					<dt>Tipo de Prestamo</dt>
-					<dd>{{result.lendType}}</dd>
+		<dt>Contacto</dt>
+		<dd>{{result.cel}}</dd>
+		<dd>{{result.tel}}</dd>
+		<dd>{{result.email}}</dd>
 
-					<dt>Año de Ediciona</dt>
-					<dd>{{result.editionYear}}</dd>
-				</dl>
-			</li>
+	</dl>
 
+	
+	<a ng-href="#/user/edit/{{result.id}}" title="Editar" class="lend-return-button btn btn-inverse btn-large" type="button">
+		Editar
+	</a>
 
-			<li>
-				<dl>
-					<dt>Autor</dt>
-					<dd><a href={{result.author[0].link}} target="_blank">{{result.authors[0].name}}</a></dd>
-
-					<dt>Genero</dt>
-					<dd>{{result.genres}}</dd>
-
-					<dt>Idioma</dt>
-					<dd>{{result.lang}}</dd>
-				</dl>
-			</li>
-
-
-			<li>
-				<dl>
-					<dt>Editorial</dt>
-					<dd><a href={{result.editorial.link}} target="_blank">{{result.editorial.name}}</a></dd>
-
-					<dt>Edicion</dt>
-					<dd>{{result.editionNumber}} Pais: {{result.editionCountry}}</dd>
-
-					<dt>ISBN</dt>
-					<dd>{{result.isbn}}</dd>								
-				</dl>
-			</li>
-
-
-			<li ng-show="result.type == 'book'">
-				<dl>
-					<dt>Ejemplares</dt>
-					<dd>{{result.copys.length}}</dd>
-					<dt>Disponibles</dt>
-					<dd>{{result.copys | availableToLendCopys }}</dd>
-					<dt>Tipo de Prestamo</dt>
-					<dd>{{result.copys[0].lendType }}</dd>
-				</dl>
-			</li>
-
-			<li ng-show="result.type == 'copy'">
-				<dl>
-					<dt>Ubicacion</dt>
-					<dd>{{result.location.shelves  + ' ' + result.location.shelf }}</dd>
-					<dt>Estado Fisico</dt>
-					<dd>{{result.state}}</dd>
-					<dt>Fecha de Alta</dt>
-					<dd>{{result.creationDate }}</dd>
-				</dl>
-			</li>
-
-			<li>
-				<dl>
-					<dt>Valuacion</dt>
-					<dd>{{result.val}}</dd>
-
-					<dt>Precio</dt>
-					<dd>{{result.price}}</dd>
-
-				</dl>
-			</li>										
-
-		</ul>
-
-
-		<div ng-show="result.type == 'copy'">
-			<span>Notas</span></br>
-			<p>{{result.comments}}</p>
-		</div>
-
-
-	</div>
-<!-- </div> -->
+</div>

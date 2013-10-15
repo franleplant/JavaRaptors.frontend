@@ -392,4 +392,99 @@ describe('Jraptors Services', function() {
 
 		});
 	});
+
+
+	describe('User', function () {
+
+		var scope, $httpBackend, User,
+			mock_response_ok = {'status': 'ok'},
+			mock_response_GET = {'name': 'Claudia'};
+	
+
+		beforeEach(inject(function(_$httpBackend_, $injector) {
+			$httpBackend = _$httpBackend_;
+
+
+
+			User = $injector.get('User');
+		}));
+
+		describe('GET', function () {
+
+			beforeEach(function () {
+				$httpBackend.expectGET('/api/user/1?format=json').
+					respond( mock_response_GET );
+			});
+
+
+			it('should return a book with a GET request', function () {
+				var a = User.get({id: 1});
+
+				$httpBackend.flush();
+
+				expect(a.name).toBe('Claudia');
+
+			});
+
+		});
+
+
+
+
+
+		describe('POST: create a new user', function () {
+			beforeEach(function () {
+				$httpBackend.expectPOST('/api/user?format=json').
+					respond(  mock_response_ok  );
+			});
+
+			it('should save a new user with a POST request and URL like: /api/user/create', function () {
+
+				var a = User.save({
+					title: 'some_new_User'
+				});
+
+				$httpBackend.flush();
+
+				expect(a.status).toBe('ok');
+			});
+
+		});
+
+		describe('POST: edit an existing user', function () {
+			beforeEach(function () {
+				$httpBackend.expectPOST('/api/user/1?format=json').
+					respond(  mock_response_ok  );
+			});
+
+
+			it('should change an existing user with a POST request and URL like: /api/user/edit/:id', function () {
+
+				var a = User.save({id: 1, title: 'some_existing_User'});
+
+				$httpBackend.flush();
+
+				expect(a.status).toBe('ok');
+			});
+
+		});
+
+		describe('DELETE', function () {
+			beforeEach(function () {
+				$httpBackend.expectDELETE('/api/user/1?format=json').
+					respond(  mock_response_ok  );
+			});
+
+
+			it('should remove an existing user with a DELETE request and URL like: /api/user/delete/:id', function () {
+
+				var a = User.remove({id: 1});
+
+				$httpBackend.flush();
+
+				expect(a.status).toBe('ok');
+			});
+
+		});
+	});
 });
