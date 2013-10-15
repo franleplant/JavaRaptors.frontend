@@ -115,7 +115,10 @@ factory('authorCreateDefaultsLoader', ['Author', '$route', '$q',
 			return function() {
 				var dfd = $q.defer();
 
+
+
 				Author.get({id: 0}, function(author) {
+					delete author.id;
 					dfd.resolve(author);
 				}, function() {
 					dfd.reject('Server Error');
@@ -154,14 +157,15 @@ factory('userLoader', ['User', '$route', '$q',
 	]
 ).
 
-factory('userCreateDefaultsLoader', ['Author', '$route', '$q',
+factory('userCreateDefaultsLoader', ['User', '$route', '$q',
 
-		function(Author, $route, $q) {
+		function(User, $route, $q) {
 			return function() {
 				var dfd = $q.defer();
 
-				Author.get({id: 0}, function(author) {
-					dfd.resolve(author);
+				User.get({id: 0}, function(user) {
+					delete user.id;
+					dfd.resolve(user);
 				}, function() {
 					dfd.reject('Server Error');
 				});

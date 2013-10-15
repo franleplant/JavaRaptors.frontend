@@ -85,7 +85,15 @@ jraptors.config(
 						}
 					}
 				}).
-				when('/user/create',      {templateUrl: 'views/user_create.html',      controller: 'CreateController'}).
+				when('/user/create', {
+					templateUrl: 'views/user.html', 
+					controller: 'CreateEditUserController',
+					resolve: {
+						user: function(userCreateDefaultsLoader) {
+							return userCreateDefaultsLoader();
+						}
+					}
+				}).
 
 
 

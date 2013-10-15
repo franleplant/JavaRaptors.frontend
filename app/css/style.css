@@ -118,7 +118,7 @@ form > fieldset.authors-books {
 	position: relative;
 }
 
-form span {
+form span:not([class=caret]) {
 	min-width: 10px;
 	display: inline-block;
 }
