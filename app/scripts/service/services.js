@@ -12,7 +12,7 @@ service('animations', function () {
 factory('Search', ['$resource',
 
 		function ($resource) {
-			return $resource('/api/:entityType', {format: 'json', page_number: 1}, {
+			return $resource('/api/:entityType', {format: 'json', pageNumber: 1}, {
 				query: {
 					method: 'GET',
 					isArray: false
@@ -81,17 +81,10 @@ factory('bookCreateDefaultsLoader', ['Book',
 	]
 ).
 
+
 factory('Author', ['$resource',
 		function ($resource) {
 			return $resource('/api/author/:id', {id: '@id', format: 'json'}, {});
-		}
-	]
-).
-
-factory('Affiliate', ['$resource',
-
-		function ($resource) {
-			return $resource('/api/affiliate/:id', {id: '@id', format: 'json'}, {});
 		}
 	]
 ).
@@ -114,33 +107,13 @@ factory('authorLoader', ['Author', '$route', '$q',
 	]
 ).
 
-factory('affiliateLoader', ['Affiliate', '$route', '$q',
-
-		function(Affiliate, $route, $q) {
-			return function() {
-				var dfd = $q.defer();
-
-				Affiliate.get({id: $route.current.params.id}, function(affiliate) {
-					dfd.resolve(affiliate);
-				}, function() {
-					dfd.reject('Unable to fetch affiliate '  + $route.current.params.id);
-				});
-				return dfd.promise;
-			};
-		}
-	]
-).
-
 factory('authorCreateDefaultsLoader', ['Author', '$route', '$q',
 
 		function(Author, $route, $q) {
 			return function() {
 				var dfd = $q.defer();
 
-
-
 				Author.get({id: 0}, function(author) {
-					delete author.id;
 					dfd.resolve(author);
 				}, function() {
 					dfd.reject('Server Error');
@@ -151,6 +124,30 @@ factory('authorCreateDefaultsLoader', ['Author', '$route', '$q',
 	]
 ).
 
+
+factory('Affiliate', ['$resource',
+
+		function ($resource) {
+			return $resource('/api/affiliate/:id', {id: '@id', format: 'json'}, {});
+		}
+	]
+).
+
+factory('affiliateLoader', ['Affiliate', '$route', '$q',
+
+		function(Affiliate, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+				Affiliate.get({id: $route.current.params.id}, function(affiliate) {
+					dfd.resolve(affiliate);
+				}, function() {
+					dfd.reject('Unable to fetch affiliate '  + $route.current.params.id);
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
 
 
 factory('User', ['$resource',
@@ -197,24 +194,21 @@ factory('userCreateDefaultsLoader', ['User', '$route', '$q',
 	]
 ).
 
+
 factory('affiliateCreateDefaultsLoader', ['Affiliate',
 
 		function(Affiliate) {
 			return function() {
 				return new Affiliate({
-					'name': 'Ingrese Nombre',
-					'surname': 'Ingerese Apellido',
-					'dni': '-------',
-					'isActive': 'true',
-					'reputation': '-',
-					'email': 'alguien@alguien.com.ar',
 					img: 'img/default-user-icon-profile.png',
-					phone: [{
-						number: '(011) ------'
-					}],
-					celphone: [{
-						number: '(011) ------'
-					}],
+					'name': 'Ingrese Nombre',
+					'lastName': 'Ingrese Apellido',
+					'dni': '-------',
+					'isActive': true,
+					'reputation': '',
+					'email': 'alguien@alguien.com.ar',
+					phone: '(011) ------',
+					celphone: '(011) ------',
 					registered: 'hoy'
 				});
 			};

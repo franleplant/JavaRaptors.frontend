@@ -85,6 +85,7 @@ controller('UserDetailedViewController',
 ).
 
 
+
 controller('DetailedViewControllerAffiliate',
 	[
 		'$scope', 'affiliate',
@@ -94,6 +95,7 @@ controller('DetailedViewControllerAffiliate',
 		}
 	]
 ).
+
 
 
 
@@ -213,6 +215,53 @@ controller('CreateEditBookController',
 		}
 	]
 ).
+
+
+
+controller('CreateEditAffiliateController',
+	[
+		'$scope', '$timeout', 'Affiliate', '$location', 'affiliate', '$modal',
+		function ($scope, $timeout, Affiliate, $location, affiliate, $modal) {
+
+			$scope.affiliate = affiliate;
+
+			//TODO: refactor this
+			$scope.add_lend = function () {
+				alert('Acá se abrirá el popin para un nuevo prestamo');
+			};
+
+			$scope.save = function () {
+
+				$scope.affiliate.$save(function () {
+					$location.path('/affiliate');
+				},
+				function () {
+					//error callback
+				});
+			};
+
+			$scope.open_modal_delete = function () {
+
+				var modalInstance = $modal.open({
+					templateUrl: 'views/modal_delete.html',
+					controller: 'ModalController',
+					scope: $scope
+				});
+			
+			};
+
+			$scope.remove = function (callback) {
+
+				affiliate.remove({id: $scope.affiliate.id}).$then(function () {
+					$location.path('/affiliate');
+					callback();
+				});
+			};
+
+		}
+	]
+).
+
 
 controller('ModalController',
 	[

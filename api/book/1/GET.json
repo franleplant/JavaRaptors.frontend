@@ -84,21 +84,6 @@
 			"creationUser": "franleplant",
 			"comments": "blah blah blah",
 			"lendType": "foreign"
-		},
-		{
-			"id": "0001",
-			"location": {
-				"id": 1233,
-				"shelf": "2",
-				"shelves": "A"
-			},
-			"state": "good",
-			"editionYear": 2010,
-			"creationDate": 1377528419068,
-			"creationUser": "franleplant",
-			"comments": "blah blah blah",
-			"lendType": "local"
-
 		}
 	]
 

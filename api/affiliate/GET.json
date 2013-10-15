@@ -4,6 +4,7 @@
 	"results": [
 		{
 			"id": 1,
+			"legajo": 1,
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Mavis",
@@ -17,13 +18,14 @@
 			"cellphone": "(011) 4508-3085",
 			"address": "207 Court Square, Gratton, New Hampshire, 5920",
 			"registered": "2010-07-05T06:51:14 +03:00",
-			"creationDate": "07/10/2013",
+			"creationDate": 1377528419068,
 			"creationUser": "manu",
-			"editDate": "07/10/2013",
+			"editDate": 1377528419068,
 			"editUser": "franleplant"
 		},
 		{
 			"id": 2,
+			"legajo": 2,
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Whitney",
@@ -37,13 +39,14 @@
 			"cellphone": "(011) 4508-3085",
 			"address": "499 Bowne Street, Groton, West Virginia, 6927",
 			"registered": "1995-10-04T06:45:06 +03:00",
-			"creationDate": "07/10/2013",
+			"creationDate": 1377528419068,
 			"creationUser": "franleplant",
 			"editDate": "08/10/2013",
 			"editUser": "franleplant"
 		},
 		{
 			"id": 3,
+			"legajo": 3,
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Melinda",
@@ -64,6 +67,7 @@
 		},
 		{
 			"id": 4,
+			"legajo": 4,
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Vilma",
@@ -77,13 +81,14 @@
 			"cellphone": "(011) 4508-3085",
 			"address": "223 Woodpoint Road, Verdi, Colorado, 1558",
 			"registered": "2012-12-03T22:48:06 +03:00",
-			"creationDate": "07/10/2013",
+			"creationDate": 1377528419068,
 			"creationUser": "franleplant",
 			"editDate": "08/10/2013",
 			"editUser": "franleplant"
 		},
 		{
 			"id": 5,
+			"legajo": 5,
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Bertha",
@@ -97,13 +102,14 @@
 			"cellphone": "(011) 4508-3085",
 			"address": "844 Seacoast Terrace, Babb, Virginia, 1277",
 			"registered": "2003-11-23T19:58:37 +03:00",
-			"creationDate": "07/10/2013",
+			"creationDate": 1377528419068,
 			"creationUser": "franleplant",
-			"editDate": "07/10/2013",
+			"editDate": 1377528419068,
 			"editUser": "manu"
 		},
 		{
 			"id": 6,
+			"legajo": 6,
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Chris",
@@ -117,13 +123,14 @@
 			"cellphone": "(011) 4508-3085",
 			"address": "571 Eagle Street, Austinburg, Utah, 7491",
 			"registered": "1992-06-13T01:36:55 +03:00",
-			"creationDate": "07/10/2013",
+			"creationDate": 1377528419068,
 			"creationUser": "manu",
-			"editDate": "07/10/2013",
+			"editDate": 1377528419068,
 			"editUser": "manu"
 		},
 		{
 			"id": 7,
+			"legajo": 7,
 			"type": "affiliate",
 			"img": "img/default-user-icon-profile.png",
 			"name": "Allison",
@@ -137,9 +144,9 @@
 			"cellphone": "(011) 4508-3085",
 			"address": "309 Argyle Road, Spelter, South Carolina, 9061",
 			"registered": "2001-12-23T23:03:37 +03:00",
-			"creationDate": "07/10/2013",
+			"creationDate": 1377528419068,
 			"creationUser": "manu",
-			"editDate": "07/10/2013",
+			"editDate": 1377528419068,
 			"editUser": "manu"
 		}
 	]
