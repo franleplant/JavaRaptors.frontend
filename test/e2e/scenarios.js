@@ -70,4 +70,45 @@ describe('jraptors', function () {
 		});
 	});
 
+	describe('/affiliate', function () {
+
+		beforeEach(function() {
+			browser().navigateTo('../../app/index.html#/affiliate');
+		});
+
+
+		describe('/affiliate search view', function () {
+
+
+			it('should render /affiliate when user navigates to /affiliate', function() {
+				expect(  element('.dropdown-toggle').text()  ).toMatch(/socio/i);
+			});
+		});
+
+
+		describe('affiliate search results (with results)', function () {
+
+			beforeEach(function() {
+				input('search_query').enter('Mavin Justice');
+				element('#search').click();
+			});
+
+
+			it('should render affiliate search results', function () {
+				expect(  repeater('div.result').count()  ).toBeGreaterThan(1);
+			});
+
+			it('should render book_snippet template', function () {
+				expect(  repeater('div.result:first > div > span').count()  ).toBe(1);
+				expect(  repeater('div.result:first > div > a').count()  ).toBe(1);
+				expect(  repeater('div.result:first > div > div.media-body').count()  ).toBe(1);
+			});
+
+			it('should render pagination helpers', function () {
+				expect(  element('#results > div.pagination').count()  ).toBe(10);
+			});
+
+		});
+	});
+
 });

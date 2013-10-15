@@ -26,6 +26,7 @@ jraptors.config(
 					controller: 'SearchController'
 				}).
 
+
 				when('/book/detailed_view/:id', {
 					templateUrl: 'views/book.html',
 					controller: 'BookDetailedViewController',
@@ -35,6 +36,7 @@ jraptors.config(
 						}
 					}
 				}).
+				
 
 
 				when('/book/edit/:id', {
@@ -96,20 +98,43 @@ jraptors.config(
 				}).
 
 
-
+				//AFFILIATE
 		
 				when('/affiliate', {templateUrl: 'views/search.html', controller: 'SearchController'}).
+
+				when('/affiliate/detailed_view/:id', {
+					templateUrl: 'views/affiliate.html',
+					controller: 'DetailedViewControllerAffiliate',
+					resolve: {
+						affiliate: function(affiliateLoader) {
+							return affiliateLoader();
+						}
+					}
+				}).
+
+				when('/affiliate/edit/:id', {
+					templateUrl: 'views/affiliate.html',
+					controller: 'CreateEditAffiliateController',
+					resolve: {
+						affiliate: function(affiliateLoader) {
+							return affiliateLoader();
+						}
+					}
+				}).
+
+				when('/affiliate/create', {
+					templateUrl: 'views/affiliate.html',
+					controller: 'CreateEditAffiliateController',
+					resolve: {
+						affiliate: function(affiliateCreateDefaultsLoader) {
+							return affiliateCreateDefaultsLoader();
+						}
+					}
+				}).
 				
 				when('/editorial', {templateUrl: 'views/search.html', controller: 'SearchController'}).
 
 				when('/location',  {templateUrl: 'views/search.html', controller: 'SearchController'}).
-
-
-
-
-
-				when('/affiliate/detailed_view/:id', {templateUrl: 'views/affiliate.html', controller: 'DetailedViewController'}).
-				
 
 
 
@@ -119,16 +144,10 @@ jraptors.config(
 				when('/location/detailed_view/:id',  {templateUrl: 'views/location.html',  controller: 'DetailedViewController'}).
 
 
-				when('/affiliate/edit/:id', {templateUrl: 'views/affiliate_edit.html', controller: 'EditController'}).
-				
-
 				when('/editorial/edit/:id', {templateUrl: 'views/editorial_edit.html', controller: 'EditController'}).
 
 				when('/location/edit/:id',  {templateUrl: 'views/location_edit.html',  controller: 'EditController'}).
 
-
-
-				when('/affiliate/create', {templateUrl: 'views/affiliate_create.html', controller: 'CreateController'}).
 
 				when('/editorial/create', {templateUrl: 'views/editorial_create.html', controller: 'CreateController'}).
 

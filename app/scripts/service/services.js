@@ -82,14 +82,12 @@ factory('bookCreateDefaultsLoader', ['Book',
 ).
 
 
-
 factory('Author', ['$resource',
 		function ($resource) {
 			return $resource('/api/author/:id', {id: '@id', format: 'json'}, {});
 		}
 	]
 ).
-
 
 factory('authorLoader', ['Author', '$route', '$q',
 
@@ -115,9 +113,8 @@ factory('authorCreateDefaultsLoader', ['Author', '$route', '$q',
 			return function() {
 				var dfd = $q.defer();
 
-
-
 				Author.get({id: 0}, function(author) {
+
 					delete author.id;
 					dfd.resolve(author);
 				}, function() {
@@ -129,6 +126,50 @@ factory('authorCreateDefaultsLoader', ['Author', '$route', '$q',
 	]
 ).
 
+
+factory('Affiliate', ['$resource',
+
+		function ($resource) {
+			return $resource('/api/affiliate/:id', {id: '@id', format: 'json'}, {});
+		}
+	]
+).
+
+factory('affiliateLoader', ['Affiliate', '$route', '$q',
+
+		function(Affiliate, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+				Affiliate.get({id: $route.current.params.id}, function(affiliate) {
+					dfd.resolve(affiliate);
+				}, function() {
+					dfd.reject('Unable to fetch affiliate '  + $route.current.params.id);
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
+
+factory('affiliateCreateDefaultsLoader', ['Affiliate', '$route', '$q',
+
+		function(Affiliate, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				Affiliate.get({id: 0}, function(affiliate) {
+
+					delete affiliate.id;
+					dfd.resolve(affiliate);
+				}, function() {
+					dfd.reject('Server Error');
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
 
 
 factory('User', ['$resource',
@@ -147,6 +188,8 @@ factory('userLoader', ['User', '$route', '$q',
 					id = $route.current.params.id;
 
 				User.get({id: id}, function(user) {
+
+					delete user.id;
 					dfd.resolve(user);
 				}, function() {
 					dfd.reject('Unable to fetch user '  + id);

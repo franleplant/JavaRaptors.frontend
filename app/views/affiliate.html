@@ -1,2 +1,157 @@
-<h1>{{result.name}}</h1>
+<div class="detailed_view affiliate_view">
 
+		<div class="row">
+
+			<form ng-submit="save()">
+				<fieldset class="span4">
+					<img class="img-polaroid" ng-src={{affiliate.img}} style="height:300px">
+					<a class="btn btn-block" ng-href="#/affiliate/edit/{{affiliate.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Socio</a>
+					<button type="submit" class="btn btn-block" ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
+				</fieldset>
+
+				<fieldset class="span8">
+					<h1 class="media-heading" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="affiliate.name" title="Click to edit">{{affiliate.name}}</h1> 
+					<h1 class="media-heading" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="affiliate.lastName" title="Click to edit"> {{affiliate.lastName}} </h1>
+
+					<hr/>	
+
+					<section class="span8">
+						<label>Legajo: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="affiliate.id" title="Click to edit">{{affiliate.legajo}}</span>
+					</section>
+
+					<section class="span8">
+						<label>DNI: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="affiliate.dni" title="Click to edit">{{affiliate.dni}}</span>
+					</section>
+
+					<section class="span8">
+						<label>Mail: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="affiliate.email" title="Click to send mail"><a href="mailto:{{affiliate.email}}" target="_blank">{{affiliate.email}}</a></span>
+					</section>
+
+					<section class="span8">
+						<label>Teléfono: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="affiliate.phone" title="Click to edit">{{affiliate.phone}}</span>
+					</section>
+
+					<section class="span8">
+						<label>Reputación: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="affiliate.reputation" title="Click to edit">{{affiliate.reputation}}</span>
+					</section>
+
+					<section class="span8">
+						<label>Estado: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="affiliate.isActive" title="Click to edit">{{affiliate.isActive | isActive}}</span>
+					</section>
+
+					<section class="span8">
+						<label>Imagen: </label>
+						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="affiliate.img" title="Click to edit">{{affiliate.img}}</span>
+					</section>
+
+				</fieldset>
+
+
+
+				<fieldset class="span9">
+					<div class="span12">
+						<hr/>
+						<h3>Prestamos otorgados a {{affiliate.name}}
+<<<<<<< HEAD
+=======
+							<button type="button" class="btn" ng-click="add_lend()" ng-if="'edit, create' | testPathRegExp">
+								<i class="icon-plus-sign"></i>
+							</button>
+>>>>>>> 3d1c5d6d99ead87c1fa411f9eab9083d863bb0a5
+						</h3> 
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>Ejemplar - Libro</th>
+									<th>Tipo</th>
+									<th>Estado</th>
+									<th title="Fecha de préstamo">F. Prestamo</th>
+									<th title="Fecha de Devolución Pactada">F. Dev. Pactada</th>		
+									<th title="Fecha de Devolucición Real">F. Dev. Real</th>
+									<th>Estado del ejemplar anterior - posterior al prestamo</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr ng-repeat="lend in affiliate.lends">
+
+									<td>
+										<a ng-href="#/book/detailed_view/{{lend.copy.id}}" href="#/book/detailed_view/{{lend.copy.id}}">
+											{{lend.copy.id}} - {{lend.copy.bookTitle}}
+										</a>
+									</td>
+
+									<td>
+										{{lend.type}}
+									</td>
+
+									<td>
+										{{lend.status}}
+									</td>
+													
+									<td>
+										{{lend.lendingDate | date:'dd-MM-yy'}}
+									</td>
+
+									<td>
+										{{lend.expectedReturnDate | date:'dd-MM-yy'}}
+									</td>	
+
+									<td>
+										{{lend.realReturnDate | date:'dd-MM-yy'}}
+									</td>
+
+									<td>
+										{{lend.copy.stateOnLend}} - {{lend.copy.stateOffLend}}
+									</td>
+									
+								</tr>
+						  </tbody>
+						</table>
+					</div>
+				</fieldset>
+
+				<fieldset class="span9">
+					<h3>Auditoria</h3>
+
+					<section class="span9">
+					<label>Fecha y Hora de Alta: </label>
+					<span>{{affiliate.creationDate | date:'dd-MM-yyyy'}}</span>
+					</section>
+
+
+					<section class="span9">
+						<label>Usuario disparador Alta: </label>
+						<span>{{affiliate.creationUser}}</span>
+					</section>
+
+
+					<section class="span9">
+						<label>Fecha y Hora Ultima Edicion: </label>
+						<span>{{affiliate.editDate | date:'dd-MM-yyyy'}}</span>					
+					</section>
+
+
+					<section class="span9">
+						<label>Usuario Editor: </label>
+						<span>{{affiliate.editUser}}</span>					
+					</section>								
+
+				</fieldset>
+				<fieldset class="span9">
+					<button type="button" class="btn delete_affiliate" ng-click="open_modal_delete()" ng-if="'edit' | testPathRegExp">
+						<i class="icon-remove"></i> Borrar el Socio
+					</button>
+
+				</fieldset>
+
+			</form>
+
+		</div>
+</div>

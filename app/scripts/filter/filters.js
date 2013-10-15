@@ -62,6 +62,14 @@ filter('checkmark',
 	}
 ).
 
+filter('isActive',
+	function() {
+		return function(input) {
+			return input ? 'Activo' : 'Suspendido';
+		};
+	}
+).
+
 filter('copysToAction', [ 'availableCopyActions',
 		function(availableCopyActions) {
 			return function(input) {
