@@ -18,6 +18,20 @@
 
 				<h3>Datos</h3>
 
+
+				<section class="span8">
+					<label>Email (usuario): </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.email" title="Click to edit">{{user.email}}</span>
+				</section>
+
+				<section class="span8">
+					<label>Password: </label>
+					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.dni" title="Click to edit">{{user.password}}</span>
+				</section>
+
+
+				<hr/>
+
 				<section class="span8">
 					<label>DNI: </label>
 					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.dni" title="Click to edit">{{user.dni}}</span>
@@ -33,10 +47,7 @@
 					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.rol" title="Click to edit">{{user.rol}}</span>
 				</section>				
 
-				<section class="span8">
-					<label>Email: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.email" title="Click to edit">{{user.email}}</span>
-				</section>
+
 				<section class="span8">
 					<label>Telefono: </label>
 					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.tel" title="Click to edit">{{user.tel}}</span>
