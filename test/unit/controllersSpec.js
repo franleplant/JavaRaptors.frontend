@@ -172,6 +172,44 @@ describe('Controllers', function(){
 		});
 	});
 
+
+
+	describe('CreateEditAffiliateController',  function () {
+
+		var scope, ctrl, $httpBackend, location,
+			mock_response = {'status': 'ok'};
+	
+
+
+		beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $location, affiliateCreateDefaultsLoader) {
+			$httpBackend = _$httpBackend_;
+			$httpBackend.whenPOST('/api/affiliate?format=json').
+				respond(  mock_response  );
+
+			$location.path('/affiliate/create');
+			location = $location;
+			scope = $rootScope.$new();
+
+			//see http://docs.angularjs.org/api/ng.$controller
+			ctrl = $controller('CreateEditAffiliateController', {$scope: scope, affiliate: affiliateCreateDefaultsLoader()});
+		}));
+
+
+
+		describe('create method', function () {
+			it('should make a POST request to the server creating a new affiliate in the server side', function() {
+
+				scope.save();
+
+				$httpBackend.flush();
+
+				expect(location.path()).toBe(  '/affiliate'  );
+
+				//expect(scope.affiliate).toEqualData(  mock_response  );
+			});
+		});
+	});
+
 	// describe('PhoneDetailCtrl', function(){
 	// var scope, $httpBackend, ctrl,
 	//     xyzPhoneData = function() {

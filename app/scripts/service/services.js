@@ -140,17 +140,18 @@ factory('affiliateLoader', ['Affiliate', '$route', '$q',
 		function(Affiliate, $route, $q) {
 			return function() {
 				var dfd = $q.defer();
-				Affiliate.get({id: $route.current.params.id}, function(affiliate) {
+				var id = $route.current.params.id;
+
+				Affiliate.get({id: id}, function(affiliate) {
 					dfd.resolve(affiliate);
 				}, function() {
-					dfd.reject('Unable to fetch affiliate '  + $route.current.params.id);
+					dfd.reject('Unable to fetch affiliate ' + id);
 				});
 				return dfd.promise;
 			};
 		}
 	]
 ).
-
 
 factory('affiliateCreateDefaultsLoader', ['Affiliate', '$route', '$q',
 
