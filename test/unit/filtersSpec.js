@@ -206,6 +206,15 @@ describe('filters', function () {
 		));
 	});
 
+	describe('isActive', function () {
+
+		it('should return the right status when boolean value is given', inject(function(isActiveFilter) {
+				expect(  isActiveFilter(true)  ).toBe('Activo');
+				expect(  isActiveFilter(false)  ).toBe('Suspendido');
+			}
+		));
+	});
+
 
 
 });
