@@ -181,7 +181,7 @@ describe('Controllers', function(){
 	
 
 
-		beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $location, affiliateCreateDefaultsLoader) {
+		beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $location, Affiliate) {
 			$httpBackend = _$httpBackend_;
 			$httpBackend.whenPOST('/api/affiliate?format=json').
 				respond(  mock_response  );
@@ -191,7 +191,7 @@ describe('Controllers', function(){
 			scope = $rootScope.$new();
 
 			//see http://docs.angularjs.org/api/ng.$controller
-			ctrl = $controller('CreateEditAffiliateController', {$scope: scope, affiliate: affiliateCreateDefaultsLoader()});
+			ctrl = $controller('CreateEditAffiliateController', {$scope: scope, affiliate: new Affiliate()});
 		}));
 
 
@@ -199,12 +199,12 @@ describe('Controllers', function(){
 		describe('create method', function () {
 			it('should make a POST request to the server creating a new affiliate in the server side', function() {
 
+
 				scope.save();
 
 				$httpBackend.flush();
 
 				expect(location.path()).toBe(  '/affiliate'  );
-
 				//expect(scope.affiliate).toEqualData(  mock_response  );
 			});
 		});

@@ -65,7 +65,9 @@ module.exports = function(grunt) {
 					input: true,
 					browser: true,
 					require: true,
-					__dirname: true
+					__dirname: true,
+					waitsFor: true,
+					runs: true
 				}
 			}
 		},
