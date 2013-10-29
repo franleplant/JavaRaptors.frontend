@@ -203,17 +203,7 @@ factory('userLoader', ['User', '$route', '$q',
 factory('userCreateDefaultsLoader', ['User', '$route', '$q',
 
 		function(User, $route, $q) {
-			return function() {
-				var dfd = $q.defer();
-
-				User.get({id: 0}, function(user) {
-					delete user.id;
-					dfd.resolve(user);
-				}, function() {
-					dfd.reject('Server Error');
-				});
-				return dfd.promise;
-			};
+			return User;
 		}
 	]
 ).
