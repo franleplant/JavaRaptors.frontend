@@ -49,15 +49,20 @@ directive('jrDisplayAndEdit',[
 
 	function() {
 
+		function link(scope, element, attrs) {
+			
+		};
+
 		return {
 			require: 'ngModel',
+			link: link,
 			restrict: 'E',
 			replace: true,
 			template: "<ng-include src=\"'edit, create' | testPathRegExp | isEdit\"></ng-include>",
 			scope: {
+				model: '=ngModel',
 				placeholder: '@jrPlaceholder',
-				model: '=ngModel'
-
+				type: '@type'
 			},
 		};
 	}

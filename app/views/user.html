@@ -6,123 +6,125 @@
 		<!-- http://getbootstrap.com/2.3.2/base-css.html#forms-->
 		<form ng-submit="save()" class="form-horizontal">
 
-			<fieldset class="span8">
+			<fieldset class="span8" ng-if="'detailed_view' | testPathRegExp">
 
-	
-
-
-				<h1 class="media-heading" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.lastName" title="Click to edit">
-					{{user.lastName}}
-				</h1>
-				<h2 class="media-heading" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.name" title="Click to edit">
-					{{user.name}}
-				</h2>
+				<h1 class="media-heading" ng-bind="user.lastName" ></h1>
+				<h2 class="media-heading" ng-bind="user.name"></h2>
 
 				<hr/>
 
+			</fieldset>
+
+
+			<fieldset class="span8">
+
+
 				<h3>Datos</h3>
 
+ 				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
+					<label class="control-label">Apellido: </label>
+					<jr-display-and-edit ng-model="user.lastName" jr-placeholder="Apellido"></jr-display-and-edit>
+				</div>
 
- 				<div class="span8 control-group" >
+ 				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
+					<label class="control-label">Nombre: </label>
+					<jr-display-and-edit ng-model="user.name" jr-placeholder="Nombre"></jr-display-and-edit>
+				</div>
+
+
+ 				<div class="control-group" >
 					<label class="control-label">Email (usuario): </label>
 					<jr-display-and-edit ng-model="user.email" jr-placeholder="Email"></jr-display-and-edit>
 				</div>
 
-				<section class="span8">
-					<label>DNI: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.dni" title="Click to edit">{{user.dni}}</span>
-				</section>
+				<div class="control-group">
+					<label class="control-label">DNI: </label>
+					<jr-display-and-edit ng-model="user.dni" jr-placeholder="Dni"></jr-display-and-edit>
+				</div>
 
-				<section class="span8">
-					<label>CUIL: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.cuil" title="Click to edit">{{user.cuil}}</span>
-				</section>
+				<div class="control-group">
+					<label class="control-label">CUIL: </label>
+					<jr-display-and-edit ng-model="user.cuil" jr-placeholder="Cuil"></jr-display-and-edit>
+				</div>
 
-				<section class="span8">
-					<label>Rol: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.rol" title="Click to edit">{{user.rol}}</span>
-				</section>				
+				<div class="control-group">
+					<label class="control-label">Rol: </label>
+					<jr-display-and-edit ng-model="user.rol" jr-placeholder="Rol"></jr-display-and-edit>
+				</div>				
 
+				<div class="control-group">
+					<label class="control-label">Telefono: </label>
+					<jr-display-and-edit ng-model="user.tel" jr-placeholder="Telefono"></jr-display-and-edit>
+				</div>
 
-				<section class="span8">
-					<label>Telefono: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.tel" title="Click to edit">{{user.tel}}</span>
-				</section>
-				<section class="span8">
-					<label>Celular: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.cel" title="Click to edit">{{user.cel}}</span>
-				</section>
-				<section class="span8 address">
-					<label>Direccion: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.street" title="Click to edit">{{user.street}}</span>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.streetNumber" title="Click to edit">{{user.street_number}}</span>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.department" title="Click to edit">{{user.department}}</span>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.floor" title="Click to edit">{{user.floor}}</span>
-				</section>
+				<div class="control-group">
+					<label class="control-label">Celular: </label>
+					<jr-display-and-edit ng-model="user.cel" jr-placeholder="Celular"></jr-display-and-edit>
+				</div>
 
-
-				<section class="span8">
-					<label>Fecha de Nacimiento: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.birth" title="Click to edit">{{user.birth}}</span>
-				</section>
+				<div class="control-group">
+					<label class="control-label">Fecha de Nacimiento: </label>
+					<jr-display-and-edit ng-model="user.birth" jr-placeholder="Fecha de Nacimiento"></jr-display-and-edit>
+				</div>
 
 				<hr/>
+
+			</fieldset>
+
+			<fieldset class="span8">
+				<h3>Domicilio</h3>
+
+
+				<div class="control-group">
+					<label class="control-label">Calle: </label>
+					<jr-display-and-edit ng-model="user.street" jr-placeholder="Calle"></jr-display-and-edit>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Numero: </label>
+					<jr-display-and-edit ng-model="user.street_number" jr-placeholder="Numero"></jr-display-and-edit>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Piso: </label>
+					<jr-display-and-edit ng-model="user.department" jr-placeholder="Piso"></jr-display-and-edit>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Departamento: </label>
+					<jr-display-and-edit ng-model="user.floor" jr-placeholder="Depto"></jr-display-and-edit>
+				</div>
 
 
 
 			</fieldset>
 
-
-			<fieldset class="span4">
-				<a class="btn btn-block" ng-href="#/user/edit/{{user.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Usuario</a>
-				<button type="submit" class="btn btn-block" ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
-			</fieldset>			
+	
 
 			<fieldset class="span8" ng-if="'edit, create' | testPathRegExp">
 
 				<h3>Acceso</h3>
 
-				<section class="span8">
-					<label>Ingrese tu contrasañea: </label>
-					<input type="password" ng-model="user.password">
-				</section>
+				<div class="control-group">
+					<label class="control-label">Ingrese tu contrasañea: </label>
+					<jr-display-and-edit ng-model="user.password" jr-placeholder="Contraseña" type="password"></jr-display-and-edit>
+				</div>
 
-				<section class="span8">
-					<label>Vuelve a Ingresar tu contraseña: </label>
-					<input type="password" ng-model="password_verification">
-				</section>
+				<div class="control-group">
+					<label class="control-label">Repita su contraseña: </label>
+					<jr-display-and-edit ng-model="password_verification" jr-placeholder="Contraseña" type="password"></jr-display-and-edit>
+				</div>
 				<hr/>
 
 			</fieldset>
 
-	
-			<fieldset class="span9">
-				<h3>Auditoria</h3>
+			<fieldset class="span9" ng-include="'views/audit.html'"></fieldset>
 
-				<section class="span9">
-				<label>Fecha y Hora de Alta: </label>
-				<span>{{user.creationDate}}</span>
-				</section>
+			<fieldset class="span5">
+				<a class="btn btn-block" ng-href="#/user/edit/{{user.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Usuario</a>
+				<button type="submit" class="btn btn-block" ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
+			</fieldset>		
 
-
-				<section class="span9">
-					<label>Usuario disparador Alta: </label>
-					<span>{{user.creationUser}}</span>
-				</section>
-
-
-				<section class="span9">
-					<label>Fecha y Hora Ultima Edicion: </label>
-					<span>{{user.editDate}}</span>					
-				</section>
-
-
-				<section class="span9">
-					<label>Usuario Editor: </label>
-					<span>{{user.editUser}}</span>					
-				</section>								
-
-			</fieldset>
 
 			<fieldset class="span9" ng-if="'edit' | testPathRegExp" ng-controller="RmvController">
 				<hr/>
