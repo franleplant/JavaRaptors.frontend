@@ -25,14 +25,6 @@
 				</section>
 
 				<section class="span8">
-					<label>Password: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.dni" title="Click to edit">{{user.password}}</span>
-				</section>
-
-
-				<hr/>
-
-				<section class="span8">
 					<label>DNI: </label>
 					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.dni" title="Click to edit">{{user.dni}}</span>
 				</section>
@@ -79,6 +71,23 @@
 				<a class="btn btn-block" ng-href="#/user/edit/{{user.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Usuario</a>
 				<button type="submit" class="btn btn-block" ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
 			</fieldset>			
+
+			<fieldset class="span8" ng-if="'edit, create' | testPathRegExp">
+
+				<h3>Acceso</h3>
+
+				<section class="span8">
+					<label>Ingrese tu contrasañea: </label>
+					<input type="password" ng-model="user.password">
+				</section>
+
+				<section class="span8">
+					<label>Vuelve a Ingresar tu contraseña: </label>
+					<input type="password" ng-model="password_verification">
+				</section>
+				<hr/>
+
+			</fieldset>
 
 	
 			<fieldset class="span9">
