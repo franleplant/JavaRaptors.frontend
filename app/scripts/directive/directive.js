@@ -40,4 +40,27 @@ directive('contenteditable', function() {
 
 		}
 	};
-});
+}).
+
+
+//https://github.com/angular/angular.js/wiki/Understanding-Directives
+//http://docs.angularjs.org/guide/directive
+directive('jrDisplayAndEdit',[
+
+	function() {
+
+		return {
+			require: 'ngModel',
+			restrict: 'E',
+			replace: true,
+			template: "<ng-include src=\"'edit, create' | testPathRegExp | isEdit\"></ng-include>",
+			scope: {
+				placeholder: '@jrPlaceholder',
+				model: '=ngModel'
+
+			},
+		};
+	}
+]
+
+);

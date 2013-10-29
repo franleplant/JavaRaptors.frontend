@@ -3,10 +3,14 @@
 
 	<div class="row">
 
-
-		<form ng-submit="save()">
+		<!-- http://getbootstrap.com/2.3.2/base-css.html#forms-->
+		<form ng-submit="save()" class="form-horizontal">
 
 			<fieldset class="span8">
+
+	
+
+
 				<h1 class="media-heading" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.lastName" title="Click to edit">
 					{{user.lastName}}
 				</h1>
@@ -19,10 +23,10 @@
 				<h3>Datos</h3>
 
 
-				<section class="span8">
-					<label>Email (usuario): </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="user.email" title="Click to edit">{{user.email}}</span>
-				</section>
+ 				<div class="span8 control-group" >
+					<label class="control-label">Email (usuario): </label>
+					<jr-display-and-edit ng-model="user.email" jr-placeholder="Email"></jr-display-and-edit>
+				</div>
 
 				<section class="span8">
 					<label>DNI: </label>
@@ -63,6 +67,8 @@
 				</section>
 
 				<hr/>
+
+
 
 			</fieldset>
 
