@@ -122,11 +122,19 @@ filter('testPathRegExp', ['$location',
 				var list = str.split(', '),
 					len = list.length,
 					flag = false,
+					path = $location.path(),
+					re,
+					action,
 					i;
 
+				
+				action = path.match(/(?:\/[^\/]*\/)([^\/]*)(?:\/?.*)/)[1];
+
+
+				re = new RegExp(action, 'g');
 
 				for (i = 0; i < len; i++) {
-					flag = flag || -1 !== $location.path().indexOf(  list.pop()  );
+					flag = flag || re.test(  list.pop()  );
 					
 					if (flag) {
 						break;

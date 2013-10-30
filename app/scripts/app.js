@@ -134,19 +134,36 @@ jraptors.config(
 				
 				when('/editorial', {templateUrl: 'views/search.html', controller: 'SearchController'}).
 
+				when('/editorial/detailed_view/:id',{
+					templateUrl: 'views/editorial.html',
+					controller: 'DetailedViewControllerEditorial',
+					resolve: {
+						editorial: function(editorialLoader) {
+							return editorialLoader();
+						}
+					}
+				}).
 
 
+				when('/editorial/edit/:id', {
+					templateUrl: 'views/editorial.html',
+					controller: 'CreateEditEditorialController',
+					resolve: {
+						editorial: function(editorialLoader) {
+							return editorialLoader();
+						}
+					}
+				}).
 
-
-				when('/editorial/detailed_view/:id', {templateUrl: 'views/editorial.html', controller: 'DetailedViewController'}).
-
-
-
-				when('/editorial/edit/:id', {templateUrl: 'views/editorial_edit.html', controller: 'EditController'}).
-
-
-
-				when('/editorial/create', {templateUrl: 'views/editorial_create.html', controller: 'CreateController'}).
+				when('/editorial/create', {
+					templateUrl: 'views/editorial.html',
+					controller: 'CreateEditEditorialController',
+					resolve: {
+						editorial: function(editorialCreateDefaultsLoader) {
+							return editorialCreateDefaultsLoader();
+						}
+					}
+				}).
 
 
 

@@ -1,0 +1,66 @@
+{
+	"page_total": 10,
+	"page_number": 1,
+	"results": [
+		{
+			"id": 1,
+			"legal_name": "MCD",
+			"type": "editorial",
+			"name": "McDonalds",
+			"cuit_cuil": "1230912398123",
+			"address": {
+				"street": "evergreen",
+				"number": "123",
+				"department": "",
+				"floor": "7",
+				"city": "Springfield",
+				"prov": "Masauna",
+				"country": "Argentina",
+				"cp": "a20823"
+			},
+			"tel": "123123123",
+			"email": "ronald@mcdonalds.com",
+			"web": "www.mcdonalds.com"
+		},
+		{
+			"id": 2,
+			"legal_name": "MCD",
+			"type": "editorial",
+			"name": "McDonalds",
+			"cuit_cuil": "1230912398123",
+			"address": {
+				"street": "evergreen",
+				"number": "123",
+				"department": "",
+				"floor": "7",
+				"city": "Springfield",
+				"prov": "Masauna",
+				"country": "Argentina",
+				"cp": "a20823"
+			},
+			"tel": "123123123",
+			"email": "ronald@mcdonalds.com",
+			"web": "www.mcdonalds.com"
+		},
+		{
+			"id": 3,
+			"legal_name": "MCD",
+			"type": "editorial",
+			"name": "McDonalds",
+			"cuit_cuil": "1230912398123",
+			"address": {
+				"street": "evergreen",
+				"number": "123",
+				"department": "",
+				"floor": "7",
+				"city": "Springfield",
+				"prov": "Masauna",
+				"country": "Argentina",
+				"cp": "a20823"
+			},
+			"tel": "123123123",
+			"email": "ronald@mcdonalds.com",
+			"web": "www.mcdonalds.com"
+		}
+	]
+}

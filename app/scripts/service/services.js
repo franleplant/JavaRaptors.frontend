@@ -209,6 +209,40 @@ factory('userCreateDefaultsLoader', ['User', '$route', '$q',
 ).
 
 
+factory('Editorial', ['$resource',
+		function ($resource) {
+			return $resource('/api/editorial/:id', {id: '@id', format: 'json'}, {});
+		}
+	]
+).
+
+
+factory('editorialLoader', ['Editorial', '$route', '$q',
+
+		function(Editorial, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				Editorial.get({id: $route.current.params.id}, function(editorial) {
+					dfd.resolve(editorial);
+				}, function() {
+					dfd.reject('Unable to fetch editorial '  + $route.current.params.id);
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
+factory('editorialCreateDefaultsLoader', ['Editorial',
+
+		function(Editorial) {
+			return Editorial;
+		}
+	]
+).
+
+
 factory('PathSelector', [ function () {
 
 			//TODO: Document this function and the next one

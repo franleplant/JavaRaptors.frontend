@@ -1,0 +1,26 @@
+{
+	"id": 1,
+	"legal_name": "MCD",
+	"type": "editorial",
+	"name": "McDonalds",
+	"cuit_cuil": "1230912398123",
+	"address": {
+		"street": "evergreen",
+		"number": "123",
+		"department": "",
+		"floor": "7",
+		"city": "Springfield",
+		"prov": "Masauna",
+		"country": "Argentina",
+		"cp": "a20823"
+	},
+	"tel": "123123123",
+	"email": "ronald@mcdonalds.com",
+	"web": "www.mcdonalds.com",
+	"audit": {
+		"createDate": "07/10/2013",
+		"createUser": "franleplant",
+		"editDate": "07/10/2013",
+		"editUser": "franleplant"	
+	}
+}

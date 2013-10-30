@@ -1,99 +1,131 @@
-<!-- <div ng-repeat="result in results" class="media search-result shadow" ng-show="result.type == 'copy' || result.type == 'book'"> -->
-
-	<span class="label" ng-class="result.type | toClassLabel">{{result.type | translate}}</span>
-	<a class="pull-left" href="#">
-		<img class="media-object" ng-src={{result.img}} width=100 height=150>
-	</a>
-	<div class="media-body">
-		<h4 class="media-heading" ng-model="search.results[0].title">{{result.title}}</h4>
-
-		<h6 ng-show="result.type == 'copy'">ID: {{result.id}}</h6>
-
-		<ul class="no-list horizontal-list clearfix">
-
-			<li ng-show="result.type == 'copy'">
-				<dl>
-					<dt>Disponibilidad</dt>
-					<dd>{{result.lend.length == 0}}</dd>
-
-					<dt>Tipo de Prestamo</dt>
-					<dd>{{result.lendType}}</dd>
-
-					<dt>Año de Ediciona</dt>
-					<dd>{{result.editionYear}}</dd>
-				</dl>
-			</li>
+<div class="detailed_view book_view">
 
 
-			<li>
-				<dl>
-					<dt>Autor</dt>
-					<dd><a href={{result.author[0].link}} target="_blank">{{result.authors[0].name}}</a></dd>
+	<div class="row">
 
-					<dt>Genero</dt>
-					<dd>{{result.genres}}</dd>
+		<!-- http://getbootstrap.com/2.3.2/base-css.html#forms-->
+		<form ng-submit="save()" class="form-horizontal">
 
-					<dt>Idioma</dt>
-					<dd>{{result.lang}}</dd>
-				</dl>
-			</li>
+			<fieldset class="span8" ng-if="'detailed_view' | testPathRegExp">
 
+				<h1 class="media-heading" ng-bind="editorial.name" ></h1>
 
-			<li>
-				<dl>
-					<dt>Editorial</dt>
-					<dd><a href={{result.editorial.link}} target="_blank">{{result.editorial.name}}</a></dd>
+				<hr/>
 
-					<dt>Edicion</dt>
-					<dd>{{result.editionNumber}} Pais: {{result.editionCountry}}</dd>
-
-					<dt>ISBN</dt>
-					<dd>{{result.isbn}}</dd>								
-				</dl>
-			</li>
+			</fieldset>
 
 
-			<li ng-show="result.type == 'book'">
-				<dl>
-					<dt>Ejemplares</dt>
-					<dd>{{result.copys.length}}</dd>
-					<dt>Disponibles</dt>
-					<dd>{{result.copys | availableToLendCopys }}</dd>
-					<dt>Tipo de Prestamo</dt>
-					<dd>{{result.copys[0].lendType }}</dd>
-				</dl>
-			</li>
-
-			<li ng-show="result.type == 'copy'">
-				<dl>
-					<dt>Ubicacion</dt>
-					<dd>{{result.location.shelves  + ' ' + result.location.shelf }}</dd>
-					<dt>Estado Fisico</dt>
-					<dd>{{result.state}}</dd>
-					<dt>Fecha de Alta</dt>
-					<dd>{{result.creationDate }}</dd>
-				</dl>
-			</li>
-
-			<li>
-				<dl>
-					<dt>Valuacion</dt>
-					<dd>{{result.val}}</dd>
-
-					<dt>Precio</dt>
-					<dd>{{result.price}}</dd>
-
-				</dl>
-			</li>										
-
-		</ul>
+			<fieldset class="span8">
 
 
-		<div ng-show="result.type == 'copy'">
-			<span>Notas</span></br>
-			<p>{{result.comments}}</p>
-		</div>
+				<h3>Datos</h3>
 
+ 				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
+					<label class="control-label">Nombre: </label>
+					<jr-display-and-edit ng-model="editorial.name" jr-placeholder="Nombre"></jr-display-and-edit>
+				</div>
+
+ 				<div class="control-group" >
+					<label class="control-label">Razon Social: </label>
+					<jr-display-and-edit ng-model="editorial.legal_name" jr-placeholder="Razon Social"></jr-display-and-edit>
+				</div>
+
+
+ 				<div class="control-group" >
+					<label class="control-label">Telefono: </label>
+					<jr-display-and-edit ng-model="editorial.tel" jr-placeholder="Telefono"></jr-display-and-edit>
+				</div>
+
+ 				<div class="control-group" >
+					<label class="control-label">Email: </label>
+					<jr-display-and-edit ng-model="editorial.email" jr-placeholder="Email"></jr-display-and-edit>
+				</div>
+
+ 				<div class="control-group" >
+					<label class="control-label">Sitio Web: </label>
+					<jr-display-and-edit ng-model="editorial.web" jr-placeholder="Web"></jr-display-and-edit>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">CUIL: </label>
+					<jr-display-and-edit ng-model="editorial.cuit_cuil" jr-placeholder="Cuil"></jr-display-and-edit>
+				</div>
+
+				<hr/>
+
+			</fieldset>
+
+			<fieldset class="span8">
+				<h3>Domicilio</h3>
+
+
+				<div class="control-group">
+					<label class="control-label">Calle: </label>
+					<jr-display-and-edit ng-model="editorial.address.street" jr-placeholder="Calle"></jr-display-and-edit>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Numero: </label>
+					<jr-display-and-edit ng-model="editorial.address.number" jr-placeholder="Numero"></jr-display-and-edit>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Piso: </label>
+					<jr-display-and-edit ng-model="editorial.address.floor" jr-placeholder="Piso"></jr-display-and-edit>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Departamento: </label>
+					<jr-display-and-edit ng-model="editorial.address.department" jr-placeholder="Depto"></jr-display-and-edit>
+				</div>
+
+
+				<div class="control-group">
+					<label class="control-label">Ciudad: </label>
+					<jr-display-and-edit ng-model="editorial.address.city" jr-placeholder="Ciudad"></jr-display-and-edit>
+				</div>
+
+
+				<div class="control-group">
+					<label class="control-label">Provincia: </label>
+					<jr-display-and-edit ng-model="editorial.address.prov" jr-placeholder="Provincia"></jr-display-and-edit>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Pais: </label>
+					<jr-display-and-edit ng-model="editorial.address.country" jr-placeholder="Pais"></jr-display-and-edit>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Codigo Postal: </label>
+					<jr-display-and-edit ng-model="editorial.address.cp" jr-placeholder="Codigo Postal"></jr-display-and-edit>
+				</div>
+
+
+			</fieldset>
+
+	
+			<jr-audit ng-model="editorial.audit"></jr-audit>
+
+
+			<fieldset class="span9">
+				<hr/>
+				<a class="btn" ng-href="#/editorial/edit/{{editorial.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Usuario</a>
+				<button type="submit" class="btn " ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
+			</fieldset>		
+
+
+			<fieldset class="span9" ng-if="'edit' | testPathRegExp" ng-controller="RmvController">
+				<hr/>
+				<button type="button" class="btn delete_entity" ng-click="open_modal_delete()"><i class="icon-remove"></i>Borrar Autor</button>
+				<hr/>
+			</fieldset>
+
+
+		</form>
 
 	</div>
-<!-- </div> -->
+
+ 
+
+</div>
