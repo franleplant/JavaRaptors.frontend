@@ -70,6 +70,30 @@ directive('jrDisplayAndEdit',[
 
 ).
 
+
+directive('jrAddressForm',[
+
+	function() {
+
+		function link(scope, element, attrs) {
+			
+		}
+
+		return {
+			require: 'ngModel',
+			link: link,
+			restrict: 'E',
+			replace: true,
+			templateUrl: 'views/address.html',
+			scope: {
+				model: '=ngModel'
+			},
+		};
+	}
+]
+
+).
+
 directive('jrAudit',[
 
 	function() {
