@@ -432,4 +432,14 @@ controller('ReportController',
 		function ($scope) {
 		}
 	]
+).
+
+controller('LendTypeSelectController',
+	[
+		'$scope',
+		function ($scope) {
+
+			$scope.lendTypes = ['foreign', 'local'];
+		}
+	]
 );

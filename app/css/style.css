@@ -264,6 +264,6 @@ footer > p {
 	margin-top: -5px;
 }
 
-{
-	height: 200px;
+form select{
+	width: 110px;
 }

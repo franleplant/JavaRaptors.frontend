@@ -230,7 +230,10 @@
 									</td>	
 
 									<td>
-										{{copy.lendType}}
+										<span ng-if="'detailed_view' | testPathRegExp">{{copy.lendType}}</span>
+										<select ng-if="'edit, create' | testPathRegExp" ng-model="copy.lendType" 
+											ng-options="lt | translate for lt in lendTypes" ng-controller="LendTypeSelectController">
+										</select>
 									</td>
 
 									<td>
@@ -253,7 +256,7 @@
 
 				<jr-audit ng-model="book.audit"></jr-audit>
 
-				<fieldset class="span8" ng-if="'edit, create' | testPathRegExp">
+				<fieldset class="span8" ng-if="'edit' | testPathRegExp">
 					<button type="button" class="btn delete_entity" ng-click="open_modal_delete()"><i class="icon-remove"></i> Borrar el Libro</button>
 				</fieldset>
 
