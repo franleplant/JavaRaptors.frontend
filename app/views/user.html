@@ -118,11 +118,11 @@
 
 			</fieldset>
 
-			<fieldset class="span9" ng-include="'views/audit.html'"></fieldset>
+			<jr-audit ng-model="user.audit"></jr-audit>
 
 			<fieldset class="span9">
 				<hr/>
-				<a class="btn btn-block" ng-href="#/user/edit/{{user.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Usuario</a>
+				<a class="btn" ng-href="#/user/edit/{{user.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Usuario</a>
 				<button type="submit" class="btn " ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
 			</fieldset>		
 

@@ -1,24 +1,28 @@
-<h3>Auditoria</h3>
+<fieldset class="span9">
 
-<div class="control-group">
-	<label class="control-label">Creacion: </label>
-	<label class="control-label">{{user.creationDate}}</label>
-</div>
+	<h3>Auditoria</h3>
 
-
-<div class="control-group">
-	<label class="control-label">Usuario Creador: </label>
-	<label class="control-label">{{user.creationUser}}</label>
-</div>
+	<div class="control-group">
+		<label class="control-label">Creacion: </label>
+		<label class="control-label">{{model.createDate}}</label>
+	</div>
 
 
-<div class="control-group">
-	<label class="control-label">Ultima Edicion: </label>
-	<label class="control-label">{{user.editDate}}</label>					
-</div>
+	<div class="control-group">
+		<label class="control-label">Usuario Creador: </label>
+		<label class="control-label">{{model.createUser}}</label>
+	</div>
 
 
-<div class="control-group">
-	<label class="control-label">Usuario Editor: </label>
-	<label class="control-label">{{user.editUser}}</label>					
-</div>	
+	<div class="control-group">
+		<label class="control-label">Ultima Edicion: </label>
+		<label class="control-label">{{model.editDate}}</label>					
+	</div>
+
+
+	<div class="control-group">
+		<label class="control-label">Usuario Editor: </label>
+		<label class="control-label">{{model.editUser}}</label>					
+	</div>	
+
+</fieldset>

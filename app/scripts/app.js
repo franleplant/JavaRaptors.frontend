@@ -134,24 +134,37 @@ jraptors.config(
 				
 				when('/editorial', {templateUrl: 'views/search.html', controller: 'SearchController'}).
 
-				when('/location',  {templateUrl: 'views/search.html', controller: 'SearchController'}).
+				when('/editorial/detailed_view/:id',{
+					templateUrl: 'views/editorial.html',
+					controller: 'DetailedViewControllerEditorial',
+					resolve: {
+						editorial: function(editorialLoader) {
+							return editorialLoader();
+						}
+					}
+				}).
 
 
+				when('/editorial/edit/:id', {
+					templateUrl: 'views/editorial.html',
+					controller: 'CreateEditEditorialController',
+					resolve: {
+						editorial: function(editorialLoader) {
+							return editorialLoader();
+						}
+					}
+				}).
 
+				when('/editorial/create', {
+					templateUrl: 'views/editorial.html',
+					controller: 'CreateEditEditorialController',
+					resolve: {
+						editorial: function(editorialCreateDefaultsLoader) {
+							return editorialCreateDefaultsLoader();
+						}
+					}
+				}).
 
-				when('/editorial/detailed_view/:id', {templateUrl: 'views/editorial.html', controller: 'DetailedViewController'}).
-
-				when('/location/detailed_view/:id',  {templateUrl: 'views/location.html',  controller: 'DetailedViewController'}).
-
-
-				when('/editorial/edit/:id', {templateUrl: 'views/editorial_edit.html', controller: 'EditController'}).
-
-				when('/location/edit/:id',  {templateUrl: 'views/location_edit.html',  controller: 'EditController'}).
-
-
-				when('/editorial/create', {templateUrl: 'views/editorial_create.html', controller: 'CreateController'}).
-
-				when('/location/create',  {templateUrl: 'views/location_create.html',  controller: 'CreateController'}).
 
 
 

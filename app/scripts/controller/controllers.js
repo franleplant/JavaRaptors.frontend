@@ -96,7 +96,15 @@ controller('DetailedViewControllerAffiliate',
 	]
 ).
 
+controller('DetailedViewControllerEditorial',
+	[
+		'$scope', 'editorial',
+		function ($scope, editorial) {
 
+			$scope.editorial = editorial;
+		}
+	]
+).
 
 
 controller('EditController',
@@ -339,6 +347,38 @@ controller('CreateEditUserController',
 			$scope.save = function () {
 
 				$scope.user.$save(function () {
+					$location.path('/');
+				},
+				function () {
+					//error callback
+				});
+			};
+
+		}
+	]
+).
+
+
+controller('CreateEditEditorialController',
+	[
+		'$scope', '$timeout', 'Editorial', '$location', 'editorial',
+		function ($scope, $timeout, Editorial, $location, editorial) {
+
+			$scope.editorial = editorial;
+
+			$scope.remove = function (callback) {
+
+				Editorial.remove({id: $scope.editorial.id}).
+					$then(function () {
+						$location.path('/');
+						callback();
+					}
+				);
+			};
+
+			$scope.save = function () {
+
+				$scope.editorial.$save(function () {
 					$location.path('/');
 				},
 				function () {

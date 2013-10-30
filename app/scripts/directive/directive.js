@@ -51,18 +51,36 @@ directive('jrDisplayAndEdit',[
 
 		function link(scope, element, attrs) {
 			
-		};
+		}
 
 		return {
 			require: 'ngModel',
 			link: link,
 			restrict: 'E',
 			replace: true,
-			template: "<ng-include src=\"'edit, create' | testPathRegExp | isEdit\"></ng-include>",
+			template: '<ng-include src="\'edit, create\' | testPathRegExp | isEdit"></ng-include>',
 			scope: {
 				model: '=ngModel',
 				placeholder: '@jrPlaceholder',
 				type: '@type'
+			},
+		};
+	}
+]
+
+).
+
+directive('jrAudit',[
+
+	function() {
+
+		return {
+			require: 'ngModel',
+			restrict: 'E',
+			replace: true,
+			template: '<ng-include src="\'views/audit.html\'"  ng-if="\'detailed_view, edit\' | testPathRegExp"></ng-include>',
+			scope: {
+				model: '=ngModel',
 			},
 		};
 	}
