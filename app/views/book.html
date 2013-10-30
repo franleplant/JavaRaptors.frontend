@@ -63,13 +63,6 @@
 					</div>
 
 	 				<div class="control-group" >
-						<label class="control-label">TODO: AUTORES: </label>
-						<jr-display-and-edit ng-model="book.editorial.name" jr-placeholder="Editorial" link="#/editorial/detailed_view/{{book.editorial.id}}">
-						</jr-display-and-edit>
-					</div>
-
-
-	 				<div class="control-group" >
 						<label class="control-label">Resumen: </label>
 						<jr-display-and-edit ng-model="book.summary" jr-placeholder="Resumen">
 						</jr-display-and-edit>
@@ -114,6 +107,30 @@
 
 
 				</fieldset>
+
+
+
+				<fieldset class="span8" ng-if="'edit, create' | testPathRegExp">
+
+					<h3>
+						Autores
+						<button type="button" class="btn" ng-click="add_author()" ng-if="'edit, create' | testPathRegExp">
+							<i class="icon-plus-sign"></i>
+						</button>
+					</h3>
+
+			 		<div ng-repeat="author in book.authors" class="control-group" >
+			 			<label class="control-label">
+			 				<button class="btn" ng-click="rm_author($index)" ng-if="'edit, create' | testPathRegExp"><i class="icon-minus-sign"></i></button>
+			 			</label>
+						
+						<jr-display-and-edit ng-model="author.name" jr-placeholder="Nuevo Autor"></jr-display-and-edit>
+						
+					</div>			
+
+					<hr/>
+				</fieldset>
+
 
 				<fieldset class="span8">
 
