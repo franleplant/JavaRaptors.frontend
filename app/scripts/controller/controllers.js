@@ -1,5 +1,4 @@
 
-
 angular.module('jraptors.Controllers', ['ui.bootstrap']).controller('SearchController',
 	[
 		'$scope', 'animations', 'Search', '$location',
@@ -300,28 +299,7 @@ controller('CreateEditAuthorController',
 		'$scope', '$timeout', 'Author', '$location', 'author',
 		function ($scope, $timeout, Author, $location, author) {
 
-			$scope.author = author;
-
-
-			$scope.add_book = function () {
-				$scope.author.books.push({
-					title: 'new_book'
-				});
-			};
-
-			$scope.rmv_book = function (i) {
-				$scope.author.books.splice(i,1);
-			};
-
-			$scope.remove = function (callback) {
-
-				Author.remove({id: $scope.author.id}).
-					$then(function () {
-						$location.path('/');
-						callback();
-					}
-				);
-			};
+			$scope.author = author || new Author();
 
 			$scope.save = function () {
 

@@ -4,95 +4,68 @@
 	<div class="row">
 
 
-		<form ng-submit="save()">
+		<form ng-submit="save()" class="form-horizontal">
 
-			<fieldset class="span8">
-				<h1 class="media-heading" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.nick" title="Click to edit">
-					{{author.nick}}
-				</h1>
-
-
+			<fieldset class="span12" ng-if="'detailed_view' | testPathRegExp">
+				<h1 class="media-heading">{{author.nick}}</h1>
 				<hr/>
 
+			</fieldset>
+
+
+			<fieldset class="span12">
 				<h3>Datos</h3>
 
-				<section class="span8">
-					<label>ISNI: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.isni" title="Click to edit">{{author.isni}}</span>
-				</section>
 
-				<section class="span8">
-					<label>Fecha de Nacimiento: </label>
-					<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.birth" title="Click to edit">{{author.birth}}</span>
-				</section>
+ 				<div class="control-group">
+					<label class="control-label">ISNI: </label>
+					<jr-display-and-edit ng-model="author.isni" jr-placeholder="ISNI"></jr-display-and-edit>
+				</div>
 
-				<section class="span8">
-					<label>Comentarios: </label>
-					<p contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="author.comments" title="Click to edit">{{author.comments}}</p>
-				</section>
+ 				<div class="control-group">
+					<label class="control-label">Fecha de Nacimiento: </label>
+					<jr-display-and-edit ng-model="author.birth" jr-placeholder="Fecha de Nacimiento"></jr-display-and-edit>
+				</div>
+
+ 				<div class="control-group">
+					<label class="control-label">Comentarios: </label>
+					<jr-display-and-edit ng-model="author.comments" jr-placeholder="Comentarios"></jr-display-and-edit>
+				</div>
 
 				<hr/>
 
 			</fieldset>
 
 
-			<fieldset class="span4">
-				<a class="btn btn-block" ng-href="#/author/edit/{{author.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Autor</a>
-				<button type="submit" class="btn btn-block" ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
-			</fieldset>			
+	
 
-			<fieldset class="span9 authors-books">
+			<fieldset class="span12">
 
 				<h3>
 					Libros
-					<button class="btn" type="button"><i class="icon-plus-sign" ng-click="add_book()"></i></button>
+					<a class="btn" ng-href="#/book/create" target="_blank"><i class="icon-plus-sign"></i></a>
 				</h3>
 
-				<section ng-repeat="book in author.books" class="span9">
+				<section ng-repeat="book in author.books">
 
-					<span ng-if="'edit, create' | testPathRegExp" ng-model="book.title" contentEditable="{{'edit, create' | testPathRegExp}}">
-						{{book.title}}
-						<button class="btn" ng-click="rmv_book($index)"><i class="icon-minus-sign"></i></button>
-					</span>
-
-					<a ng-if="'detailed_view' | testPathRegExp" ng-href="#/book/detailed_view/{{book.id}}">
+					<a ng-href="#/book/detailed_view/{{book.id}}">
 						<h5>{{book.title}}</h5>
 					</a>
 				</section>
 
-
+				<hr/>
 			</fieldset>
 
-			<fieldset class="span9">
-				<h3>Auditoria</h3>
-
-				<section class="span9">
-				<label>Fecha y Hora de Alta: </label>
-				<span>{{author.creationDate}}</span>
-				</section>
+			<jr-audit ng-model="author.audit"></jr-audit>
 
 
-				<section class="span9">
-					<label>Usuario disparador Alta: </label>
-					<span>{{author.creationUser}}</span>
-				</section>
-
-
-				<section class="span9">
-					<label>Fecha y Hora Ultima Edicion: </label>
-					<span>{{author.editDate}}</span>					
-				</section>
-
-
-				<section class="span9">
-					<label>Usuario Editor: </label>
-					<span>{{author.editUser}}</span>					
-				</section>								
-
-			</fieldset>
+			<fieldset class="span12">
+				<a class="btn" ng-href="#/author/edit/{{author.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Autor</a>
+				<button type="submit" class="btn" ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
+				<hr/>
+			</fieldset>		
 
 			<fieldset class="span9" ng-if="'edit' | testPathRegExp" ng-controller="RmvController">
-				<hr/>
 				<button type="button" class="btn delete_entity" ng-click="open_modal_delete()"><i class="icon-remove"></i>Borrar Autor</button>
 				<hr/>
 			</fieldset>

@@ -197,8 +197,8 @@ jraptors.config(
 					templateUrl: 'views/author.html',
 					controller: 'CreateEditAuthorController',
 					resolve: {
-						author: function(authorCreateDefaultsLoader) {
-							return authorCreateDefaultsLoader();
+						author: function() {
+							return;
 						}
 					}
 				}).
