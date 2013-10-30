@@ -126,8 +126,8 @@ jraptors.config(
 					templateUrl: 'views/affiliate.html',
 					controller: 'CreateEditAffiliateController',
 					resolve: {
-						affiliate: function(affiliateCreateDefaultsLoader) {
-							return affiliateCreateDefaultsLoader();
+						affiliate: function() {
+							return;
 						}
 					}
 				}).

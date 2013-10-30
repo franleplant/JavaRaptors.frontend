@@ -249,13 +249,15 @@ footer > p {
 
 .detailed_view form.form-horizontal label+ng-include > label,
 .detailed_view form.form-horizontal label+ng-include > a,
-.detailed_view form.form-horizontal label+label {
+.detailed_view form.form-horizontal label+label,
+.detailed_view form.form-horizontal label+span {
 	margin-left: 10px;
 	font-weight: bold;
 	text-align: left;
 }
 
-.detailed_view form.form-horizontal label+ng-include > a {
+.detailed_view form.form-horizontal label+ng-include > a,
+.detailed_view form.form-horizontal label+span {
 	line-height: 30px;
 }
 

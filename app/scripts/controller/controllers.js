@@ -241,7 +241,7 @@ controller('CreateEditAffiliateController',
 		'$scope', '$timeout', 'Affiliate', '$location', 'affiliate', '$modal',
 		function ($scope, $timeout, Affiliate, $location, affiliate, $modal) {
 
-			$scope.affiliate = affiliate;
+			$scope.affiliate = affiliate || new Affiliate();
 
 			//TODO: refactor this
 
