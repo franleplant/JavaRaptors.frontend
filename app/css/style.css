@@ -263,3 +263,7 @@ footer > p {
 .detailed_view form.form-horizontal label.control-label > button{
 	margin-top: -5px;
 }
+
+{
+	height: 200px;
+}

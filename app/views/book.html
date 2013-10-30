@@ -62,7 +62,18 @@
 						<jr-display-and-edit ng-model="book.title" jr-placeholder="Titulo"></jr-display-and-edit>
 					</div>
 
+	 				<div class="control-group" >
+						<label class="control-label">TODO: AUTORES: </label>
+						<jr-display-and-edit ng-model="book.editorial.name" jr-placeholder="Editorial" link="#/editorial/detailed_view/{{book.editorial.id}}">
+						</jr-display-and-edit>
+					</div>
 
+
+	 				<div class="control-group" >
+						<label class="control-label">Resumen: </label>
+						<jr-display-and-edit ng-model="book.summary" jr-placeholder="Resumen">
+						</jr-display-and-edit>
+					</div>
 
 	 				<div class="control-group" >
 						<label class="control-label">ISBN: </label>
@@ -225,7 +236,7 @@
 
 				<jr-audit ng-model="book.audit"></jr-audit>
 
-				<fieldset class="span9">
+				<fieldset class="span8" ng-if="'edit, create' | testPathRegExp">
 					<button type="button" class="btn delete_entity" ng-click="open_modal_delete()"><i class="icon-remove"></i> Borrar el Libro</button>
 				</fieldset>
 
