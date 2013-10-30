@@ -248,8 +248,18 @@ footer > p {
 
 
 .detailed_view form.form-horizontal label+ng-include > label,
+.detailed_view form.form-horizontal label+ng-include > a,
 .detailed_view form.form-horizontal label+label {
 	margin-left: 10px;
 	font-weight: bold;
 	text-align: left;
+}
+
+.detailed_view form.form-horizontal label+ng-include > a {
+	line-height: 30px;
+}
+
+
+.detailed_view form.form-horizontal label.control-label > button{
+	margin-top: -5px;
 }
