@@ -22,10 +22,15 @@
 					<jr-display-and-edit ng-model="author.isni" jr-placeholder="ISNI"></jr-display-and-edit>
 				</div>
 
- 				<div class="control-group">
-					<label class="control-label">Fecha de Nacimiento: </label>
-					<jr-display-and-edit ng-model="author.birth" jr-placeholder="Fecha de Nacimiento"></jr-display-and-edit>
-				</div>
+				<!-- //http://es.wikipedia.org/wiki/ISO_8601 -->
+			    <div class="control-group" ng-controller="DatePickerController">
+			    	<label class="control-label">Fecha de Nacimiento: </label>
+			    	<div class="controls">
+			        	<input type="text" datepicker-popup="dd-MMMM-yyyy" ng-model="author.birth" is-open="opened" max="'2015-06-22'"/>
+			        	<button class="btn" type="button" ng-click="open()"><i class="icon-calendar"></i></button>
+			        </div>
+			    </div>
+
 
  				<div class="control-group">
 					<label class="control-label">Comentarios: </label>

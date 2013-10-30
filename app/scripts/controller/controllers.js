@@ -430,4 +430,18 @@ controller('LendTypeSelectController',
 			$scope.lendTypes = ['foreign', 'local'];
 		}
 	]
+).
+
+controller('DatePickerController',
+	[
+		'$scope', '$timeout',
+		function ($scope, $timeout) {
+
+			$scope.open = function() {
+				$timeout(function() {
+			    	$scope.opened = true;
+			    });
+			};
+		}
+	]
 );
