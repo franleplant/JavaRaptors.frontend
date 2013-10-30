@@ -4,15 +4,19 @@
 		<div class="row">
 
 
-			<form ng-submit="save()">
+			<form ng-submit="save()" class="form-horizontal">
+
 				<fieldset class="span4">
 					<img class="img-polaroid" ng-src={{book.img}} style="height:300px">
 					<a class="btn btn-block" ng-href="#/book/edit/{{book.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Libro</a>
 					<button type="submit" class="btn btn-block" ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
 				</fieldset>
 
-				<fieldset class="span8">
-					<h1 class="media-heading" contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.title" title="Click to edit">
+
+
+				<fieldset class="span8" ng-if="'detailed_view' | testPathRegExp">
+
+					<h1 class="media-heading">
 						{{book.title}}
 					</h1>
 
@@ -22,6 +26,9 @@
 							<h3 class="media-heading">{{author.name}}</h3>
 						</a>
 					</div>
+
+
+
 
 					<div ng-if="'edit, create' | testPathRegExp">
 						<h3>Autores <button type="button" class="btn" ng-click="add_author()"><i class="icon-plus-sign"></i></button></h3>
@@ -34,27 +41,86 @@
 				
 
 					<hr/>	
+					
+				</fieldset>
+
+				<fieldset class="span8" ng-if="'detailed_view' | testPathRegExp">
+
 					<h3>Resumen</h3>
-					<p contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.summary" title="Click to edit">{{book.summary}}</p>
+					<p>{{book.summary}}</p>
 					<hr/>
 					
-					
+				</fieldset>	
 
+
+
+				<fieldset class="span8">
 					<h3>Datos</h3>
+	
+	 				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
+						<label class="control-label">Titulo: </label>
+						<jr-display-and-edit ng-model="book.title" jr-placeholder="Titulo"></jr-display-and-edit>
+					</div>
 
-					<section class="span8">
-						<label>ISBN: </label>
-						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.isbn" title="Click to edit">{{book.isbn}}</span>
-					</section>
+
+
+	 				<div class="control-group" >
+						<label class="control-label">ISBN: </label>
+						<jr-display-and-edit ng-model="book.isbn" jr-placeholder="ISBN"></jr-display-and-edit>
+					</div>
+
+	 				<div class="control-group" >
+						<label class="control-label">Editorial: </label>
+						<jr-display-and-edit ng-model="book.editorial.name" jr-placeholder="Editorial" link="#/editorial/detailed_view/{{book.editorial.id}}">
+						</jr-display-and-edit>
+					</div>
 
 
 
-					<section class="span8">
-						<label>Editorial: </label>
-						<span contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="book.editorial.name" title="Click to edit">
-							<a ng-href="#/editorial/detailed_view/{{book.editorial.id}}" target="_blank">{{book.editorial.name}}</a>
-						</span>
-					</section>
+
+
+	 				<div class="control-group" >
+						<label class="control-label">Email (usuario): </label>
+						<jr-display-and-edit ng-model="user.email" jr-placeholder="Email"></jr-display-and-edit>
+					</div>
+
+	 				<div class="control-group" >
+						<label class="control-label">Email (usuario): </label>
+						<jr-display-and-edit ng-model="user.email" jr-placeholder="Email"></jr-display-and-edit>
+					</div>
+
+	 				<div class="control-group" >
+						<label class="control-label">Email (usuario): </label>
+						<jr-display-and-edit ng-model="user.email" jr-placeholder="Email"></jr-display-and-edit>
+					</div>
+
+	 				<div class="control-group" >
+						<label class="control-label">Email (usuario): </label>
+						<jr-display-and-edit ng-model="user.email" jr-placeholder="Email"></jr-display-and-edit>
+					</div>
+
+	 				<div class="control-group" >
+						<label class="control-label">Email (usuario): </label>
+						<jr-display-and-edit ng-model="user.email" jr-placeholder="Email"></jr-display-and-edit>
+					</div>
+
+	 				<div class="control-group" >
+						<label class="control-label">Email (usuario): </label>
+						<jr-display-and-edit ng-model="user.email" jr-placeholder="Email"></jr-display-and-edit>
+					</div>
+
+
+	 				<div class="control-group" >
+						<label class="control-label">Email (usuario): </label>
+						<jr-display-and-edit ng-model="user.email" jr-placeholder="Email"></jr-display-and-edit>
+					</div>
+
+
+
+
+
+
+
 
 
 					<section class="span8">

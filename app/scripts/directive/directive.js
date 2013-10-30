@@ -62,7 +62,8 @@ directive('jrDisplayAndEdit',[
 			scope: {
 				model: '=ngModel',
 				placeholder: '@jrPlaceholder',
-				type: '@type'
+				type: '@type',
+				link: '@link'
 			},
 		};
 	}

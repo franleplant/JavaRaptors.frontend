@@ -1,1 +1,5 @@
-<label class="control-label">{{model}}</label>
+
+
+<label ng-if="link | not" class="control-label">{{model}}</label>
+
+<a ng-if="link" ng-href="{{link}}" target="_blank">{{model}}</a>
