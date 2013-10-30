@@ -247,3 +247,9 @@ footer > p {
 }
 
 
+.detailed_view form.form-horizontal label+ng-include > label,
+.detailed_view form.form-horizontal label+label {
+	margin-left: 10px;
+	font-weight: bold;
+	text-align: left;
+}

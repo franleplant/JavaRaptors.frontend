@@ -137,4 +137,17 @@ filter('testPathRegExp', ['$location',
 			};
 		}
 	]
+).
+
+filter('isEdit', [
+		function() {
+			return function(input) {
+
+				if (input) {
+					return 'views/fragments/edit.html';
+				}
+				return 'views/fragments/view.html';
+			};
+		}
+	]
 );
