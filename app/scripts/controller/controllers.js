@@ -332,7 +332,7 @@ controller('CreateEditUserController',
 		'$scope', '$timeout', 'User', '$location', 'user',
 		function ($scope, $timeout, User, $location, user) {
 
-			$scope.user = user;
+			$scope.user = user || new User();
 
 			$scope.remove = function (callback) {
 
@@ -364,7 +364,8 @@ controller('CreateEditEditorialController',
 		'$scope', '$timeout', 'Editorial', '$location', 'editorial',
 		function ($scope, $timeout, Editorial, $location, editorial) {
 
-			$scope.editorial = editorial;
+			$scope.editorial = editorial || new Editorial();
+
 
 			$scope.remove = function (callback) {
 

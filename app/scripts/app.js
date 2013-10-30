@@ -91,8 +91,8 @@ jraptors.config(
 					templateUrl: 'views/user.html',
 					controller: 'CreateEditUserController',
 					resolve: {
-						user: function(User) {
-							return User();
+						user: function() {
+							return;
 						}
 					}
 				}).
@@ -159,8 +159,8 @@ jraptors.config(
 					templateUrl: 'views/editorial.html',
 					controller: 'CreateEditEditorialController',
 					resolve: {
-						editorial: function(Editorial) {
-							return Editorial();
+						editorial: function() {
+							return;
 						}
 					}
 				}).

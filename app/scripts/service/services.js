@@ -227,6 +227,9 @@ factory('editorialLoader', ['Editorial', '$route', '$q',
 ).
 
 
+
+
+
 factory('PathSelector', [ function () {
 
 			//TODO: Document this function and the next one

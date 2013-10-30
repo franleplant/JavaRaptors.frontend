@@ -9,10 +9,16 @@
 	"email": "clau_guzman@gmail.com" ,
 	"tel": "011 15 12398123",
 	"cel": "011 1531512313",
-	"street": "padington Street",
-	"street_number": "75",
-	"department": "",
-	"floor": "",
+	"address": {
+		"street": "evergreen",
+		"number": "123",
+		"department": "",
+		"floor": "7",
+		"city": "Springfield",
+		"prov": "Masauna",
+		"country": "Argentina",
+		"cp": "a20823"
+	},
 	"birth": "31 de Julio de 1965",
 	"audit": {
 		"createDate": "07/10/2013",
