@@ -128,7 +128,8 @@ filter('testPathRegExp', ['$location',
 					i;
 
 				
-				action = path.match(/(?:\/[^\/]*\/)([^\/]*)(?:\/?.*)/)[1];
+				action = path.match(/(?:\/[^\/]*\/)([^\/]*)(?:\/?.*)/);
+				action = action ? action[1] : 'nothing';
 
 
 				re = new RegExp(action, 'g');
