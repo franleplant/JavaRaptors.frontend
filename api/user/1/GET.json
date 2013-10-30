@@ -14,10 +14,12 @@
 	"department": "",
 	"floor": "",
 	"birth": "31 de Julio de 1965",
-	"creationDate": "07/10/2013",
-	"creationUser": "franleplant",
-	"editDate": "07/10/2013",
-	"editUser": "franleplant",
+	"audit": {
+		"createDate": "07/10/2013",
+		"createUser": "franleplant",
+		"editDate": "07/10/2013",
+		"editUser": "franleplant"	
+	},
 	"comments": "blah blah blah"
 }
 

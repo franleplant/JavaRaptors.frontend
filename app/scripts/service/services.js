@@ -189,7 +189,6 @@ factory('userLoader', ['User', '$route', '$q',
 
 				User.get({id: id}, function(user) {
 
-					delete user.id;
 					dfd.resolve(user);
 				}, function() {
 					dfd.reject('Unable to fetch user '  + id);
