@@ -143,7 +143,7 @@ controller('CreateEditBookController',
 		'$scope', '$timeout', 'Book', '$location', 'book', '$modal',
 		function ($scope, $timeout, Book, $location, book, $modal) {
 
-			$scope.book = book;
+			$scope.book = book || new Book();
 
 
 			var i = 2,
@@ -157,6 +157,9 @@ controller('CreateEditBookController',
 			};
 
 			$scope.add_author = function () {
+
+				$scope.book.authors = $scope.book.authors || [];
+
 				$scope.book.authors.push({
 					name:'new_author' + i
 				});
@@ -168,6 +171,9 @@ controller('CreateEditBookController',
 			};
 
 			$scope.add_copy = function () {
+
+				$scope.book.copys = $scope.book.copys || [];
+
 				$scope.book.copys.push({
 					comments: 'new copy' + j,
 					lendType: 'foreign',
@@ -182,6 +188,10 @@ controller('CreateEditBookController',
 			};
 
 			$scope.add_genre = function () {
+
+				$scope.book.genres = $scope.book.genres || [];
+
+
 				$scope.book.genres.push({name:'new genre' + k});
 				k++;
 			};

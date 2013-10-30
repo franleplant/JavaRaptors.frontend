@@ -53,8 +53,8 @@ jraptors.config(
 					templateUrl: 'views/book.html',
 					controller: 'CreateEditBookController',
 					resolve: {
-						book: function(bookCreateDefaultsLoader) {
-							return bookCreateDefaultsLoader();
+						book: function() {
+							return;
 						}
 					}
 				}).
