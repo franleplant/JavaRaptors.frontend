@@ -86,7 +86,7 @@ directive('jrAddressForm',[
 			replace: true,
 			templateUrl: 'views/address.html',
 			scope: {
-				model: '=ngModel'
+				address: '=ngModel'
 			},
 		};
 	}
