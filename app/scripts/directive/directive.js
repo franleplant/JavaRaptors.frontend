@@ -62,7 +62,32 @@ directive('jrDisplayAndEdit',[
 			scope: {
 				model: '=ngModel',
 				placeholder: '@jrPlaceholder',
-				type: '@type'
+				type: '@type',
+				link: '@link'
+			},
+		};
+	}
+]
+
+).
+
+
+directive('jrAddressForm',[
+
+	function() {
+
+		function link(scope, element, attrs) {
+			
+		}
+
+		return {
+			require: 'ngModel',
+			link: link,
+			restrict: 'E',
+			replace: true,
+			templateUrl: 'views/address.html',
+			scope: {
+				address: '=ngModel'
 			},
 		};
 	}

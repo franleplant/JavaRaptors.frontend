@@ -1,5 +1,4 @@
 
-
 angular.module('jraptors.Controllers', ['ui.bootstrap']).controller('SearchController',
 	[
 		'$scope', 'animations', 'Search', '$location',
@@ -143,7 +142,7 @@ controller('CreateEditBookController',
 		'$scope', '$timeout', 'Book', '$location', 'book', '$modal',
 		function ($scope, $timeout, Book, $location, book, $modal) {
 
-			$scope.book = book;
+			$scope.book = book || new Book();
 
 
 			var i = 2,
@@ -157,6 +156,9 @@ controller('CreateEditBookController',
 			};
 
 			$scope.add_author = function () {
+
+				$scope.book.authors = $scope.book.authors || [];
+
 				$scope.book.authors.push({
 					name:'new_author' + i
 				});
@@ -168,6 +170,9 @@ controller('CreateEditBookController',
 			};
 
 			$scope.add_copy = function () {
+
+				$scope.book.copys = $scope.book.copys || [];
+
 				$scope.book.copys.push({
 					comments: 'new copy' + j,
 					lendType: 'foreign',
@@ -182,6 +187,10 @@ controller('CreateEditBookController',
 			};
 
 			$scope.add_genre = function () {
+
+				$scope.book.genres = $scope.book.genres || [];
+
+
 				$scope.book.genres.push({name:'new genre' + k});
 				k++;
 			};
@@ -231,7 +240,7 @@ controller('CreateEditAffiliateController',
 		'$scope', '$timeout', 'Affiliate', '$location', 'affiliate', '$modal',
 		function ($scope, $timeout, Affiliate, $location, affiliate, $modal) {
 
-			$scope.affiliate = affiliate;
+			$scope.affiliate = affiliate || new Affiliate();
 
 			//TODO: refactor this
 
@@ -290,28 +299,7 @@ controller('CreateEditAuthorController',
 		'$scope', '$timeout', 'Author', '$location', 'author',
 		function ($scope, $timeout, Author, $location, author) {
 
-			$scope.author = author;
-
-
-			$scope.add_book = function () {
-				$scope.author.books.push({
-					title: 'new_book'
-				});
-			};
-
-			$scope.rmv_book = function (i) {
-				$scope.author.books.splice(i,1);
-			};
-
-			$scope.remove = function (callback) {
-
-				Author.remove({id: $scope.author.id}).
-					$then(function () {
-						$location.path('/');
-						callback();
-					}
-				);
-			};
+			$scope.author = author || new Author();
 
 			$scope.save = function () {
 
@@ -332,7 +320,7 @@ controller('CreateEditUserController',
 		'$scope', '$timeout', 'User', '$location', 'user',
 		function ($scope, $timeout, User, $location, user) {
 
-			$scope.user = user;
+			$scope.user = user || new User();
 
 			$scope.remove = function (callback) {
 
@@ -364,7 +352,8 @@ controller('CreateEditEditorialController',
 		'$scope', '$timeout', 'Editorial', '$location', 'editorial',
 		function ($scope, $timeout, Editorial, $location, editorial) {
 
-			$scope.editorial = editorial;
+			$scope.editorial = editorial || new Editorial();
+
 
 			$scope.remove = function (callback) {
 
@@ -429,6 +418,30 @@ controller('ReportController',
 	[
 		'$scope',
 		function ($scope) {
+		}
+	]
+).
+
+controller('LendTypeSelectController',
+	[
+		'$scope',
+		function ($scope) {
+
+			$scope.lendTypes = ['foreign', 'local'];
+		}
+	]
+).
+
+controller('DatePickerController',
+	[
+		'$scope', '$timeout',
+		function ($scope, $timeout) {
+
+			$scope.open = function() {
+				$timeout(function() {
+					$scope.opened = true;
+				});
+			};
 		}
 	]
 );

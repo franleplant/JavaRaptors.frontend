@@ -53,8 +53,8 @@ jraptors.config(
 					templateUrl: 'views/book.html',
 					controller: 'CreateEditBookController',
 					resolve: {
-						book: function(bookCreateDefaultsLoader) {
-							return bookCreateDefaultsLoader();
+						book: function() {
+							return;
 						}
 					}
 				}).
@@ -91,8 +91,8 @@ jraptors.config(
 					templateUrl: 'views/user.html',
 					controller: 'CreateEditUserController',
 					resolve: {
-						user: function(userCreateDefaultsLoader) {
-							return userCreateDefaultsLoader();
+						user: function() {
+							return;
 						}
 					}
 				}).
@@ -126,8 +126,8 @@ jraptors.config(
 					templateUrl: 'views/affiliate.html',
 					controller: 'CreateEditAffiliateController',
 					resolve: {
-						affiliate: function(affiliateCreateDefaultsLoader) {
-							return affiliateCreateDefaultsLoader();
+						affiliate: function() {
+							return;
 						}
 					}
 				}).
@@ -159,8 +159,8 @@ jraptors.config(
 					templateUrl: 'views/editorial.html',
 					controller: 'CreateEditEditorialController',
 					resolve: {
-						editorial: function(editorialCreateDefaultsLoader) {
-							return editorialCreateDefaultsLoader();
+						editorial: function() {
+							return;
 						}
 					}
 				}).
@@ -197,8 +197,8 @@ jraptors.config(
 					templateUrl: 'views/author.html',
 					controller: 'CreateEditAuthorController',
 					resolve: {
-						author: function(authorCreateDefaultsLoader) {
-							return authorCreateDefaultsLoader();
+						author: function() {
+							return;
 						}
 					}
 				}).

@@ -199,13 +199,6 @@ factory('userLoader', ['User', '$route', '$q',
 	]
 ).
 
-factory('userCreateDefaultsLoader', ['User', '$route', '$q',
-
-		function(User, $route, $q) {
-			return User;
-		}
-	]
-).
 
 
 factory('Editorial', ['$resource',
@@ -233,13 +226,8 @@ factory('editorialLoader', ['Editorial', '$route', '$q',
 	]
 ).
 
-factory('editorialCreateDefaultsLoader', ['Editorial',
 
-		function(Editorial) {
-			return Editorial;
-		}
-	]
-).
+
 
 
 factory('PathSelector', [ function () {

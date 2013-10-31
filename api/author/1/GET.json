@@ -2,12 +2,14 @@
 	"id": 1,
 	"type": "author",
 	"nick": "JK Rowling",
-	"birth": "31 de Julio de 1965",
+	"birth": "2009-08-24",
 	"isni": "0000 0001 2148 628X",
-	"creationDate": "07/10/2013",
-	"creationUser": "franleplant",
-	"editDate": "07/10/2013",
-	"editUser": "franleplant",
+	"audit": {
+		"createDate": "07/10/2013",
+		"createUser": "franleplant",
+		"editDate": "07/10/2013",
+		"editUser": "franleplant"	
+	},
 	"comments": "blah blah blah",
 	"books": [
 		{

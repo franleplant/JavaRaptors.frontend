@@ -71,33 +71,7 @@
 
 			</fieldset>
 
-			<fieldset class="span8">
-				<h3>Domicilio</h3>
-
-
-				<div class="control-group">
-					<label class="control-label">Calle: </label>
-					<jr-display-and-edit ng-model="user.street" jr-placeholder="Calle"></jr-display-and-edit>
-				</div>
-
-				<div class="control-group">
-					<label class="control-label">Numero: </label>
-					<jr-display-and-edit ng-model="user.street_number" jr-placeholder="Numero"></jr-display-and-edit>
-				</div>
-
-				<div class="control-group">
-					<label class="control-label">Piso: </label>
-					<jr-display-and-edit ng-model="user.department" jr-placeholder="Piso"></jr-display-and-edit>
-				</div>
-
-				<div class="control-group">
-					<label class="control-label">Departamento: </label>
-					<jr-display-and-edit ng-model="user.floor" jr-placeholder="Depto"></jr-display-and-edit>
-				</div>
-
-
-
-			</fieldset>
+			<jr-address-form ng-model="user.address"></jr-address-form>
 
 	
 
@@ -106,7 +80,7 @@
 				<h3>Acceso</h3>
 
 				<div class="control-group">
-					<label class="control-label">Ingrese tu contrasañea: </label>
+					<label class="control-label">Ingresa tu contrasañea: </label>
 					<jr-display-and-edit ng-model="user.password" jr-placeholder="Contraseña" type="password"></jr-display-and-edit>
 				</div>
 
@@ -120,14 +94,13 @@
 
 			<jr-audit ng-model="user.audit"></jr-audit>
 
-			<fieldset class="span9">
-				<hr/>
+			<fieldset class="span8">
 				<a class="btn" ng-href="#/user/edit/{{user.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Usuario</a>
 				<button type="submit" class="btn " ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
 			</fieldset>		
 
 
-			<fieldset class="span9" ng-if="'edit' | testPathRegExp" ng-controller="RmvController">
+			<fieldset class="span8" ng-if="'edit' | testPathRegExp" ng-controller="RmvController">
 				<hr/>
 				<button type="button" class="btn delete_entity" ng-click="open_modal_delete()"><i class="icon-remove"></i>Borrar Autor</button>
 				<hr/>

@@ -10,14 +10,24 @@
 	"isActive": true,
 	"reputation": "2",
 	"email": "mavisjustice@recrisys.com",
-	"phone": "(011) 456-3445",
-	"cellphone": "(011) 4508-3085",
-	"address": "207 Court Square, Gratton, New Hampshire, 5920",
-	"registered": "2010-07-05T06:51:14 +03:00",
-	"creationDate": 1377528419068,
-	"creationUser": "manu",
-	"editDate": 1377528419068,
-	"editUser": "franleplant",
+	"tel": "(011) 456-3445",
+	"cel": "(011) 4508-3085",
+	"address": {
+		"street": "evergreen",
+		"number": "123",
+		"department": "",
+		"floor": "7",
+		"city": "Springfield",
+		"prov": "Masauna",
+		"country": "Argentina",
+		"cp": "a20823"
+	},
+	"audit": {
+		"createDate": "07/10/2013",
+		"createUser": "franleplant",
+		"editDate": "07/10/2013",
+		"editUser": "franleplant"	
+	},
 	"lends": [
 		{
 			"id": "0003",

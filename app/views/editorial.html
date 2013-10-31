@@ -55,61 +55,15 @@
 
 			</fieldset>
 
-			<fieldset class="span8">
-				<h3>Domicilio</h3>
 
+			<jr-address-form ng-model="editorial.address"></jr-address-form>
 
-				<div class="control-group">
-					<label class="control-label">Calle: </label>
-					<jr-display-and-edit ng-model="editorial.address.street" jr-placeholder="Calle"></jr-display-and-edit>
-				</div>
-
-				<div class="control-group">
-					<label class="control-label">Numero: </label>
-					<jr-display-and-edit ng-model="editorial.address.number" jr-placeholder="Numero"></jr-display-and-edit>
-				</div>
-
-				<div class="control-group">
-					<label class="control-label">Piso: </label>
-					<jr-display-and-edit ng-model="editorial.address.floor" jr-placeholder="Piso"></jr-display-and-edit>
-				</div>
-
-				<div class="control-group">
-					<label class="control-label">Departamento: </label>
-					<jr-display-and-edit ng-model="editorial.address.department" jr-placeholder="Depto"></jr-display-and-edit>
-				</div>
-
-
-				<div class="control-group">
-					<label class="control-label">Ciudad: </label>
-					<jr-display-and-edit ng-model="editorial.address.city" jr-placeholder="Ciudad"></jr-display-and-edit>
-				</div>
-
-
-				<div class="control-group">
-					<label class="control-label">Provincia: </label>
-					<jr-display-and-edit ng-model="editorial.address.prov" jr-placeholder="Provincia"></jr-display-and-edit>
-				</div>
-
-				<div class="control-group">
-					<label class="control-label">Pais: </label>
-					<jr-display-and-edit ng-model="editorial.address.country" jr-placeholder="Pais"></jr-display-and-edit>
-				</div>
-
-				<div class="control-group">
-					<label class="control-label">Codigo Postal: </label>
-					<jr-display-and-edit ng-model="editorial.address.cp" jr-placeholder="Codigo Postal"></jr-display-and-edit>
-				</div>
-
-
-			</fieldset>
 
 	
 			<jr-audit ng-model="editorial.audit"></jr-audit>
 
 
 			<fieldset class="span9">
-				<hr/>
 				<a class="btn" ng-href="#/editorial/edit/{{editorial.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Usuario</a>
 				<button type="submit" class="btn " ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
 			</fieldset>		

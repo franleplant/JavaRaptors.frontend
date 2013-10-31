@@ -26,7 +26,9 @@ value('spanish', {
 	'author': 'autor',
 	'editorial': 'editorial',
 	'user': 'usuario',
-	'location': 'ubicacion'
+	'location': 'ubicacion',
+	'foreign': 'domiciliario',
+	'local': 'local'
 }).
 
 value('availableCopyActions', {

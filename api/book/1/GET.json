@@ -18,7 +18,8 @@
 	],
 	"genres": [
 		{
-			"name":"fantasy"
+			"name":"fantasy",
+			"link": ""
 		},
 		{
 			"name": "adventure"
@@ -37,8 +38,12 @@
 	"lang": "Spanish",
 	"val": 7,
 	"price": "30 u$s",
-	"creationDate": 1377528419068,
-	"creationUser": "franleplant",
+	"audit": {
+		"createDate": "07/10/2013",
+		"createUser": "franleplant",
+		"editDate": "07/10/2013",
+		"editUser": "franleplant"	
+	},
 	"comments": "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah",
 	"copys": [
 		{
@@ -50,8 +55,12 @@
 			},
 			"state": "good",
 			"editionYear": 2010,
-			"creationDate": 1377528419068,
-			"creationUser": "franleplant",
+			"audit": {
+				"createDate": "07/10/2013",
+				"createUser": "franleplant",
+				"editDate": "07/10/2013",
+				"editUser": "franleplant"	
+			},
 			"comments": "blah blah blah",
 			"lendType": "foreign",
 			"lend": {
@@ -80,8 +89,12 @@
 			},
 			"state": "good",
 			"editionYear": 2010,
-			"creationDate": 1377528419068,
-			"creationUser": "franleplant",
+			"audit": {
+				"createDate": "07/10/2013",
+				"createUser": "franleplant",
+				"editDate": "07/10/2013",
+				"editUser": "franleplant"	
+			},
 			"comments": "blah blah blah",
 			"lendType": "foreign"
 		}
