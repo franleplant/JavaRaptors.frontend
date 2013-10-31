@@ -439,8 +439,8 @@ controller('DatePickerController',
 
 			$scope.open = function() {
 				$timeout(function() {
-			    	$scope.opened = true;
-			    });
+					$scope.opened = true;
+				});
 			};
 		}
 	]
