@@ -226,7 +226,7 @@ angular.module('jraptorsConfigBlock', []).config(
 					function ($q, $location, UserSession) {
 						return {
 							'request': function (request) {
-								request.headers.Auth =  UserSession.token();
+								request.headers.Auth =  UserSession.token(); //sacar esto
 								return request;
 							},
 							'response': function (response) {
@@ -254,11 +254,15 @@ angular.module('jraptorsRunBlock', ['ngCookies']).run(
 			//This should be set by the server after sucessfully user login
 			$cookies.username = 'franleplant';
 			$cookies.userrole = 'super';
-			$cookies.sessionToken = 'someToken';
+
+
+			//$cookies.sessionToken = 'someToken'; 
+
 
 			UserSession.name(  $cookies.username  );
 			UserSession.role(  $cookies.userrole  );
-			UserSession.token(  $cookies.sessionToken  );
+			
+			//UserSession.token(  $cookies.sessionToken  );
 
 
 			//http://docs.angularjs.org/api/ngRoute.$route
