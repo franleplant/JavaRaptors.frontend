@@ -1,0 +1,54 @@
+[
+    {
+      "book": {
+        "id": 1,
+        "title": "Harry Potter",
+        "authors": [
+          {
+            "id": 1,
+            "name": "jk Rowling"
+          }
+        ]
+      },
+     
+     "lends_by_month": [
+        {
+          "lends": 10,
+          "month": 5,
+          "year": 2013
+        },
+        {
+          "lends": 1,
+          "month": 6,
+          "year": 2013
+        }
+       
+      ]
+    },
+    {
+      "book": {
+        "id": 2,
+        "title": "Harry Potter 2",
+        "authors": [
+          {
+            "id": 1,
+            "name": "jk Rowling"
+          }
+        ]
+      },
+     
+     "lends_by_month": [
+        {
+          "lends": 9,
+          "month": 5,
+          "year": 2013
+        },
+        {
+          "lends": 2,
+          "month": 6,
+          "year": 2013
+        }
+       
+      ]
+    }
+]
