@@ -225,7 +225,7 @@ describe('Jraptors Services', function() {
 		describe('GET', function () {
 
 			beforeEach(function () {
-				$httpBackend.expectGET('/api/book/1?format=json').
+				$httpBackend.expectGET('/api/book/1').
 					respond( mock_response_GET );
 			});
 
@@ -247,7 +247,7 @@ describe('Jraptors Services', function() {
 
 		describe('POST: create a new book', function () {
 			beforeEach(function () {
-				$httpBackend.expectPOST('/api/book?format=json').
+				$httpBackend.expectPOST('/api/book').
 					respond(  mock_response_ok  );
 			});
 
@@ -264,7 +264,7 @@ describe('Jraptors Services', function() {
 
 		describe('POST: edit an existing book', function () {
 			beforeEach(function () {
-				$httpBackend.expectPOST('/api/book/1?format=json').
+				$httpBackend.expectPOST('/api/book/1').
 					respond(  mock_response_ok  );
 			});
 
@@ -282,7 +282,7 @@ describe('Jraptors Services', function() {
 
 		describe('DELETE', function () {
 			beforeEach(function () {
-				$httpBackend.expectDELETE('/api/book/1?format=json').
+				$httpBackend.expectDELETE('/api/book/1').
 					respond(  mock_response_ok  );
 			});
 
@@ -317,7 +317,7 @@ describe('Jraptors Services', function() {
 		describe('GET', function () {
 
 			beforeEach(function () {
-				$httpBackend.expectGET('/api/author/1?format=json').
+				$httpBackend.expectGET('/api/author/1').
 					respond( mock_response_GET );
 			});
 
@@ -339,7 +339,7 @@ describe('Jraptors Services', function() {
 
 		describe('POST: create a new author', function () {
 			beforeEach(function () {
-				$httpBackend.expectPOST('/api/author?format=json').
+				$httpBackend.expectPOST('/api/author').
 					respond(  mock_response_ok  );
 			});
 
@@ -358,7 +358,7 @@ describe('Jraptors Services', function() {
 
 		describe('POST: edit an existing author', function () {
 			beforeEach(function () {
-				$httpBackend.expectPOST('/api/author/1?format=json').
+				$httpBackend.expectPOST('/api/author/1').
 					respond(  mock_response_ok  );
 			});
 
@@ -376,7 +376,7 @@ describe('Jraptors Services', function() {
 
 		describe('DELETE', function () {
 			beforeEach(function () {
-				$httpBackend.expectDELETE('/api/author/1?format=json').
+				$httpBackend.expectDELETE('/api/author/1').
 					respond(  mock_response_ok  );
 			});
 
@@ -412,7 +412,7 @@ describe('Jraptors Services', function() {
 		describe('GET', function () {
 
 			beforeEach(function () {
-				$httpBackend.expectGET('/api/user/1?format=json').
+				$httpBackend.expectGET('/api/user/1').
 					respond( mock_response_GET );
 			});
 
@@ -434,7 +434,7 @@ describe('Jraptors Services', function() {
 
 		describe('POST: create a new user', function () {
 			beforeEach(function () {
-				$httpBackend.expectPOST('/api/user?format=json').
+				$httpBackend.expectPOST('/api/user').
 					respond(  mock_response_ok  );
 			});
 
@@ -453,7 +453,7 @@ describe('Jraptors Services', function() {
 
 		describe('POST: edit an existing user', function () {
 			beforeEach(function () {
-				$httpBackend.expectPOST('/api/user/1?format=json').
+				$httpBackend.expectPOST('/api/user/1').
 					respond(  mock_response_ok  );
 			});
 
@@ -471,7 +471,7 @@ describe('Jraptors Services', function() {
 
 		describe('DELETE', function () {
 			beforeEach(function () {
-				$httpBackend.expectDELETE('/api/user/1?format=json').
+				$httpBackend.expectDELETE('/api/user/1').
 					respond(  mock_response_ok  );
 			});
 
