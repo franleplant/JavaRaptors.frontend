@@ -1,5 +1,18 @@
 angular.module('jraptorsConfig', []).
 
+
+// Easy api root route changing
+// Select one of the following two
+
+// 'standalone': for running the Front End solo with the mocked API
+// 'backend': for running the Front End with the real API provided by the backend
+value('Mode', 'standalone').
+
+value('Routes', {
+	standalone: '/api/',
+	backend: '/javaraptors/api/'
+}).
+
 value('entityLabel', {
 	'book': '',
 	'copy': 'label-inverse',
