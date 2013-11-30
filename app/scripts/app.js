@@ -226,6 +226,16 @@ jraptors.config(
 					}
 				}).
 
+				when('/report/lop',{
+					templateUrl: 'views/report_lop.html',
+					controller: 'ReportLopsController',
+					resolve: {
+						reportLops: function(reportLopsLoader) {
+							return reportLopsLoader();
+						}
+					}
+				}).
+
 				when('/401',         {templateUrl: 'views/401.html', controller: 'ReportController'}).
 
 				otherwise({redirectTo: '/book'});

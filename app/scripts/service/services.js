@@ -283,6 +283,33 @@ factory('reportLateReturnsLoader', ['ReportLateReturns', '$route', '$q',
 
 
 
+factory('ReportLops', ['$resource',
+		function ($resource) {
+			return $resource('/api/report_lop/', {format: 'json'}, {});
+		}
+	]
+).
+
+
+factory('reportLopsLoader', ['ReportLops', '$route', '$q',
+
+		function(ReportLops, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				ReportLops.query( function(reportLops) {
+					dfd.resolve(reportLops);
+				}, function() {
+					dfd.reject('Unable to fetch reportLops');
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
+
+
 
 factory('PathSelector', [ function () {
 
