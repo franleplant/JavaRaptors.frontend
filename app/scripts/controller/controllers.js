@@ -422,6 +422,15 @@ controller('ReportController',
 	]
 ).
 
+controller('ReportLendsController',
+	[
+		'$scope', 'reportLends',
+		function ($scope, reportLends) {
+			$scope.reportLends = reportLends;
+		}
+	]
+).
+
 controller('LendTypeSelectController',
 	[
 		'$scope',

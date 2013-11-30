@@ -206,6 +206,16 @@ jraptors.config(
 
 				when('/report',      {templateUrl: 'views/report.html', controller: 'ReportController'}).
 
+				when('/report/lends',{
+					templateUrl: 'views/report_lends.html',
+					controller: 'ReportLendsController',
+					resolve: {
+						reportLends: function(reportLendsLoader) {
+							return reportLendsLoader();
+						}
+					}
+				}).
+
 				when('/401',         {templateUrl: 'views/401.html', controller: 'ReportController'}).
 
 				otherwise({redirectTo: '/book'});

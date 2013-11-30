@@ -228,6 +228,32 @@ factory('editorialLoader', ['Editorial', '$route', '$q',
 
 
 
+factory('ReportLends', ['$resource',
+		function ($resource) {
+			return $resource('/api/report_lends/', {format: 'json'}, {});
+		}
+	]
+).
+
+
+
+factory('reportLendsLoader', ['ReportLends', '$route', '$q',
+
+		function(ReportLends, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				ReportLends.query( function(reportLends) {
+					dfd.resolve(reportLends);
+				}, function() {
+					dfd.reject('Unable to fetch reportLends');
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
 
 
 factory('PathSelector', [ function () {

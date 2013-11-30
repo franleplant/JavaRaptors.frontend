@@ -30,20 +30,6 @@
 	</thead>
 	<tbody>
 
-		<!-- 
-		<div repetir por libro>
-
-		<tr repetir por prestamo>
-				<td>libro.titulo</td>
-				<td>libro.autor</td>
-				<td>lend.mes</td>
-				<td>lend.numero de prestamos</td>
-
-		</tr>
-
-		</div>
-
-
 		<tr ng-repeat="result in reportLends">
 			<td>
 				<a ng-href="#/book/detailed_view/{{result.book.id}}" 
@@ -73,37 +59,19 @@
 			</td>
 		</tr>
 
--->
-		<div ng-repeat="result in reportLends.book">
-			<tr ng-repeat="lend_by_month in result.lends_by_month">
-				<td>
-					<a ng-href="#/book/detailed_view/{{result.book.id}}" 
-					href="#/book/detailed_view/{{result.book.id}}">
-						{{ result.book.title }}
-					</a>
-				</td>
-				<td> 
-					<a ng-repeat="author in result.book.authors" ng-href="#/author/detailed_view/{{author.id}}" href="#/author/detailed_view/{{author.id}}"> 
-						{{ author.name }} 
-					</a> 
-				</td>
-				<td > 
-					<p ng-repeat="lend_by_month in result.lends_by_month">
-						{{ lend_by_month.lends }}
-					</p>
-				</td>
-				<td>
-					<p ng-repeat="lend_by_month in result.lends_by_month">
-						{{ lend_by_month.month}}
-					</p>
-				</td>
-				<td>
-					<p ng-repeat="lend_by_month in result.lends_by_month">
-						{{ lend_by_month.year }}
-					</p>
-				</td>
-			</tr>
-		</div>
-
 	</tbody>
 </table>
+
+
+
+	<!-- 	<div repetir por libro>
+	
+	<tr repetir por prestamo>
+			<td>libro.titulo</td>
+			<td>libro.autor</td>
+			<td>lend.mes</td>
+			<td>lend.numero de prestamos</td>
+	
+	</tr>
+	
+	</div> -->
