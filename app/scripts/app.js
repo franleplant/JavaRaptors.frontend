@@ -206,6 +206,36 @@ jraptors.config(
 
 				when('/report',      {templateUrl: 'views/report.html', controller: 'ReportController'}).
 
+				when('/report/lends',{
+					templateUrl: 'views/report_lends.html',
+					controller: 'ReportLendsController',
+					resolve: {
+						reportLends: function(reportLendsLoader) {
+							return reportLendsLoader();
+						}
+					}
+				}).
+
+				when('/report/late_returns',{
+					templateUrl: 'views/report_late_returns.html',
+					controller: 'ReportLateReturnsController',
+					resolve: {
+						reportLateReturns: function(reportLateReturnsLoader) {
+							return reportLateReturnsLoader();
+						}
+					}
+				}).
+
+				when('/report/lop',{
+					templateUrl: 'views/report_lop.html',
+					controller: 'ReportLopsController',
+					resolve: {
+						reportLops: function(reportLopsLoader) {
+							return reportLopsLoader();
+						}
+					}
+				}).
+
 				when('/401',         {templateUrl: 'views/401.html', controller: 'ReportController'}).
 
 				otherwise({redirectTo: '/book'});

@@ -1,6 +1,6 @@
 <div class="text-center" style="margin: 0 0 20px;">
 	<a ng-href="#/report/lends" href="#/report/lends">
-		<button class="btn btn-large btn-inverse" type="button" title="Listado con la cantidad total de retiros de libros realizada durante los últimos 12 meses."> <i class="icon-info-sign icon-white"></i>  Retiros
+		<button class="btn btn-large btn-inverse active" type="button" title="Listado con la cantidad total de retiros de libros realizada durante los últimos 12 meses."> <i class="icon-info-sign icon-white"></i>  Retiros
 		</button>
 	</a>
 	<a ng-href="#/report/late_returns" href="#/report/lends">
@@ -17,7 +17,6 @@
 
 <p class="text-center" style="margin: 0 0 20px;">Listado con la cantidad total de retiros de libros realizada durante los últimos 12 meses.</p>
 
-<b>a: {{ reportLends}} </b>
 <table class="table table-hover table-striped">
 	<thead>
 		<tr>
@@ -29,20 +28,6 @@
 		</tr>
 	</thead>
 	<tbody>
-
-		<!-- 
-		<div repetir por libro>
-
-		<tr repetir por prestamo>
-				<td>libro.titulo</td>
-				<td>libro.autor</td>
-				<td>lend.mes</td>
-				<td>lend.numero de prestamos</td>
-
-		</tr>
-
-		</div>
-
 
 		<tr ng-repeat="result in reportLends">
 			<td>
@@ -73,37 +58,19 @@
 			</td>
 		</tr>
 
--->
-		<div ng-repeat="result in reportLends.book">
-			<tr ng-repeat="lend_by_month in result.lends_by_month">
-				<td>
-					<a ng-href="#/book/detailed_view/{{result.book.id}}" 
-					href="#/book/detailed_view/{{result.book.id}}">
-						{{ result.book.title }}
-					</a>
-				</td>
-				<td> 
-					<a ng-repeat="author in result.book.authors" ng-href="#/author/detailed_view/{{author.id}}" href="#/author/detailed_view/{{author.id}}"> 
-						{{ author.name }} 
-					</a> 
-				</td>
-				<td > 
-					<p ng-repeat="lend_by_month in result.lends_by_month">
-						{{ lend_by_month.lends }}
-					</p>
-				</td>
-				<td>
-					<p ng-repeat="lend_by_month in result.lends_by_month">
-						{{ lend_by_month.month}}
-					</p>
-				</td>
-				<td>
-					<p ng-repeat="lend_by_month in result.lends_by_month">
-						{{ lend_by_month.year }}
-					</p>
-				</td>
-			</tr>
-		</div>
-
 	</tbody>
 </table>
+
+
+
+	<!-- 	<div repetir por libro>
+	
+	<tr repetir por prestamo>
+			<td>libro.titulo</td>
+			<td>libro.autor</td>
+			<td>lend.mes</td>
+			<td>lend.numero de prestamos</td>
+	
+	</tr>
+	
+	</div> -->

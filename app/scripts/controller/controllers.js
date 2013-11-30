@@ -422,6 +422,33 @@ controller('ReportController',
 	]
 ).
 
+controller('ReportLendsController',
+	[
+		'$scope', 'reportLends',
+		function ($scope, reportLends) {
+			$scope.reportLends = reportLends;
+		}
+	]
+).
+
+controller('ReportLateReturnsController',
+	[
+		'$scope', 'reportLateReturns',
+		function ($scope, reportLateReturns) {
+			$scope.reportLateReturns = reportLateReturns;
+		}
+	]
+).
+
+controller('ReportLopsController',
+	[
+		'$scope', 'reportLops',
+		function ($scope, reportLops) {
+			$scope.reportLops = reportLops;
+		}
+	]
+).
+
 controller('LendTypeSelectController',
 	[
 		'$scope',
