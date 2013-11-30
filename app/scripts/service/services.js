@@ -256,6 +256,34 @@ factory('reportLendsLoader', ['ReportLends', '$route', '$q',
 
 
 
+factory('ReportLateReturns', ['$resource',
+		function ($resource) {
+			return $resource('/api/report_late_returns/', {format: 'json'}, {});
+		}
+	]
+).
+
+
+factory('reportLateReturnsLoader', ['ReportLateReturns', '$route', '$q',
+
+		function(ReportLateReturns, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				ReportLateReturns.query( function(reportLateReturns) {
+					dfd.resolve(reportLateReturns);
+				}, function() {
+					dfd.reject('Unable to fetch reportLateReturns');
+				});
+				return dfd.promise;
+			};
+		}
+	]
+).
+
+
+
+
 factory('PathSelector', [ function () {
 
 			//TODO: Document this function and the next one

@@ -431,6 +431,15 @@ controller('ReportLendsController',
 	]
 ).
 
+controller('ReportLateReturnsController',
+	[
+		'$scope', 'reportLateReturns',
+		function ($scope, reportLateReturns) {
+			$scope.reportLateReturns = reportLateReturns;
+		}
+	]
+).
+
 controller('LendTypeSelectController',
 	[
 		'$scope',
