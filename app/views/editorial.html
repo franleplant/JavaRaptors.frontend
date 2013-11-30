@@ -59,6 +59,23 @@
 			<jr-address-form ng-model="editorial.address"></jr-address-form>
 
 
+			<fieldset class="span12">
+
+				<h3>
+					Libros
+					<a class="btn" ng-href="#/book/create" target="_blank"><i class="icon-plus-sign"></i></a>
+				</h3>
+
+				<section ng-repeat="book in editorial.books">
+
+					<a ng-href="#/book/detailed_view/{{book.id}}">
+						<h5>{{book.title}}</h5>
+					</a>
+				</section>
+
+				<hr/>
+			</fieldset>
+
 	
 			<jr-audit ng-model="editorial.audit"></jr-audit>
 
