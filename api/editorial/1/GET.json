@@ -22,5 +22,15 @@
 		"createUser": "franleplant",
 		"editDate": "07/10/2013",
 		"editUser": "franleplant"	
-	}
+	},
+	"books": [
+		{
+			"id": 1,
+			"title": "Harry Poter 1 and the Sorcerer's Stone"
+		},
+		{
+			"id": 2,
+			"title": "Harry Poter 2 and the Chamber of Secrets"					
+		}
+	]
 }

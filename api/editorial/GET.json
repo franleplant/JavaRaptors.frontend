@@ -20,7 +20,17 @@
 			},
 			"tel": "123123123",
 			"email": "ronald@mcdonalds.com",
-			"web": "www.mcdonalds.com"
+			"web": "www.mcdonalds.com",
+			"books": [
+				{
+					"id": 1,
+					"title": "Harry Poter 1 and the Sorcerer's Stone"
+				},
+				{
+					"id": 2,
+					"title": "Harry Poter 2 and the Chamber of Secrets"					
+				}
+			]
 		},
 		{
 			"id": 2,
@@ -40,7 +50,17 @@
 			},
 			"tel": "123123123",
 			"email": "ronald@mcdonalds.com",
-			"web": "www.mcdonalds.com"
+			"web": "www.mcdonalds.com",
+			"books": [
+				{
+					"id": 1,
+					"title": "Harry Poter 1 and the Sorcerer's Stone"
+				},
+				{
+					"id": 2,
+					"title": "Harry Poter 2 and the Chamber of Secrets"					
+				}
+			]
 		},
 		{
 			"id": 3,
@@ -60,7 +80,17 @@
 			},
 			"tel": "123123123",
 			"email": "ronald@mcdonalds.com",
-			"web": "www.mcdonalds.com"
+			"web": "www.mcdonalds.com",
+			"books": [
+				{
+					"id": 1,
+					"title": "Harry Poter 1 and the Sorcerer's Stone"
+				},
+				{
+					"id": 2,
+					"title": "Harry Poter 2 and the Chamber of Secrets"					
+				}
+			]
 		}
 	]
 }

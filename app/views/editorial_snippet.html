@@ -6,7 +6,7 @@
 		<h4 class="media-heading">{{result.name}}</h4>
 	</a>
 
-	<dl class="snippet_spec" compact>
+	<dl class="snippet_spec clearfix" compact>
 
 		<dt>Razon Social</dt>
 		<dd>{{result.legal_name}}</dd>
@@ -17,7 +17,13 @@
 		<dt>Contacto</dt>
 		<dd>{{result.tel}}</dd>
 		<dd>{{result.email}}</dd>
+	
+		<dt>Libros</dt>
 
+	</dl>
+
+	<dl class="snippet_spec" compact ng-repeat="book in result.books">
+		<dd> <a href="#/book/detailed_view/{{book.id}}" ng-bind="book.title"></a> </dd>
 	</dl>
 
 	
