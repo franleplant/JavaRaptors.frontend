@@ -235,9 +235,9 @@ factory('editorialLoader', ['Editorial', '$route', '$q',
 
 
 
-factory('ReportLends', ['$resource',
-		function ($resource) {
-			return $resource('/api/report_lends/', {format: 'json'}, {});
+factory('ReportLends', ['$resource', 'RootRoute',
+		function ($resource, RootRoute) {
+			return $resource(  RootRoute + 'report_lends/', {}, {});
 		}
 	]
 ).
@@ -263,9 +263,9 @@ factory('reportLendsLoader', ['ReportLends', '$route', '$q',
 
 
 
-factory('ReportLateReturns', ['$resource',
-		function ($resource) {
-			return $resource('/api/report_late_returns/', {format: 'json'}, {});
+factory('ReportLateReturns', ['$resource', 'RootRoute',
+		function ($resource, RootRoute) {
+			return $resource(   RootRoute  +  'report_late_returns/', {}, {});
 		}
 	]
 ).
@@ -290,24 +290,24 @@ factory('reportLateReturnsLoader', ['ReportLateReturns', '$route', '$q',
 
 
 
-factory('ReportLops', ['$resource',
-		function ($resource) {
-			return $resource('/api/report_lop/', {format: 'json'}, {});
+factory('ReportTops', ['$resource', 'RootRoute',
+		function ($resource, RootRoute) {
+			return $resource( RootRoute + 'report_top/', {}, {});
 		}
 	]
 ).
 
 
-factory('reportLopsLoader', ['ReportLops', '$route', '$q',
+factory('reportTopsLoader', ['ReportTops', '$route', '$q',
 
-		function(ReportLops, $route, $q) {
+		function(ReportTops, $route, $q) {
 			return function() {
 				var dfd = $q.defer();
 
-				ReportLops.query( function(reportLops) {
-					dfd.resolve(reportLops);
+				ReportTops.query( function(reportTops) {
+					dfd.resolve(reportTops);
 				}, function() {
-					dfd.reject('Unable to fetch reportLops');
+					dfd.reject('Unable to fetch reportTops');
 				});
 				return dfd.promise;
 			};

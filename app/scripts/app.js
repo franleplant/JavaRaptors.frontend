@@ -226,12 +226,12 @@ jraptors.config(
 					}
 				}).
 
-				when('/report/lop',{
-					templateUrl: 'views/report_lop.html',
-					controller: 'ReportLopsController',
+				when('/report/top',{
+					templateUrl: 'views/report_top.html',
+					controller: 'ReportTopsController',
 					resolve: {
-						reportLops: function(reportLopsLoader) {
-							return reportLopsLoader();
+						reportLops: function(reportTopsLoader) {
+							return reportTopsLoader();
 						}
 					}
 				}).

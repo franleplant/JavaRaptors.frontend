@@ -440,7 +440,7 @@ controller('ReportLateReturnsController',
 	]
 ).
 
-controller('ReportLopsController',
+controller('ReportTopsController',
 	[
 		'$scope', 'reportLops',
 		function ($scope, reportLops) {
