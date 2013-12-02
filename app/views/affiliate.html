@@ -63,9 +63,9 @@
 						<jr-display-and-edit ng-model="affiliate.reputation" jr-placeholder="Reputación"></jr-display-and-edit>
 					</div>
 
-	 				<div class="control-group">
-						<label class="control-label">Estado: </label>
-						<jr-display-and-edit ng-model="affiliate.isActive" jr-placeholder="Estado"></jr-display-and-edit>
+	 				<div class="control-group" ng-if="'detailed_view' | testPathRegExp">
+						<label class="control-label">Habilitado:</label>
+						<span>{{affiliate.isActive | not | checkmark}}</span>
 					</div>
 
 	 				<div class="control-group">
@@ -80,19 +80,17 @@
 
 				<fieldset class="span9">
 					<div class="span12">
-						<h3>Prestamos otorgados a {{affiliate.name}}
+						<h3>Prestamos vigentes de {{affiliate.name}}
 
 						</h3> 
 						<table class="table table-hover">
 							<thead>
 								<tr>
 									<th>Ejemplar - Libro</th>
-									<th>Tipo</th>
-									<th>Estado</th>
-									<th title="Fecha de préstamo">F. Prestamo</th>
-									<th title="Fecha de Devolución Pactada">F. Dev. Pactada</th>		
-									<th title="Fecha de Devolucición Real">F. Dev. Real</th>
-									<th>Estado del ejemplar anterior - posterior al prestamo</th>
+									<th>Tipo de Prestamo</th>
+									<th>Fecha de Prestamo</th>
+									<th>Fecha de Devolucion Esperada</th>		
+									<th>Comentarios del prestamo</th>
 								</tr>
 							</thead>
 
@@ -101,7 +99,7 @@
 
 									<td>
 										<a ng-href="#/book/detailed_view/{{lend.copy.id}}" href="#/book/detailed_view/{{lend.copy.id}}">
-											{{lend.copy.id}} - {{lend.copy.bookTitle}}
+											{{lend.copy.id}} - {{lend.copy.title}}
 										</a>
 									</td>
 
@@ -109,9 +107,6 @@
 										{{lend.type}}
 									</td>
 
-									<td>
-										{{lend.status}}
-									</td>
 													
 									<td>
 										{{lend.lendingDate | date:'dd-MM-yy'}}
@@ -122,11 +117,7 @@
 									</td>	
 
 									<td>
-										{{lend.realReturnDate | date:'dd-MM-yy'}}
-									</td>
-
-									<td>
-										{{lend.copy.stateOnLend}} - {{lend.copy.stateOffLend}}
+										{{lend.comments}}
 									</td>
 									
 								</tr>

@@ -1,90 +1,43 @@
 {
-	"id": 1,
-	"legajo": 1,
-	"type": "affiliate",
-	"img": "img/default-user-icon-profile.png",
-	"name": "Mavis",
-	"lastName": "Justice",
-	"dni": 28434410,
-	"cuit": 52402509030,
-	"isActive": true,
-	"reputation": "2",
-	"email": "mavisjustice@recrisys.com",
-	"tel": "(011) 456-3445",
-	"cel": "(011) 4508-3085",
-	"address": {
-		"street": "evergreen",
-		"number": "123",
-		"department": "",
-		"floor": "7",
-		"city": "Springfield",
-		"prov": "Masauna",
-		"country": "Argentina",
-		"cp": "a20823"
-	},
-	"audit": {
-		"createDate": "07/10/2013",
-		"createUser": "franleplant",
-		"editDate": "07/10/2013",
-		"editUser": "franleplant"	
-	},
-	"lends": [
-		{
-			"id": "0003",
-			"copy": {
-				"id": "1",
-				"bookTitle": "Harry Poter 1 and the Sorcerer's Stone",
-				"stateOnLend": "good",
-				"stateOffLend": "good"
-				},
-			"type": "domiciliario",
-			"lendingDate": 1377528419068,
-			"expectedReturnDate": 1377528419068,
-			"realReturnDate": 1377528419068,
-			"status": "finalizado",
-			"lendingUser": {
-				"id": "1",
-				"userName": "franleplant"
-				},
-			"comments": "blah blah blah"
-		},
-		{
-			"id": "0004",
-			"copy": {
-				"id": "1",
-				"bookTitle": "Harry Poter 2",
-				"stateOnLend": "very good",
-				"stateOffLend": "good"
-				},
-			"type": "local",
-			"lendingDate": 1377528419068,
-			"expectedReturnDate": 1377628419068,
-			"realReturnDate": 1377528419068,
-			"status": "finalizado",
-			"lendingUser": {
-				"id": "1",
-				"userName": "manumental32"
-				},
-			"comments": "blah blah blah"
-		},
-		{
-			"id": "0005",
-			"copy": {
-				"id": "1",
-				"bookTitle": "Harry Poter 2",
-				"stateOnLend": "very good",
-				"stateOffLend": "good"
-				},
-			"type": "local",
-			"lendingDate": 1377528419068,
-			"expectedReturnDate": 1377628419068,
-			"realReturnDate": 1377528419068,
-			"status": "finalizado",
-			"lendingUser": {
-				"id": "1",
-				"userName": "manu"
-				},
-			"comments": "blah blah blah"
-		}
-	]
+    "id": 1,
+    "name": "Jesus",
+    "lastName": "DeLaFerrere",
+    "dni": "1234567",
+    "cuil": "1234566",
+    "email": "jesus@cielo.com",
+    "tel": 1234567,
+    "cel": 1234567,
+    "reputation": 10.0,
+    "type": "affiliate",
+    "img": null,
+    "audit": {
+        "createDate": "2013-10-10",
+        "editDate": null,
+        "deleteDate": null,
+        "createUser": "GuzmanClaudia",
+        "editUser": null,
+        "deleteUser": null
+    },
+    "address": {
+        "street": "Avenida Del Juego de la Oca",
+        "number": 123,
+        "department": null,
+        "floor": null,
+        "city": "Campana",
+        "cp": "1234",
+        "prov": "Buenos Aires",
+        "country": "Argentina"
+    },
+    "lends": [{
+        "id": 2,
+        "type": "foreign",
+        "lendingDate": 1385694000000,
+        "expectedReturnDate": 1388372400000,
+        "comments": "Salio nuevo",
+        "copy": {
+            "id": 2,
+            "title": "Harry Potter y La Piedra Filosofal"
+        }
+    }],
+    "active": true
 }
