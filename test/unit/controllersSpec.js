@@ -41,7 +41,7 @@ describe('Controllers', function(){
 
 		beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $location) {
 			$httpBackend = _$httpBackend_;
-			$httpBackend.expectGET('/api/book?format=json&page_number=1').
+			$httpBackend.expectGET('/api/book?page_number=1').
 				respond(  mock_response  );
 
 			$location.path('/book');
@@ -89,7 +89,7 @@ describe('Controllers', function(){
 
 		beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $location, bookCreateDefaultsLoader) {
 			$httpBackend = _$httpBackend_;
-			$httpBackend.whenPOST('/api/book?format=json').
+			$httpBackend.whenPOST('/api/book').
 				respond(  mock_response  );
 
 			$location.path('/book/create');

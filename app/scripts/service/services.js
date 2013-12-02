@@ -8,11 +8,18 @@ service('animations', function () {
 	this.proxy = jraptors.animations;
 }).
 
+factory('RootRoute', [ 'Mode', 'Routes',
 
-factory('Search', ['$resource',
+		function (Mode, Routes) {
+			return Routes[Mode];
+		}
+	]
+).
 
-		function ($resource) {
-			return $resource('/api/:entityType', {format: 'json', page_number: 1}, {
+factory('Search', ['$resource', 'RootRoute',
+
+		function ($resource, RootRoute) {
+			return $resource(  RootRoute + ':entityType', {page_number: 1}, {
 				query: {
 					method: 'GET',
 					isArray: false
@@ -22,10 +29,10 @@ factory('Search', ['$resource',
 	]
 ).
 
-factory('Book', ['$resource',
+factory('Book', ['$resource', 'RootRoute',
 
-		function ($resource) {
-			return $resource('/api/book/:id', {id: '@id', format: 'json'}, {});
+		function ($resource, RootRoute) {
+			return $resource(  RootRoute + 'book/:id', {id: '@id'}, {});
 		}
 	]
 ).
@@ -82,9 +89,9 @@ factory('bookCreateDefaultsLoader', ['Book',
 ).
 
 
-factory('Author', ['$resource',
-		function ($resource) {
-			return $resource('/api/author/:id', {id: '@id', format: 'json'}, {});
+factory('Author', ['$resource', 'RootRoute',
+		function ($resource, RootRoute) {
+			return $resource(  RootRoute + 'author/:id', {id: '@id'}, {});
 		}
 	]
 ).
@@ -127,10 +134,10 @@ factory('authorCreateDefaultsLoader', ['Author', '$route', '$q',
 ).
 
 
-factory('Affiliate', ['$resource',
+factory('Affiliate', ['$resource', 'RootRoute',
 
-		function ($resource) {
-			return $resource('/api/affiliate/:id', {id: '@id', format: 'json'}, {});
+		function ($resource, RootRoute) {
+			return $resource(  RootRoute + 'affiliate/:id', {id: '@id'}, {});
 		}
 	]
 ).
@@ -172,9 +179,9 @@ factory('affiliateCreateDefaultsLoader', ['Affiliate', '$route', '$q',
 ).
 
 
-factory('User', ['$resource',
-		function ($resource) {
-			return $resource('/api/user/:id', {id: '@id', format: 'json'}, {});
+factory('User', ['$resource', 'RootRoute',
+		function ($resource, RootRoute) {
+			return $resource(  RootRoute + 'user/:id', {id: '@id'}, {});
 		}
 	]
 ).
@@ -201,9 +208,9 @@ factory('userLoader', ['User', '$route', '$q',
 
 
 
-factory('Editorial', ['$resource',
-		function ($resource) {
-			return $resource('/api/editorial/:id', {id: '@id', format: 'json'}, {});
+factory('Editorial', ['$resource', 'RootRoute',
+		function ($resource, RootRoute) {
+			return $resource(  RootRoute + 'editorial/:id', {id: '@id'}, {});
 		}
 	]
 ).
@@ -415,4 +422,6 @@ factory('UserSession', [ 'PathSelector', 'UserRoles',
 		}
 	]
 );
+
+
 
