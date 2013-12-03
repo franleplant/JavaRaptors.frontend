@@ -10,7 +10,7 @@ value('Mode', 'standalone').
 
 value('Routes', {
 	standalone: '/api/',
-	backend: '/javaraptors/api/'
+	backend: '/javaraptors.backend/api/'
 }).
 
 value('entityLabel', {
