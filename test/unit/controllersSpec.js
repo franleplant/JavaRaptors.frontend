@@ -130,30 +130,30 @@ describe('Controllers', function(){
 		describe('rm_copy method', function () {
 			it('should remove the copy in the position 0 of the copys array', function() {
 
-				scope.book.copys.push({
+				scope.book.copies.push({
 					comments: 'new copy2',
-					lendType: 'foreign',
+					lendType: ['foreign'],
 					editionYear: (new Date()).getFullYear(),
 					state: 'nuevo'
 				});
 
-				expect(scope.book.copys.length).toBe(  2  );
+				expect(scope.book.copies.length).toBe(  2  );
 
 				scope.rm_copy(0);
 
-				expect(scope.book.copys.length).toBe(  1  );
-				expect(scope.book.copys[0].comments).toBe(  'new copy2'  );
+				expect(scope.book.copies.length).toBe(  1  );
+				expect(scope.book.copies[0].comments).toBe(  'new copy2'  );
 			});
 		});
 
 		describe('add_copy method', function () {
 			it('should add a copy to the copys array', function() {
 
-				expect(scope.book.copys.length).toBe(  1  );
+				expect(scope.book.copies.length).toBe(  1  );
 
 				scope.add_copy();
 
-				expect(scope.book.copys.length).toBe(  2  );
+				expect(scope.book.copies.length).toBe(  2  );
 			});
 		});
 

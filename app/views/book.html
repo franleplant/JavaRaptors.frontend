@@ -23,19 +23,17 @@
 
 					<div class="authors clearfix" ng-if="'detailed_view' | testPathRegExp">			
 						<a ng-repeat="author in book.authors" ng-href="#/author/detailed_view/{{author.id}}" target="_blank">
-							<h3 class="media-heading">{{author.name}}</h3>
+							<h3 class="media-heading">{{author.nick}}</h3>
 						</a>
 					</div>
 
-
-
-
+					<!-- THIS IS NOT BEEING USED, BUT WHEN ERASED IT CHANGES THE PAGE LAYOUT, REMOVE IT WITH MORE TIME TO FIX IT-->
 					<div ng-if="'edit, create' | testPathRegExp">
 						<h3>Autores <button type="button" class="btn" ng-click="add_author()"><i class="icon-plus-sign"></i></button></h3>
-						<span ng-repeat="author in book.authors" ng-model="author.name" contentEditable="{{'edit, create' | testPathRegExp}}">
-							{{author.name}}
+						<span ng-repeat="author in book.authors" ng-model="author.nick" contentEditable="{{'edit, create' | testPathRegExp}}">
+							{{author.nick}}
 							<button class="btn" ng-click="rm_author($index)"><i class="icon-minus-sign"></i></button>
-						</span>
+						</span> 
 
 					</div>
 				
@@ -125,7 +123,7 @@
 			 				<button class="btn" ng-click="rm_author($index)" ng-if="'edit, create' | testPathRegExp"><i class="icon-minus-sign"></i></button>
 			 			</label>
 						
-						<jr-display-and-edit ng-model="author.name" jr-placeholder="Nuevo Autor"></jr-display-and-edit>
+						<jr-display-and-edit ng-model="author.nick" jr-placeholder="Nuevo Autor"></jr-display-and-edit>
 						
 					</div>			
 
@@ -194,7 +192,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="copy in book.copys">
+								<tr ng-repeat="copy in book.copies">
 									<td>{{copy.id}}</td>
 
 									<td>
@@ -233,10 +231,25 @@
 									</td>	
 
 									<td>
-										<span ng-if="'detailed_view' | testPathRegExp">{{copy.lendType}}</span>
-										<select ng-if="'edit, create' | testPathRegExp" ng-model="copy.lendType" 
+										<p ng-if="'detailed_view' | testPathRegExp">
+											<span>{{copy.lendType[0]}}</span>
+											<span>, {{copy.lendType[1]}}</span>
+										</p>
+										
+<!-- 										<select ng-if="'edit, create' | testPathRegExp" ng-model="copy.lendType" 
 											ng-options="lt | translate for lt in lendTypes" ng-controller="LendTypeSelectController">
-										</select>
+										</select> -->
+										<div ng-if="'edit, create' | testPathRegExp" ng-controller="LendTypeSelectController">
+											<span ng-repeat="lt in lendTypes_options">
+												<input type="checkbox"  ng-model="copy[lt]" ng-change="change(lt)">
+												{{lt}}
+												<br/>
+											</span>
+											
+											
+											
+										</div>
+		
 									</td>
 
 									<td>
@@ -263,7 +276,7 @@
 				<jr-audit ng-model="book.audit"></jr-audit>
 
 				<fieldset class="span8" ng-if="'edit' | testPathRegExp">
-					<button type="button" class="btn delete_entity" ng-click="open_modal_delete()"><i class="icon-remove"></i> Borrar el Libro</button>
+					<button type="button" class="btn delete_entity" ng-click="confirm()"><i class="icon-remove"></i> Borrar el Libro</button>
 				</fieldset>
 
 

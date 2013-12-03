@@ -160,20 +160,20 @@ controller('CreateEditBookController',
 				$scope.book.authors = $scope.book.authors || [];
 
 				$scope.book.authors.push({
-					name:'new_author' + i
+					nick:'new_author' + i
 				});
 				i++;
 			};
 
 			$scope.rm_copy = function (i) {
-				$scope.book.copys.splice(i,1);
+				$scope.book.copies.splice(i,1);
 			};
 
 			$scope.add_copy = function () {
 
-				$scope.book.copys = $scope.book.copys || [];
+				$scope.book.copies = $scope.book.copies || [];
 
-				$scope.book.copys.push({
+				$scope.book.copies.push({
 					comments: 'new copy' + j,
 					lendType: 'foreign',
 					editionYear: (new Date()).getFullYear(),
@@ -197,8 +197,15 @@ controller('CreateEditBookController',
 
 			$scope.save = function () {
 
-				$scope.book.$save(function () {
-					$location.path('/book');
+				$scope.book.$save(function (data) {
+
+					if ( data.status === 'ok'){
+						window.alert('El libro se ha guardado exitosamente');
+						$location.path('/book');
+					} else {
+						window.alert('Ups, algo salio mal, por favor intentalo de nuevo');
+					}
+
 				},
 				function () {
 					//error callback
@@ -215,11 +222,21 @@ controller('CreateEditBookController',
 			
 			};
 
+			$scope.confirm = function () {
+
+				var result = window.confirm('¿Esta seguro que desea borrar este Libro?');
+				if (result) {
+					$scope.remove();
+				}
+			};
+
 			$scope.remove = function (callback) {
 
 				Book.remove({id: $scope.book.id}).$then(function () {
+					window.alert('El libro ha sido borrado con exito');
 					$location.path('/book');
-					callback();
+
+					//callback();
 				});
 			};
 
@@ -440,7 +457,7 @@ controller('ReportLateReturnsController',
 	]
 ).
 
-controller('ReportLopsController',
+controller('ReportTopsController',
 	[
 		'$scope', 'reportLops',
 		function ($scope, reportLops) {
@@ -453,8 +470,35 @@ controller('LendTypeSelectController',
 	[
 		'$scope',
 		function ($scope) {
+			
 
-			$scope.lendTypes = ['foreign', 'local'];
+			$scope.copy.local = $scope.copy.lendTypes.indexOf('local') >= 0 ? true : false;
+			$scope.copy.foreign = $scope.copy.lendTypes.indexOf('foreign') >= 0 ? true : false;
+			
+			$scope.lendTypes_options = ['foreign', 'local'];
+
+			$scope.change = function (type) {
+				
+				var i = $scope.copy.lendTypes.indexOf(type);
+
+
+				
+				// if select that type
+				if ( $scope.copy[type]  ) {
+					if ( i < 0) {
+						$scope.copy.lendTypes.push(type);
+					}
+					
+				} else {
+					if ( i >= 0 ) {
+						$scope.copy.lendTypes.splice(i, 1);
+					}
+					
+				}
+				
+				console.log('CHANGE', type, $scope.copy[type], $scope.copy.lendTypes);
+
+			};
 		}
 	]
 ).
