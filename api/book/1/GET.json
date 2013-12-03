@@ -6,22 +6,24 @@
 	"authors": [
 		{
 			"id": 123123,
-			"name": "JK Rownling",
+			"nick": "JK Rownling",
 			"link": "/some/url"
 		},
 
 		{
 			"id": 123123,
-			"name": "JK Rownling2",
+			"nick": "JK Rownling2",
 			"link": "/some/url2"
 		}
 	],
 	"genres": [
 		{
+			"id": 1,
 			"name":"fantasy",
 			"link": ""
 		},
 		{
+			"id": 2,
 			"name": "adventure"
 		}
 
@@ -45,7 +47,7 @@
 		"editUser": "franleplant"	
 	},
 	"comments": "blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah",
-	"copys": [
+	"copies": [
 		{
 			"id": "0003",
 			"location": {
@@ -62,7 +64,7 @@
 				"editUser": "franleplant"	
 			},
 			"comments": "blah blah blah",
-			"lendType": "foreign",
+			"lendTypes": ["local", "foreign"],
 			"lend": {
 				"affiliate": {
 					"id": 1230123,
@@ -96,7 +98,7 @@
 				"editUser": "franleplant"	
 			},
 			"comments": "blah blah blah",
-			"lendType": "foreign"
+			"lendTypes": ["foreign", "local"]
 		}
 	]
 
