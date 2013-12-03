@@ -3,8 +3,8 @@ angular.module('jraptorsFilters', ['jraptorsConfig']).
 filter('availableToLendCopys', function() {
 
 
-	function is_available(e) {
-		return !e.hasOwnProperty('lend');
+	function is_available(copy) {
+		return copy.lend.lendingDate === null;
 	}
 
 	return function(input) {
