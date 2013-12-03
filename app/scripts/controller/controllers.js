@@ -227,7 +227,7 @@ controller('CreateEditBookController',
 				var result = window.confirm('¿Esta seguro que desea borrar este Libro?');
 				if (result) {
 					$scope.remove();
-				} 
+				}
 			};
 
 			$scope.remove = function (callback) {
@@ -491,12 +491,12 @@ controller('LendTypeSelectController',
 					
 				} else {
 					if ( i >= 0 ) {
-						$scope.copy.lendTypes.splice(i, 1);	
+						$scope.copy.lendTypes.splice(i, 1);
 					}
 					
 				}
 				
-				console.log("CHANGE", type, $scope.copy[type], $scope.copy.lendTypes);
+				console.log('CHANGE', type, $scope.copy[type], $scope.copy.lendTypes);
 
 			};
 		}

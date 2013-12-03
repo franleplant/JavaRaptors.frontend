@@ -73,9 +73,9 @@ factory('bookCreateDefaultsLoader', ['Book',
 					authors: [{
 						name: 'new_author1'
 					}],
-					copys: [{
+					copies: [{
 						comments: 'new copy1',
-						lendType: 'foreign',
+						lendType: ['foreign'],
 						editionYear: (new Date()).getFullYear(),
 						state: 'nuevo'
 					}],
