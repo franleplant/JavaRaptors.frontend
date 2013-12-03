@@ -199,13 +199,17 @@ controller('CreateEditBookController',
 
 				var c, i;
 				for ( i in $scope.book.copies ) {
+					if ( $scope.book.copies.hasOwnProperty(i) ){
+						
+						c = $scope.book.copies[i];
+						delete c.local;
+						delete c.foreign;
 
-					c = $scope.book.copies[i];
-					delete c.local;
-					delete c.foreign;
+						console.log(c);
+					}
 
-					console.log(c);
 				}
+
 
 				$scope.book.$save(function (data) {
 
