@@ -197,6 +197,16 @@ controller('CreateEditBookController',
 
 			$scope.save = function () {
 
+				var c, i;
+				for ( i in $scope.book.copies ) {
+
+					c = $scope.book.copies[i];
+					delete c.local;
+					delete c.foreign;
+
+					console.log(c);
+				}
+
 				$scope.book.$save(function (data) {
 
 					if ( data.status === 'ok'){
