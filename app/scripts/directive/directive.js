@@ -63,7 +63,8 @@ directive('jrDisplayAndEdit',[
 				model: '=ngModel',
 				placeholder: '@jrPlaceholder',
 				type: '@type',
-				link: '@link'
+				link: '@link',
+				required: '@required'
 			},
 		};
 	}
