@@ -197,12 +197,15 @@ controller('CreateEditBookController',
 
 			$scope.save = function () {
 
-				console.log($scope.book.copies[0].lendTypes);
-				console.log($scope.book.copies[1].lendTypes);
 				$scope.book.$save(function (data) {
-					
-					alert('El libro se ha guardado exitosamente');
-					$location.path('/book');
+
+					if ( data.status === 'ok'){
+						window.alert('El libro se ha guardado exitosamente');
+						$location.path('/book');
+					} else {
+						window.alert('Ups, algo salio mal, por favor intentalo de nuevo');
+					}
+
 				},
 				function () {
 					//error callback
@@ -219,11 +222,21 @@ controller('CreateEditBookController',
 			
 			};
 
+			$scope.confirm = function () {
+
+				var result = window.confirm('¿Esta seguro que desea borrar este Libro?');
+				if (result) {
+					$scope.remove();
+				} 
+			};
+
 			$scope.remove = function (callback) {
 
 				Book.remove({id: $scope.book.id}).$then(function () {
+					window.alert('El libro ha sido borrado con exito');
 					$location.path('/book');
-					callback();
+
+					//callback();
 				});
 			};
 
