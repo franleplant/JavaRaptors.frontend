@@ -124,18 +124,6 @@ controller('ReturnController',
 ).
 
 
-controller('LendController',
-	[
-		'$scope',
-		function ($scope) {
-
-
-		}
-	]
-).
-
-
-
 
 controller('CreateEditBookController',
 	[
@@ -529,4 +517,36 @@ controller('DatePickerController',
 			};
 		}
 	]
+).
+
+
+
+controller('LendController',
+	[
+		'$scope', 'copy',
+		function ($scope, copy) {
+
+			$scope.copy = copy;
+
+
+		}
+	]
+).
+
+controller('AffiliateTypeAheadController',
+	[
+		'$scope', '$http', 'RootRoute',
+		function ($scope, $http, RootRoute) {
+
+			$scope.affiliates = function(affiliate_name) {
+				return $http.get( RootRoute + 'affiliate?q=' + affiliate_name).then(function(response){
+					console.log(response.data.results);
+					return response.data.results;
+				})
+			};
+
+
+		}
+	]
 );
+

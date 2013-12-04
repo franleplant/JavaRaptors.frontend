@@ -421,7 +421,33 @@ factory('UserSession', [ 'PathSelector', 'UserRoles',
 			return user_session;
 		}
 	]
-);
+).
 
+
+
+factory('Copy_Lend', ['$resource', 'RootRoute',
+
+		function ($resource, RootRoute) {
+			return $resource(  RootRoute + 'copy/lend/:id', {id: '@id'}, {});
+		}
+	]
+).
+
+factory('copy_Lend_Loader', ['Copy_Lend', '$route', '$q',
+
+		function(Copy_Lend, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				Copy_Lend.get({id: $route.current.params.id}, function(copy) {
+					dfd.resolve(copy);
+				}, function() {
+					dfd.reject('Unable to fetch copy '  + $route.current.params.id);
+				});
+				return dfd.promise;
+			};
+		}
+	]
+);
 
 

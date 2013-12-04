@@ -59,8 +59,19 @@ jraptors.config(
 					}
 				}).
 
-				when('/book/return/:id',    {templateUrl: 'views/book_return.html',    controller: 'ReturnController'}).
-				when('/book/lend/:id',      {templateUrl: 'views/book_lend.html',      controller: 'LendController'}).
+				// id -> copy id
+				when('/copy/lend/:id', {
+					templateUrl: 'views/copy_lend.html',
+					controller: 'LendController',
+					resolve: {
+						copy: function(copy_Lend_Loader) {
+							return copy_Lend_Loader();
+						}
+					}
+				}).
+
+				when('/copy/return/:id',    {templateUrl: 'views/copy_return.html',    controller: 'ReturnController'}).
+				
 
 
 				//USER
