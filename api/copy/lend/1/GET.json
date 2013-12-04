@@ -23,5 +23,9 @@
     "location": {
         "shelves": "A",
         "shelf": "2"
+    },
+    "date": {
+    	"today": 1386167707759,
+    	"max":   1389754800000
     }
 }

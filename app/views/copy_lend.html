@@ -51,18 +51,48 @@
 					<label class="control-label">{{copy.location.shelves}}, {{copy.location.shelf}}</label>	
 				</div>
 
+				</hr>
+			</fieldset>
+
+
+			<fieldset class="span8 lend_container">
+
 				<div class="control-group">
 					<label class="control-label">Socio: </label>
 
 					<div class="controls">
 						<input type="text" ng-model="$parent.affiliate" typeahead="result.lastName + ' ' + result.name for result in affiliates($viewValue)" 
-							ng-controller="AffiliateTypeAheadController">
+							ng-controller="AffiliateTypeAheadController" required>
 					</div>
 				</div>
 
-				{{affiliate}}
+
+				<div class="control-group">
+					<label class="control-label">Fecha de Hoy: </label>
+					<label class="control-label">{{copy.date.today | date:'dd/MM/yyyy'}}</label>	
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Fecha Maxima de devolución: </label>
+					<label class="control-label">{{copy.date.max | date:'dd/MM/yyyy'}}</label>	
+				</div>
 
 
+				<div class="control-group">
+					<label class="control-label">Fecha Pactada de Devolución: </label>
+					<div class="controls">
+						<input type="text">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Notas sobre el Préstamo: </label>
+					<div class="controls">
+						<textarea rows="3"></textarea>
+					</div>
+				</div>
+
+				<button type="submit" class="btn btn-inverse">Prestar!</button>
 
 			</fieldset>
 
