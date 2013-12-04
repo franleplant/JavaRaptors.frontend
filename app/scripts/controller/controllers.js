@@ -528,6 +528,11 @@ controller('LendController',
 
 			$scope.copy = copy;
 
+			//antes de submitear el form al server hacer:
+			//var d = new Date($scope.fecha);
+			//d.getTime(); -> 1386730800000
+			// esta va a homogeneizar la fecha ue se manda al server
+
 
 		}
 	]

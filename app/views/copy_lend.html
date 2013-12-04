@@ -4,7 +4,7 @@
 
 		<div class="span8">
 			<h1 class="media-heading">
-				Solicitud de Préstamos
+				Solicitud de Préstamo
 			</h1>
 		</div>
 
@@ -77,6 +77,16 @@
 					<label class="control-label">{{copy.date.max | date:'dd/MM/yyyy'}}</label>	
 				</div>
 
+				<div class="control-group" ng-controller="DatePickerController">
+			    	<label class="control-label">Fecha Pactada de Devolución: </label>
+			    	<div class="controls">
+			        	<input type="text" datepicker-popup="dd/MM/yyyy" ng-model="$parent.fecha" is-open="opened" 
+			        		max="'2013-12-22'" show-weeks="false" year-range=1/>
+			        	<button class="btn" type="button" ng-click="open()"><i class="icon-calendar"></i></button>
+			        </div>
+			    </div>
+
+			    {{fecha}}
 
 				<div class="control-group">
 					<label class="control-label">Fecha Pactada de Devolución: </label>
