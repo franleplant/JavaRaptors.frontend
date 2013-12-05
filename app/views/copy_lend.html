@@ -57,11 +57,9 @@
 
 			<fieldset class="span8 lend_container">
 
-				<div class="control-group">
-					<label class="control-label">Socio: </label>
+				<div class="control-group"  ng-controller="AffiliateSelectController">
+					<label class="control-label"></label>
 
-					<div class="controls" ng-controller="AffiliateSelectController">
-						<span class="control-label">{{selected_affiliate.name}} {{selected_affiliate.lastName}}</span>
 						<input type="text"  placeholder="Buscar socio" ng-model="search_query" value="{{selected_affiliate.name}}" required>
 						<button type="button" class="btn" ng-click="search_affiliate()"><i class="icon-search"></i></button>
 						<div class="lend_affiliate_search">
@@ -70,10 +68,25 @@
 								{{result.name}} {{result.lastName}}
 							</div>
 						</div>
-					</div>
-
-					<div class="alert alert-error" ng-show="selected_affiliate.isSuspended">Este usuario esta deshabilitado para realizar prestamos</div>
 				</div>
+
+				<div class="control-group">
+					<label class="control-label">Nombre del Socio: </label>
+
+					<div class="controls">
+						<label class="control-label">{{selected_affiliate.name}} {{selected_affiliate.lastName}}</label>					
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Legajo del Socio: </label>
+
+					<div class="controls">
+						<label class="control-label">{{selected_affiliate.id}}</label>					
+					</div>
+				</div>
+
+				<div class="alert alert-error" ng-show="selected_affiliate.isSuspended">Este usuario esta deshabilitado para realizar prestamos</div>
 
 
 				<div class="control-group">
