@@ -1,5 +1,7 @@
 
-angular.module('jraptors.Controllers', ['ui.bootstrap']).controller('SearchController',
+angular.module('jraptors.Controllers', ['ui.bootstrap'])
+
+.controller('SearchController',
 	[
 		'$scope', 'animations', 'Search', '$location',
 		function ($scope, animations, Search, $location) {
@@ -538,17 +540,20 @@ controller('LendController',
 	]
 ).
 
-controller('AffiliateTypeAheadController',
+controller('AffiliateSelectController',
 	[
-		'$scope', '$http', 'RootRoute',
-		function ($scope, $http, RootRoute) {
+		'$scope', 'Affiliate', 
+		function ($scope, Affiliate) {
 
-			$scope.affiliates = function(affiliate_name) {
-				return $http.get( RootRoute + 'affiliate?q=' + affiliate_name).then(function(response){
-					console.log(response.data.results);
-					return response.data.results;
-				})
+			$scope.search_affiliate = function() {
+				$scope.search_response = Affiliate.get({q: $scope.search_query });
 			};
+
+			$scope.select_affiliate = function (i) {
+				$scope.$parent.selected_affiliate = $scope.search_response.results[i];
+				$scope.search_response = null;
+
+			}
 
 
 		}

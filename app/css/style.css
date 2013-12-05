@@ -290,3 +290,12 @@ form select{
 	border-radius: 5px;
 	border: 2px #dddddd solid;
 }
+
+.lend_affiliate_search {
+	margin-left: 161px;
+	margin-top: 10px;
+	background-color: #e0e0e0;
+	border: 2px #d9d9d9 solid;
+	border-radius: 5px;
+	padding: 10px;
+}

@@ -60,9 +60,16 @@
 				<div class="control-group">
 					<label class="control-label">Socio: </label>
 
-					<div class="controls">
-						<input type="text" ng-model="$parent.affiliate" typeahead="result.lastName + ' ' + result.name for result in affiliates($viewValue)" 
-							ng-controller="AffiliateTypeAheadController" required>
+					<div class="controls" ng-controller="AffiliateSelectController">
+						<span class="control-label">{{selected_affiliate.name}} {{selected_affiliate.lastName}}</span>
+						<input type="text"  placeholder="Buscar socio" ng-model="search_query" value="{{selected_affiliate.name}}" required>
+						<button type="button" class="btn" ng-click="search_affiliate()">O</button>
+						<div class="lend_affiliate_search">
+							<div ng-repeat="result in search_response.results">
+								<input  name="affiliate" type="radio" ng-model="i" value={{$index}} ng-click="select_affiliate($index)">
+								{{result.name}} {{result.lastName}}
+							</div>
+						</div>
 					</div>
 				</div>
 
@@ -86,14 +93,6 @@
 			        </div>
 			    </div>
 
-			    {{fecha}}
-
-				<div class="control-group">
-					<label class="control-label">Fecha Pactada de Devolución: </label>
-					<div class="controls">
-						<input type="text">
-					</div>
-				</div>
 
 				<div class="control-group">
 					<label class="control-label">Notas sobre el Préstamo: </label>
