@@ -538,7 +538,7 @@ controller('LendController',
 
 				var lend = new Copy_Lend({
 					id: copy.copy_id,
-					affiliate: $scope.selected_affiliate,
+					affiliate_id: $scope.selected_affiliate.id,
 					expectedReturnDate: date.getTime(),
 					lend_comments: $scope.lend_comments
 				});
