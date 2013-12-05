@@ -518,7 +518,7 @@ controller('DatePickerController',
 				});
 			};
 
-			$scope.minDate = new Date(); 
+			$scope.minDate = new Date();
 		}
 	]
 ).
@@ -527,15 +527,28 @@ controller('DatePickerController',
 
 controller('LendController',
 	[
-		'$scope', 'copy',
-		function ($scope, copy) {
+		'$scope', 'copy', 'Copy_Lend',
+		function ($scope, copy, Copy_Lend) {
 
 			$scope.copy = copy;
 
-			//antes de submitear el form al server hacer:
-			//var d = new Date($scope.fecha);
-			//d.getTime(); -> 1386730800000
-			// esta va a homogeneizar la fecha ue se manda al server
+
+			$scope.submit = function () {
+				var date = new Date($scope.expectedReturnDate);
+
+				var lend = new Copy_Lend({
+					id: copy.copy_id,
+					affiliate: $scope.selected_affiliate,
+					expectedReturnDate: date.getTime(),
+					lend_comments: $scope.lend_comments
+				});
+				
+				lend.$save(function () {
+					window.alert('El Préstamo ha sido creado correctamente!');
+				}, function () {
+					window.alert('Estamos experimentando problemas con el servidor, por favor intente mas tarde.');
+				});
+			};
 
 
 		}
@@ -544,7 +557,7 @@ controller('LendController',
 
 controller('AffiliateSelectController',
 	[
-		'$scope', 'Affiliate', 
+		'$scope', 'Affiliate',
 		function ($scope, Affiliate) {
 
 			$scope.search_affiliate = function() {
@@ -555,7 +568,7 @@ controller('AffiliateSelectController',
 				$scope.$parent.selected_affiliate = $scope.search_response.results[i];
 				$scope.search_response = null;
 
-			}
+			};
 
 
 		}

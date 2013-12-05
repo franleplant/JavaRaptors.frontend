@@ -10,7 +10,7 @@
 
 
 
-		<form ng-submit="save()" class="form-horizontal">
+		<form ng-submit="submit()" class="form-horizontal">
 
 			<fieldset class="span8">
 
@@ -71,6 +71,8 @@
 							</div>
 						</div>
 					</div>
+
+					<div class="alert alert-error" ng-show="selected_affiliate.isSuspended">Este usuario esta deshabilitado para realizar prestamos</div>
 				</div>
 
 
@@ -82,8 +84,8 @@
 				<div class="control-group" ng-controller="DatePickerController">
 			    	<label class="control-label">Fecha Pactada de Devolución: </label>
 			    	<div class="controls">
-			        	<input type="text" datepicker-popup="dd/MM/yyyy" ng-model="$parent.fecha" is-open="opened" 
-			        		min="minDate" max="'{{copy.date.max | date:'yyyy-MM-dd'}}'" show-weeks="false" year-range=1/>
+			        	<input type="text" datepicker-popup="dd/MM/yyyy" ng-model="$parent.expectedReturnDate" is-open="opened" 
+			        		min="minDate" max="'{{copy.date.max | date:'yyyy-MM-dd'}}'" show-weeks="false" year-range=1 required/>
 			        	<button class="btn" type="button" ng-click="open()"><i class="icon-calendar"></i></button>
 			        </div>
 			    </div>
@@ -92,11 +94,11 @@
 				<div class="control-group">
 					<label class="control-label">Notas sobre el Préstamo: </label>
 					<div class="controls">
-						<textarea rows="3"></textarea>
+						<textarea ng-model="lend_comments" rows="3"></textarea>
 					</div>
 				</div>
 
-				<button type="submit" class="btn btn-inverse">Prestar!</button>
+				<button type="submit" class="btn btn-inverse" ng-disabled="selected_affiliate.isSuspended">Prestar!</button>
 
 			</fieldset>
 

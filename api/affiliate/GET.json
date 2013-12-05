@@ -11,7 +11,7 @@
 			"lastName": "Justice",
 			"dni": 28434410,
 			"cuit": 52402509030,
-			"isSuspended": false,
+			"isSuspended": true,
 			"reputation": "2",
 			"email": "mavisjustice@recrisys.com",
 			"tel": "(011) 456-3445",
