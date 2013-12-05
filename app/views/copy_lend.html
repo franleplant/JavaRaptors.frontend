@@ -63,7 +63,7 @@
 					<div class="controls" ng-controller="AffiliateSelectController">
 						<span class="control-label">{{selected_affiliate.name}} {{selected_affiliate.lastName}}</span>
 						<input type="text"  placeholder="Buscar socio" ng-model="search_query" value="{{selected_affiliate.name}}" required>
-						<button type="button" class="btn" ng-click="search_affiliate()">O</button>
+						<button type="button" class="btn" ng-click="search_affiliate()"><i class="icon-search"></i></button>
 						<div class="lend_affiliate_search">
 							<div ng-repeat="result in search_response.results">
 								<input  name="affiliate" type="radio" ng-model="i" value={{$index}} ng-click="select_affiliate($index)">
