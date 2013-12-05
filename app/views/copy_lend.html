@@ -83,7 +83,7 @@
 			    	<label class="control-label">Fecha Pactada de Devolución: </label>
 			    	<div class="controls">
 			        	<input type="text" datepicker-popup="dd/MM/yyyy" ng-model="$parent.fecha" is-open="opened" 
-			        		max="'{{copy.date.max | date:'yyyy-MM-dd'}}'" show-weeks="false" year-range=1/>
+			        		min="minDate" max="'{{copy.date.max | date:'yyyy-MM-dd'}}'" show-weeks="false" year-range=1/>
 			        	<button class="btn" type="button" ng-click="open()"><i class="icon-calendar"></i></button>
 			        </div>
 			    </div>

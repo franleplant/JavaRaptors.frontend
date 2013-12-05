@@ -517,6 +517,8 @@ controller('DatePickerController',
 					$scope.opened = true;
 				});
 			};
+
+			$scope.minDate = new Date(); 
 		}
 	]
 ).
