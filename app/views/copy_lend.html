@@ -72,18 +72,14 @@
 
 				<div class="control-group">
 					<label class="control-label">Nombre del Socio: </label>
-
-					<div class="controls">
-						<label class="control-label">{{selected_affiliate.name}} {{selected_affiliate.lastName}}</label>					
-					</div>
+					<a ng-href="#/affiliate/detailed_view/{{selected_affiliate.id}}" target="_blank">
+						{{selected_affiliate.name}} {{selected_affiliate.lastName}}
+					</a>
 				</div>
 
 				<div class="control-group">
 					<label class="control-label">Legajo del Socio: </label>
-
-					<div class="controls">
-						<label class="control-label">{{selected_affiliate.id}}</label>					
-					</div>
+					<label class="control-label">{{selected_affiliate.id}}</label>
 				</div>
 
 				<div class="alert alert-error" ng-show="selected_affiliate.isSuspended">Este usuario esta deshabilitado para realizar prestamos</div>
