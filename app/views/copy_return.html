@@ -1,1 +1,108 @@
-TODO: Return
+<div class="display_data">
+
+	<div class="row">
+
+		<div class="span8">
+			<h1 class="media-heading">
+				Solicitud de Devolución
+			</h1>
+		</div>
+
+
+
+		<form ng-submit="submit()" class="form-horizontal">
+
+			<fieldset class="span8">
+
+			 	<div class="control-group">
+					<label class="control-label">Título: </label>
+					<a ng-href="#/book/detailed_view/{{copy.book_id}}" target="_blank">{{copy.title}}</a>
+				</div>
+
+				<div class="control-group authors clearfix">	
+					<label class="control-label">Autores: </label>		
+					<a ng-repeat="author in copy.authors" ng-href="#/author/detailed_view/{{author.id}}" target="_blank">
+						{{author.nick}}
+					</a>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Editorial: </label>
+					<a ng-href="#/editorial/detailed_view/{{copy.editorial.id}}" target="_blank">{{copy.editorial.name}}</a>
+				</div>
+
+				<div class="control-group authors clearfix">	
+					<label class="control-label">Géneros: </label>	
+					<span ng-repeat="genre in copy.genres">{{genre.name}}</span>	
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Edición: </label>
+					<label class="control-label">{{copy.editionNumber}}</label>	
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">País de Edición: </label>
+					<label class="control-label">{{copy.editionCountry}}</label>	
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Ubicación: </label>
+					<label class="control-label">{{copy.location.shelves}}, {{copy.location.shelf}}</label>	
+				</div>
+
+				</hr>
+			</fieldset>
+
+
+			<fieldset class="span8">
+
+				<div class="control-group">
+					<label class="control-label">Nombre del Socio: </label>
+					<a ng-href="#/affiliate/detailed_view/{{selected_affiliate.id}}" target="_blank">
+						{{copy.affiliate.name}} {{copy.affiliate.lastName}}
+					</a>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Legajo del Socio: </label>
+					<label class="control-label">{{copy.affiliate.id}}</label>
+				</div>
+
+				<div class="alert alert-error" ng-show="selected_affiliate.isSuspended">Este usuario esta deshabilitado para realizar prestamos</div>
+
+
+				<div class="control-group">
+					<label class="control-label">Fecha de Préstamo: </label>
+					<label class="control-label">{{copy.date.lend | date:'dd/MM/yyyy'}}</label>	
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Fecha de Pactada de Devolucion: </label>
+					<label class="control-label">{{copy.date.expectedReturn | date:'dd/MM/yyyy'}}</label>	
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Fecha de Hoy: </label>
+					<label class="control-label">{{copy.date.today | date:'dd/MM/yyyy'}}</label>	
+				</div>
+
+				<div class="alert alert-error" ng-show="copy.date.today > copy.date.expectedReturn">Este Socio será suspendido por una devolución tardía</div>
+
+
+				<div class="control-group">
+					<label class="control-label">Notas sobre el Préstamo: </label>
+					<div class="controls">
+						<textarea ng-model="copy.lend_comments" rows="3"></textarea>
+					</div>
+				</div>
+
+				<button type="submit" class="btn btn-inverse" ng-disabled="selected_affiliate.isSuspended">Devolver!</button>
+
+			</fieldset>
+
+		</form>
+
+	</div>
+
+</div>

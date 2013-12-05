@@ -448,6 +448,30 @@ factory('copy_Lend_Loader', ['Copy_Lend', '$route', '$q',
 			};
 		}
 	]
+).
+
+
+factory('Copy_Return', ['$resource', 'RootRoute',
+
+		function ($resource, RootRoute) {
+			return $resource(  RootRoute + 'copy/return/:id', {id: '@id'}, {});
+		}
+	]
+).
+
+factory('copy_Return_Loader', ['Copy_Return', '$route', '$q',
+
+		function(Copy_Return, $route, $q) {
+			return function() {
+				var dfd = $q.defer();
+
+				Copy_Return.get({id: $route.current.params.id}, function(copy) {
+					dfd.resolve(copy);
+				}, function() {
+					dfd.reject('Unable to fetch copy '  + $route.current.params.id);
+				});
+				return dfd.promise;
+			};
+		}
+	]
 );
-
-

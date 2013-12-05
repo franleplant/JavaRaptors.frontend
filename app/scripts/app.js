@@ -70,7 +70,15 @@ jraptors.config(
 					}
 				}).
 
-				when('/copy/return/:id',    {templateUrl: 'views/copy_return.html',    controller: 'ReturnController'}).
+				when('/copy/return/:id', {
+					templateUrl: 'views/copy_return.html',
+					controller: 'ReturnController',
+					resolve: {
+						copy: function(copy_Return_Loader) {
+							return copy_Return_Loader();
+						}
+					}
+				}).
 				
 
 

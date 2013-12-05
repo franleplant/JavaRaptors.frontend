@@ -185,9 +185,9 @@
 
 									<th>Tipo de Prestamo Posible</th>
 
-									<th>Socio en Potestad</th>
+									<th ng-if="'detailed_view' | testPathRegExp">Acciones</th>	
 
-									<th>Acciones</th>									
+									<th ng-if="'edit, create' | testPathRegExp">Borrar Copia</th>							
 									
 								</tr>
 							</thead>
@@ -196,7 +196,7 @@
 									<td>{{copy.id}}</td>
 
 									<td>
-										{{copy.lend | hasAttribute | not | checkmark}}
+										{{copy.lend.lendType == null | checkmark}}
 									</td>
 													
 									<td contentEditable="{{'edit, create' | testPathRegExp}}" ng-model="copy.editionYear" title="Click to edit">
@@ -236,9 +236,6 @@
 											<span>, {{copy.lendTypes[1] | translate}}</span>
 										</p>
 										
-<!-- 										<select ng-if="'edit, create' | testPathRegExp" ng-model="copy.lendType" 
-											ng-options="lt | translate for lt in lendTypes" ng-controller="LendTypeSelectController">
-										</select> -->
 										<div ng-if="'edit, create' | testPathRegExp" ng-controller="LendTypeSelectController">
 											<span ng-repeat="lt in lendTypes_options">
 												<input type="checkbox"  ng-model="copy[lt]" ng-change="change(lt)">
@@ -252,18 +249,26 @@
 		
 									</td>
 
-									<td>
-										{{copy.lend.affiliate.lastName}} {{copy.lend.affiliate.name}}									 
+									<td ng-if="'detailed_view' | testPathRegExp">
+										<a ng-if="copy.lend.lendType == null" ng-href="#/copy/lend/{{copy.id}}" target="_blank">
+											prestar
+										</a>
+										<a ng-if="copy.lend.lendType != null" ng-href="#/copy/return/{{copy.id}}" target="_blank">
+											devolver
+										</a>
+										<!--
+										<button class="btn" type="button" title="Informacion del Prestamo">+</button>
+										-->
 									</td>	
 
-									<td>
-										<button class="btn" type="button" title="Prestar">P</button>
-										<button class="btn" type="button" title="Devolver">D</button>
+									<td ng-if="'edit, create' | testPathRegExp">
+										<!--
 										<button class="btn" type="button" title="Informacion del Prestamo">+</button>
-										<button class="btn" ng-if="copy.lend | hasAttribute | not" ng-click="rm_copy($index)" title="Borrar Ejemplar">
+										-->
+										<button class="btn" ng-if="copy.lend.lendType == null" ng-click="rm_copy($index)" title="Borrar Ejemplar">
 											<i class="icon-minus-sign"></i>
 										</button>
-									</td>								
+									</td>							
 								</tr>
 						  </tbody>
 						</table>

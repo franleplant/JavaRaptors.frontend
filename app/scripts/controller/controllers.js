@@ -117,15 +117,6 @@ controller('EditController',
 ).
 
 
-controller('ReturnController',
-	[
-		'$scope',
-		function ($scope) {
-		}
-	]
-).
-
-
 
 controller('CreateEditBookController',
 	[
@@ -573,5 +564,31 @@ controller('AffiliateSelectController',
 
 		}
 	]
-);
+).
 
+controller('ReturnController',
+	[
+		'$scope', 'copy', 'Copy_Return',
+		function ($scope, copy, Copy_Return) {
+
+			$scope.copy = copy;
+
+
+			$scope.submit = function () {
+				var return_copy = new Copy_Return({
+					id: copy.copy_id,
+					lend_comments: copy.lend_comments
+				});
+
+				return_copy.$save(function () {
+					window.alert('El Préstamo ha sido devuelto correctamente!');
+				}, function () {
+					window.alert('Estamos experimentando problemas con el servidor, por favor intente mas tarde.');
+				});
+
+			};
+
+
+		}
+	]
+);
