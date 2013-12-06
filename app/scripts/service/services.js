@@ -1,7 +1,3 @@
-// Move every service into factory, it is more clear what they do, see http://jsfiddle.net/manishchhabra/Ne5P8/
-
-
-
 angular.module('jraptorsServices', ['jraptorsConfig', 'ngResource']).
 
 service('animations', function () {
@@ -367,7 +363,7 @@ factory('PathSelector', [ function () {
 	]
 ).
 
-factory('UserSession', [ 'PathSelector', 'UserRoles',
+ factory('UserSession', [ 'PathSelector', 'UserRoles',
 
 		function (PathSelector, UserRoles) {
 			var user_session = {};
