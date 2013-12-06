@@ -533,10 +533,9 @@ controller('LendController',
 
 			$scope.copy = copy;
 
-			$scope.maxDate = today;
 
 			$scope.$watch('lend_type', function() {
-				$scope.maxDate = max_dates[$scope.lend_type];
+				$scope.maxDate = max_dates[$scope.lend_type] || today;
 			});
 
 			$scope.submit = function () {
