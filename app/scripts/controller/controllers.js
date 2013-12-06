@@ -590,9 +590,9 @@ controller('ReturnController',
 
 
 			//Move this into a service and test it
-			function isSuspended(today, expected) {
-				var today = new Date(today),
-					expected = new Date(expected);
+			function isSuspended(today_ms, expected_ms) {
+				var today = new Date(today_ms),
+					expected = new Date(expected_ms);
 				
 
 				if ( today.getMonth() > expected.getMonth() ) {
@@ -606,7 +606,7 @@ controller('ReturnController',
 				}
 
 				return false;
-			};
+			}
 
 			$scope.will_be_suspended = isSuspended(copy.date.today, copy.date.expectedReturn);
 
