@@ -98,12 +98,12 @@
 					<label class="control-label">Fecha de Hoy: </label>
 					<label class="control-label">{{copy.date.today | date:'dd/MM/yyyy'}}</label>	
 				</div>
-
+				max="'{{copy.date.max | date:'yyyy-MM-dd'}}'"
 				<div class="control-group" ng-controller="DatePickerController">
 			    	<label class="control-label">Fecha Pactada de Devolución: </label>
 			    	<div class="controls">
 			        	<input type="text" datepicker-popup="dd/MM/yyyy" ng-model="$parent.expectedReturnDate" is-open="opened" 
-			        		min="minDate" max="'{{copy.date.max | date:'yyyy-MM-dd'}}'" show-weeks="false" year-range=1 required/>
+			        		min="minDate" max="maxDate" show-weeks="false" year-range=1 required/>
 			        	<button class="btn" type="button" ng-click="open()"><i class="icon-calendar"></i></button>
 			        </div>
 			    </div>

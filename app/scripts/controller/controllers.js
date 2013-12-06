@@ -520,9 +520,24 @@ controller('LendController',
 	[
 		'$scope', 'copy', 'Copy_Lend',
 		function ($scope, copy, Copy_Lend) {
+			var max_dates, 
+				today = new Date();
+
+			today = today.getTime();
+
+
+			max_dates = {
+				'local': today,
+				'foreign': copy.date.max
+			}
 
 			$scope.copy = copy;
 
+			$scope.maxDate = today;
+
+			$scope.$watch('lend_type', function() {
+				$scope.maxDate = max_dates[$scope.lend_type];
+			});
 
 			$scope.submit = function () {
 				var date = new Date($scope.expectedReturnDate);
@@ -532,7 +547,6 @@ controller('LendController',
 					affiliate_id: $scope.selected_affiliate.id,
 					expectedReturnDate: date.getTime(),
 					lend_comments: $scope.lend_comments,
-					//TODO!!!
 					lend_type: $scope.lend_type
 				});
 				
