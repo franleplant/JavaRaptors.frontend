@@ -1,31 +1,29 @@
 {
-	"copy_id": 1,
-	"book_id": 1,
-	"title": "Harry Potter y La Piedra Filosofal",
-	"editionNumber": "3era",
-	"editionCountry": "Argentina",
-	"authors": [{
-		"id": 1,
-    	"nick": "Jk Rowling"
-	}, {
-		"id": 2,
-    	"nick": "La Hermana de JK Rowling"
-	}],
+    "copy_id": 1,
+    "book_id": 1,
+    "title": "Harry Potter y La Piedra Filosofal",
+    "editionNumber": null,
+    "editionCountry": "Argentina",
+    "authors": [{
+        "id": 1,
+        "nick": "Jk Rowling"
+    }],
     "genres": [{
+        "id": 1,
         "name": "fantasia"
-    },{
-        "name": "aventura"
     }],
     "editorial": {
-    	"id": 1,
+        "id": 1,
         "name": "Salamandra"
     },
     "location": {
+        "id": 1,
         "shelves": "A",
         "shelf": "2"
     },
     "date": {
-    	"today": 1386167707759,
-    	"max":   1389754800000
-    }
+        "today": 1386293891286,
+        "max": 1387589891504
+    },
+    "lendTypes": ["local", "foreign"]
 }

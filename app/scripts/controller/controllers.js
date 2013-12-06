@@ -531,7 +531,9 @@ controller('LendController',
 					id: copy.copy_id,
 					affiliate_id: $scope.selected_affiliate.id,
 					expectedReturnDate: date.getTime(),
-					lend_comments: $scope.lend_comments
+					lend_comments: $scope.lend_comments,
+					//TODO!!!
+					lend_type: $scope.lend_type
 				});
 				
 				lend.$save(function () {
