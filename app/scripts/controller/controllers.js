@@ -520,7 +520,7 @@ controller('LendController',
 	[
 		'$scope', 'copy', 'Copy_Lend',
 		function ($scope, copy, Copy_Lend) {
-			var max_dates, 
+			var max_dates,
 				today = new Date();
 
 			today = today.getTime();
@@ -529,7 +529,7 @@ controller('LendController',
 			max_dates = {
 				'local': today,
 				'foreign': copy.date.max
-			}
+			};
 
 			$scope.copy = copy;
 
