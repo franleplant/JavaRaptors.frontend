@@ -1,3 +1,7 @@
+// Move every service into factory, it is more clear what they do, see http://jsfiddle.net/manishchhabra/Ne5P8/
+
+
+
 angular.module('jraptorsServices', ['jraptorsConfig', 'ngResource']).
 
 service('animations', function () {
