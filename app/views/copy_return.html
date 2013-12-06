@@ -69,8 +69,6 @@
 					<label class="control-label">{{copy.affiliate.id}}</label>
 				</div>
 
-				<div class="alert alert-error" ng-show="selected_affiliate.isSuspended">Este usuario esta deshabilitado para realizar prestamos</div>
-
 
 				<div class="control-group">
 					<label class="control-label">Fecha de Préstamo: </label>
@@ -85,9 +83,9 @@
 				<div class="control-group">
 					<label class="control-label">Fecha de Hoy: </label>
 					<label class="control-label">{{copy.date.today | date:'dd/MM/yyyy'}}</label>	
-				</div>
+				</div> 
 
-				<div class="alert alert-error" ng-show="copy.date.today > copy.date.expectedReturn">Este Socio será suspendido por una devolución tardía</div>
+				<div class="alert alert-error" ng-show="will_be_suspended">Este Socio será suspendido por una devolución tardía</div>
 
 
 				<div class="control-group">

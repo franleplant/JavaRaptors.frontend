@@ -589,6 +589,28 @@ controller('ReturnController',
 			$scope.copy = copy;
 
 
+			//Move this into a service and test it
+			function isSuspended(today, expected) {
+				var today = new Date(today),
+					expected = new Date(expected);
+				
+
+				if ( today.getMonth() > expected.getMonth() ) {
+					return true;
+				}
+
+				if ( today.getMonth() === expected.getMonth() ) {
+					if (  today.getDay() > expected.getDay()  ) {
+						return true;
+					}
+				}
+
+				return false;
+			};
+
+			$scope.will_be_suspended = isSuspended(copy.date.today, copy.date.expectedReturn);
+
+
 			$scope.submit = function () {
 				var return_copy = new Copy_Return({
 					id: copy.copy_id,
