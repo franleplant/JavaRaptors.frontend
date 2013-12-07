@@ -33,6 +33,57 @@ angular.module('jraptors.Controllers', ['ui.bootstrap'])
 	]
 ).
 
+controller('BreadcrumbController',
+	[
+		'$scope', '$location', '$rootScope', '$route',
+		function ($scope, $location,$rootScope, $route) {
+
+			var breadcrumbs = [],
+				routes = $route.routes;
+
+			var generateBreadcrumbs = function () {
+				breadcrumbs = [];
+				var pathElements = $location.path().split('/'),
+					path = '';
+
+				var getRoute = function (route) {
+					angular.forEach($route.current.params, function (value, key) {
+						var re = new RegExp(value);
+						route = route.replace(re, ':' + key);
+					});
+					return route;
+				};
+
+				if (pathElements[0] === '') {
+					delete pathElements[0];
+				}
+
+				angular.forEach(pathElements, function (el) {
+
+					path += path === '/' ? el : '/' + el;
+					var route = getRoute(path);
+
+					if (routes[route] && routes[route].label) {
+						breadcrumbs.push({
+							label: routes[route].label,
+							path: path
+						});
+					}
+
+				});
+				
+				$scope.breadcrumbs = breadcrumbs;
+
+			};
+
+			// We want to update breadcrumbs only when a route is actually changed
+			$rootScope.$on('$routeChangeSuccess', function (event, current) {
+				generateBreadcrumbs();
+			});
+		}
+	]
+).
+
 controller('SelectEntityController',
 	[
 		'$scope', '$location',
@@ -411,14 +462,6 @@ controller('RmvController',
 ).
 
 controller('NavBarController',
-	[
-		'$scope',
-		function ($scope) {
-		}
-	]
-).
-
-controller('BreadcrumbController',
 	[
 		'$scope',
 		function ($scope) {

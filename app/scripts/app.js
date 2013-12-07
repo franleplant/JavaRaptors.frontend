@@ -17,19 +17,20 @@ jraptors.config(
 
 			$routeProvider.
 
-
 				//BOOK
 
 
 				when('/book', {
 					templateUrl: 'views/search.html',
-					controller: 'SearchController'
+					controller: 'SearchController',
+					label: 'Libros'
 				}).
 
 
 				when('/book/detailed_view/:id', {
 					templateUrl: 'views/book.html',
 					controller: 'BookDetailedViewController',
+					label: 'Detalle',
 					resolve: {
 						book: function(bookLoader) {
 							return bookLoader();
@@ -42,6 +43,7 @@ jraptors.config(
 				when('/book/edit/:id', {
 					templateUrl: 'views/book.html',
 					controller: 'CreateEditBookController',
+					label: 'Editar',
 					resolve: {
 						book: function(bookLoader) {
 							return bookLoader();
@@ -52,6 +54,7 @@ jraptors.config(
 				when('/book/create', {
 					templateUrl: 'views/book.html',
 					controller: 'CreateEditBookController',
+					label: 'Crear',
 					resolve: {
 						book: function() {
 							return;
@@ -63,6 +66,7 @@ jraptors.config(
 				when('/copy/lend/:id', {
 					templateUrl: 'views/copy_lend.html',
 					controller: 'LendController',
+					label: 'Solicitud de Préstamo',
 					resolve: {
 						copy: function(copy_Lend_Loader) {
 							return copy_Lend_Loader();
@@ -73,6 +77,7 @@ jraptors.config(
 				when('/copy/return/:id', {
 					templateUrl: 'views/copy_return.html',
 					controller: 'ReturnController',
+					label: 'Solicitud de Devolución',
 					resolve: {
 						copy: function(copy_Return_Loader) {
 							return copy_Return_Loader();
@@ -86,11 +91,13 @@ jraptors.config(
 	
 				when('/user', {
 					templateUrl: 'views/search.html',
-					controller: 'SearchController'
+					controller: 'SearchController',
+					label: 'Usuarios'
 				}).
 				when('/user/detailed_view/:id',{
 					templateUrl: 'views/user.html',
 					controller: 'UserDetailedViewController',
+					label: 'Detalle',
 					resolve: {
 						user: function(userLoader) {
 							return userLoader();
@@ -100,6 +107,7 @@ jraptors.config(
 				when('/user/edit/:id', {
 					templateUrl: 'views/user.html',
 					controller: 'CreateEditUserController',
+					label: 'Editar',
 					resolve: {
 						user: function(userLoader) {
 							return userLoader();
@@ -109,6 +117,7 @@ jraptors.config(
 				when('/user/create', {
 					templateUrl: 'views/user.html',
 					controller: 'CreateEditUserController',
+					label: 'Crear',
 					resolve: {
 						user: function() {
 							return;
@@ -119,11 +128,12 @@ jraptors.config(
 
 				//AFFILIATE
 		
-				when('/affiliate', {templateUrl: 'views/search.html', controller: 'SearchController'}).
+				when('/affiliate', {templateUrl: 'views/search.html', label: 'Socios', controller: 'SearchController'}).
 
 				when('/affiliate/detailed_view/:id', {
 					templateUrl: 'views/affiliate.html',
 					controller: 'DetailedViewControllerAffiliate',
+					label: 'Detalle',
 					resolve: {
 						affiliate: function(affiliateLoader) {
 							return affiliateLoader();
@@ -134,6 +144,7 @@ jraptors.config(
 				when('/affiliate/edit/:id', {
 					templateUrl: 'views/affiliate.html',
 					controller: 'CreateEditAffiliateController',
+					label: 'Editar',
 					resolve: {
 						affiliate: function(affiliateLoader) {
 							return affiliateLoader();
@@ -144,6 +155,7 @@ jraptors.config(
 				when('/affiliate/create', {
 					templateUrl: 'views/affiliate.html',
 					controller: 'CreateEditAffiliateController',
+					label: 'Crear',
 					resolve: {
 						affiliate: function() {
 							return;
@@ -151,11 +163,12 @@ jraptors.config(
 					}
 				}).
 				
-				when('/editorial', {templateUrl: 'views/search.html', controller: 'SearchController'}).
+				when('/editorial', {templateUrl: 'views/search.html', label: 'Editoriales', controller: 'SearchController'}).
 
 				when('/editorial/detailed_view/:id',{
 					templateUrl: 'views/editorial.html',
 					controller: 'DetailedViewControllerEditorial',
+					label: 'Detalle',
 					resolve: {
 						editorial: function(editorialLoader) {
 							return editorialLoader();
@@ -167,6 +180,7 @@ jraptors.config(
 				when('/editorial/edit/:id', {
 					templateUrl: 'views/editorial.html',
 					controller: 'CreateEditEditorialController',
+					label: 'Editar',
 					resolve: {
 						editorial: function(editorialLoader) {
 							return editorialLoader();
@@ -177,6 +191,7 @@ jraptors.config(
 				when('/editorial/create', {
 					templateUrl: 'views/editorial.html',
 					controller: 'CreateEditEditorialController',
+					label: 'Crear',
 					resolve: {
 						editorial: function() {
 							return;
@@ -189,12 +204,14 @@ jraptors.config(
 
 				when('/author',{
 					templateUrl: 'views/search.html',
-					controller: 'SearchController'
+					controller: 'SearchController',
+					label: 'Autores'
 				}).
 
 				when('/author/detailed_view/:id', {
 					templateUrl: 'views/author.html',
 					controller: 'AuthorDetailedViewController',
+					label: 'Detalle',
 					resolve: {
 						author: function(authorLoader) {
 							return authorLoader();
@@ -205,6 +222,7 @@ jraptors.config(
 				when('/author/edit/:id',{
 					templateUrl: 'views/author.html',
 					controller: 'CreateEditAuthorController',
+					label: 'Editar',
 					resolve: {
 						author: function(authorLoader) {
 							return authorLoader();
@@ -215,6 +233,7 @@ jraptors.config(
 				when('/author/create',{
 					templateUrl: 'views/author.html',
 					controller: 'CreateEditAuthorController',
+					label: 'Crear',
 					resolve: {
 						author: function() {
 							return;
@@ -223,11 +242,12 @@ jraptors.config(
 				}).
 
 
-				when('/report',      {templateUrl: 'views/report.html', controller: 'ReportController'}).
+				when('/report',      {templateUrl: 'views/report.html', label: 'Reportes', controller: 'ReportController'}).
 
 				when('/report/lends',{
 					templateUrl: 'views/report_lends.html',
 					controller: 'ReportLendsController',
+					label: 'Retiros',
 					resolve: {
 						reportLends: function(reportLendsLoader) {
 							return reportLendsLoader();
@@ -238,6 +258,7 @@ jraptors.config(
 				when('/report/late_returns',{
 					templateUrl: 'views/report_late_returns.html',
 					controller: 'ReportLateReturnsController',
+					label: 'Devoluciones en mora',
 					resolve: {
 						reportLateReturns: function(reportLateReturnsLoader) {
 							return reportLateReturnsLoader();
@@ -248,6 +269,7 @@ jraptors.config(
 				when('/report/top',{
 					templateUrl: 'views/report_top.html',
 					controller: 'ReportTopsController',
+					label: 'Libros más retirados',
 					resolve: {
 						reportLops: function(reportTopsLoader) {
 							return reportTopsLoader();

@@ -18,7 +18,7 @@
 
 		<div class="navbar-inner" ng-controller="NavBarController">
 			<div class="container">
-				<a class="jr-logo brand" href="#">Java Raptors&reg - BiblioSoft&#8482</a>
+				<a class="jr-logo brand" href="#">Java Raptors&reg - BiblioSoft&#8482 </a>
           		<div class="nav-collapse collapse">
 
 		            <div class="nav-collapse collapse pull-right">
@@ -33,13 +33,20 @@
 			</div>
 		</div>
 
-		<div id="breadcrumb" ng-controller="BreadcrumbController">
-			<ul class="breadcrumb">
-				<li><a href="#">Home</a> <span class="divider">/</span></li>
-				<li><a href="#">Library</a> <span class="divider">/</span></li>
-				<li class="active">Data</li>
-			</ul>
-		</div>
+		 <ul class="breadcrumb" ng-controller="BreadcrumbController">
+
+		 	<li>
+		 		<span ><a ng-href="#">Home</a></span>
+		 		<span class="divider">/</span>
+		 	</li>
+            <li ng-repeat="breadcrumb in breadcrumbs">
+                <span class="divider" ng-show="$last && !$first">/</span>
+                <ng-switch on="$last">
+                    <span ng-switch-when="true">{{breadcrumb.label}}</span>
+                    <span ng-switch-default><a ng-href="#{{breadcrumb.path}}">{{breadcrumb.label}}</a></span>
+                </ng-switch>
+            </li>
+        </ul>
 
 	</header>
 

@@ -367,7 +367,7 @@ factory('PathSelector', [ function () {
 	]
 ).
 
-factory('UserSession', [ 'PathSelector', 'UserRoles',
+ factory('UserSession', [ 'PathSelector', 'UserRoles',
 
 		function (PathSelector, UserRoles) {
 			var user_session = {};
