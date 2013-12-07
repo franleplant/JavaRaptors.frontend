@@ -1,54 +1,25 @@
 [
-    {
-      "book": {
+  {
+    "id": 1,
+    "copy_id": 1,
+    "title": "Harry Potter1",
+    "month": 5,
+    "year": 2013,
+    "lend_number": 5,
+    "authors": [{
         "id": 1,
-        "title": "Harry Potter",
-        "authors": [
-          {
-            "id": 1,
-            "name": "jk Rowling"
-          }
-        ]
-      },
-     
-     "lends_by_month": [
-        {
-          "lends": 10,
-          "month": 5,
-          "year": 2013
-        },
-        {
-          "lends": 1,
-          "month": 6,
-          "year": 2013
-        }
-       
-      ]
-    },
-    {
-      "book": {
-        "id": 2,
-        "title": "Harry Potter 2",
-        "authors": [
-          {
-            "id": 1,
-            "name": "jk Rowling"
-          }
-        ]
-      },
-     
-     "lends_by_month": [
-        {
-          "lends": 9,
-          "month": 5,
-          "year": 2013
-        },
-        {
-          "lends": 2,
-          "month": 6,
-          "year": 2013
-        }
-       
-      ]
-    }
+        "nick": "jk Rowling"
+      }]
+  },{
+    "id": 2,
+    "copy_id": 2,
+    "title": "Harry Potter2",
+    "month": 5,
+    "year": 2013,
+    "lend_number": 5,
+    "authors": [{
+        "id": 1,
+        "nick": "jk Rowling"
+      }]
+  }
 ]

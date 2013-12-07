@@ -6,13 +6,11 @@
     "authors": [
       {
         "id": 1,
-        "name": "JK Rownling",
-        "link": "/some/url"
+        "nick": "JK Rownling"
       },
       {
         "id": 2,
-        "name": "JK Rownling2",
-        "link": "/some/url2"
+        "nick": "JK Rownling2"
       }
     ]
   },
@@ -23,13 +21,11 @@
     "authors": [
       {
         "id": 1,
-        "name": "JK Rownling",
-        "link": "/some/url"
+        "nick": "JK Rownling"
       },
       {
         "id": 2,
-        "name": "JK Rownling2",
-        "link": "/some/url2"
+        "nick": "JK Rownling2"
       }
     ]
   }

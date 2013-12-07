@@ -27,15 +27,13 @@
 	<tbody>
 		<tr ng-repeat="result in reportLateReturns">
 			<td>
-				<a ng-href="#/book/detailed_view/{{result.id}}" 
-				href="#/book/detailed_view/{{result.id}}">
+				<a ng-href="#/book/detailed_view/{{result.id}}">
 					{{ result.title }}
 				</a>
 			</td>
 			<td>
-				<a ng-repeat="author in result.authors" ng-href="#/author/detailed_view/{{author.id}}" 
-				href="#/author/detailed_view/{{author.id}}">
-					{{ author.name }}
+				<a ng-repeat="author in result.authors" ng-href="#/author/detailed_view/{{author.id}}">		
+					{{ author.nick }}
 				</a>
 			</td>		
 			<td>
