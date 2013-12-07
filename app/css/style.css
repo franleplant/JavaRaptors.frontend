@@ -250,14 +250,23 @@ footer > p {
 .detailed_view form.form-horizontal label+ng-include > label,
 .detailed_view form.form-horizontal label+ng-include > a,
 .detailed_view form.form-horizontal label+label,
-.detailed_view form.form-horizontal label+span {
+.detailed_view form.form-horizontal label+span,
+.display_data form.form-horizontal  label+label,
+.display_data form.form-horizontal  label+a,
+.display_data form.form-horizontal  a+a,
+.display_data form.form-horizontal  label+span,
+.display_data form.form-horizontal  span+span  {
 	margin-left: 10px;
 	font-weight: bold;
 	text-align: left;
 }
 
 .detailed_view form.form-horizontal label+ng-include > a,
-.detailed_view form.form-horizontal label+span {
+.detailed_view form.form-horizontal label+span,
+.display_data form.form-horizontal  label+a,
+.display_data form.form-horizontal  a+a,
+.display_data form.form-horizontal  label+span,
+.display_data form.form-horizontal  span+span {
 	line-height: 30px;
 }
 
@@ -268,4 +277,25 @@ footer > p {
 
 form select{
 	width: 110px;
+}
+
+
+.display_data form.form-horizontal {
+	margin-top: 50px;
+}
+
+.lend_container {
+	background-color: #eeeeee;
+	padding: 10px;
+	border-radius: 5px;
+	border: 2px #dddddd solid;
+}
+
+.lend_affiliate_search {
+	margin-top: 10px;
+	background-color: #e0e0e0;
+	border: 2px #d9d9d9 solid;
+	border-radius: 5px;
+	padding: 10px;
+	max-width: 240px;
 }

@@ -1,0 +1,29 @@
+{
+    "copy_id": 1,
+    "book_id": 1,
+    "title": "Harry Potter y La Piedra Filosofal",
+    "editionNumber": null,
+    "editionCountry": "Argentina",
+    "authors": [{
+        "id": 1,
+        "nick": "Jk Rowling"
+    }],
+    "genres": [{
+        "id": 1,
+        "name": "fantasia"
+    }],
+    "editorial": {
+        "id": 1,
+        "name": "Salamandra"
+    },
+    "location": {
+        "id": 1,
+        "shelves": "A",
+        "shelf": "2"
+    },
+    "date": {
+        "today": 1386293891286,
+        "max": 1387589891504
+    },
+    "lendTypes": ["local", "foreign"]
+}

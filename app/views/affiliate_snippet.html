@@ -4,7 +4,7 @@
 </a>
 <div class="media-body">
 
-	<a ng-href="#/affiliate/detailed_view/{{result.id}}"><h4 class="media-heading">{{result.name}} {{result.surname}}</h4></a>
+	<a ng-href="#/affiliate/detailed_view/{{result.id}}"><h4 class="media-heading">{{result.name}} {{result.lastName}}</h4></a>
 
 	<dl class="snippet_spec" compact>
 
@@ -18,16 +18,16 @@
 		<dd><a href="mailto:{{result.email}}" target="_blank">{{result.email}}</a></dd>
 		
 		<dt>Teléfono</dt>
-		<dd>{{result.phone}}</dd>
+		<dd>{{result.tel}}</dd>
 
 		<dt>Celular</dt>
-		<dd>{{result.cellphone}}</dd>
+		<dd>{{result.cel}}</dd>
 
 		<dt class="both">Reputación</dt>
 		<dd>{{result.reputation}}</dd>
 
-		<dt>Estado</dt>
-		<dd>{{result.isActive | checkmark}}</dd>
+		<dt>¿Está suspendido?</dt>
+		<dd>{{result.suspended | checkmark}}</dd>
 
 	</dl>
 

@@ -1,0 +1,127 @@
+<div class="display_data">
+
+	<div class="row">
+
+		<div class="span8">
+			<h1 class="media-heading">
+				Solicitud de Préstamo
+			</h1>
+		</div>
+
+
+
+		<form ng-submit="submit()" class="form-horizontal">
+
+			<fieldset class="span8">
+
+			 	<div class="control-group">
+					<label class="control-label">Título: </label>
+					<a ng-href="#/book/detailed_view/{{copy.book_id}}" target="_blank">{{copy.title}}</a>
+				</div>
+
+				<div class="control-group authors clearfix">	
+					<label class="control-label">Autores: </label>		
+					<a ng-repeat="author in copy.authors" ng-href="#/author/detailed_view/{{author.id}}" target="_blank">
+						{{author.nick}}
+					</a>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Editorial: </label>
+					<a ng-href="#/editorial/detailed_view/{{copy.editorial.id}}" target="_blank">{{copy.editorial.name}}</a>
+				</div>
+
+				<div class="control-group authors clearfix">	
+					<label class="control-label">Géneros: </label>	
+					<span ng-repeat="genre in copy.genres">{{genre.name}}</span>	
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Edición: </label>
+					<label class="control-label">{{copy.editionNumber}}</label>	
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">País de Edición: </label>
+					<label class="control-label">{{copy.editionCountry}}</label>	
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Ubicación: </label>
+					<label class="control-label">{{copy.location.shelves}}, {{copy.location.shelf}}</label>	
+				</div>
+
+				</hr>
+			</fieldset>
+
+
+			<fieldset class="span8 lend_container">
+
+				<div class="control-group"  ng-controller="AffiliateSelectController">
+					<label class="control-label">Buscar socio: </label>
+					<div class="controls">
+						<input type="text"  placeholder="" ng-model="search_query" value="{{selected_affiliate.name}}" required>
+						<button type="button" class="btn" ng-click="search_affiliate()"><i class="icon-search"></i></button>
+						<div class="lend_affiliate_search">
+							<div ng-repeat="result in search_response.results">
+								<input  name="affiliate" type="radio" ng-model="i" value={{$index}} ng-click="select_affiliate($index)">
+								{{result.name}} {{result.lastName}}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Nombre del Socio: </label>
+					<a ng-href="#/affiliate/detailed_view/{{selected_affiliate.id}}" target="_blank">
+						{{selected_affiliate.name}} {{selected_affiliate.lastName}}
+					</a>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">Legajo del Socio: </label>
+					<label class="control-label">{{selected_affiliate.id}}</label>
+				</div>
+
+				<div class="alert alert-error" ng-show="selected_affiliate.isSuspended">Este Socio esta deshabilitado para realizar prestamos</div>
+
+
+				<div class="control-group">
+					<label class="control-label">Tipo de Préstamo: </label>
+					<div class="controls">
+						<select ng-model="lend_type" ng-options="l | translate for l in copy.lendTypes" ng-required="true"></select><br>	
+					</div>
+				</div>
+
+
+				<div class="control-group">
+					<label class="control-label">Fecha de Hoy: </label>
+					<label class="control-label">{{copy.date.today | date:'dd/MM/yyyy'}}</label>	
+				</div>
+				max="'{{copy.date.max | date:'yyyy-MM-dd'}}'"
+				<div class="control-group" ng-controller="DatePickerController">
+			    	<label class="control-label">Fecha Pactada de Devolución: </label>
+			    	<div class="controls">
+			        	<input type="text" datepicker-popup="dd/MM/yyyy" ng-model="$parent.expectedReturnDate" is-open="opened" 
+			        		min="minDate" max="maxDate" show-weeks="false" year-range=1 required/>
+			        	<button class="btn" type="button" ng-click="open()"><i class="icon-calendar"></i></button>
+			        </div>
+			    </div>
+
+
+				<div class="control-group">
+					<label class="control-label">Notas sobre el Préstamo: </label>
+					<div class="controls">
+						<textarea ng-model="lend_comments" rows="3"></textarea>
+					</div>
+				</div>
+
+				<button type="submit" class="btn btn-inverse" ng-disabled="selected_affiliate.isSuspended">Prestar!</button>
+
+			</fieldset>
+
+		</form>
+
+	</div>
+
+</div>

@@ -1,5 +1,7 @@
 
-angular.module('jraptors.Controllers', ['ui.bootstrap']).controller('SearchController',
+angular.module('jraptors.Controllers', ['ui.bootstrap'])
+
+.controller('SearchController',
 	[
 		'$scope', 'animations', 'Search', '$location',
 		function ($scope, animations, Search, $location) {
@@ -113,27 +115,6 @@ controller('EditController',
 		}
 	]
 ).
-
-
-controller('ReturnController',
-	[
-		'$scope',
-		function ($scope) {
-		}
-	]
-).
-
-
-controller('LendController',
-	[
-		'$scope',
-		function ($scope) {
-
-
-		}
-	]
-).
-
 
 
 
@@ -527,6 +508,124 @@ controller('DatePickerController',
 					$scope.opened = true;
 				});
 			};
+
+			$scope.minDate = new Date();
+		}
+	]
+).
+
+
+
+controller('LendController',
+	[
+		'$scope', 'copy', 'Copy_Lend',
+		function ($scope, copy, Copy_Lend) {
+			var max_dates,
+				today = new Date();
+
+			today = today.getTime();
+
+
+			max_dates = {
+				'local': today,
+				'foreign': copy.date.max
+			};
+
+			$scope.copy = copy;
+
+
+			$scope.$watch('lend_type', function() {
+				$scope.maxDate = max_dates[$scope.lend_type] || today;
+			});
+
+			$scope.submit = function () {
+				var date = new Date($scope.expectedReturnDate);
+
+				var lend = new Copy_Lend({
+					id: copy.copy_id,
+					affiliate_id: $scope.selected_affiliate.id,
+					expectedReturnDate: date.getTime(),
+					lend_comments: $scope.lend_comments,
+					lend_type: $scope.lend_type
+				});
+				
+				lend.$save(function () {
+					window.alert('El Préstamo ha sido creado correctamente!');
+				}, function () {
+					window.alert('Estamos experimentando problemas con el servidor, por favor intente mas tarde.');
+				});
+			};
+
+
+		}
+	]
+).
+
+controller('AffiliateSelectController',
+	[
+		'$scope', 'Affiliate',
+		function ($scope, Affiliate) {
+
+			$scope.search_affiliate = function() {
+				$scope.search_response = Affiliate.get({q: $scope.search_query });
+			};
+
+			$scope.select_affiliate = function (i) {
+				$scope.$parent.selected_affiliate = $scope.search_response.results[i];
+				$scope.search_response = null;
+
+			};
+
+
+		}
+	]
+).
+
+controller('ReturnController',
+	[
+		'$scope', 'copy', 'Copy_Return',
+		function ($scope, copy, Copy_Return) {
+
+			$scope.copy = copy;
+
+
+			//Move this into a service and test it
+			function isSuspended(today_ms, expected_ms) {
+				var today = new Date(today_ms),
+					expected = new Date(expected_ms);
+				
+
+				if ( today.getMonth() > expected.getMonth() ) {
+					return true;
+				}
+
+				if ( today.getMonth() === expected.getMonth() ) {
+					if (  today.getDay() > expected.getDay()  ) {
+						return true;
+					}
+				}
+
+				return false;
+			}
+
+			$scope.will_be_suspended = isSuspended(copy.date.today, copy.date.expectedReturn);
+
+
+			$scope.submit = function () {
+				var return_copy = new Copy_Return({
+					id: copy.copy_id,
+					lend_comments: copy.lend_comments
+				});
+
+				return_copy.$save(function () {
+					window.alert('El Préstamo ha sido devuelto correctamente!');
+				}, function () {
+					window.alert('Estamos experimentando problemas con el servidor, por favor intente mas tarde.');
+				});
+
+			};
+
+
 		}
 	]
 );
