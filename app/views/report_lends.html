@@ -21,7 +21,6 @@
 	<thead>
 		<tr>
 			<th>Titulo del libro</th>
-			<th>Autores del Libro</th>
 			<th>Mes</th>
 			<th>Año</th>
 			<th>Numero de prestamos</th>
@@ -35,11 +34,7 @@
 					{{ result.title }}
 				</a>
 			</td>
-			<td> 
-				<a ng-repeat="author in result.authors" ng-href="#/author/detailed_view/{{author.id}}"> 
-					{{ author.nick }} 
-				</a> 
-			</td>
+
 			<td> 
 				{{result.month}}
 			</td>

@@ -1,0 +1,13 @@
+[{
+  "id": 1,
+  "title": "Harry Potter y La Piedra Filosofal",
+  "month": 10,
+  "year": 2013,
+  "lend_number": 2
+}, {
+  "id": 1,
+  "title": "Harry Potter y La Piedra Filosofal",
+  "month": 11,
+  "year": 2013,
+  "lend_number": 1
+}]

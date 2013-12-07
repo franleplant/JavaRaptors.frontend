@@ -1,0 +1,29 @@
+[{
+  "id": 1,
+  "copy_id": 1,
+  "title": "Harry Potter y La Piedra Filosofal",
+  "affiliate": {
+    "id": 1,
+    "name": "Jesus",
+    "lastName": "DeLaFerrere"
+  },
+  "lendType": "foreign",
+  "lendingUser": "GuzmanClaudia",
+  "lendDate": 1381374000000,
+  "expectedReturnDate": 1381806000000,
+  "delayed_days": 53
+},{
+  "id": 1,
+  "copy_id": 1,
+  "title": "Harry Potter y La Piedra Filosofal",
+  "affiliate": {
+    "id": 1,
+    "name": "Jesus",
+    "lastName": "DeLaFerrere"
+  },
+  "lendType": "foreign",
+  "lendingUser": "GuzmanClaudia",
+  "lendDate": 1381374000000,
+  "expectedReturnDate": 1381806000000,
+  "delayed_days": 53
+}]

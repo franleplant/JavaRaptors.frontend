@@ -271,7 +271,7 @@ jraptors.config(
 					controller: 'ReportTopsController',
 					label: 'Libros más retirados',
 					resolve: {
-						reportLops: function(reportTopsLoader) {
+						reportTops: function(reportTopsLoader) {
 							return reportTopsLoader();
 						}
 					}

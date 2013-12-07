@@ -237,7 +237,7 @@ factory('editorialLoader', ['Editorial', '$route', '$q',
 
 factory('ReportLends', ['$resource', 'RootRoute',
 		function ($resource, RootRoute) {
-			return $resource(  RootRoute + 'report_lends/', {}, {});
+			return $resource(  RootRoute + 'report/lends/', {}, {});
 		}
 	]
 ).
@@ -265,7 +265,7 @@ factory('reportLendsLoader', ['ReportLends', '$route', '$q',
 
 factory('ReportLateReturns', ['$resource', 'RootRoute',
 		function ($resource, RootRoute) {
-			return $resource(   RootRoute  +  'report_late_returns/', {}, {});
+			return $resource(   RootRoute  +  'report/late_returns/', {}, {});
 		}
 	]
 ).
@@ -292,7 +292,7 @@ factory('reportLateReturnsLoader', ['ReportLateReturns', '$route', '$q',
 
 factory('ReportTops', ['$resource', 'RootRoute',
 		function ($resource, RootRoute) {
-			return $resource( RootRoute + 'report_top/', {}, {});
+			return $resource( RootRoute + 'report/top/', {}, {});
 		}
 	]
 ).

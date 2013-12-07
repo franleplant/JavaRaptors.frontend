@@ -19,25 +19,29 @@
 <table class="table table-hover table-striped">
 	<thead>
 		<tr>
-			<th>Titulo del libro</th>
-			<th>Autores del Libro</th>
-			<th>ID / Serie del Ejemplar</th>
-		</tr>
+			<th>Serie del Ejemplar</th>
+			<th>Titulo del libro</th>		
+			<th>Socio en potestad</th>		
+			<th>Demora en Días</th>
 	</thead>
 	<tbody>
 		<tr ng-repeat="result in reportLateReturns">
+			<td>
+				{{result.copy_id}}
+			</td>
 			<td>
 				<a ng-href="#/book/detailed_view/{{result.id}}">
 					{{ result.title }}
 				</a>
 			</td>
+
 			<td>
-				<a ng-repeat="author in result.authors" ng-href="#/author/detailed_view/{{author.id}}">		
-					{{ author.nick }}
+				<a ng-href="#/affiliate/detailed_view/{{result.affiliate.id}}">
+					{{ result.affiliate.name }} {{ result.affiliate.lastName }}
 				</a>
-			</td>		
+			</td>
 			<td>
-				{{result.copy_id}}
+				{{result.delayed_days}}
 			</td>
 		</tr>
 	</tbody>
