@@ -500,6 +500,7 @@ controller('ReportTopsController',
 		'$scope', 'reportTops',
 		function ($scope, reportTops) {
 			$scope.reportTops = reportTops;
+
 		}
 	]
 ).

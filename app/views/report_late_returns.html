@@ -25,7 +25,7 @@
 			<th>Demora en Días</th>
 	</thead>
 	<tbody>
-		<tr ng-repeat="result in reportLateReturns">
+		<tr ng-repeat="result in reportLateReturns" ng-class=" result.delayed_days | warnings">
 			<td>
 				{{result.copy_id}}
 			</td>
@@ -46,3 +46,20 @@
 		</tr>
 	</tbody>
 </table>
+
+
+<div class="span3">
+	<h4>Referencia</h4>
+
+	<table class="table table-hover table-striped">
+	<tbody>
+		<tr class="error">
+			<td>Préstamo irrecuperable</td>	
+		</tr>
+
+		<tr class="warning">
+			<td>Préstamo vencido</td>		
+		</tr>
+	</tbody>
+</table>
+</div>

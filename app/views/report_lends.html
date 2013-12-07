@@ -28,7 +28,7 @@
 	</thead>
 	<tbody>
 
-		<tr ng-repeat="result in reportLends">
+		<tr ng-repeat="result in reportLends | orderBy:'month':true">
 			<td>
 				<a ng-href="#/book/detailed_view/{{result.book.id}}">
 					{{ result.title }}

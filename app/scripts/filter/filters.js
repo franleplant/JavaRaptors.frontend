@@ -159,4 +159,19 @@ filter('isEdit', [
 			};
 		}
 	]
+).
+
+filter('warnings', [
+		function() {
+			return function(delayed_days) {
+
+
+				if (delayed_days > 365 ) {
+					return 'error';
+				}
+
+				return 'warning';
+			};
+		}
+	]
 );
