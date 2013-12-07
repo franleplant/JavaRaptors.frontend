@@ -39,7 +39,6 @@ controller('BreadcrumbController',
 		function ($scope, $location,$rootScope, $route) {
 
 			var breadcrumbs = [],
-				breadcrumbsService = {},
 				routes = $route.routes;
 
 			var generateBreadcrumbs = function () {
@@ -55,11 +54,9 @@ controller('BreadcrumbController',
 					return route;
 				};
 
-				console.log(pathElements);
 				if (pathElements[0] === '') {
 					delete pathElements[0];
 				}
-
 
 				angular.forEach(pathElements, function (el) {
 
@@ -80,21 +77,9 @@ controller('BreadcrumbController',
 			};
 
 			// We want to update breadcrumbs only when a route is actually changed
-			// as $location.path() will get updated immediately (even if route change fails!)
 			$rootScope.$on('$routeChangeSuccess', function (event, current) {
 				generateBreadcrumbs();
 			});
-
-			breadcrumbsService.getAll = function () {
-				return breadcrumbs;
-			};
-
-			breadcrumbsService.getFirst = function () {
-				return breadcrumbs[0] || {};
-			};
-
-
-			return breadcrumbs;
 		}
 	]
 ).
