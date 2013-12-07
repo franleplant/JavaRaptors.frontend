@@ -22,20 +22,27 @@
 		<tr>
 			<th>Titulo del libro</th>
 			<th>Autores del Libro</th>
+			<th>Editorial</th>
+			<th>Numero de Edicion</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr ng-repeat="book in reportLops">
 			<td>
-				<a ng-href="#/book/detailed_view/{{book.id}}" 
-				href="#/book/detailed_view/{{book.id}}">
+				<a ng-href="#/book/detailed_view/{{book.id}}">
 					{{ book.title }}
 				</a>
 			</td>
 			<td> 
-				<a ng-repeat="author in book.authors" ng-href="#/author/detailed_view/{{author.id}}" href="#/author/detailed_view/{{author.id}}"> 
-					{{ author.name }} 
+				<a ng-repeat="author in book.authors" ng-href="#/author/detailed_view/{{author.id}}"> 
+					{{ author.nick }} 
 				</a> 
+			</td>
+
+			<td><a ng-href="#/editorial/detailed_view/{{book.editorial.id}}">{{book.editorial.name}}</a></td>
+			<td>
+
+				{{book.editionNumber}}
 			</td>
 		</tr>
 	</tbody>
