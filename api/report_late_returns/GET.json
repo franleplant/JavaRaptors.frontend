@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "copy_id": 1,
     "title": "Harry Poter 1 and the Sorcerer's Stone",
     "authors": [
       {
@@ -13,28 +14,11 @@
         "name": "JK Rownling2",
         "link": "/some/url2"
       }
-    ],
-    "copys": [
-      {
-        "id": "0003",
-        "lendType": "foreign",
-        "lend": {
-          "lendingDate": 1377528419068, 
-          "expectedReturnDate": 1377628419068
-        }
-      },
-      {
-        "id": "0004",
-        "lendType": "foreign",
-        "lend": {
-          "lendingDate": 1377528419068,
-          "expectedReturnDate": 1377628419068
-        }
-      }
     ]
   },
   {
     "id": 2,
+    "copy_id": 2,
     "title": "Harry Poter 2 and The Chambers of Secret",
     "authors": [
       {
@@ -46,24 +30,6 @@
         "id": 2,
         "name": "JK Rownling2",
         "link": "/some/url2"
-      }
-    ],
-    "copys": [
-      {
-        "id": "0005",
-        "lendType": "foreign",
-        "lend": {
-          "lendingDate": 1377528419068, 
-          "expectedReturnDate": 1377628419068
-        }
-      },
-      {
-        "id": "0006",
-        "lendType": "foreign",
-        "lend": {
-          "lendingDate": 1377528419068,
-          "expectedReturnDate": 1377628419068
-        }
       }
     ]
   }

@@ -16,7 +16,7 @@
 </div>
 
 <p class="text-center" style="margin: 0 0 20px;">Libros cuya fecha de devolución es anterior a la fecha actual pero que aún no han sido devueltos.</p>
-
+{{reportLateReturns	}}
 <table class="table table-hover table-striped">
 	<thead>
 		<tr>
@@ -40,9 +40,7 @@
 				</a>
 			</td>		
 			<td>
-				<p ng-repeat="copy in result.copys">
-					{{ copy.id}}
-				</p>
+				{{result.copy_id}}
 			</td>
 		</tr>
 	</tbody>
