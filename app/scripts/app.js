@@ -66,6 +66,7 @@ jraptors.config(
 				when('/copy/lend/:id', {
 					templateUrl: 'views/copy_lend.html',
 					controller: 'LendController',
+					label: 'Solicitud de Préstamo',
 					resolve: {
 						copy: function(copy_Lend_Loader) {
 							return copy_Lend_Loader();
@@ -76,6 +77,7 @@ jraptors.config(
 				when('/copy/return/:id', {
 					templateUrl: 'views/copy_return.html',
 					controller: 'ReturnController',
+					label: 'Solicitud de Devolución',
 					resolve: {
 						copy: function(copy_Return_Loader) {
 							return copy_Return_Loader();
