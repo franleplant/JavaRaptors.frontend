@@ -17,7 +17,7 @@
 
 					<hr/>	
 
-					<div class="alert alert-error" ng-show="affiliate.isSuspended">Este Socio esta deshabilitado para realizar prestamos</div>
+					<div class="alert alert-error" ng-show="affiliate.suspended">Este Socio esta deshabilitado para realizar prestamos</div>
 
 				</fieldset>
 
@@ -68,7 +68,7 @@
 
 	 				<div class="control-group" ng-if="'detailed_view' | testPathRegExp">
 						<label class="control-label">Habilitado:</label>
-						<span>{{affiliate.isSuspended | not | checkmark}}</span>
+						<span>{{affiliate.suspended | not | checkmark}}</span>
 					</div>
 
 	 				<div class="control-group">

@@ -34,5 +34,7 @@
         "name": "Mavis",
         "lastName": "Justice"
     },
+
+    "lendType": "foreign",
     "lend_comments": "se ha prestado un libro"
 }
