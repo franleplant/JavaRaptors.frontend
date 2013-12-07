@@ -43,13 +43,11 @@
 		                <input class="" placeholder="Contraseña" type="password" ng-model="password" required>
 		            </div>
 		        </div>
-				<div class="alert alert-error" ng-show="!validation.userName || !validation.password">
-					<strong>Error!</strong> Por favor verifica que la combinacion Nombre de Usuario y Password sea correcta
-				</div>
 
-				<div class="alert alert-error" ng-show="serverError">
-					<strong>Error en el Servidor!</strong> Por favor verifica su conexion a Internet
-				</div>						
+
+				<div class="alert alert-error" ng-show="!valid">
+					<strong>Error!</strong> Por favor verifica que la combinacion Nombre de Usuario y Password sea correcta
+				</div>			
 
 		        <button class="btn btn-inverse" type="submit">Sign In</button>
 
