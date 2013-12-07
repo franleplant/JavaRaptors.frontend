@@ -4,7 +4,7 @@
 
 	<div class="control-group">
 		<label class="control-label">Creacion: </label>
-		<label class="control-label">{{model.createDate}}</label>
+		<label class="control-label">{{model.createDate | date:'dd/MM/yyyy'}}</label>
 	</div>
 
 
@@ -16,7 +16,7 @@
 
 	<div class="control-group">
 		<label class="control-label">Ultima Edicion: </label>
-		<label class="control-label">{{model.editDate}}</label>					
+		<label class="control-label">{{model.editDate | date:'dd/MM/yyyy'}}</label>					
 	</div>
 
 

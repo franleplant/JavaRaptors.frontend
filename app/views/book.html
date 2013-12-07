@@ -60,7 +60,7 @@
 						<jr-display-and-edit ng-model="book.title" jr-placeholder="Titulo" required></jr-display-and-edit>
 					</div>
 
-	 				<div class="control-group" >
+	 				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
 						<label class="control-label">Resumen: </label>
 						<jr-display-and-edit ng-model="book.summary" jr-placeholder="Resumen">
 						</jr-display-and-edit>
@@ -223,11 +223,11 @@
 									</td>
 
 									<td>
-										{{copy.audit.createDate}} {{copy.audit.createUser}}
+										{{copy.audit.createDate | date:'dd/MM/yyyy'}} {{copy.audit.createUser}}
 									</td>	
 
 									<td>
-										{{copy.audit.editDate}} {{copy.audit.editUser}}
+										{{copy.audit.editDate | date:'dd/MM/yyyy'}} {{copy.audit.editUser}}
 									</td>	
 
 									<td>

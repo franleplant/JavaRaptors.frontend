@@ -41,7 +41,7 @@
             "shelf": "2"
         },
         "audit": {
-            "createDate": "2013-10-10",
+            "createDate": 1386388239898,
             "editDate": null,
             "deleteDate": null,
             "createUser": "GuzmanClaudia",
@@ -66,7 +66,7 @@
             "shelf": "2"
         },
         "audit": {
-            "createDate": "2013-10-10",
+            "createDate": 1386388239898,
             "editDate": null,
             "deleteDate": null,
             "createUser": "GuzmanClaudia",
@@ -75,7 +75,7 @@
         }
     }],
     "audit": {
-        "createDate": "2013-10-10",
+        "createDate": 1386388239898,
         "editDate": null,
         "deleteDate": null,
         "createUser": "GuzmanClaudia",
