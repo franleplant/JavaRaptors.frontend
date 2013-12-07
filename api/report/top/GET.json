@@ -1,0 +1,33 @@
+[{
+  "id": 1,
+  "title": "Harry Potter y La Piedra Filosofal",
+  "editionNumber": null,
+  "editorial": {
+    "id": 1,
+    "name": "Salamandra"
+  },
+  "lend_number": 3,
+  "authors": [{
+    "id": 1,
+    "nick": "Jk Rowling"
+  }]
+},{
+    "id": 2,
+    "title": "Harry Poter 2",
+    "editionNumber": "3erd",
+    "lend_number": 5,
+    "editorial": {
+      "id": 1,
+      "name": "Salamadra"
+    },
+    "authors": [{
+        "id": 1,
+        "nick": "JK Rownling"
+      },{
+        "id": 2,
+        "nick": "JK Rownling2"
+      }]
+  }]
+
+
+

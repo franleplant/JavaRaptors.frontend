@@ -497,9 +497,10 @@ controller('ReportLateReturnsController',
 
 controller('ReportTopsController',
 	[
-		'$scope', 'reportLops',
-		function ($scope, reportLops) {
-			$scope.reportLops = reportLops;
+		'$scope', 'reportTops',
+		function ($scope, reportTops) {
+			$scope.reportTops = reportTops;
+
 		}
 	]
 ).

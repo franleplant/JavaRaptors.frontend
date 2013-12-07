@@ -16,34 +16,50 @@
 </div>
 
 <p class="text-center" style="margin: 0 0 20px;">Libros cuya fecha de devolución es anterior a la fecha actual pero que aún no han sido devueltos.</p>
-
 <table class="table table-hover table-striped">
 	<thead>
 		<tr>
-			<th>Titulo del libro</th>
-			<th>Autores del Libro</th>
-			<th>ID / Serie del Ejemplar</th>
-		</tr>
+			<th>Serie del Ejemplar</th>
+			<th>Titulo del libro</th>		
+			<th>Socio en potestad</th>		
+			<th>Demora en Días</th>
 	</thead>
 	<tbody>
-		<tr ng-repeat="result in reportLateReturns">
+		<tr ng-repeat="result in reportLateReturns" ng-class=" result.delayed_days | warnings">
 			<td>
-				<a ng-href="#/book/detailed_view/{{result.id}}" 
-				href="#/book/detailed_view/{{result.id}}">
+				{{result.copy_id}}
+			</td>
+			<td>
+				<a ng-href="#/book/detailed_view/{{result.id}}">
 					{{ result.title }}
 				</a>
 			</td>
+
 			<td>
-				<a ng-repeat="author in result.authors" ng-href="#/author/detailed_view/{{author.id}}" 
-				href="#/author/detailed_view/{{author.id}}">
-					{{ author.name }}
+				<a ng-href="#/affiliate/detailed_view/{{result.affiliate.id}}">
+					{{ result.affiliate.name }} {{ result.affiliate.lastName }}
 				</a>
-			</td>		
+			</td>
 			<td>
-				<p ng-repeat="copy in result.copys">
-					{{ copy.id}}
-				</p>
+				{{result.delayed_days}}
 			</td>
 		</tr>
 	</tbody>
 </table>
+
+
+<div class="span3">
+	<h4>Referencia</h4>
+
+	<table class="table table-hover table-striped">
+	<tbody>
+		<tr class="error">
+			<td>Préstamo irrecuperable</td>	
+		</tr>
+
+		<tr class="warning">
+			<td>Préstamo vencido</td>		
+		</tr>
+	</tbody>
+</table>
+</div>
