@@ -19,8 +19,6 @@ controller('SigninController', ['$scope', '$http',
 				}).
 				//this probably wont be necessary
 				success(function(data, status, headers, config) {
-
-					if (data.userName && data.password) {
 						location.href = 'index.html';
 						return;
 					}
