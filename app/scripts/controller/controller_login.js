@@ -13,8 +13,8 @@ controller('SigninController', ['$scope', '$http',
 					url: '/LoginServlet',
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 					data: $.param({
-						'username':  $scope.userName,
-						'password':  $scope.password
+						'username':  $scope.user,
+						'password':  $scope.pwd
 					})
 				}).
 				//this probably wont be necessary
