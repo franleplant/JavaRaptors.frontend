@@ -10,7 +10,7 @@ controller('SigninController', ['$scope', '$http',
 
 				$http({
 					method: 'POST',
-					url: '/api/signin',
+					url: '/LoginServlet',
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 					data: $.param({
 						'username':  $scope.userName,
