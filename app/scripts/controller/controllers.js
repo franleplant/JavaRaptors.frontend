@@ -305,12 +305,22 @@ controller('CreateEditAffiliateController',
 
 			$scope.affiliate = affiliate || new Affiliate();
 
+			var entity = 'Socio';
+			var path = '/affiliate';
+
 			//TODO: refactor this
 
 			$scope.save = function () {
 
-				$scope.affiliate.$save(function () {
-					$location.path('/affiliate');
+				$scope.affiliate.$save(function (data) {
+
+					if ( data.status === 'ok') {
+						window.alert('El ' + entity + ' se ha guardado exitosamente');
+						$location.path(path);
+					} else {
+						window.alert('Ups, algo salio mal, por favor intentalo de nuevo');
+					}
+
 				},
 				function () {
 					//error callback
@@ -327,11 +337,20 @@ controller('CreateEditAffiliateController',
 			
 			};
 
+			$scope.confirm = function () {
+
+				var result = window.confirm('¿Esta seguro que desea borrar este ' + entity + '?');
+				if (result) {
+					$scope.remove();
+				}
+			};
+
 			$scope.remove = function (callback) {
 
-				affiliate.remove({id: $scope.affiliate.id}).$then(function () {
-					$location.path('/affiliate');
-					callback();
+				Affiliate.remove({id: $scope.affiliate.id}).$then(function () {
+					window.alert('El ' + entity +' ha sido borrado con exito');
+					$location.path(path);
+					//callback();
 				});
 			};
 
