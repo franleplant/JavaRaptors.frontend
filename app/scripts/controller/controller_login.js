@@ -21,8 +21,7 @@ controller('SigninController', ['$scope', '$http',
 				success(function(data, status, headers, config) {
 						location.href = 'index.html';
 						return;
-					}
-				}).
+					}).
 				error(function(data, status, headers, config) {
 					$scope.valid = false;
 				});
