@@ -306,7 +306,7 @@ controller('CreateEditAffiliateController',
 			$scope.affiliate = affiliate || new Affiliate();
 
 			//TODO: refactor this
-			var entity = 'Socio';
+			var entity = 'El socio';
 			var path = '/affiliate';
 
 			$scope.save = function () {
@@ -314,7 +314,7 @@ controller('CreateEditAffiliateController',
 				$scope.affiliate.$save(function (data) {
 
 					if ( data.status === 'ok') {
-						window.alert('El ' + entity + ' se ha guardado exitosamente');
+						window.alert( entity + ' se ha guardado exitosamente');
 						$location.path(path);
 					} else {
 						window.alert('Ups, algo salio mal, por favor intentalo de nuevo');
@@ -347,7 +347,7 @@ controller('CreateEditAffiliateController',
 			$scope.remove = function (callback) {
 
 				Affiliate.remove({id: $scope.affiliate.id}).$then(function () {
-					window.alert('El ' + entity +' ha sido borrado con exito');
+					window.alert( entity +' ha sido borrado con exito');
 					$location.path(path);
 					//callback();
 				});
@@ -382,7 +382,7 @@ controller('CreateEditAuthorController',
 
 			$scope.author = author || new Author();
 
-			var entity = 'Autor';
+			var entity = 'El autor';
 			var path = '/author';
 
 			$scope.save = function () {
@@ -390,7 +390,7 @@ controller('CreateEditAuthorController',
 				$scope.author.$save(function (data) {
 
 					if ( data.status === 'ok') {
-						window.alert('El ' + entity + ' se ha guardado exitosamente');
+						window.alert( entity + ' se ha guardado exitosamente');
 						$location.path(path);
 					} else {
 						window.alert('Ups, algo salio mal, por favor intentalo de nuevo');
@@ -402,7 +402,7 @@ controller('CreateEditAuthorController',
 			};
 
 			$scope.confirm = function () {
-				
+
 				var result = window.confirm('¿Esta seguro que desea borrar este ' + entity + '?');
 				if (result) {
 					$scope.remove();
@@ -412,7 +412,7 @@ controller('CreateEditAuthorController',
 			$scope.remove = function (callback) {
 
 				Author.remove({id: $scope.author.id}).$then(function () {
-					window.alert('El ' + entity +' ha sido borrado con exito');
+					window.alert( entity +' ha sido borrado con exito');
 					$location.path(path);
 					//callback();
 				});
@@ -463,23 +463,39 @@ controller('CreateEditEditorialController',
 			$scope.editorial = editorial || new Editorial();
 
 
-			$scope.remove = function (callback) {
-
-				Editorial.remove({id: $scope.editorial.id}).
-					$then(function () {
-						$location.path('/');
-						callback();
-					}
-				);
-			};
+			var entity = 'La editorial';
+			var path = '/editorial';
 
 			$scope.save = function () {
 
-				$scope.editorial.$save(function () {
-					$location.path('/');
+				$scope.editorial.$save(function (data) {
+
+					if ( data.status === 'ok') {
+						window.alert( entity + ' se ha guardado exitosamente');
+						$location.path(path);
+					} else {
+						window.alert('Ups, algo salio mal, por favor intentalo de nuevo');
+					}
 				},
 				function () {
 					//error callback
+				});
+			};
+
+			$scope.confirm = function () {
+				
+				var result = window.confirm('¿Esta seguro que desea borrar esta ' + entity + '?');
+				if (result) {
+					$scope.remove();
+				}
+			};
+
+			$scope.remove = function (callback) {
+
+				Editorial.remove({id: $scope.editorial.id}).$then(function () {
+					window.alert( entity +' ha sido borrado con exito');
+					$location.path(path);
+					//callback();
 				});
 			};
 
