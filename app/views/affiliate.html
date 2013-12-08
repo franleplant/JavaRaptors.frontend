@@ -31,28 +31,28 @@
 					</div>
 
 	 				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
-						<label class="control-label">Apellido: </label>
+						<label class="control-label">Apellido*: </label>
 						<jr-display-and-edit ng-model="affiliate.lastName" jr-placeholder="Apellido" required></jr-display-and-edit>
 					</div>
 
 	 				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
-						<label class="control-label">Nombre: </label>
+						<label class="control-label">Nombre*: </label>
 						<jr-display-and-edit ng-model="affiliate.name" jr-placeholder="Nombre" required></jr-display-and-edit>
 					</div>
 
 	 				<div class="control-group">
-						<label class="control-label">DNI: </label>
+						<label class="control-label">DNI*: </label>
 						<jr-display-and-edit ng-model="affiliate.dni" jr-placeholder="DNI" required></jr-display-and-edit>
 					</div>
 
 	 				<div class="control-group">
-						<label class="control-label">Mail: </label>
+						<label class="control-label">Mail*: </label>
 						<jr-display-and-edit ng-model="affiliate.email" jr-placeholder="Mail" link="mailto:{{affiliate.email}}" required type="email">
 						</jr-display-and-edit>
 					</div>
 
 	 				<div class="control-group">
-						<label class="control-label">Teléfono: </label>
+						<label class="control-label">Teléfono*: </label>
 						<jr-display-and-edit ng-model="affiliate.tel" jr-placeholder="Teléfono" required></jr-display-and-edit>
 					</div>
 
@@ -76,6 +76,8 @@
 						<jr-display-and-edit ng-model="affiliate.img" jr-placeholder="Foto"></jr-display-and-edit>
 					</div>
 				</fieldset>
+
+				<p ng-if="'edit, create' | testPathRegExp">Los campos marcados con * son obligatorios</p>
 
 				<fieldset class="span12"><hr/></fieldset>
 

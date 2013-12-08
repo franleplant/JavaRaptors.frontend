@@ -19,12 +19,12 @@
 
 
  				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
-					<label class="control-label">Nombre y Apellido: </label>
-					<jr-display-and-edit ng-model="author.nick" jr-placeholder="Nombre y Apellido"></jr-display-and-edit>
+					<label class="control-label">Nombre y Apellido*: </label>
+					<jr-display-and-edit ng-model="author.nick" jr-placeholder="Nombre y Apellido" required></jr-display-and-edit>
 				</div>
 
  				<div class="control-group">
-					<label class="control-label">ISNI: </label>
+					<label class="control-label">ISNI*: </label>
 					<jr-display-and-edit ng-model="author.isni" jr-placeholder="ISNI" required></jr-display-and-edit>
 				</div>
 
@@ -46,6 +46,8 @@
 					<jr-display-and-edit ng-model="author.comments" jr-placeholder="Comentarios"></jr-display-and-edit>
 				</div>
 
+				<p ng-if="'edit, create' | testPathRegExp">Los campos marcados con * son obligatorios</p>
+				
 				<hr/>
 
 			</fieldset>

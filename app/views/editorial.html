@@ -21,18 +21,18 @@
 				<h3>Datos</h3>
 
  				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
-					<label class="control-label">Nombre: </label>
+					<label class="control-label">Nombre*: </label>
 					<jr-display-and-edit ng-model="editorial.name" jr-placeholder="Nombre"></jr-display-and-edit>
 				</div>
 
  				<div class="control-group" >
-					<label class="control-label">Razon Social: </label>
+					<label class="control-label">Razon Social*: </label>
 					<jr-display-and-edit ng-model="editorial.legal_name" jr-placeholder="Razon Social"></jr-display-and-edit>
 				</div>
 
 
  				<div class="control-group" >
-					<label class="control-label">Telefono: </label>
+					<label class="control-label">Telefono*: </label>
 					<jr-display-and-edit ng-model="editorial.tel" jr-placeholder="Telefono"></jr-display-and-edit>
 				</div>
 
@@ -47,11 +47,13 @@
 				</div>
 
 				<div class="control-group">
-					<label class="control-label">CUIL: </label>
+					<label class="control-label">CUIL*: </label>
 					<jr-display-and-edit ng-model="editorial.cuit_cuil" jr-placeholder="Cuil"></jr-display-and-edit>
 				</div>
 
 				<hr/>
+
+				<p ng-if="'edit, create' | testPathRegExp">Los campos marcados con * son obligatorios</p>
 
 			</fieldset>
 
