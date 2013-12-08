@@ -17,6 +17,12 @@
 				<h3>Datos</h3>
 
 
+
+ 				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
+					<label class="control-label">Nombre y Apellido: </label>
+					<jr-display-and-edit ng-model="author.nick" jr-placeholder="Nombre y Apellido"></jr-display-and-edit>
+				</div>
+
  				<div class="control-group">
 					<label class="control-label">ISNI: </label>
 					<jr-display-and-edit ng-model="author.isni" jr-placeholder="ISNI"></jr-display-and-edit>
@@ -51,7 +57,6 @@
 
 				<h3>
 					Libros
-					<a class="btn" ng-href="#/book/create" target="_blank"><i class="icon-plus-sign"></i></a>
 				</h3>
 
 				<section ng-repeat="book in author.books">
