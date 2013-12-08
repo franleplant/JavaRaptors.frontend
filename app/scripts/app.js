@@ -297,15 +297,14 @@ angular.module('jraptorsConfigBlock', []).config(
 					function ($q, $location, UserSession) {
 						return {
 							'request': function (request) {
-								request.headers.Auth =  UserSession.token(); //sacar esto
 								return request;
 							},
 							'response': function (response) {
 								return response;
 							},
 							'responseError': function (rejection) {
-								if(rejection.status === 401) {
-									$location.path('/401');
+								if(rejection.status === 401  || rejection.status === 403) {
+									location.href = 'forbidden.html';
 								}
 								return $q.reject(rejection);
 							}
@@ -323,23 +322,20 @@ angular.module('jraptorsRunBlock', ['ngCookies']).run(
 		function ($rootScope, UserSession, $cookies, $location) {
 			
 			//This should be set by the server after sucessfully user login
-			$cookies.username = 'franleplant';
-			$cookies.userrole = 'super';
+			//$cookies.user = 'franleplant';
+			//$cookies.role = 'super';
 
 
-			//$cookies.sessionToken = 'someToken'; 
+			UserSession.name(  $cookies.user  );
+			UserSession.role(  $cookies.role  );
 
-
-			UserSession.name(  $cookies.username  );
-			UserSession.role(  $cookies.userrole  );
-			
-			//UserSession.token(  $cookies.sessionToken  );
+			console.log(UserSession.name(), UserSession.role());
 
 
 			//http://docs.angularjs.org/api/ngRoute.$route
 			$rootScope.$on('$routeChangeStart', function () {
 				if (  !UserSession.isAllowedTo( $location.path() )  ) {
-					$location.path('/401');
+					location.href = 'forbidden.html';
 				}
 			});
 
