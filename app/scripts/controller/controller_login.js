@@ -4,17 +4,17 @@ controller('SigninController', ['$scope', '$http',
 	
 		function ($scope, $http) {
 
-			$scope.valid = false;
+			$scope.valid = true;
 
 			$scope.signin = function () {
 
 				$http({
 					method: 'POST',
-					url: '/LoginServlet',
+					url: '/javaraptors.backend/LoginServlet',
 					headers: {'Content-Type': 'application/x-www-form-urlencoded'},
 					data: $.param({
-						'username':  $scope.user,
-						'password':  $scope.pwd
+						'user':  $scope.user,
+						'pwd':  $scope.pwd
 					})
 				}).
 				//this probably wont be necessary
