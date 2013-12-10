@@ -1,6 +1,6 @@
 var jraptors = angular.module('jraptors', [
 	'jraptors.Controllers', 'jraptorsFilters', 'jraptorsServices', 'jraptorsDirectives',
-	'jraptorsConfig', 'jraptorsConfigBlock', 'jraptorsRunBlock', 'ui.bootstrap'
+	'jraptorsConfig', 'jraptorsConfigBlock', 'jraptorsRunBlock', 'ui.bootstrap', 'chieffancypants.loadingBar', 'ngAnimate', 'ngRoute' 
 ]);
 
 //
@@ -304,6 +304,7 @@ angular.module('jraptorsConfigBlock', []).config(
 							},
 							'responseError': function (rejection) {
 								if(rejection.status === 401  || rejection.status === 403) {
+									
 									location.href = 'forbidden.html';
 								}
 								return $q.reject(rejection);
@@ -323,7 +324,7 @@ angular.module('jraptorsRunBlock', ['ngCookies']).run(
 			
 			//This should be set by the server after sucessfully user login
 			//$cookies.user = 'franleplant';
-			//$cookies.role = 'super';
+			//$cookies.role = 'admin';
 
 
 			UserSession.name(  $cookies.user  );
@@ -331,10 +332,16 @@ angular.module('jraptorsRunBlock', ['ngCookies']).run(
 
 			console.log(UserSession.name(), UserSession.role());
 
+			if (  !UserSession.name() || !UserSession.role() ) {
+				location.href = 'login.html';
+			};
+
 
 			//http://docs.angularjs.org/api/ngRoute.$route
 			$rootScope.$on('$routeChangeStart', function () {
-				if (  !UserSession.isAllowedTo( $location.path() )  ) {
+
+				if (  !UserSession.isAllowedTo( $location.path() ) && $location.path() ) {
+					alert("Usted no tiene los permisos suficientes para hacer esta operación")
 					location.href = 'forbidden.html';
 				}
 			});

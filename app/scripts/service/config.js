@@ -6,7 +6,7 @@ angular.module('jraptorsConfig', []).
 
 // 'standalone': for running the Front End solo with the mocked API
 // 'backend': for running the Front End with the real API provided by the backend
-value('Mode', 'standalone').
+value('Mode', 'backend').
 
 value('Routes', {
 	standalone: '/api/',
@@ -25,10 +25,10 @@ value('entityLabel', {
 
 value('UserRoles', {
 	'admin': {
-		'allowedRoutes': ['/book/*', '/affiliate/*','/author/*', '/editorial/*', '/location/*', '/report/*']
+		'allowedRoutes': ['/book', '/book/*', '/affiliate/*','/author/*', '/editorial/*', '/location/*', '/report/*']
 	},
 	'super': {
-		'allowedRoutes': ['/*']
+		'allowedRoutes': ['/book', '/*']
 	}
 }).
 
