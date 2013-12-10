@@ -459,17 +459,13 @@ controller('CreateEditEditorialController',
 
 			$scope.editorial = editorial || new Editorial();
 
-
-			var entity = 'La editorial';
-			var path = '/editorial';
-
 			$scope.save = function () {
 
 				$scope.editorial.$save(function (data) {
 
 					if ( data.status === 'ok') {
-						window.alert( entity + ' se ha guardado exitosamente');
-						$location.path(path);
+						window.alert('La editorial se ha guardado exitosamente');
+						$location.path('/editorial');
 					} else {
 						window.alert('Ups, algo salio mal, por favor intentalo de nuevo');
 					}
@@ -481,7 +477,7 @@ controller('CreateEditEditorialController',
 
 			$scope.confirm = function () {
 				
-				var result = window.confirm('¿Esta seguro que desea borrar esta ' + entity + '?');
+				var result = window.confirm('¿Esta seguro que desea borrar esta editorial?');
 				if (result) {
 					$scope.remove();
 				}
@@ -490,8 +486,8 @@ controller('CreateEditEditorialController',
 			$scope.remove = function (callback) {
 
 				Editorial.remove({id: $scope.editorial.id}).$then(function () {
-					window.alert( entity +' ha sido borrado con exito');
-					$location.path(path);
+					window.alert('La editorial ha sido borrado con exito');
+					$location.path('/editorial');
 					//callback();
 				});
 			};
