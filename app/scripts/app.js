@@ -340,8 +340,9 @@ angular.module('jraptorsRunBlock', ['ngCookies']).run(
 			//http://docs.angularjs.org/api/ngRoute.$route
 			$rootScope.$on('$routeChangeStart', function () {
 
-				if (  !UserSession.isAllowedTo( $location.path() ) && $location.path() ) {
-					alert("Usted no tiene los permisos suficientes para hacer esta operación")
+				if (  !UserSession.isAllowedTo( $location.path() ) && ($location.path() || $location.path() === '/') ) {
+					console.log($location.path());
+					alert("Usted no tiene los permisos suficientes para hacer esta operación " + $location.path())
 					location.href = 'forbidden.html';
 				}
 			});
