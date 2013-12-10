@@ -207,9 +207,13 @@ controller('CreateEditBookController',
 
 				$scope.book.copies.push({
 					comments: 'new copy' + j,
-					lendType: 'foreign',
+					lendTypes: ['foreign', 'local'],
 					editionYear: (new Date()).getFullYear(),
-					state: 'nuevo'
+					state: 'nuevo',
+					location: {
+						shelf: '1',
+						shelves: 'A'
+					}
 				});
 				j++;
 			};
@@ -510,7 +514,6 @@ controller('LendTypeSelectController',
 		'$scope',
 		function ($scope) {
 			
-
 			$scope.copy.local = $scope.copy.lendTypes.indexOf('local') >= 0 ? true : false;
 			$scope.copy.foreign = $scope.copy.lendTypes.indexOf('foreign') >= 0 ? true : false;
 			
