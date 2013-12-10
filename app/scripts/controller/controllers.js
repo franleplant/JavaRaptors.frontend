@@ -216,6 +216,7 @@ controller('CreateEditBookController',
 					}
 				});
 				j++;
+				
 			};
 
 			$scope.rm_genre = function (i) {
