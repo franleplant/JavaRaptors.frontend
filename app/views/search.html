@@ -23,7 +23,7 @@
 					ng-disabled="search_form.$invalid && search_form.search_query.$dirty">
 					<i class="icon-search icon-white"></i>
 				</button>
-				<button class="btn " type="button"><a ng-href="#{{location.path()}}/create"><i class="icon-plus"></i></a></button>
+				<a class="btn " ng-href="#{{location.path()}}/create"><i class="icon-plus"></i></a>
 			</div>
 			</br>
 			<span class="error" ng-show="search_form.search_query.$error.required">Por favor ingrese texto para realizar la busqueda</span>

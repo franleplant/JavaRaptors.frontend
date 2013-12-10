@@ -56,7 +56,7 @@
 					<h3>Datos</h3>
 	
 	 				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
-						<label class="control-label">Titulo: </label>
+						<label class="control-label">Titulo*: </label>
 						<jr-display-and-edit ng-model="book.title" jr-placeholder="Titulo" required></jr-display-and-edit>
 					</div>
 
@@ -67,13 +67,13 @@
 					</div>
 
 	 				<div class="control-group" >
-						<label class="control-label">ISBN: </label>
-						<jr-display-and-edit ng-model="book.isbn" jr-placeholder="ISBN"></jr-display-and-edit>
+						<label class="control-label">ISBN*: </label>
+						<jr-display-and-edit ng-model="book.isbn" jr-placeholder="ISBN" required></jr-display-and-edit>
 					</div>
 
 	 				<div class="control-group" >
-						<label class="control-label">Editorial: </label>
-						<jr-display-and-edit ng-model="book.editorial.name" jr-placeholder="Editorial" link="#/editorial/detailed_view/{{book.editorial.id}}">
+						<label class="control-label">Editorial*: </label>
+						<jr-display-and-edit ng-model="book.editorial.name" jr-placeholder="Editorial" link="#/editorial/detailed_view/{{book.editorial.id}}" required>
 						</jr-display-and-edit>
 					</div>
 
@@ -103,8 +103,9 @@
 					</div>
 
 
-
 				</fieldset>
+				
+				<p ng-if="'edit, create' | testPathRegExp">Los campos marcados con * son obligatorios</p>
 
 
 				<fieldset class="span12"><hr/></fieldset>

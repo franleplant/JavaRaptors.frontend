@@ -54,7 +54,7 @@ directive('jrDisplayAndEdit',[
 		}
 
 		return {
-			require: 'ngModel',
+			require: '?ngModel',
 			link: link,
 			restrict: 'E',
 			replace: true,
