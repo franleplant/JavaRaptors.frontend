@@ -390,8 +390,8 @@ controller('CreateEditAuthorController',
 				$scope.author.$save(function (data) {
 
 					if ( data.status === 'ok') {
-						window.alert( entity + ' se ha guardado exitosamente');
-						$location.path(path);
+						window.alert('El autor se ha guardado exitosamente');
+						$location.path('/author');
 					} else {
 						window.alert('Ups, algo salio mal, por favor intentalo de nuevo');
 					}
@@ -403,7 +403,7 @@ controller('CreateEditAuthorController',
 
 			$scope.confirm = function () {
 
-				var result = window.confirm('¿Esta seguro que desea borrar este ' + entity + '?');
+				var result = window.confirm('¿Esta seguro que desea borrar este autor ?');
 				if (result) {
 					$scope.remove();
 				}
@@ -412,8 +412,8 @@ controller('CreateEditAuthorController',
 			$scope.remove = function (callback) {
 
 				Author.remove({id: $scope.author.id}).$then(function () {
-					window.alert( entity +' ha sido borrado con exito');
-					$location.path(path);
+					window.alert('El autor ha sido borrado con exito');
+					$location.path('/author');
 					//callback();
 				});
 			};
