@@ -382,9 +382,6 @@ controller('CreateEditAuthorController',
 
 			$scope.author = author || new Author();
 
-			var entity = 'El autor';
-			var path = '/author';
-
 			$scope.save = function () {
 
 				$scope.author.$save(function (data) {
