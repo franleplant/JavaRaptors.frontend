@@ -57,7 +57,7 @@
 	
 	 				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
 						<label class="control-label">Titulo*: </label>
-						<jr-display-and-edit ng-model="book.title" jr-placeholder="Titulo" required></jr-display-and-edit>
+						<jr-display-and-edit ng-model="book.title" jr-placeholder="Titulo" required="required"></jr-display-and-edit>
 					</div>
 
 	 				<div class="control-group" ng-if="'edit, create' | testPathRegExp">
@@ -68,12 +68,12 @@
 
 	 				<div class="control-group" >
 						<label class="control-label">ISBN*: </label>
-						<jr-display-and-edit ng-model="book.isbn" jr-placeholder="ISBN" required></jr-display-and-edit>
+						<jr-display-and-edit ng-model="book.isbn" jr-placeholder="ISBN" required="required"></jr-display-and-edit>
 					</div>
 
 	 				<div class="control-group" >
 						<label class="control-label">Editorial*: </label>
-						<jr-display-and-edit ng-model="book.editorial.name" jr-placeholder="Editorial" link="#/editorial/detailed_view/{{book.editorial.id}}" required>
+						<jr-display-and-edit ng-model="book.editorial.name" jr-placeholder="Editorial" link="#/editorial/detailed_view/{{book.editorial.id}}" required="required">
 						</jr-display-and-edit>
 					</div>
 

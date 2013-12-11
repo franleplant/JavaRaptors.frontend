@@ -281,13 +281,11 @@ controller('CreateEditBookController',
 				}
 			};
 
-			$scope.remove = function (callback) {
+			$scope.remove = function () {
 
-				Book.remove({id: $scope.book.id}).$then(function () {
+				Book.remove({id: $scope.book.id}, function () {
 					window.alert('El libro ha sido borrado con exito');
 					$location.path('/book');
-
-					//callback();
 				});
 			};
 
