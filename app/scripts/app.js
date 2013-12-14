@@ -326,6 +326,7 @@ angular.module('jraptorsRunBlock', ['ngCookies']).run(
 			//$cookies.user = 'franleplant';
 			//$cookies.role = 'admin';
 
+			$rootScope.user_email_global = $cookies.user;
 
 			UserSession.name(  $cookies.user  );
 			UserSession.role(  $cookies.role  );

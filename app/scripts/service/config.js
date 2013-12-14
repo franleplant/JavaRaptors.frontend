@@ -25,7 +25,7 @@ value('entityLabel', {
 
 value('UserRoles', {
 	'admin': {
-		'allowedRoutes': ['/', '/book', '/book/*', '/affiliate/*','/author/*', '/editorial/*', '/location/*', '/report/*']
+		'allowedRoutes': ['/copy/*', '/', '/book', '/book/*', '/affiliate/*','/author/*', '/editorial/*', '/location/*', '/report/*']
 	},
 	'super': {
 		'allowedRoutes': ['/', '/book', '/*']
