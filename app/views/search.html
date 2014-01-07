@@ -2,7 +2,7 @@
 
 			<!-- Select -->
 			<div class="entity-selector btn-group" ng-controller="SelectEntityController">
-				<button class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">
+				<button type="button" class="btn dropdown-toggle btn-inverse" data-toggle="dropdown">
 					{{  $location.path() | pathToEntity | translate  }} <span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
@@ -19,7 +19,7 @@
 			<input id="search_query" type="text" name="search_query" class="span5" ng-model="search_query" required></input>
 
 			<div class="btn-group">
-				<button id="search" class="btn btn-inverse" type="button" ng-click="search()" 
+				<button id="search" type="submit" class="btn btn-inverse" type="button" ng-click="search()" 
 					ng-disabled="search_form.$invalid && search_form.search_query.$dirty">
 					<i class="icon-search icon-white"></i>
 				</button>
