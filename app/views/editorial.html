@@ -82,14 +82,14 @@
 
 
 			<fieldset class="span9">
-				<a class="btn" ng-href="#/editorial/edit/{{editorial.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Usuario</a>
+				<a class="btn" ng-href="#/editorial/edit/{{editorial.id}}" ng-if="'detailed_view' | testPathRegExp">Editar Editorial</a>
 				<button type="submit" class="btn " ng-if="'edit, create' | testPathRegExp">Guardar Cambios</button>
 			</fieldset>		
 
 
 			<fieldset class="span9" ng-if="'edit' | testPathRegExp" ng-controller="RmvController">
 				<hr/>
-				<button type="button" class="btn delete_entity" ng-click="open_modal_delete()"><i class="icon-remove"></i>Borrar Autor</button>
+				<button type="button" class="btn delete_entity" ng-click="confirm()"><i class="icon-remove"></i>Borrar Editorial</button>
 				<hr/>
 			</fieldset>
 

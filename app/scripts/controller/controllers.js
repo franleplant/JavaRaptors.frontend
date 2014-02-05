@@ -312,8 +312,15 @@ controller('CreateEditAffiliateController',
 
 			$scope.save = function () {
 
-				$scope.affiliate.$save(function () {
-					$location.path('/affiliate');
+				$scope.affiliate.$save(function (data) {
+
+					if ( data.status === 'ok') {
+						window.alert('El socio se ha guardado exitosamente');
+						$location.path('/affiliate');
+					} else {
+						window.alert('Ups, algo salio mal, por favor intentalo de nuevo');
+					}
+
 				},
 				function () {
 					//error callback
@@ -330,11 +337,20 @@ controller('CreateEditAffiliateController',
 			
 			};
 
+			$scope.confirm = function () {
+
+				var result = window.confirm('¿Esta seguro que desea borrar este socio ?');
+				if (result) {
+					$scope.remove();
+				}
+			};
+
 			$scope.remove = function (callback) {
 
-				affiliate.remove({id: $scope.affiliate.id}).$then(function () {
+				Affiliate.remove({id: $scope.affiliate.id}).$then(function () {
+					window.alert( entity +' ha sido borrado con exito');
 					$location.path('/affiliate');
-					callback();
+					//callback();
 				});
 			};
 
@@ -369,13 +385,37 @@ controller('CreateEditAuthorController',
 
 			$scope.save = function () {
 
-				$scope.author.$save(function () {
-					$location.path('/');
+				$scope.author.$save(function (data) {
+
+					if ( data.status === 'ok') {
+						window.alert('El autor se ha guardado exitosamente');
+						$location.path('/author');
+					} else {
+						window.alert('Ups, algo salio mal, por favor intentalo de nuevo');
+					}
 				},
 				function () {
 					//error callback
 				});
 			};
+
+			$scope.confirm = function () {
+
+				var result = window.confirm('¿Esta seguro que desea borrar este autor ?');
+				if (result) {
+					$scope.remove();
+				}
+			};
+
+			$scope.remove = function (callback) {
+
+				Author.remove({id: $scope.author.id}).$then(function () {
+					window.alert('El autor ha sido borrado con exito');
+					$location.path('/author');
+					//callback();
+				});
+			};
+
 
 		}
 	]
@@ -420,24 +460,36 @@ controller('CreateEditEditorialController',
 
 			$scope.editorial = editorial || new Editorial();
 
-
-			$scope.remove = function (callback) {
-
-				Editorial.remove({id: $scope.editorial.id}).
-					$then(function () {
-						$location.path('/');
-						callback();
-					}
-				);
-			};
-
 			$scope.save = function () {
 
-				$scope.editorial.$save(function () {
-					$location.path('/');
+				$scope.editorial.$save(function (data) {
+
+					if ( data.status === 'ok') {
+						window.alert('La editorial se ha guardado exitosamente');
+						$location.path('/editorial');
+					} else {
+						window.alert('Ups, algo salio mal, por favor intentalo de nuevo');
+					}
 				},
 				function () {
 					//error callback
+				});
+			};
+
+			$scope.confirm = function () {
+				
+				var result = window.confirm('¿Esta seguro que desea borrar esta editorial?');
+				if (result) {
+					$scope.remove();
+				}
+			};
+
+			$scope.remove = function (callback) {
+
+				Editorial.remove({id: $scope.editorial.id}).$then(function () {
+					window.alert('La editorial ha sido borrado con exito');
+					$location.path('/editorial');
+					//callback();
 				});
 			};
 
